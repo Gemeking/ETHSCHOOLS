@@ -1,9 +1,10 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { PlusCircle, Trash2, Image, Save, ArrowLeft } from 'lucide-react'
+import { PlusCircle, Trash2, Image, Save, ArrowLeft, AlertCircle } from 'lucide-react'
 import type { School } from '@/lib/types'
 import { SUB_CITIES } from '@/lib/utils'
+import { saveSchool } from '@/lib/supabase-data'
 
 type FormData = Omit<School, 'id' | 'fee_min' | 'fee_max' | 'source' | 'verified'>
 
@@ -42,6 +43,7 @@ export default function SchoolForm({ initial, title }: Props) {
   const [newTag, setNewTag] = useState('')
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [saveError, setSaveError] = useState('')
 
   function set<K extends keyof FormData>(key: K, value: FormData[K]) {
     setForm((f) => ({ ...f, [key]: value }))
@@ -73,13 +75,22 @@ export default function SchoolForm({ initial, title }: Props) {
   async function handleSave(e: React.FormEvent) {
     e.preventDefault()
     setSaving(true)
-    // In production, this would call Supabase API
-    // For now we simulate a save
-    await new Promise((r) => setTimeout(r, 800))
+    setSaveError('')
+
+    const { id, error } = await saveSchool(
+      { ...form, verified: initial?.verified ?? false },
+      initial?.id
+    )
+
     setSaving(false)
-    setSaved(true)
-    setTimeout(() => setSaved(false), 3000)
-    // router.push('/admin/schools')
+
+    if (error) {
+      setSaveError(error)
+    } else {
+      setSaved(true)
+      setTimeout(() => setSaved(false), 3000)
+      router.push(`/admin/schools/${id}/edit`)
+    }
   }
 
   const inputCls = 'w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary-300 bg-white'
@@ -105,7 +116,12 @@ export default function SchoolForm({ initial, title }: Props) {
 
       {saved && (
         <div className="bg-green-50 border border-green-200 text-green-700 rounded-xl px-4 py-3 text-sm font-medium">
-          ✓ School data saved! Connect Supabase to persist changes to the database.
+          ✓ School saved to Supabase successfully!
+        </div>
+      )}
+      {saveError && (
+        <div className="flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 text-sm">
+          <AlertCircle size={15} /> {saveError}
         </div>
       )}
 

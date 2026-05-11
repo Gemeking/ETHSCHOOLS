@@ -8,8 +8,11 @@ import {
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SchoolCard from '@/components/SchoolCard'
-import { schools, getSchoolById } from '@/lib/data'
+import { schools } from '@/lib/data'
+import { fetchSchoolById, fetchAllSchools } from '@/lib/supabase-data'
 import { typeColor, typeGradient, typeLabel, formatFee } from '@/lib/utils'
+
+export const revalidate = 60
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   ssr: false,
@@ -20,13 +23,14 @@ export function generateStaticParams() {
   return schools.map((s) => ({ id: String(s.id) }))
 }
 
-export default function SchoolDetailPage({ params }: { params: { id: string } }) {
-  const school = getSchoolById(Number(params.id))
+export default async function SchoolDetailPage({ params }: { params: { id: string } }) {
+  const school = await fetchSchoolById(Number(params.id))
   if (!school) notFound()
 
   const gradient = typeGradient(school.school_type)
   const badge = typeColor(school.school_type)
-  const related = schools.filter((s) => s.id !== school.id && s.sub_city === school.sub_city).slice(0, 3)
+  const allSchools = await fetchAllSchools()
+  const related = allSchools.filter((s) => s.id !== school.id && s.sub_city === school.sub_city).slice(0, 3)
 
   const infoItems = [
     { icon: BookOpen, label: 'Curriculum', value: school.curriculum },

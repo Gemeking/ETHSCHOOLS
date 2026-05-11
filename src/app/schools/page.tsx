@@ -6,9 +6,10 @@ import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SchoolCard from '@/components/SchoolCard'
-import { schools } from '@/lib/data'
+import { schools as localSchools } from '@/lib/data'
+import { fetchAllSchools } from '@/lib/supabase-data'
 import { SUB_CITIES, CURRICULA, typeLabel } from '@/lib/utils'
-import type { SchoolType } from '@/lib/types'
+import type { SchoolType, School } from '@/lib/types'
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), { ssr: false, loading: () => <div className="h-full bg-slate-200 animate-pulse rounded-xl" /> })
 
@@ -18,6 +19,7 @@ const MAX_FEE = 750000
 export default function SchoolsPage() {
   const params = useSearchParams()
 
+  const [allSchools, setAllSchools] = useState<School[]>(localSchools)
   const [query, setQuery] = useState(params.get('q') || '')
   const [type, setType] = useState<SchoolType>((params.get('type') as SchoolType) || 'all')
   const [subCity, setSubCity] = useState(params.get('city') || 'All Sub-cities')
@@ -27,13 +29,17 @@ export default function SchoolsPage() {
   const [filtersOpen, setFiltersOpen] = useState(false)
 
   useEffect(() => {
+    fetchAllSchools().then(setAllSchools)
+  }, [])
+
+  useEffect(() => {
     if (params.get('q')) setQuery(params.get('q')!)
     if (params.get('type')) setType(params.get('type') as SchoolType)
     if (params.get('city')) setSubCity(params.get('city')!)
   }, [params])
 
   const filtered = useMemo(() => {
-    return schools.filter((s) => {
+    return allSchools.filter((s) => {
       if (query) {
         const q = query.toLowerCase()
         if (!s.name_en.toLowerCase().includes(q) && !s.sub_city.toLowerCase().includes(q) && !s.curriculum.toLowerCase().includes(q)) return false
@@ -44,7 +50,7 @@ export default function SchoolsPage() {
       if (curriculum !== 'All Curricula' && !s.curriculum.toLowerCase().includes(curriculum.split(' ')[0].toLowerCase())) return false
       return true
     })
-  }, [query, type, subCity, feeMax, curriculum])
+  }, [allSchools, query, type, subCity, feeMax, curriculum])
 
   const hasFilters = query || type !== 'all' || subCity !== 'All Sub-cities' || feeMax < MAX_FEE || curriculum !== 'All Curricula'
 
@@ -173,7 +179,7 @@ export default function SchoolsPage() {
             {/* Active filter summary */}
             {hasFilters && (
               <div className="pt-3 border-t border-slate-100 text-xs text-slate-500">
-                Showing <span className="font-bold text-slate-800">{filtered.length}</span> of {schools.length} schools
+                Showing <span className="font-bold text-slate-800">{filtered.length}</span> of {allSchools.length} schools
               </div>
             )}
           </div>
