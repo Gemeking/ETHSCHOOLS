@@ -1,0 +1,117 @@
+// ============================================================
+// OVERPASS API QUERY - Fetch ALL schools in Addis Ababa
+// ============================================================
+// How to use:
+//   1. Go to: https://overpass-turbo.eu
+//   2. Paste the query below into the editor
+//   3. Click "Run"
+//   4. Click "Export" → choose GeoJSON or CSV
+//   5. You get real school names + GPS coordinates for FREE
+// ============================================================
+
+[out:json][timeout:60];
+(
+  node["amenity"="school"](8.85,38.65,9.12,38.90);
+  way["amenity"="school"](8.85,38.65,9.12,38.90);
+  relation["amenity"="school"](8.85,38.65,9.12,38.90);
+);
+out center;
+
+// ============================================================
+// BOUNDING BOX EXPLAINED:
+//   8.85  = south latitude  (below Akaki Kaliti)
+//   38.65 = west longitude  (past Kolfe Keranio)
+//   9.12  = north latitude  (above Entoto hills)
+//   38.90 = east longitude  (past Bole/Yeka eastern edge)
+// This covers the entire Addis Ababa city boundary
+// ============================================================
+
+// ============================================================
+// JAVASCRIPT CODE: Fetch this automatically (Node.js)
+// Save as fetch_schools.js and run: node fetch_schools.js
+// ============================================================
+/*
+const https = require('https');
+const fs = require('fs');
+
+const query = `
+[out:json][timeout:60];
+(
+  node["amenity"="school"](8.85,38.65,9.12,38.90);
+  way["amenity"="school"](8.85,38.65,9.12,38.90);
+  relation["amenity"="school"](8.85,38.65,9.12,38.90);
+);
+out center;
+`;
+
+const encodedQuery = encodeURIComponent(query);
+const url = `https://overpass-api.de/api/interpreter?data=${encodedQuery}`;
+
+https.get(url, (res) => {
+  let data = '';
+  res.on('data', chunk => data += chunk);
+  res.on('end', () => {
+    const json = JSON.parse(data);
+    const schools = json.elements.map((el, i) => ({
+      id: `osm_${el.id}`,
+      name_en: el.tags?.name || el.tags?.['name:en'] || 'Unknown School',
+      name_am: el.tags?.['name:am'] || null,
+      latitude: el.lat || el.center?.lat,
+      longitude: el.lon || el.center?.lon,
+      school_type: el.tags?.['operator:type'] || 'unknown',
+      operator: el.tags?.operator || null,
+      phone: el.tags?.phone || null,
+      website: el.tags?.website || null,
+      source: 'openstreetmap',
+      osm_id: el.id
+    }));
+
+    fs.writeFileSync('osm_schools.json', JSON.stringify(schools, null, 2));
+    console.log(`Done! Found ${schools.length} schools.`);
+  });
+}).on('error', err => console.error('Error:', err));
+*/
+
+// ============================================================
+// PYTHON VERSION: Save as fetch_schools.py, run: python fetch_schools.py
+// ============================================================
+/*
+import requests
+import json
+
+query = """
+[out:json][timeout:60];
+(
+  node["amenity"="school"](8.85,38.65,9.12,38.90);
+  way["amenity"="school"](8.85,38.65,9.12,38.90);
+  relation["amenity"="school"](8.85,38.65,9.12,38.90);
+);
+out center;
+"""
+
+url = "https://overpass-api.de/api/interpreter"
+response = requests.post(url, data={"data": query})
+data = response.json()
+
+schools = []
+for el in data["elements"]:
+    lat = el.get("lat") or el.get("center", {}).get("lat")
+    lon = el.get("lon") or el.get("center", {}).get("lon")
+    schools.append({
+        "id": f"osm_{el['id']}",
+        "name_en": el.get("tags", {}).get("name") or el.get("tags", {}).get("name:en") or "Unknown",
+        "name_am": el.get("tags", {}).get("name:am"),
+        "latitude": lat,
+        "longitude": lon,
+        "school_type": el.get("tags", {}).get("operator:type", "unknown"),
+        "phone": el.get("tags", {}).get("phone"),
+        "website": el.get("tags", {}).get("website"),
+        "source": "openstreetmap",
+        "osm_id": el["id"]
+    })
+
+with open("osm_schools.json", "w", encoding="utf-8") as f:
+    json.dump(schools, f, ensure_ascii=False, indent=2)
+
+print(f"Done! Found {len(schools)} schools.")
+*/
