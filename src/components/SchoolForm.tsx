@@ -8,6 +8,54 @@ import { saveSchool } from '@/lib/supabase-data'
 
 type FormData = Omit<School, 'id' | 'fee_min' | 'fee_max' | 'source' | 'verified'>
 
+function ImageRow({ url, isCover, onDelete, onSetCover }: { url: string; isCover: boolean; onDelete: () => void; onSetCover: () => void }) {
+  const [broken, setBroken] = useState(false)
+  return (
+    <div className={`flex items-center gap-3 p-3 rounded-xl border ${broken ? 'border-red-200 bg-red-50' : 'border-slate-200 bg-slate-50'}`}>
+      {/* Thumbnail */}
+      <div className="w-16 h-12 rounded-lg overflow-hidden bg-slate-200 shrink-0 relative">
+        {broken ? (
+          <div className="w-full h-full flex items-center justify-center text-red-400 text-xs text-center p-1">
+            <span>❌<br/>Broken</span>
+          </div>
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={url}
+            alt=""
+            className="w-full h-full object-cover"
+            onError={() => setBroken(true)}
+          />
+        )}
+      </div>
+
+      {/* URL + status */}
+      <div className="flex-1 min-w-0">
+        <div className="text-xs text-slate-600 truncate">{url}</div>
+        <div className="flex items-center gap-2 mt-1">
+          {isCover && <span className="text-xs font-semibold text-primary-600 bg-primary-50 px-2 py-0.5 rounded-full">★ Cover</span>}
+          {broken && <span className="text-xs font-semibold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">URL not accessible — delete it</span>}
+          {!isCover && !broken && (
+            <button type="button" onClick={onSetCover} className="text-xs text-slate-400 hover:text-primary-600 underline">
+              Set as Cover
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Delete button */}
+      <button
+        type="button"
+        onClick={onDelete}
+        title="Delete image"
+        className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold transition-colors shrink-0"
+      >
+        <Trash2 size={13} /> Delete
+      </button>
+    </div>
+  )
+}
+
 const DEFAULT: FormData = {
   name_en: '', name_am: '',
   school_type: 'private',
@@ -252,37 +300,74 @@ export default function SchoolForm({ initial, title }: Props) {
 
       {/* Images */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4">
-        <h2 className="font-bold text-slate-900 text-base flex items-center gap-2"><Image size={16} /> School Images</h2>
-        <p className="text-xs text-slate-400">Paste image URLs (Cloudinary, Unsplash, or direct links). First image will be the cover photo.</p>
+        <h2 className="font-bold text-slate-900 text-base flex items-center gap-2">
+          <Image size={16} /> School Images
+          {(form.images || []).length > 0 && (
+            <span className="text-xs font-normal text-slate-400">{(form.images || []).length} image{(form.images||[]).length !== 1 ? 's' : ''}</span>
+          )}
+        </h2>
 
-        {(form.images || []).length > 0 && (
+        {/* Warning about private URLs */}
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-700 space-y-1">
+          <p className="font-semibold">⚠ Use only publicly accessible image URLs</p>
+          <p>Images from school internal systems (like sims.addislearning.edu.et) are blocked and won&apos;t load. Use these instead:</p>
+          <ul className="list-disc list-inside space-y-0.5 mt-1">
+            <li>Upload to <strong>Google Drive</strong> → right-click → Get shareable link</li>
+            <li>Upload to <strong>Cloudinary.com</strong> (free) → copy the direct URL</li>
+            <li>Search on <strong>Google Images</strong> → right-click image → Copy image address</li>
+            <li>Use <strong>images.unsplash.com</strong> (free high quality)</li>
+          </ul>
+        </div>
+
+        {/* Image list */}
+        {(form.images || []).length > 0 ? (
           <div className="space-y-2">
             {(form.images || []).map((url, i) => (
-              <div key={i} className="flex items-center gap-3 p-2 rounded-xl border border-slate-200 bg-slate-50">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={url} alt="" className="w-12 h-10 rounded-lg object-cover bg-slate-200" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
-                <span className="flex-1 text-xs text-slate-600 truncate">{url}</span>
-                {i === 0 && <span className="text-xs text-primary-600 font-semibold">Cover</span>}
-                <button type="button" onClick={() => removeImage(i)} className="text-red-400 hover:text-red-600">
-                  <Trash2 size={14} />
-                </button>
-              </div>
+              <ImageRow
+                key={url + i}
+                url={url}
+                isCover={i === 0}
+                onDelete={() => removeImage(i)}
+                onSetCover={() => {
+                  const imgs = [...(form.images || [])]
+                  imgs.splice(i, 1)
+                  imgs.unshift(url)
+                  set('images', imgs)
+                }}
+              />
             ))}
+          </div>
+        ) : (
+          <div className="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center text-slate-400">
+            <Image size={28} className="mx-auto mb-2 opacity-40" />
+            <p className="text-sm">No images added yet</p>
+            <p className="text-xs mt-1">Paste a public image URL below</p>
           </div>
         )}
 
+        {/* Add image input */}
         <div className="flex gap-2">
           <input
             value={newImage}
             onChange={(e) => setNewImage(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addImage())}
-            placeholder="Paste image URL..."
+            placeholder="Paste public image URL and click Add..."
             className={`flex-1 ${inputCls}`}
           />
-          <button type="button" onClick={addImage} className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium transition-colors">
+          <button
+            type="button"
+            onClick={addImage}
+            disabled={!newImage.trim()}
+            className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-primary-600 hover:bg-primary-700 disabled:opacity-40 text-white text-sm font-medium transition-colors shrink-0"
+          >
             <PlusCircle size={14} /> Add
           </button>
         </div>
+
+        <p className="text-xs text-slate-400">
+          First image = cover photo shown on cards. Click <strong>Set Cover</strong> to change which image is the cover.
+          Click the <strong>red trash</strong> button to delete an image, then click <strong>Save School</strong>.
+        </p>
       </div>
 
       {/* Tags */}
