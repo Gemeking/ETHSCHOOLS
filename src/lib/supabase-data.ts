@@ -1,110 +1,105 @@
 import { supabase } from './supabase'
 import { schools as localSchools } from './data'
 import type { School } from './types'
+import { parseFeeMin, parseFeeMax } from './utils'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function mapRow(s: any, images: { image_url: string }[] = []): School {
+function mapRow(s: any): School {
+  const images: string[] = Array.isArray(s.images) ? s.images : s.image_url ? [s.image_url] : []
   return {
     ...(s as School),
-    images: images.map((img) => img.image_url),
+    images,
+    image_url: images[0] ?? null,
     tags: Array.isArray(s.tags) ? (s.tags as string[]) : [],
+    fee_min: s.fee_min ?? parseFeeMin(s.fee_range_etb ?? ''),
+    fee_max: s.fee_max ?? parseFeeMax(s.fee_range_etb ?? ''),
   }
 }
 
 export async function fetchAllSchools(): Promise<School[]> {
   const { data, error } = await supabase
     .from('schools')
-    .select('*, school_images(image_url, is_cover, order_index)')
+    .select('*')
     .order('id')
 
-  if (error || !data || data.length === 0) return localSchools
+  if (error || !data || data.length === 0) {
+    console.log('Supabase fetch failed, using local data:', error?.message)
+    return localSchools
+  }
 
-  return data.map((s) => mapRow(s, s.school_images ?? []))
+  return data.map(mapRow)
 }
 
 export async function fetchSchoolById(id: number): Promise<School | null> {
   const { data, error } = await supabase
     .from('schools')
-    .select('*, school_images(image_url, is_cover, order_index)')
+    .select('*')
     .eq('id', id)
     .single()
 
-  if (error || !data) return localSchools.find((s) => s.id === id) ?? null
+  if (error || !data) {
+    return localSchools.find((s) => s.id === id) ?? null
+  }
 
-  return mapRow(data, data.school_images ?? [])
+  return mapRow(data)
 }
 
 export async function saveSchool(
   form: Omit<School, 'id' | 'fee_min' | 'fee_max' | 'source'>,
   existingId?: number
 ): Promise<{ id: number; error?: string }> {
+  const images = form.images ?? []
+
   const payload = {
     name_en: form.name_en,
-    name_am: form.name_am,
+    name_am: form.name_am || null,
     school_type: form.school_type,
-    curriculum: form.curriculum,
-    grades: form.grades,
-    language: form.language,
-    sub_city: form.sub_city,
-    woreda: form.woreda,
+    curriculum: form.curriculum || null,
+    grades: form.grades || null,
+    language: form.language || null,
+    sub_city: form.sub_city || null,
+    woreda: form.woreda || null,
     latitude: form.latitude,
     longitude: form.longitude,
-    fee_range_etb: form.fee_range_etb,
-    fee_range_usd: form.fee_range_usd,
-    fee_min: parseFeeMin(form.fee_range_etb),
-    fee_max: parseFeeMax(form.fee_range_etb),
+    fee_range_etb: form.fee_range_etb || null,
+    fee_range_usd: form.fee_range_usd || null,
+    fee_min: parseFeeMin(form.fee_range_etb ?? ''),
+    fee_max: parseFeeMax(form.fee_range_etb ?? ''),
     phone: form.phone || null,
     email: form.email || null,
     website: form.website || null,
-    description: form.description,
-    established: form.established,
-    verified: form.verified,
-    coordinates_accuracy: form.coordinates_accuracy,
+    description: form.description || null,
+    established: form.established || null,
+    verified: form.verified ?? false,
+    coordinates_accuracy: form.coordinates_accuracy || 'low',
     tags: form.tags ?? [],
+    images,
+    image_url: images[0] ?? null,
   }
-
-  let schoolId = existingId
 
   if (existingId) {
     const { error } = await supabase.from('schools').update(payload).eq('id', existingId)
     if (error) return { id: existingId, error: error.message }
+    await supabase.from('school_images').delete().eq('school_id', existingId)
+    if (images.length > 0) {
+      await supabase.from('school_images').insert(
+        images.map((url, i) => ({ school_id: existingId, image_url: url, is_cover: i === 0, order_index: i }))
+      )
+    }
+    return { id: existingId }
   } else {
     const { data, error } = await supabase.from('schools').insert(payload).select().single()
     if (error || !data) return { id: 0, error: error?.message ?? 'Insert failed' }
-    schoolId = data.id
-  }
-
-  if (schoolId) {
-    await supabase.from('school_images').delete().eq('school_id', schoolId)
-    const imgs = (form.images ?? [])
-    if (imgs.length > 0) {
+    if (images.length > 0) {
       await supabase.from('school_images').insert(
-        imgs.map((url, i) => ({
-          school_id: schoolId,
-          image_url: url,
-          is_cover: i === 0,
-          order_index: i,
-        }))
+        images.map((url, i) => ({ school_id: data.id, image_url: url, is_cover: i === 0, order_index: i }))
       )
     }
+    return { id: data.id }
   }
-
-  return { id: schoolId ?? 0 }
 }
 
 export async function deleteSchool(id: number): Promise<string | null> {
   const { error } = await supabase.from('schools').delete().eq('id', id)
   return error ? error.message : null
-}
-
-function parseFeeMin(feeEtb: string): number {
-  if (!feeEtb || feeEtb.toLowerCase().includes('free')) return 0
-  const match = feeEtb.replace(/,/g, '').match(/\d+/)
-  return match ? parseInt(match[0]) : 0
-}
-
-function parseFeeMax(feeEtb: string): number {
-  if (!feeEtb || feeEtb.toLowerCase().includes('free')) return 0
-  const nums = feeEtb.replace(/,/g, '').match(/\d+/g)
-  return nums ? parseInt(nums[nums.length - 1]) : 0
 }
