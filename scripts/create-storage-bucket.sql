@@ -13,21 +13,25 @@ values (
 on conflict (id) do update set public = true;
 
 -- 2. Allow anyone to read images (public bucket)
-create policy if not exists "Public read images"
+drop policy if exists "Public read images" on storage.objects;
+create policy "Public read images"
   on storage.objects for select
   using (bucket_id = 'images');
 
 -- 3. Allow authenticated + anon upload (admin uses anon key)
-create policy if not exists "Allow image uploads"
+drop policy if exists "Allow image uploads" on storage.objects;
+create policy "Allow image uploads"
   on storage.objects for insert
   with check (bucket_id = 'images');
 
 -- 4. Allow delete
-create policy if not exists "Allow image deletes"
+drop policy if exists "Allow image deletes" on storage.objects;
+create policy "Allow image deletes"
   on storage.objects for delete
   using (bucket_id = 'images');
 
 -- 5. Allow update (for upsert operations)
-create policy if not exists "Allow image updates"
+drop policy if exists "Allow image updates" on storage.objects;
+create policy "Allow image updates"
   on storage.objects for update
   using (bucket_id = 'images');
