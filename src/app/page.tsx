@@ -1,3 +1,5 @@
+"use client"
+
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import {
@@ -139,7 +141,7 @@ export default function HomePage() {
       },
       universities: {
         badge: 'ከፍተኛ ትምህርት',
-        title: 'በኢትዮፒያ ያሉ ዩኒቨርሲቲዎች',
+        title: 'በኢትዮጵያ ያሉ ዩኒቨርሲቲዎች',
         subtitle: 'በአገር አቀፍ ደረጃ አጠቃላይ ፕሮግራሞችን ያስሱ',
         viewAll: 'ሁሉንም ዩኒቨርሲቲዎች ይመልከቱ',
         stats: [
