@@ -5,6 +5,7 @@ import { PlusCircle, Trash2, Save, AlertCircle, CheckCircle, X, ChevronDown, Che
 import { saveUniversity } from '@/lib/supabase-universities'
 import type { University, Department } from '@/lib/types'
 import { ETHIOPIA_REGIONS } from '@/lib/types'
+import ImageUploader from './ImageUploader'
 
 type FormData = Omit<University, 'id'>
 
@@ -30,39 +31,6 @@ const EMPTY_FORM: FormData = {
   fee_range_etb: null,
 }
 
-interface ImageRowProps {
-  url: string
-  onDelete: () => void
-  onSetCover: () => void
-  isCover: boolean
-}
-
-function ImageRow({ url, onDelete, onSetCover, isCover }: ImageRowProps) {
-  const [broken, setBroken] = useState(false)
-  return (
-    <div className="flex items-center gap-3 p-2 rounded-xl border border-slate-200 bg-slate-50">
-      <div className="w-14 h-10 rounded-lg overflow-hidden bg-slate-200 shrink-0 flex items-center justify-center">
-        {broken ? (
-          <AlertCircle size={16} className="text-red-400" />
-        ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={url} alt="" className="w-full h-full object-cover" onError={() => setBroken(true)} />
-        )}
-      </div>
-      <span className="flex-1 text-xs text-slate-600 truncate">{url}</span>
-      {isCover && <span className="text-xs bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full font-semibold shrink-0">Cover</span>}
-      {!isCover && (
-        <button onClick={onSetCover} className="text-xs text-slate-500 hover:text-primary-600 shrink-0 underline">
-          Set Cover
-        </button>
-      )}
-      <button onClick={onDelete} className="p-1 rounded-lg text-red-400 hover:bg-red-50 shrink-0">
-        <Trash2 size={13} />
-      </button>
-    </div>
-  )
-}
-
 export default function UniversityForm({ initial }: { initial?: University }) {
   const router = useRouter()
   const [form, setForm] = useState<FormData>(
@@ -70,36 +38,15 @@ export default function UniversityForm({ initial }: { initial?: University }) {
       ? { ...initial, departments: initial.departments ?? [], images: initial.images ?? [], tags: initial.tags ?? [] }
       : EMPTY_FORM
   )
-  const [newImageUrl, setNewImageUrl] = useState('')
   const [newTag, setNewTag] = useState('')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [expandedDept, setExpandedDept] = useState<number | null>(0)
+  const [imagesUploading, setImagesUploading] = useState(false)
 
   function set<K extends keyof FormData>(key: K, value: FormData[K]) {
     setForm((prev) => ({ ...prev, [key]: value }))
-  }
-
-  // -- Images
-  function addImage() {
-    const url = newImageUrl.trim()
-    if (!url) return
-    set('images', [...form.images, url])
-    set('image_url', form.images.length === 0 ? url : form.image_url)
-    setNewImageUrl('')
-  }
-
-  function removeImage(idx: number) {
-    const imgs = form.images.filter((_, i) => i !== idx)
-    set('images', imgs)
-    if (form.image_url === form.images[idx]) set('image_url', imgs[0] ?? null)
-  }
-
-  function setCover(idx: number) {
-    set('image_url', form.images[idx])
-    const reordered = [form.images[idx], ...form.images.filter((_, i) => i !== idx)]
-    set('images', reordered)
   }
 
   // -- Tags
@@ -157,10 +104,10 @@ export default function UniversityForm({ initial }: { initial?: University }) {
         <h1 className="text-2xl font-bold text-slate-900">{initial ? 'Edit University' : 'Add University'}</h1>
         <button
           onClick={handleSave}
-          disabled={saving}
+          disabled={saving || imagesUploading}
           className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition-colors disabled:opacity-60"
         >
-          <Save size={16} /> {saving ? 'Saving...' : 'Save'}
+          <Save size={16} /> {imagesUploading ? 'Uploading...' : saving ? 'Saving...' : 'Save'}
         </button>
       </div>
 
@@ -333,38 +280,13 @@ export default function UniversityForm({ initial }: { initial?: University }) {
 
       {/* Images */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-4">
-        <h2 className="font-bold text-slate-900 text-base">Images</h2>
-        <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-700">
-          <strong>Note:</strong> Only paste publicly accessible image URLs. Direct links from school websites may block external loading.
-          Use image hosting services like Imgur, Cloudinary, or Google Drive (public links).
-        </div>
-
-        <div className="flex gap-2">
-          <input
-            className="flex-1 border border-slate-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-300"
-            value={newImageUrl}
-            onChange={(e) => setNewImageUrl(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && addImage()}
-            placeholder="https://example.com/image.jpg"
-          />
-          <button onClick={addImage} className="flex items-center gap-1 px-4 py-2.5 rounded-xl bg-primary-600 text-white text-sm font-semibold hover:bg-primary-700 transition-colors">
-            <PlusCircle size={15} /> Add
-          </button>
-        </div>
-
-        {form.images.length > 0 && (
-          <div className="space-y-2">
-            {form.images.map((url, idx) => (
-              <ImageRow
-                key={idx}
-                url={url}
-                isCover={url === form.image_url || idx === 0}
-                onDelete={() => removeImage(idx)}
-                onSetCover={() => setCover(idx)}
-              />
-            ))}
-          </div>
-        )}
+        <h2 className="font-bold text-slate-900 text-base">University Photos</h2>
+        <ImageUploader
+          images={form.images}
+          onChange={(imgs) => { set('images', imgs); set('image_url', imgs[0] ?? null) }}
+          folder="universities"
+          onUploadingChange={setImagesUploading}
+        />
       </div>
 
       {/* Tags */}
@@ -399,10 +321,10 @@ export default function UniversityForm({ initial }: { initial?: University }) {
       <div className="flex justify-end pb-8">
         <button
           onClick={handleSave}
-          disabled={saving}
+          disabled={saving || imagesUploading}
           className="flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3 rounded-xl text-sm transition-colors disabled:opacity-60"
         >
-          <Save size={16} /> {saving ? 'Saving...' : 'Save University'}
+          <Save size={16} /> {imagesUploading ? 'Uploading...' : saving ? 'Saving...' : 'Save University'}
         </button>
       </div>
     </div>
