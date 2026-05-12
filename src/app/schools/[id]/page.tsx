@@ -85,9 +85,6 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
                     <CheckCircle size={11} /> Verified
                   </span>
                 )}
-                <span className="text-xs text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full capitalize">
-                  {school.coordinates_accuracy} accuracy
-                </span>
               </div>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">{school.name_en}</h1>

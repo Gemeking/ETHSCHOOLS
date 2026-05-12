@@ -95,11 +95,6 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      {/* Info box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-700">
-        <strong>Connect Supabase</strong> to enable persistent storage, real-time updates, and image uploads.
-        Update your <code className="bg-blue-100 px-1 rounded">.env.local</code> with your Supabase credentials.
-      </div>
     </div>
   )
 }

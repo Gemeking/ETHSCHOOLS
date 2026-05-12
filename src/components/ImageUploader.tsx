@@ -282,12 +282,6 @@ export default function ImageUploader({ images, onChange, folder, onUploadingCha
         </div>
       )}
 
-      {/* Setup hint if first time and no bucket */}
-      {!hasImages && (
-        <p className="text-xs text-slate-400 text-center">
-          First time? Run <code className="bg-slate-100 px-1 py-0.5 rounded text-slate-600">scripts/create-storage-bucket.sql</code> in Supabase SQL Editor to enable uploads.
-        </p>
-      )}
     </div>
   )
 }

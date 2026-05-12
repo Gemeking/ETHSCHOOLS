@@ -84,10 +84,6 @@ export default function AdminLoginPage() {
             </button>
           </form>
 
-          <p className="text-xs text-slate-400 mt-4 text-center">
-            Default password: <code className="bg-slate-100 px-1 rounded">admin123</code>
-            <br />Change it in <code className="bg-slate-100 px-1 rounded">.env.local</code>
-          </p>
         </div>
       </div>
     </div>
