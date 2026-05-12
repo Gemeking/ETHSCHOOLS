@@ -2,13 +2,15 @@
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { GraduationCap, LayoutDashboard, School, LogOut, PlusCircle, Map, Menu, X } from 'lucide-react'
+import { GraduationCap, LayoutDashboard, School, LogOut, PlusCircle, Map, Menu, X, BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, exact: true },
   { href: '/admin/schools', label: 'Manage Schools', icon: School },
   { href: '/admin/schools/new', label: 'Add School', icon: PlusCircle },
+  { href: '/admin/universities', label: 'Manage Universities', icon: BookOpen },
+  { href: '/admin/universities/new', label: 'Add University', icon: PlusCircle },
   { href: '/map', label: 'View Map', icon: Map },
 ]
 

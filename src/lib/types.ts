@@ -37,3 +37,49 @@ export interface FilterState {
   curriculum: string
   language: string
 }
+
+export interface Department {
+  name: string
+  programs: string[]
+}
+
+export interface University {
+  id: number
+  name_en: string
+  name_am: string
+  university_type: 'public' | 'private' | 'faith_based'
+  city: string
+  region: string
+  latitude: number
+  longitude: number
+  established: number | null
+  description: string
+  phone: string | null
+  email: string | null
+  website: string | null
+  departments: Department[]
+  images: string[]
+  image_url: string | null
+  tags: string[]
+  verified: boolean
+  student_count: string | null
+  fee_range_etb: string | null
+}
+
+export type UniversityType = 'all' | 'public' | 'private' | 'faith_based'
+
+export const ETHIOPIA_REGIONS = [
+  'All Regions',
+  'Addis Ababa',
+  'Oromia',
+  'Amhara',
+  'Tigray',
+  'SNNPR',
+  'Sidama',
+  'Somali',
+  'Afar',
+  'Benishangul-Gumuz',
+  'Gambella',
+  'Harari',
+  'Dire Dawa',
+] as const

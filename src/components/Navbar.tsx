@@ -1,12 +1,13 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GraduationCap, Map, School, Shield, Menu, X } from 'lucide-react'
+import { GraduationCap, Map, School, Shield, Menu, X, BookOpen } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 const links = [
   { href: '/schools', label: 'Schools', icon: School },
+  { href: '/universities', label: 'Universities', icon: BookOpen },
   { href: '/map', label: 'Map View', icon: Map },
 ]
 

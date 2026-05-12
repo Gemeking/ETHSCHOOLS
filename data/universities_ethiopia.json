@@ -1,0 +1,1054 @@
+[
+  {
+    "id": 1,
+    "name_en": "Addis Ababa University",
+    "name_am": "አዲስ አበባ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0347,
+    "longitude": 38.764,
+    "established": 1950,
+    "website": "aau.edu.et",
+    "phone": "+251 11 123 9722",
+    "email": "registrar@aau.edu.et",
+    "description": "Addis Ababa University is the oldest and largest higher education institution in Ethiopia, founded in 1950. It is the leading research university in the country with 13 campuses across Addis Ababa and offers over 100 undergraduate and graduate programs.",
+    "student_count": "~50,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "Addis Ababa Institute of Technology (AAiT)",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Software Engineering", "Industrial Engineering", "Urban Design & Development", "Construction Technology & Management", "Computer Engineering"]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science", "Environmental Science", "Earth Sciences"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing Management", "Public Administration & Development Management", "Logistics & Supply Chain Management"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Medical Laboratory Sciences", "Public Health", "Dentistry", "Physiotherapy", "Anesthesia"]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": ["History & Heritage Management", "Geography & Environmental Studies", "Sociology", "Social Anthropology", "Psychology", "Political Science & International Relations"]
+      },
+      {
+        "name": "College of Humanities, Language Studies, Journalism and Communication",
+        "programs": ["Ethiopian Languages & Literature", "English Language & Literature", "French", "Arabic", "Journalism & Communication", "Philosophy", "Foreign Languages"]
+      },
+      {
+        "name": "College of Law and Governance",
+        "programs": ["Law (LLB)", "Federalism and Governance Studies"]
+      },
+      {
+        "name": "College of Education and Behavioral Studies",
+        "programs": ["Curriculum Studies", "Educational Planning & Management", "Special Needs Education", "Adult Education & Community Development"]
+      },
+      {
+        "name": "Ethiopian Institute of Architecture, Building Construction and City Development (EiABC)",
+        "programs": ["Architecture", "Urban Planning & Development", "Construction Technology & Management"]
+      },
+      {
+        "name": "College of Veterinary Medicine and Agriculture",
+        "programs": ["Veterinary Medicine", "Animal Science", "Agricultural Economics", "Horticulture", "Plant Science"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["research-university", "oldest", "engineering", "medicine", "law", "largest"],
+    "verified": true
+  },
+  {
+    "id": 2,
+    "name_en": "Addis Ababa Science and Technology University",
+    "name_am": "አዲስ አበባ ሳይንስ እና ቴክኖሎጂ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 8.8895,
+    "longitude": 38.8043,
+    "established": 2011,
+    "website": "aastu.edu.et",
+    "phone": "+251 11 370 0222",
+    "email": "info@aastu.edu.et",
+    "description": "AASTU is a public university focused on science, technology, engineering, and mathematics (STEM) education. It is one of Ethiopia's newest and most modern universities, equipped with state-of-the-art laboratories and industrial facilities.",
+    "student_count": "~15,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "School of Mechanical and Chemical Engineering",
+        "programs": ["Mechanical Engineering", "Chemical Engineering", "Automotive Engineering", "Industrial Engineering"]
+      },
+      {
+        "name": "School of Electrical and Computer Engineering",
+        "programs": ["Electrical Engineering", "Computer Engineering", "Electronics & Communication Engineering", "Biomedical Engineering"]
+      },
+      {
+        "name": "School of Civil and Environmental Engineering",
+        "programs": ["Civil Engineering", "Environmental Engineering", "Water Resources Engineering", "Geotechnical Engineering"]
+      },
+      {
+        "name": "School of Applied Natural Sciences",
+        "programs": ["Applied Chemistry", "Applied Mathematics", "Applied Physics", "Biotechnology"]
+      },
+      {
+        "name": "School of Architecture and Urban Planning",
+        "programs": ["Architecture", "Urban and Regional Planning", "Interior Design"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["stem", "technology", "engineering", "modern", "research"],
+    "verified": true
+  },
+  {
+    "id": 3,
+    "name_en": "Jimma University",
+    "name_am": "ጅማ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Jimma",
+    "region": "Oromia",
+    "latitude": 7.6667,
+    "longitude": 36.8333,
+    "established": 1999,
+    "website": "ju.edu.et",
+    "phone": "+251 47 111 1458",
+    "email": "info@ju.edu.et",
+    "description": "Jimma University is one of Ethiopia's leading universities, particularly well-known for its medical school and health sciences programs. Located in Jimma city in the Oromia region, it serves students from across Southwest Ethiopia.",
+    "student_count": "~30,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "Institute of Health",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences", "Midwifery", "Health Informatics", "Physiotherapy"]
+      },
+      {
+        "name": "College of Agriculture and Veterinary Medicine",
+        "programs": ["Agriculture", "Veterinary Medicine", "Agricultural Economics", "Animal Science", "Horticulture"]
+      },
+      {
+        "name": "College of Natural Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+      },
+      {
+        "name": "College of Social Sciences and Law",
+        "programs": ["Law (LLB)", "Sociology", "History", "Political Science", "Psychology"]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Computer Engineering"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["medicine", "health-sciences", "agriculture", "oromia", "research"],
+    "verified": true
+  },
+  {
+    "id": 4,
+    "name_en": "Hawassa University",
+    "name_am": "ሃዋሳ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Hawassa",
+    "region": "Sidama",
+    "latitude": 7.0621,
+    "longitude": 38.477,
+    "established": 2000,
+    "website": "hu.edu.et",
+    "phone": "+251 46 220 5523",
+    "email": "info@hu.edu.et",
+    "description": "Hawassa University is located in the beautiful city of Hawassa on the shores of Lake Hawassa. It is a comprehensive university known for its strong programs in agriculture, natural sciences, and health sciences, serving students from South Ethiopia.",
+    "student_count": "~25,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Agriculture",
+        "programs": ["Plant Science", "Animal Science", "Agricultural Economics", "Horticulture", "Food Science & Technology", "Agricultural Engineering", "Rural Development"]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Public Health", "Medical Laboratory Sciences", "Pharmacy"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Business Administration"]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": ["Sociology", "History", "English Language", "Amharic Language & Literature", "Psychology"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["agriculture", "health-sciences", "lake-hawassa", "sidama", "natural-sciences"],
+    "verified": true
+  },
+  {
+    "id": 5,
+    "name_en": "Bahir Dar University",
+    "name_am": "ባሕር ዳር ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Bahir Dar",
+    "region": "Amhara",
+    "latitude": 11.5742,
+    "longitude": 37.3614,
+    "established": 2000,
+    "website": "bdu.edu.et",
+    "phone": "+251 58 220 6112",
+    "email": "registrar@bdu.edu.et",
+    "description": "Bahir Dar University is one of the top public universities in Ethiopia, located in the scenic city of Bahir Dar on the southern shore of Lake Tana — the source of the Blue Nile. It has a strong reputation in engineering, business, and social sciences.",
+    "student_count": "~35,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "Bahir Dar Institute of Technology (BiT)",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Software Engineering", "Textile Engineering", "Water Resources Engineering"]
+      },
+      {
+        "name": "College of Science",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Geology"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing Management", "Tourism Management"]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": ["History", "Geography", "Sociology", "Psychology", "Political Science"]
+      },
+      {
+        "name": "College of Education",
+        "programs": ["Education Management", "Curriculum Studies", "TVET"]
+      },
+      {
+        "name": "College of Medicine and Health Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["engineering", "blue-nile", "lake-tana", "amhara", "technology"],
+    "verified": true
+  },
+  {
+    "id": 6,
+    "name_en": "Mekelle University",
+    "name_am": "መቐለ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Mekelle",
+    "region": "Tigray",
+    "latitude": 13.4967,
+    "longitude": 39.4753,
+    "established": 2000,
+    "website": "mu.edu.et",
+    "phone": "+251 34 441 6681",
+    "email": "info@mu.edu.et",
+    "description": "Mekelle University is the leading higher education institution in the Tigray region of northern Ethiopia. It offers a wide range of programs and is particularly known for its dry-land agriculture, business, and health sciences departments.",
+    "student_count": "~25,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Dry Land Agriculture and Natural Resources",
+        "programs": ["Dryland Agriculture", "Animal Science", "Horticulture", "Natural Resource Management", "Agricultural Economics"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Medicine (MD)", "Pharmacy", "Nursing", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Business Administration"]
+      },
+      {
+        "name": "School of Law",
+        "programs": ["Law (LLB)"]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+      },
+      {
+        "name": "Ethiopian Institute of Technology — Mekelle (EiT-M)",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Mining Engineering"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["dryland-agriculture", "health-sciences", "tigray", "engineering"],
+    "verified": true
+  },
+  {
+    "id": 7,
+    "name_en": "University of Gondar",
+    "name_am": "የጐንደር ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Gondar",
+    "region": "Amhara",
+    "latitude": 12.603,
+    "longitude": 37.4521,
+    "established": 1954,
+    "website": "uog.edu.et",
+    "phone": "+251 58 111 0730",
+    "email": "info@uog.edu.et",
+    "description": "The University of Gondar is one of Ethiopia's oldest universities, originally established as the Public Health College in 1954. Located in the historic royal city of Gondar, it has a strong tradition in medicine and health sciences and has grown into a comprehensive university.",
+    "student_count": "~25,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Medicine and Health Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Medical Laboratory Sciences", "Environmental & Occupational Health", "Physiotherapy", "Optometry", "Mental Health"]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "Statistics"]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": ["History & Heritage Management", "Sociology", "Psychology", "Amharic Language", "English Language"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Tourism & Hotel Management"]
+      },
+      {
+        "name": "School of Law",
+        "programs": ["Law (LLB)"]
+      },
+      {
+        "name": "School of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["medicine", "historic-city", "amhara", "health-sciences", "oldest"],
+    "verified": true
+  },
+  {
+    "id": 8,
+    "name_en": "Arba Minch University",
+    "name_am": "አርባ ምንጭ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Arba Minch",
+    "region": "SNNPR",
+    "latitude": 6.0325,
+    "longitude": 37.5506,
+    "established": 2004,
+    "website": "amu.edu.et",
+    "phone": "+251 46 881 3244",
+    "email": "info@amu.edu.et",
+    "description": "Arba Minch University is located in the beautiful Arba Minch city in the Gamo Zone of South Ethiopia, surrounded by two spectacular lakes. It offers programs in engineering, water technology, agriculture, and social sciences.",
+    "student_count": "~20,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "Faculty of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Hydraulic Engineering", "Computer Engineering", "Mechanical Engineering"]
+      },
+      {
+        "name": "Faculty of Water Technology",
+        "programs": ["Water Supply & Environmental Engineering", "Irrigation Engineering", "Hydropower Engineering"]
+      },
+      {
+        "name": "Faculty of Natural Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics"]
+      },
+      {
+        "name": "Faculty of Business & Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Tourism Management"]
+      },
+      {
+        "name": "Faculty of Social Sciences",
+        "programs": ["Sociology", "History", "Geography", "Psychology"]
+      },
+      {
+        "name": "School of Medicine and Health Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["water-technology", "engineering", "snnpr", "lakes", "south-ethiopia"],
+    "verified": true
+  },
+  {
+    "id": 9,
+    "name_en": "Haramaya University",
+    "name_am": "ሀረማያ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Haramaya",
+    "region": "Oromia",
+    "latitude": 9.4157,
+    "longitude": 42.0317,
+    "established": 1954,
+    "website": "haramaya.edu.et",
+    "phone": "+251 25 666 0037",
+    "email": "info@haramaya.edu.et",
+    "description": "Haramaya University, formerly known as Alemaya University, is one of Ethiopia's oldest and most respected universities, founded in 1954. It pioneered agricultural education in Ethiopia and continues to be one of the top universities for agriculture and food science in East Africa.",
+    "student_count": "~22,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Agriculture and Environmental Sciences",
+        "programs": ["Agronomy", "Horticulture", "Animal Production", "Soil & Water Management", "Agricultural Economics", "Agricultural Extension", "Plant Pathology"]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Chemistry", "Physics", "Biology", "Statistics", "Food Science & Nutrition", "Computer Science"]
+      },
+      {
+        "name": "College of Health and Medical Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Medical Laboratory Sciences", "Public Health"]
+      },
+      {
+        "name": "College of Law",
+        "programs": ["Law (LLB)"]
+      },
+      {
+        "name": "School of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Water Engineering"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["agriculture", "food-science", "oldest", "oromia", "east-ethiopia"],
+    "verified": true
+  },
+  {
+    "id": 10,
+    "name_en": "Adama Science and Technology University",
+    "name_am": "አዳማ ሳይንስ እና ቴክኖሎጂ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Adama",
+    "region": "Oromia",
+    "latitude": 8.5444,
+    "longitude": 39.27,
+    "established": 1993,
+    "website": "astu.edu.et",
+    "phone": "+251 22 111 1584",
+    "email": "info@astu.edu.et",
+    "description": "Adama Science and Technology University (ASTU) is a public university in Adama (Nazret), Oromia. It focuses on science and technology education and is one of the key engineering universities in Ethiopia, serving students from the Oromia region and beyond.",
+    "student_count": "~18,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "School of Mechanical, Chemical and Materials Engineering",
+        "programs": ["Mechanical Engineering", "Chemical Engineering", "Materials Science & Engineering", "Industrial Engineering"]
+      },
+      {
+        "name": "School of Electrical Engineering and Computing",
+        "programs": ["Electrical Engineering", "Computer Science & Engineering", "Electronics & Communication Engineering", "Information Technology"]
+      },
+      {
+        "name": "School of Civil Engineering and Architecture",
+        "programs": ["Civil Engineering", "Architecture", "Environmental Engineering"]
+      },
+      {
+        "name": "School of Applied Natural Sciences",
+        "programs": ["Applied Mathematics", "Applied Physics", "Applied Chemistry", "Biotechnology", "Geology"]
+      },
+      {
+        "name": "School of Business",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["stem", "technology", "engineering", "oromia", "adama"],
+    "verified": true
+  },
+  {
+    "id": 11,
+    "name_en": "Dire Dawa University",
+    "name_am": "ድሬዳዋ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Dire Dawa",
+    "region": "Dire Dawa",
+    "latitude": 9.596,
+    "longitude": 41.876,
+    "established": 2006,
+    "website": "ddu.edu.et",
+    "phone": "+251 25 111 7777",
+    "email": "info@ddu.edu.et",
+    "description": "Dire Dawa University serves the strategic eastern city of Dire Dawa, a key commercial and transport hub near the border with Djibouti. The university provides higher education for students from eastern Ethiopia, Harari, and Somali regions.",
+    "student_count": "~10,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Logistics & Supply Chain"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": ["Sociology", "History", "English Language", "Psychology"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["eastern-ethiopia", "commerce", "logistics", "dire-dawa"],
+    "verified": true
+  },
+  {
+    "id": 12,
+    "name_en": "Wollo University",
+    "name_am": "ወሎ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Dessie",
+    "region": "Amhara",
+    "latitude": 11.134,
+    "longitude": 39.634,
+    "established": 2007,
+    "website": "wu.edu.et",
+    "phone": "+251 33 111 0025",
+    "email": "info@wu.edu.et",
+    "description": "Wollo University is located in Dessie, the capital of South Wollo Zone in the Amhara region. It serves students from North and South Wollo, offering programs in engineering, health, business, and social sciences.",
+    "student_count": "~12,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Chemical Engineering"]
+      },
+      {
+        "name": "College of Business & Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      },
+      {
+        "name": "College of Social Sciences & Humanities",
+        "programs": ["History", "Sociology", "Amharic Language", "English Language"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["amhara", "dessie", "health-sciences"],
+    "verified": false
+  },
+  {
+    "id": 13,
+    "name_en": "Debre Berhan University",
+    "name_am": "ደብረ ብርሃን ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Debre Berhan",
+    "region": "Amhara",
+    "latitude": 9.68,
+    "longitude": 39.53,
+    "established": 2007,
+    "website": "dbu.edu.et",
+    "phone": "+251 11 681 4540",
+    "email": "info@dbu.edu.et",
+    "description": "Debre Berhan University is located in Debre Berhan, North Shewa Zone of the Amhara region, about 130 km northeast of Addis Ababa. It is a growing university offering programs in engineering, education, social sciences, and natural sciences.",
+    "student_count": "~10,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "Statistics"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": ["History", "Sociology", "Geography", "English Language", "Psychology"]
+      },
+      {
+        "name": "College of Business",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": ["Plant Science", "Animal Science", "Agricultural Economics"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["amhara", "north-shewa", "engineering"],
+    "verified": false
+  },
+  {
+    "id": 14,
+    "name_en": "Debre Markos University",
+    "name_am": "ደብረ ማርቆስ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Debre Markos",
+    "region": "Amhara",
+    "latitude": 10.338,
+    "longitude": 37.726,
+    "established": 2007,
+    "website": "dmu.edu.et",
+    "phone": "+251 58 771 1568",
+    "email": "info@dmu.edu.et",
+    "description": "Debre Markos University is located in Debre Markos, the capital of East Gojjam Zone in the Amhara region. It serves the educational needs of Northwest Ethiopia and offers programs across engineering, health, business, and social sciences.",
+    "student_count": "~12,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+      },
+      {
+        "name": "College of Business & Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      },
+      {
+        "name": "College of Social Sciences & Humanities",
+        "programs": ["History", "Sociology", "English Language", "Amharic"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["amhara", "east-gojjam", "health-sciences"],
+    "verified": false
+  },
+  {
+    "id": 15,
+    "name_en": "Wollega University",
+    "name_am": "ወለጋ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Nekemte",
+    "region": "Oromia",
+    "latitude": 9.0843,
+    "longitude": 36.5499,
+    "established": 2007,
+    "website": "wuni.edu.et",
+    "phone": "+251 57 661 3155",
+    "email": "info@wuni.edu.et",
+    "description": "Wollega University is located in Nekemte, the capital of East Wollega Zone in western Oromia. It provides higher education to students from western Ethiopia and is known for its programs in health sciences, agriculture, and engineering.",
+    "student_count": "~10,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Chemistry", "Biology", "Physics", "Computer Science"]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": ["Plant Science", "Animal Science", "Horticulture", "Agricultural Economics"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering"]
+      },
+      {
+        "name": "College of Business",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["medicine", "health-sciences", "western-oromia", "agriculture"],
+    "verified": false
+  },
+  {
+    "id": 16,
+    "name_en": "Dilla University",
+    "name_am": "ዲላ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Dilla",
+    "region": "SNNPR",
+    "latitude": 6.4,
+    "longitude": 38.3,
+    "established": 2007,
+    "website": "du.edu.et",
+    "phone": "+251 46 332 0014",
+    "email": "info@du.edu.et",
+    "description": "Dilla University is located in Dilla, the capital of Gedeo Zone in the South Ethiopia region. Known for its lush coffee-growing surroundings, the university serves southern Ethiopia with programs in agriculture, health, education, and business.",
+    "student_count": "~10,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Agriculture",
+        "programs": ["Plant Science", "Animal Science", "Agricultural Economics", "Horticulture", "Coffee Processing & Technology"]
+      },
+      {
+        "name": "College of Natural Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Nursing", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+      },
+      {
+        "name": "College of Business & Economics",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      },
+      {
+        "name": "College of Education",
+        "programs": ["English Language Teaching", "Amharic", "History Education"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["agriculture", "coffee", "snnpr", "south-ethiopia"],
+    "verified": false
+  },
+  {
+    "id": 17,
+    "name_en": "Ethiopian Civil Service University",
+    "name_am": "የኢትዮጵያ ሲቪል ሰርቪስ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.011,
+    "longitude": 38.7574,
+    "established": 1995,
+    "website": "ecsu.edu.et",
+    "phone": "+251 11 123 3570",
+    "email": "info@ecsu.edu.et",
+    "description": "The Ethiopian Civil Service University specializes in public administration, governance, and development management. It trains government officials and civil servants and is a key institution for public policy education in Ethiopia.",
+    "student_count": "~5,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Urban Development and Engineering",
+        "programs": ["Urban Development & Management", "Construction Management", "Land Administration", "Environmental Science"]
+      },
+      {
+        "name": "College of Government and Development Studies",
+        "programs": ["Public Administration", "Development Management", "Democracy & Development", "Federal Studies"]
+      },
+      {
+        "name": "College of Finance & Economics",
+        "programs": ["Fiscal Policy & Development Finance", "Accounting & Finance", "Economics", "Revenue Administration"]
+      },
+      {
+        "name": "College of Law",
+        "programs": ["Administrative Law", "Constitutional Law", "Anti-Corruption Law"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["public-administration", "governance", "civil-service", "policy", "addis-ababa"],
+    "verified": true
+  },
+  {
+    "id": 18,
+    "name_en": "Kotebe Metropolitan University",
+    "name_am": "ቆጠቤ ሜትሮፖሊታን ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.06,
+    "longitude": 38.79,
+    "established": 1960,
+    "website": "kmu.edu.et",
+    "phone": "+251 11 645 4444",
+    "email": "info@kmu.edu.et",
+    "description": "Kotebe Metropolitan University, formerly Kotebe College of Teacher Education, is one of Ethiopia's oldest teacher training institutions, recently upgraded to a full university. It specializes in education, sports science, and teacher training programs.",
+    "student_count": "~8,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Education",
+        "programs": ["Educational Planning & Management", "Curriculum Studies & Instruction", "Special Needs Education", "Early Childhood Care & Education", "TVET"]
+      },
+      {
+        "name": "College of Natural Sciences",
+        "programs": ["Mathematics Education", "Physics Education", "Chemistry Education", "Biology Education"]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": ["History Education", "Geography Education", "Civics & Ethics Education", "Amharic Language Education"]
+      },
+      {
+        "name": "Institute of Sports Science",
+        "programs": ["Sports Science", "Physical Education", "Sports Management", "Recreation"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["teacher-training", "education", "sports-science", "addis-ababa"],
+    "verified": false
+  },
+  {
+    "id": 19,
+    "name_en": "Unity University",
+    "name_am": "ዩኒቲ ዩኒቨርሲቲ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.018,
+    "longitude": 38.7615,
+    "established": 1990,
+    "website": "unity.edu.et",
+    "phone": "+251 11 551 6840",
+    "email": "info@unity.edu.et",
+    "description": "Unity University is one of the oldest and largest private universities in Ethiopia, founded in 1990. It offers a wide range of undergraduate and postgraduate programs and is particularly well-regarded for its business, computer science, and law programs.",
+    "student_count": "~20,000",
+    "fee_range_etb": "30,000 – 80,000 ETB/year",
+    "departments": [
+      {
+        "name": "College of Business",
+        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing", "Human Resource Management", "Banking & Finance", "Insurance"]
+      },
+      {
+        "name": "College of Computing & Informatics",
+        "programs": ["Computer Science", "Information Technology", "Software Engineering", "Information Systems", "Computer Engineering"]
+      },
+      {
+        "name": "College of Law",
+        "programs": ["Law (LLB)"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Architecture"]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": ["Journalism & Communication", "Psychology", "Sociology"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["private", "business", "law", "computing", "addis-ababa"],
+    "verified": true
+  },
+  {
+    "id": 20,
+    "name_en": "Rift Valley University",
+    "name_am": "ሪፍት ቫሊ ዩኒቨርሲቲ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.005,
+    "longitude": 38.755,
+    "established": 2003,
+    "website": "rvu.edu.et",
+    "phone": "+251 11 466 2552",
+    "email": "info@rvu.edu.et",
+    "description": "Rift Valley University is a leading private university in Ethiopia with its main campus in Addis Ababa and multiple branch campuses across the country. It is well-known for business, computing, and health sciences programs.",
+    "student_count": "~15,000",
+    "fee_range_etb": "28,000 – 75,000 ETB/year",
+    "departments": [
+      {
+        "name": "College of Business & Management",
+        "programs": ["Accounting & Finance", "Business Management", "Economics", "Marketing Management", "Banking & Finance"]
+      },
+      {
+        "name": "College of Computing & IT",
+        "programs": ["Computer Science", "Information Technology", "Software Engineering", "Networking"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering", "Architecture"]
+      },
+      {
+        "name": "College of Law",
+        "programs": ["Law (LLB)"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["private", "business", "health-sciences", "multi-campus", "addis-ababa"],
+    "verified": false
+  },
+  {
+    "id": 21,
+    "name_en": "Aksum University",
+    "name_am": "አክሱም ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Aksum",
+    "region": "Tigray",
+    "latitude": 14.1297,
+    "longitude": 38.7185,
+    "established": 2006,
+    "website": "axumuni.edu.et",
+    "phone": "+251 34 775 1000",
+    "email": "info@axumuni.edu.et",
+    "description": "Aksum University is located in the ancient holy city of Aksum in Tigray, one of Ethiopia's most historic cities. It serves Northern Tigray students and has programs in health, archaeology, tourism, and engineering.",
+    "student_count": "~8,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health"]
+      },
+      {
+        "name": "College of Social Sciences & Humanities",
+        "programs": ["Archaeology & Heritage Management", "Tourism Management", "History", "English Language", "Tigrigna Literature"]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": ["Civil Engineering", "Electrical Engineering"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["ancient-city", "archaeology", "tigray", "heritage", "tourism"],
+    "verified": false
+  },
+  {
+    "id": 22,
+    "name_en": "Mettu University",
+    "name_am": "መቱ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Mettu",
+    "region": "Oromia",
+    "latitude": 8.2954,
+    "longitude": 35.5933,
+    "established": 2010,
+    "website": "mettuuniversity.edu.et",
+    "phone": "+251 57 761 0222",
+    "email": "info@mettuuniversity.edu.et",
+    "description": "Mettu University is located in Mettu, the capital of Illu Ababora Zone in western Oromia. It serves the western Oromia region and offers programs in education, health sciences, and natural sciences.",
+    "student_count": "~6,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Nursing", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+      },
+      {
+        "name": "College of Business",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      },
+      {
+        "name": "College of Education",
+        "programs": ["Biology Education", "Chemistry Education", "English Language Education"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["western-oromia", "health-sciences"],
+    "verified": false
+  },
+  {
+    "id": 23,
+    "name_en": "Mizan-Tepi University",
+    "name_am": "ሚዛን-ቴፒ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Tepi",
+    "region": "SNNPR",
+    "latitude": 7.1933,
+    "longitude": 35.4583,
+    "established": 2011,
+    "website": "mtu.edu.et",
+    "phone": "+251 47 335 0000",
+    "email": "info@mtu.edu.et",
+    "description": "Mizan-Tepi University serves the southwestern corner of Ethiopia, covering the Bench-Sheko, West Omo, and Kaffa zones. It has two main campuses — Mizan Teferi and Tepi — and is known for coffee and spice cultivation research.",
+    "student_count": "~7,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Agriculture & Natural Resources",
+        "programs": ["Plant Science", "Animal Science", "Horticulture", "Forestry", "Coffee & Spice Technology"]
+      },
+      {
+        "name": "College of Natural Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Nursing", "Public Health", "Midwifery", "Medical Laboratory Sciences"]
+      },
+      {
+        "name": "College of Business",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["coffee", "southwest-ethiopia", "agriculture", "snnpr"],
+    "verified": false
+  },
+  {
+    "id": 24,
+    "name_en": "Assosa University",
+    "name_am": "አሶሳ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Assosa",
+    "region": "Benishangul-Gumuz",
+    "latitude": 10.0654,
+    "longitude": 34.5353,
+    "established": 2011,
+    "website": "asu.edu.et",
+    "phone": "+251 57 775 0555",
+    "email": "info@asu.edu.et",
+    "description": "Assosa University is the main university in the Benishangul-Gumuz region of western Ethiopia. It provides higher education to students from this remote but resource-rich border region.",
+    "student_count": "~5,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural Sciences",
+        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": ["Nursing", "Public Health", "Midwifery", "Medical Laboratory Sciences"]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": ["Plant Science", "Animal Science", "Agricultural Economics"]
+      },
+      {
+        "name": "College of Business",
+        "programs": ["Accounting & Finance", "Management", "Economics"]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": ["benishangul-gumuz", "western-ethiopia", "remote"],
+    "verified": false
+  }
+]

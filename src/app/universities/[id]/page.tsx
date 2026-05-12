@@ -1,0 +1,326 @@
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
+import {
+  MapPin, Phone, Mail, Globe, Users, Calendar,
+  CheckCircle, ArrowLeft, ExternalLink, GraduationCap, BookOpen, ChevronDown
+} from 'lucide-react'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import UniversityCard from '@/components/UniversityCard'
+import { universities } from '@/lib/university-data'
+import { fetchUniversityById, fetchAllUniversities } from '@/lib/supabase-universities'
+
+export const revalidate = 60
+
+const MapComponent = dynamic(() => import('@/components/MapComponent'), {
+  ssr: false,
+  loading: () => <div className="h-64 bg-slate-200 animate-pulse rounded-2xl" />,
+})
+
+const TYPE_GRADIENT: Record<string, string> = {
+  public: 'from-emerald-600 to-teal-700',
+  private: 'from-blue-600 to-indigo-700',
+  faith_based: 'from-amber-600 to-orange-700',
+}
+
+const TYPE_BADGE: Record<string, string> = {
+  public: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+  private: 'bg-blue-100 text-blue-700 border-blue-200',
+  faith_based: 'bg-amber-100 text-amber-700 border-amber-200',
+}
+
+const TYPE_LABEL: Record<string, string> = {
+  public: 'Public University',
+  private: 'Private University',
+  faith_based: 'Faith-Based University',
+}
+
+export function generateStaticParams() {
+  return universities.map((u) => ({ id: String(u.id) }))
+}
+
+export default async function UniversityDetailPage({ params }: { params: { id: string } }) {
+  const university = await fetchUniversityById(Number(params.id))
+  if (!university) notFound()
+
+  const gradient = TYPE_GRADIENT[university.university_type] ?? 'from-slate-600 to-slate-800'
+  const badge = TYPE_BADGE[university.university_type] ?? 'bg-slate-100 text-slate-700 border-slate-200'
+
+  const allUniversities = await fetchAllUniversities()
+  const related = allUniversities
+    .filter((u) => u.id !== university.id && u.region === university.region)
+    .slice(0, 3)
+
+  const totalPrograms = university.departments.reduce((sum, d) => sum + d.programs.length, 0)
+
+  // Build school-type-compatible object for the map (university as a map point)
+  const mapPoint = {
+    id: university.id,
+    name_en: university.name_en,
+    name_am: university.name_am,
+    school_type: 'public' as const,
+    latitude: university.latitude,
+    longitude: university.longitude,
+    sub_city: university.city,
+    fee_range_etb: university.fee_range_etb ?? '',
+    curriculum: university.departments[0]?.name ?? '',
+    images: university.images,
+    image_url: university.image_url,
+    tags: university.tags,
+    verified: university.verified,
+    fee_min: 0,
+    fee_max: 0,
+    fee_range_usd: '',
+    grades: '',
+    language: '',
+    woreda: '',
+    established: university.established ?? 0,
+    coordinates_accuracy: 'medium' as const,
+    source: '',
+    phone: university.phone,
+    email: university.email,
+    website: university.website,
+    description: university.description,
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-50">
+      <Navbar />
+
+      {/* Hero banner */}
+      <div className={`relative bg-gradient-to-br ${gradient} h-48 sm:h-64 overflow-hidden`}>
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white/10" />
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-white/10" />
+        </div>
+        {university.images?.[0] && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={university.images[0]} alt={university.name_en} className="absolute inset-0 w-full h-full object-cover" />
+        )}
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 h-full flex flex-col justify-between py-6">
+          <Link href="/universities" className="flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors w-fit">
+            <ArrowLeft size={16} /> Back to Universities
+          </Link>
+          <div className="flex items-end gap-3">
+            <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur flex items-center justify-center text-white text-2xl font-black border border-white/30">
+              {university.name_en.charAt(0)}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8 w-full flex-1">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          {/* Left column */}
+          <div className="lg:col-span-2 space-y-6">
+
+            {/* Name + badges */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${badge}`}>
+                  {TYPE_LABEL[university.university_type]}
+                </span>
+                {university.verified && (
+                  <span className="flex items-center gap-1 text-xs font-semibold text-green-700 bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">
+                    <CheckCircle size={11} /> Verified
+                  </span>
+                )}
+              </div>
+
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">{university.name_en}</h1>
+              <p className="text-slate-400 text-base mb-4 font-medium">{university.name_am}</p>
+
+              {/* Quick stats */}
+              <div className="grid grid-cols-3 gap-3 mb-4">
+                <div className="bg-slate-50 rounded-xl p-3 text-center">
+                  <div className="text-xl font-black text-primary-600">{university.departments.length}</div>
+                  <div className="text-xs text-slate-500 mt-0.5">Colleges</div>
+                </div>
+                <div className="bg-slate-50 rounded-xl p-3 text-center">
+                  <div className="text-xl font-black text-primary-600">{totalPrograms}</div>
+                  <div className="text-xs text-slate-500 mt-0.5">Programs</div>
+                </div>
+                <div className="bg-slate-50 rounded-xl p-3 text-center">
+                  <div className="text-xl font-black text-primary-600">{university.established ?? 'N/A'}</div>
+                  <div className="text-xs text-slate-500 mt-0.5">Est.</div>
+                </div>
+              </div>
+
+              <p className="text-slate-600 leading-relaxed">{university.description}</p>
+            </div>
+
+            {/* Departments & Programs */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h2 className="font-bold text-slate-900 mb-5 text-lg flex items-center gap-2">
+                <BookOpen size={18} className="text-primary-600" /> Colleges & Programs
+              </h2>
+              <div className="space-y-4">
+                {university.departments.map((dept, idx) => (
+                  <details key={idx} className="group border border-slate-200 rounded-xl overflow-hidden" open={idx === 0}>
+                    <summary className="flex items-center justify-between px-4 py-3 cursor-pointer bg-slate-50 hover:bg-slate-100 transition-colors list-none">
+                      <div>
+                        <span className="font-semibold text-slate-800 text-sm">{dept.name}</span>
+                        <span className="ml-2 text-xs text-slate-400">{dept.programs.length} programs</span>
+                      </div>
+                      <ChevronDown size={16} className="text-slate-400 group-open:rotate-180 transition-transform shrink-0" />
+                    </summary>
+                    <div className="px-4 py-3 flex flex-wrap gap-2">
+                      {dept.programs.map((program) => (
+                        <span
+                          key={program}
+                          className="px-2.5 py-1 rounded-full text-xs bg-primary-50 text-primary-700 border border-primary-100 font-medium"
+                        >
+                          {program}
+                        </span>
+                      ))}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+
+            {/* Tags */}
+            {university.tags?.length > 0 && (
+              <div className="bg-white rounded-2xl border border-slate-200 p-6">
+                <h2 className="font-bold text-slate-900 mb-3 text-lg">Tags</h2>
+                <div className="flex flex-wrap gap-2">
+                  {university.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1 rounded-full text-sm bg-slate-100 text-slate-600 capitalize">
+                      {tag.replace(/-/g, ' ')}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Map */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h2 className="font-bold text-slate-900 mb-4 text-lg flex items-center gap-2">
+                <MapPin size={18} className="text-primary-600" /> Location
+              </h2>
+              <p className="text-sm text-slate-500 mb-4">
+                {university.city}, {university.region}, Ethiopia
+              </p>
+              <MapComponent schools={[mapPoint]} center={[university.latitude, university.longitude]} zoom={14} height="280px" />
+            </div>
+          </div>
+
+          {/* Right column */}
+          <div className="space-y-5">
+
+            {/* Info card */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-5 sticky top-20">
+              <h2 className="font-bold text-slate-900 mb-4 text-base">University Info</h2>
+
+              <div className="space-y-3 mb-4">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50">
+                  <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                    <MapPin size={14} className="text-primary-600" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Location</div>
+                    <div className="text-sm font-semibold text-slate-800">{university.city}, {university.region}</div>
+                  </div>
+                </div>
+
+                {university.established && (
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50">
+                    <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                      <Calendar size={14} className="text-primary-600" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Established</div>
+                      <div className="text-sm font-semibold text-slate-800">{university.established}</div>
+                    </div>
+                  </div>
+                )}
+
+                {university.student_count && (
+                  <div className="flex items-start gap-3 p-3 rounded-xl bg-slate-50">
+                    <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                      <Users size={14} className="text-primary-600" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold text-slate-400 uppercase tracking-wide">Students</div>
+                      <div className="text-sm font-semibold text-slate-800">{university.student_count}</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Contact */}
+              <h3 className="font-semibold text-slate-700 text-sm mb-3">Contact</h3>
+              <div className="space-y-2">
+                {university.phone && (
+                  <a href={`tel:${university.phone}`} className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all group">
+                    <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                      <Phone size={14} className="text-primary-600" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-400">Phone</div>
+                      <div className="text-sm font-semibold text-slate-800">{university.phone}</div>
+                    </div>
+                  </a>
+                )}
+                {university.email && (
+                  <a href={`mailto:${university.email}`} className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all group">
+                    <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                      <Mail size={14} className="text-primary-600" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-400">Email</div>
+                      <div className="text-sm font-semibold text-slate-800 break-all">{university.email}</div>
+                    </div>
+                  </a>
+                )}
+                {university.website && (
+                  <a href={`https://${university.website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all group">
+                    <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                      <Globe size={14} className="text-primary-600" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs text-slate-400">Website</div>
+                      <div className="text-sm font-semibold text-slate-800 truncate flex items-center gap-1">
+                        {university.website} <ExternalLink size={11} />
+                      </div>
+                    </div>
+                  </a>
+                )}
+              </div>
+
+              {/* Tuition */}
+              {university.fee_range_etb && (
+                <div className="mt-4 p-4 rounded-xl bg-primary-50 border border-primary-100">
+                  <div className="text-xs font-semibold text-primary-600 uppercase tracking-wide mb-1">Annual Tuition</div>
+                  <div className="text-base font-extrabold text-primary-700">{university.fee_range_etb}</div>
+                </div>
+              )}
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-700">
+              <strong>Note:</strong> Program lists and fee information may change. Always confirm with the university directly.
+            </div>
+          </div>
+        </div>
+
+        {/* Related */}
+        {related.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-bold text-slate-900 mb-5 flex items-center gap-2">
+              <GraduationCap size={20} className="text-primary-600" />
+              Other Universities in {university.region}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {related.map((u) => <UniversityCard key={u.id} university={u} />)}
+            </div>
+          </section>
+        )}
+      </main>
+
+      <Footer />
+    </div>
+  )
+}
