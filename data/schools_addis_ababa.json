@@ -22,7 +22,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "american", "AP", "IB", "english-medium"]
+    "tags": [
+      "international",
+      "american",
+      "AP",
+      "IB",
+      "english-medium"
+    ]
   },
   {
     "id": 2,
@@ -47,7 +53,11 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "IB", "english-medium"]
+    "tags": [
+      "international",
+      "IB",
+      "english-medium"
+    ]
   },
   {
     "id": 3,
@@ -72,7 +82,11 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "german", "european"]
+    "tags": [
+      "international",
+      "german",
+      "european"
+    ]
   },
   {
     "id": 4,
@@ -84,7 +98,7 @@
     "language": "French",
     "sub_city": "Arada",
     "woreda": "06",
-    "latitude": 9.0400,
+    "latitude": 9.04,
     "longitude": 38.7628,
     "fee_range_etb": "120,000 - 300,000",
     "fee_range_usd": "2,200 - 5,500",
@@ -97,7 +111,12 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "french", "european", "baccalaureat"]
+    "tags": [
+      "international",
+      "french",
+      "european",
+      "baccalaureat"
+    ]
   },
   {
     "id": 5,
@@ -122,7 +141,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "IB", "english-medium"]
+    "tags": [
+      "international",
+      "IB",
+      "english-medium"
+    ]
   },
   {
     "id": 6,
@@ -147,7 +170,12 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "british", "cambridge", "english-medium"]
+    "tags": [
+      "international",
+      "british",
+      "cambridge",
+      "english-medium"
+    ]
   },
   {
     "id": 7,
@@ -172,7 +200,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "american", "english-medium"]
+    "tags": [
+      "international",
+      "american",
+      "english-medium"
+    ]
   },
   {
     "id": 8,
@@ -197,7 +229,12 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "cambridge", "igcse", "english-medium"]
+    "tags": [
+      "international",
+      "cambridge",
+      "igcse",
+      "english-medium"
+    ]
   },
   {
     "id": 9,
@@ -222,7 +259,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "bilingual", "bole"]
+    "tags": [
+      "international",
+      "bilingual",
+      "bole"
+    ]
   },
   {
     "id": 10,
@@ -247,7 +288,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "bilingual", "kolfe"]
+    "tags": [
+      "international",
+      "bilingual",
+      "kolfe"
+    ]
   },
   {
     "id": 11,
@@ -272,7 +317,12 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "catholic", "religious", "historic"]
+    "tags": [
+      "private",
+      "catholic",
+      "religious",
+      "historic"
+    ]
   },
   {
     "id": 12,
@@ -297,7 +347,12 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "catholic", "religious", "piassa"]
+    "tags": [
+      "private",
+      "catholic",
+      "religious",
+      "piassa"
+    ]
   },
   {
     "id": 13,
@@ -322,7 +377,12 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "catholic", "religious", "CMC"]
+    "tags": [
+      "private",
+      "catholic",
+      "religious",
+      "CMC"
+    ]
   },
   {
     "id": 14,
@@ -347,7 +407,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "bole"]
+    "tags": [
+      "private",
+      "bole"
+    ]
   },
   {
     "id": 15,
@@ -372,7 +435,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "yeka"]
+    "tags": [
+      "private",
+      "yeka"
+    ]
   },
   {
     "id": 16,
@@ -397,7 +463,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "christian", "religious"]
+    "tags": [
+      "private",
+      "christian",
+      "religious"
+    ]
   },
   {
     "id": 17,
@@ -422,7 +492,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "kirkos"]
+    "tags": [
+      "private",
+      "kirkos"
+    ]
   },
   {
     "id": 18,
@@ -447,7 +520,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "bilingual", "nifas-silk"]
+    "tags": [
+      "private",
+      "bilingual",
+      "nifas-silk"
+    ]
   },
   {
     "id": 19,
@@ -472,7 +549,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "addis-ketema", "affordable"]
+    "tags": [
+      "private",
+      "addis-ketema",
+      "affordable"
+    ]
   },
   {
     "id": 20,
@@ -497,7 +578,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "lideta"]
+    "tags": [
+      "private",
+      "lideta"
+    ]
   },
   {
     "id": 21,
@@ -522,7 +606,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "gulele"]
+    "tags": [
+      "private",
+      "gulele"
+    ]
   },
   {
     "id": 22,
@@ -547,7 +634,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "kolfe", "affordable"]
+    "tags": [
+      "private",
+      "kolfe",
+      "affordable"
+    ]
   },
   {
     "id": 23,
@@ -572,7 +663,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "bole", "popular"]
+    "tags": [
+      "private",
+      "bole",
+      "popular"
+    ]
   },
   {
     "id": 24,
@@ -597,7 +692,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "yeka"]
+    "tags": [
+      "private",
+      "yeka"
+    ]
   },
   {
     "id": 25,
@@ -622,7 +720,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "nifas-silk"]
+    "tags": [
+      "private",
+      "nifas-silk"
+    ]
   },
   {
     "id": 26,
@@ -647,7 +748,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "bole", "premium"]
+    "tags": [
+      "private",
+      "bole",
+      "premium"
+    ]
   },
   {
     "id": 27,
@@ -672,7 +777,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "kirkos"]
+    "tags": [
+      "private",
+      "kirkos"
+    ]
   },
   {
     "id": 28,
@@ -697,7 +805,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "akaki-kaliti", "affordable"]
+    "tags": [
+      "private",
+      "akaki-kaliti",
+      "affordable"
+    ]
   },
   {
     "id": 29,
@@ -722,7 +834,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "christian", "arada"]
+    "tags": [
+      "private",
+      "christian",
+      "arada"
+    ]
   },
   {
     "id": 30,
@@ -747,7 +863,12 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "orthodox", "religious", "kirkos"]
+    "tags": [
+      "private",
+      "orthodox",
+      "religious",
+      "kirkos"
+    ]
   },
   {
     "id": 31,
@@ -772,7 +893,12 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "orthodox", "religious", "bole"]
+    "tags": [
+      "private",
+      "orthodox",
+      "religious",
+      "bole"
+    ]
   },
   {
     "id": 32,
@@ -797,7 +923,12 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "catholic", "religious", "lideta"]
+    "tags": [
+      "private",
+      "catholic",
+      "religious",
+      "lideta"
+    ]
   },
   {
     "id": 33,
@@ -822,7 +953,12 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "protestant", "religious", "nifas-silk"]
+    "tags": [
+      "private",
+      "protestant",
+      "religious",
+      "nifas-silk"
+    ]
   },
   {
     "id": 34,
@@ -847,7 +983,12 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "orthodox", "religious", "gulele"]
+    "tags": [
+      "private",
+      "orthodox",
+      "religious",
+      "gulele"
+    ]
   },
   {
     "id": 35,
@@ -872,7 +1013,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "kolfe"]
+    "tags": [
+      "private",
+      "kolfe"
+    ]
   },
   {
     "id": 36,
@@ -897,7 +1041,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "yeka", "stem"]
+    "tags": [
+      "private",
+      "yeka",
+      "stem"
+    ]
   },
   {
     "id": 37,
@@ -922,7 +1070,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "bole", "elementary"]
+    "tags": [
+      "private",
+      "bole",
+      "elementary"
+    ]
   },
   {
     "id": 38,
@@ -947,7 +1099,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "historic", "secondary", "free"]
+    "tags": [
+      "public",
+      "government",
+      "historic",
+      "secondary",
+      "free"
+    ]
   },
   {
     "id": 39,
@@ -972,7 +1130,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "historic", "secondary", "free"]
+    "tags": [
+      "public",
+      "government",
+      "historic",
+      "secondary",
+      "free"
+    ]
   },
   {
     "id": 40,
@@ -997,7 +1161,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "historic", "secondary", "free"]
+    "tags": [
+      "public",
+      "government",
+      "historic",
+      "secondary",
+      "free"
+    ]
   },
   {
     "id": 41,
@@ -1022,7 +1192,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "gulele"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "gulele"
+    ]
   },
   {
     "id": 42,
@@ -1047,7 +1223,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "arada"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "arada"
+    ]
   },
   {
     "id": 43,
@@ -1072,7 +1254,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "lideta"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "lideta"
+    ]
   },
   {
     "id": 44,
@@ -1097,7 +1285,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "yeka"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "yeka"
+    ]
   },
   {
     "id": 45,
@@ -1122,7 +1316,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "yeka"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "yeka"
+    ]
   },
   {
     "id": 46,
@@ -1147,7 +1347,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "bole"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "bole"
+    ]
   },
   {
     "id": 47,
@@ -1172,7 +1378,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "kirkos"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "kirkos"
+    ]
   },
   {
     "id": 48,
@@ -1197,7 +1409,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "gulele"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "gulele"
+    ]
   },
   {
     "id": 49,
@@ -1222,7 +1440,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "kolfe"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "kolfe"
+    ]
   },
   {
     "id": 50,
@@ -1247,7 +1471,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "akaki-kaliti"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "akaki-kaliti"
+    ]
   },
   {
     "id": 51,
@@ -1272,7 +1502,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "nifas-silk"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "nifas-silk"
+    ]
   },
   {
     "id": 52,
@@ -1297,7 +1533,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "addis-ketema"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "addis-ketema"
+    ]
   },
   {
     "id": 53,
@@ -1322,7 +1564,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "yeka"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "yeka"
+    ]
   },
   {
     "id": 54,
@@ -1347,7 +1595,14 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "historic", "secondary", "free", "arada"]
+    "tags": [
+      "public",
+      "government",
+      "historic",
+      "secondary",
+      "free",
+      "arada"
+    ]
   },
   {
     "id": 55,
@@ -1372,7 +1627,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "primary", "free", "yeka"]
+    "tags": [
+      "public",
+      "government",
+      "primary",
+      "free",
+      "yeka"
+    ]
   },
   {
     "id": 56,
@@ -1397,7 +1658,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "primary", "free", "arada"]
+    "tags": [
+      "public",
+      "government",
+      "primary",
+      "free",
+      "arada"
+    ]
   },
   {
     "id": 57,
@@ -1422,7 +1689,14 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "primary", "free", "addis-ketema", "merkato"]
+    "tags": [
+      "public",
+      "government",
+      "primary",
+      "free",
+      "addis-ketema",
+      "merkato"
+    ]
   },
   {
     "id": 58,
@@ -1447,7 +1721,12 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "bole", "gerji", "bilingual"]
+    "tags": [
+      "private",
+      "bole",
+      "gerji",
+      "bilingual"
+    ]
   },
   {
     "id": 59,
@@ -1472,7 +1751,12 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "yeka", "CMC", "orthodox"]
+    "tags": [
+      "private",
+      "yeka",
+      "CMC",
+      "orthodox"
+    ]
   },
   {
     "id": 60,
@@ -1497,7 +1781,12 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["international", "american", "IB", "bole"]
+    "tags": [
+      "international",
+      "american",
+      "IB",
+      "bole"
+    ]
   },
   {
     "id": 61,
@@ -1522,7 +1811,10 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "bole"]
+    "tags": [
+      "private",
+      "bole"
+    ]
   },
   {
     "id": 62,
@@ -1547,7 +1839,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "akaki-kaliti"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "akaki-kaliti"
+    ]
   },
   {
     "id": 63,
@@ -1572,7 +1870,13 @@
     "coordinates_accuracy": "medium",
     "source": "manual",
     "image_url": null,
-    "tags": ["public", "government", "secondary", "free", "nifas-silk"]
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "nifas-silk"
+    ]
   },
   {
     "id": 64,
@@ -1597,7 +1901,11 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "kirkos", "sports"]
+    "tags": [
+      "private",
+      "kirkos",
+      "sports"
+    ]
   },
   {
     "id": 65,
@@ -1622,6 +1930,1222 @@
     "coordinates_accuracy": "low",
     "source": "manual",
     "image_url": null,
-    "tags": ["private", "gulele"]
+    "tags": [
+      "private",
+      "gulele"
+    ]
+  },
+  {
+    "id": 66,
+    "name_en": "Morning Star Academy",
+    "name_am": "ጠዋቱ ኮከብ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Bole",
+    "woreda": "02",
+    "latitude": 9.0045,
+    "longitude": 38.7823,
+    "fee_range_etb": "55,000 - 120,000",
+    "fee_range_usd": "1,000 - 2,180",
+    "phone": "+251 11 662 4567",
+    "email": null,
+    "website": null,
+    "description": "A growing private school in the heart of Bole, known for its morning assembly traditions and strong emphasis on character education alongside academics.",
+    "established": 2009,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "bole"
+    ]
+  },
+  {
+    "id": 67,
+    "name_en": "Abyssinia School",
+    "name_am": "አቢሲኒያ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Arada",
+    "woreda": "02",
+    "latitude": 9.0367,
+    "longitude": 38.7512,
+    "fee_range_etb": "38,000 - 85,000",
+    "fee_range_usd": "690 - 1,545",
+    "phone": "+251 11 156 2345",
+    "email": null,
+    "website": null,
+    "description": "Proudly named after the ancient land of Ethiopia, Abyssinia School blends modern pedagogy with a deep respect for Ethiopian heritage and culture.",
+    "established": 1998,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "arada",
+      "cultural"
+    ]
+  },
+  {
+    "id": 68,
+    "name_en": "Nile International Academy",
+    "name_am": "ናይል ኢንተርናሽናል አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian & International",
+    "grades": "KG - Grade 12",
+    "language": "English & Amharic",
+    "sub_city": "Kirkos",
+    "woreda": "06",
+    "latitude": 9.0178,
+    "longitude": 38.7678,
+    "fee_range_etb": "70,000 - 160,000",
+    "fee_range_usd": "1,273 - 2,909",
+    "phone": "+251 11 553 8901",
+    "email": null,
+    "website": null,
+    "description": "Inspired by the great Nile River that originates in Ethiopia, this academy offers a blend of Ethiopian and international curricula with strong English language instruction.",
+    "established": 2011,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kirkos",
+      "bilingual"
+    ]
+  },
+  {
+    "id": 69,
+    "name_en": "Springdale International School",
+    "name_am": "ስፕሪንግዴል ኢንተርናሽናል ስኩል",
+    "school_type": "international",
+    "curriculum": "Cambridge IGCSE & A-Level",
+    "grades": "KG - Grade 13",
+    "language": "English",
+    "sub_city": "Yeka",
+    "woreda": "05",
+    "latitude": 9.0334,
+    "longitude": 38.8101,
+    "fee_range_etb": "130,000 - 290,000",
+    "fee_range_usd": "2,364 - 5,273",
+    "phone": "+251 11 645 9012",
+    "email": "info@springdale.edu.et",
+    "website": "springdale.edu.et",
+    "description": "An established Cambridge-certified school in Yeka offering IGCSE and A-Level programmes. Known for high university placement rates to UK and European institutions.",
+    "established": 2007,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "international",
+      "cambridge",
+      "igcse",
+      "a-level",
+      "english-medium"
+    ]
+  },
+  {
+    "id": 70,
+    "name_en": "Ethiopian Academy",
+    "name_am": "ኢትዮጵያ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Addis Ketema",
+    "woreda": "04",
+    "latitude": 9.0412,
+    "longitude": 38.7212,
+    "fee_range_etb": "30,000 - 70,000",
+    "fee_range_usd": "545 - 1,273",
+    "phone": "+251 11 277 3456",
+    "email": null,
+    "website": null,
+    "description": "A well-established private academy serving the Addis Ketema community for over two decades, known for disciplined academic programs and affordable fees.",
+    "established": 2000,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "addis-ketema",
+      "affordable"
+    ]
+  },
+  {
+    "id": 71,
+    "name_en": "Wisdom Academy",
+    "name_am": "ጥበብ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Nifas Silk-Lafto",
+    "woreda": "06",
+    "latitude": 8.9789,
+    "longitude": 38.7512,
+    "fee_range_etb": "40,000 - 90,000",
+    "fee_range_usd": "727 - 1,636",
+    "phone": "+251 11 373 6789",
+    "email": null,
+    "website": null,
+    "description": "Wisdom Academy emphasizes critical thinking and problem-solving alongside the national curriculum, preparing students for higher education and professional life.",
+    "established": 2006,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "nifas-silk"
+    ]
+  },
+  {
+    "id": 72,
+    "name_en": "Eden School",
+    "name_am": "ኤደን ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Kolfe Keranio",
+    "woreda": "07",
+    "latitude": 9.0289,
+    "longitude": 38.7023,
+    "fee_range_etb": "28,000 - 65,000",
+    "fee_range_usd": "509 - 1,182",
+    "phone": "+251 11 414 5678",
+    "email": null,
+    "website": null,
+    "description": "Eden School provides a nurturing educational garden in Kolfe Keranio, focusing on holistic development of students from early childhood through secondary school.",
+    "established": 2004,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kolfe"
+    ]
+  },
+  {
+    "id": 73,
+    "name_en": "King David School",
+    "name_am": "ንጉሥ ዳዊት ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Kirkos",
+    "woreda": "03",
+    "latitude": 9.0145,
+    "longitude": 38.7545,
+    "fee_range_etb": "35,000 - 80,000",
+    "fee_range_usd": "636 - 1,455",
+    "phone": "+251 11 552 1234",
+    "email": null,
+    "website": null,
+    "description": "A faith-based private school in Kirkos named after the biblical King David, combining strong academics with values-based education rooted in Christian tradition.",
+    "established": 2003,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kirkos",
+      "christian",
+      "religious"
+    ]
+  },
+  {
+    "id": 74,
+    "name_en": "Genet Academy",
+    "name_am": "ጀነት አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Bole",
+    "woreda": "08",
+    "latitude": 9.0123,
+    "longitude": 38.8145,
+    "fee_range_etb": "60,000 - 135,000",
+    "fee_range_usd": "1,091 - 2,455",
+    "phone": "+251 11 668 9012",
+    "email": null,
+    "website": null,
+    "description": "Genet (Paradise in Amharic) Academy offers a premium educational experience in the Bole area with modern facilities and a track record of strong national exam performance.",
+    "established": 2010,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "bole",
+      "premium"
+    ]
+  },
+  {
+    "id": 75,
+    "name_en": "Addis Hiwot School",
+    "name_am": "አዲስ ሕይወት ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Yeka",
+    "woreda": "02",
+    "latitude": 9.0289,
+    "longitude": 38.8045,
+    "fee_range_etb": "42,000 - 95,000",
+    "fee_range_usd": "764 - 1,727",
+    "phone": "+251 11 647 1234",
+    "email": null,
+    "website": null,
+    "description": "Addis Hiwot (New Life in Amharic) School is committed to transforming young lives through quality education, community engagement, and strong moral values.",
+    "established": 2008,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "yeka"
+    ]
+  },
+  {
+    "id": 76,
+    "name_en": "British-Ethiopian Academy",
+    "name_am": "ብሪቲሽ-ኢትዮጵያ አካዳሚ",
+    "school_type": "international",
+    "curriculum": "British (Cambridge)",
+    "grades": "KG - Grade 12",
+    "language": "English",
+    "sub_city": "Bole",
+    "woreda": "03",
+    "latitude": 9.0067,
+    "longitude": 38.8023,
+    "fee_range_etb": "170,000 - 390,000",
+    "fee_range_usd": "3,090 - 7,090",
+    "phone": "+251 11 662 7890",
+    "email": "admissions@bea.edu.et",
+    "website": "bea.edu.et",
+    "description": "A British-style international academy offering Cambridge Primary, IGCSE, and A-Level qualifications. Combines British educational rigor with Ethiopian cultural values.",
+    "established": 2004,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "international",
+      "british",
+      "cambridge",
+      "english-medium",
+      "bole"
+    ]
+  },
+  {
+    "id": 77,
+    "name_en": "Saba School",
+    "name_am": "ሳባ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Lideta",
+    "woreda": "03",
+    "latitude": 9.0167,
+    "longitude": 38.7301,
+    "fee_range_etb": "32,000 - 72,000",
+    "fee_range_usd": "582 - 1,309",
+    "phone": "+251 11 472 6789",
+    "email": null,
+    "website": null,
+    "description": "Named after the legendary Queen of Sheba (Makeda), Saba School in Lideta draws on Ethiopia's royal heritage to inspire academic excellence and dignity in its students.",
+    "established": 2001,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "lideta",
+      "cultural"
+    ]
+  },
+  {
+    "id": 78,
+    "name_en": "Tafari Academy",
+    "name_am": "ተፈሪ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Gulele",
+    "woreda": "04",
+    "latitude": 9.0601,
+    "longitude": 38.7445,
+    "fee_range_etb": "30,000 - 68,000",
+    "fee_range_usd": "545 - 1,236",
+    "phone": "+251 11 277 8901",
+    "email": null,
+    "website": null,
+    "description": "Tafari Academy in Gulele honors the legacy of Ethiopian leadership and intellect. It serves the northern community with accessible quality education.",
+    "established": 2006,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "gulele"
+    ]
+  },
+  {
+    "id": 79,
+    "name_en": "Selam Academy",
+    "name_am": "ሰላም አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Addis Ketema",
+    "woreda": "07",
+    "latitude": 9.0445,
+    "longitude": 38.7156,
+    "fee_range_etb": "28,000 - 65,000",
+    "fee_range_usd": "509 - 1,182",
+    "phone": "+251 11 276 1234",
+    "email": null,
+    "website": null,
+    "description": "Selam (Peace in Amharic) Academy promotes peaceful coexistence and mutual respect alongside rigorous academics in the densely populated Addis Ketema sub-city.",
+    "established": 2003,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "addis-ketema",
+      "affordable"
+    ]
+  },
+  {
+    "id": 80,
+    "name_en": "Heritage School",
+    "name_am": "ቅርሰ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Bole",
+    "woreda": "01",
+    "latitude": 8.9989,
+    "longitude": 38.7912,
+    "fee_range_etb": "65,000 - 145,000",
+    "fee_range_usd": "1,182 - 2,636",
+    "phone": "+251 11 661 3456",
+    "email": null,
+    "website": null,
+    "description": "Heritage School in Bole prides itself on preserving Ethiopia's rich cultural heritage while preparing students for global opportunities through a rigorous academic program.",
+    "established": 2007,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "bole",
+      "cultural"
+    ]
+  },
+  {
+    "id": 81,
+    "name_en": "Berhan Academy",
+    "name_am": "ብርሃን አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Nifas Silk-Lafto",
+    "woreda": "09",
+    "latitude": 8.9723,
+    "longitude": 38.7356,
+    "fee_range_etb": "35,000 - 80,000",
+    "fee_range_usd": "636 - 1,455",
+    "phone": "+251 11 374 1234",
+    "email": null,
+    "website": null,
+    "description": "Berhan (Light in Amharic) Academy is a beacon of educational opportunity in the Nifas Silk-Lafto area, offering quality schooling from kindergarten through secondary.",
+    "established": 2009,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "nifas-silk"
+    ]
+  },
+  {
+    "id": 82,
+    "name_en": "Holy Savior School",
+    "name_am": "ቅዱስ መድኃኔ ዓለም ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Arada",
+    "woreda": "01",
+    "latitude": 9.0334,
+    "longitude": 38.7456,
+    "fee_range_etb": "30,000 - 70,000",
+    "fee_range_usd": "545 - 1,273",
+    "phone": "+251 11 156 9012",
+    "email": null,
+    "website": null,
+    "description": "An Ethiopian Orthodox Church-affiliated school in the historic Arada sub-city, dedicated to faith-based values education alongside strong academics.",
+    "established": 1990,
+    "verified": false,
+    "coordinates_accuracy": "medium",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "arada",
+      "orthodox",
+      "religious"
+    ]
+  },
+  {
+    "id": 83,
+    "name_en": "Ethio-American School",
+    "name_am": "ኢትዮ-አሜሪካን ስኩል",
+    "school_type": "international",
+    "curriculum": "American (AP)",
+    "grades": "KG - Grade 12",
+    "language": "English",
+    "sub_city": "Bole",
+    "woreda": "12",
+    "latitude": 9.0189,
+    "longitude": 38.8234,
+    "fee_range_etb": "220,000 - 520,000",
+    "fee_range_usd": "4,000 - 9,455",
+    "phone": "+251 11 665 7890",
+    "email": "info@ethioamerican.edu.et",
+    "website": "ethioamerican.edu.et",
+    "description": "An American-curriculum international school catering to the diplomatic community and Ethiopian diaspora families. Offers Advanced Placement courses with high university acceptance rates in the US.",
+    "established": 2000,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "international",
+      "american",
+      "AP",
+      "english-medium",
+      "bole"
+    ]
+  },
+  {
+    "id": 84,
+    "name_en": "Capital Academy",
+    "name_am": "ካፒታል አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Kirkos",
+    "woreda": "01",
+    "latitude": 9.0101,
+    "longitude": 38.7523,
+    "fee_range_etb": "50,000 - 115,000",
+    "fee_range_usd": "909 - 2,091",
+    "phone": "+251 11 554 6789",
+    "email": null,
+    "website": null,
+    "description": "Capital Academy in Kirkos takes its name from Addis Ababa's role as Ethiopia's capital and Africa's diplomatic hub. Strong business and economics programs at secondary level.",
+    "established": 2013,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kirkos"
+    ]
+  },
+  {
+    "id": 85,
+    "name_en": "Kidus Yohannes School",
+    "name_am": "ቅዱስ ዮሐንስ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Arada",
+    "woreda": "10",
+    "latitude": 9.0456,
+    "longitude": 38.7589,
+    "fee_range_etb": "32,000 - 75,000",
+    "fee_range_usd": "582 - 1,364",
+    "phone": "+251 11 157 2345",
+    "email": null,
+    "website": null,
+    "description": "An Ethiopian Orthodox Church school in Arada dedicated to St. John (Yohannes), offering morally grounded education with a focus on Amharic literacy and academic excellence.",
+    "established": 1988,
+    "verified": false,
+    "coordinates_accuracy": "medium",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "arada",
+      "orthodox",
+      "religious"
+    ]
+  },
+  {
+    "id": 86,
+    "name_en": "Mekanissa Secondary School",
+    "name_am": "መካኒሳ ሁለተኛ ደረጃ ትምህርት ቤት",
+    "school_type": "public",
+    "curriculum": "Ethiopian (Government)",
+    "grades": "Grade 9 - Grade 12",
+    "language": "Amharic",
+    "sub_city": "Nifas Silk-Lafto",
+    "woreda": "02",
+    "latitude": 8.9889,
+    "longitude": 38.7423,
+    "fee_range_etb": "Free (registration fees only)",
+    "fee_range_usd": "Free",
+    "phone": "+251 11 371 8901",
+    "email": null,
+    "website": null,
+    "description": "A government secondary school serving the Mekanissa area of Nifas Silk-Lafto, offering free education to the large residential community.",
+    "established": 1978,
+    "verified": false,
+    "coordinates_accuracy": "medium",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "public",
+      "government",
+      "secondary",
+      "free",
+      "nifas-silk"
+    ]
+  },
+  {
+    "id": 87,
+    "name_en": "Wudnesh School",
+    "name_am": "ውድነሽ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Kolfe Keranio",
+    "woreda": "05",
+    "latitude": 9.0245,
+    "longitude": 38.6978,
+    "fee_range_etb": "25,000 - 58,000",
+    "fee_range_usd": "455 - 1,055",
+    "phone": "+251 11 415 1234",
+    "email": null,
+    "website": null,
+    "description": "Named after the Amharic word for 'beloved' or 'precious,' Wudnesh School serves the Kolfe community with affordable private education and a family-oriented environment.",
+    "established": 2007,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kolfe",
+      "affordable"
+    ]
+  },
+  {
+    "id": 88,
+    "name_en": "Diamond Academy",
+    "name_am": "ዲያሞንድ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Yeka",
+    "woreda": "12",
+    "latitude": 9.0523,
+    "longitude": 38.8267,
+    "fee_range_etb": "48,000 - 108,000",
+    "fee_range_usd": "873 - 1,964",
+    "phone": "+251 11 649 1234",
+    "email": null,
+    "website": null,
+    "description": "Diamond Academy shines bright in the CMC-Yeka corridor, offering quality private education with a focus on STEM subjects and strong university entrance preparation.",
+    "established": 2015,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "yeka",
+      "stem",
+      "CMC"
+    ]
+  },
+  {
+    "id": 89,
+    "name_en": "Medhanit School",
+    "name_am": "ሕክምና ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Kirkos",
+    "woreda": "11",
+    "latitude": 9.0245,
+    "longitude": 38.7789,
+    "fee_range_etb": "42,000 - 95,000",
+    "fee_range_usd": "764 - 1,727",
+    "phone": "+251 11 554 3456",
+    "email": null,
+    "website": null,
+    "description": "Medhanit (Healer in Amharic) School is known for its science-focused curriculum and strong biology and chemistry programs, producing many students who go on to study medicine and health sciences.",
+    "established": 2005,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kirkos",
+      "science",
+      "stem"
+    ]
+  },
+  {
+    "id": 90,
+    "name_en": "Faith Academy",
+    "name_am": "እምነት አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Gulele",
+    "woreda": "02",
+    "latitude": 9.0567,
+    "longitude": 38.7389,
+    "fee_range_etb": "27,000 - 63,000",
+    "fee_range_usd": "491 - 1,145",
+    "phone": "+251 11 278 9012",
+    "email": null,
+    "website": null,
+    "description": "A Protestant church-affiliated school in Gulele that combines strong faith values with a rigorous academic program, serving the northern Addis Ababa community.",
+    "established": 2002,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "gulele",
+      "protestant",
+      "religious"
+    ]
+  },
+  {
+    "id": 91,
+    "name_en": "Misrak School",
+    "name_am": "ምስራቅ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Yeka",
+    "woreda": "13",
+    "latitude": 9.0534,
+    "longitude": 38.8345,
+    "fee_range_etb": "38,000 - 85,000",
+    "fee_range_usd": "691 - 1,545",
+    "phone": "+251 11 648 5678",
+    "email": null,
+    "website": null,
+    "description": "Misrak (East in Amharic) School serves the eastern Yeka corridor, offering quality education to a fast-growing residential community with modern facilities.",
+    "established": 2013,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "yeka"
+    ]
+  },
+  {
+    "id": 92,
+    "name_en": "Atlas Academy",
+    "name_am": "አትላስ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Nifas Silk-Lafto",
+    "woreda": "10",
+    "latitude": 8.9667,
+    "longitude": 38.7245,
+    "fee_range_etb": "40,000 - 90,000",
+    "fee_range_usd": "727 - 1,636",
+    "phone": "+251 11 374 5678",
+    "email": null,
+    "website": null,
+    "description": "Atlas Academy carries the world on its shoulders, offering comprehensive K-12 education in the rapidly growing southern precincts of Nifas Silk-Lafto.",
+    "established": 2011,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "nifas-silk"
+    ]
+  },
+  {
+    "id": 93,
+    "name_en": "Jerusalem School",
+    "name_am": "ኢየሩሳሌም ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Arada",
+    "woreda": "11",
+    "latitude": 9.0489,
+    "longitude": 38.7601,
+    "fee_range_etb": "33,000 - 76,000",
+    "fee_range_usd": "600 - 1,382",
+    "phone": "+251 11 158 3456",
+    "email": null,
+    "website": null,
+    "description": "Jerusalem School upholds the spiritual heritage of its name, providing faith-informed education through the Ethiopian Orthodox tradition alongside an academic curriculum.",
+    "established": 1995,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "arada",
+      "orthodox",
+      "religious"
+    ]
+  },
+  {
+    "id": 94,
+    "name_en": "Gorfu Academy",
+    "name_am": "ጎርፉ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Kolfe Keranio",
+    "woreda": "10",
+    "latitude": 9.0378,
+    "longitude": 38.6956,
+    "fee_range_etb": "24,000 - 56,000",
+    "fee_range_usd": "436 - 1,018",
+    "phone": "+251 11 415 9012",
+    "email": null,
+    "website": null,
+    "description": "An accessible private school in the outer Kolfe Keranio area, providing quality education to families in one of Addis Ababa's most populous residential sub-cities.",
+    "established": 2008,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kolfe",
+      "affordable"
+    ]
+  },
+  {
+    "id": 95,
+    "name_en": "Tinsae School",
+    "name_am": "ትንሣኤ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Gulele",
+    "woreda": "09",
+    "latitude": 9.0712,
+    "longitude": 38.7512,
+    "fee_range_etb": "26,000 - 62,000",
+    "fee_range_usd": "473 - 1,127",
+    "phone": "+251 11 279 2345",
+    "email": null,
+    "website": null,
+    "description": "Tinsae (Resurrection in Amharic) School embodies renewal and hope in the Gulele community, providing transformative education for children from pre-school through secondary.",
+    "established": 2004,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "gulele",
+      "orthodox"
+    ]
+  },
+  {
+    "id": 96,
+    "name_en": "Birhan Academy",
+    "name_am": "ብርሃን አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Bole",
+    "woreda": "13",
+    "latitude": 9.0234,
+    "longitude": 38.8278,
+    "fee_range_etb": "70,000 - 155,000",
+    "fee_range_usd": "1,273 - 2,818",
+    "phone": "+251 11 669 3456",
+    "email": null,
+    "website": null,
+    "description": "Birhan Academy is one of Bole's newer premium schools, built with modern classrooms and a digital learning lab. Known for strong national exam preparation and English immersion programs.",
+    "established": 2016,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "bole",
+      "premium",
+      "digital"
+    ]
+  },
+  {
+    "id": 97,
+    "name_en": "Nobel Academy",
+    "name_am": "ኖቤል አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Yeka",
+    "woreda": "14",
+    "latitude": 9.0567,
+    "longitude": 38.8289,
+    "fee_range_etb": "45,000 - 100,000",
+    "fee_range_usd": "818 - 1,818",
+    "phone": "+251 11 649 8901",
+    "email": null,
+    "website": null,
+    "description": "Named after the Nobel Prize to inspire excellence, Nobel Academy in Yeka places a strong emphasis on research skills, critical thinking, and public speaking from early grades.",
+    "established": 2014,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "yeka",
+      "stem"
+    ]
+  },
+  {
+    "id": 98,
+    "name_en": "Melak School",
+    "name_am": "መልአክ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Addis Ketema",
+    "woreda": "08",
+    "latitude": 9.0456,
+    "longitude": 38.7134,
+    "fee_range_etb": "27,000 - 62,000",
+    "fee_range_usd": "491 - 1,127",
+    "phone": "+251 11 276 6789",
+    "email": null,
+    "website": null,
+    "description": "Melak (Angel in Amharic) School in Addis Ketema provides a caring and disciplined learning environment, serving one of the most densely populated areas of Addis Ababa.",
+    "established": 2002,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "addis-ketema",
+      "affordable"
+    ]
+  },
+  {
+    "id": 99,
+    "name_en": "Menelik Primary School (Arada)",
+    "name_am": "ምኒሊክ አንደኛ ደረጃ ትምህርት ቤት (አራዳ)",
+    "school_type": "public",
+    "curriculum": "Ethiopian (Government)",
+    "grades": "Grade 1 - Grade 8",
+    "language": "Amharic",
+    "sub_city": "Arada",
+    "woreda": "05",
+    "latitude": 9.0412,
+    "longitude": 38.7556,
+    "fee_range_etb": "Free",
+    "fee_range_usd": "Free",
+    "phone": "+251 11 156 5678",
+    "email": null,
+    "website": null,
+    "description": "A government primary school in the Arada sub-city providing free education to hundreds of children in the historic center of Addis Ababa.",
+    "established": 1962,
+    "verified": false,
+    "coordinates_accuracy": "medium",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "public",
+      "government",
+      "primary",
+      "free",
+      "arada"
+    ]
+  },
+  {
+    "id": 100,
+    "name_en": "Addis Light School",
+    "name_am": "አዲስ ብርሃን ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Bole",
+    "woreda": "14",
+    "latitude": 9.0267,
+    "longitude": 38.8312,
+    "fee_range_etb": "58,000 - 128,000",
+    "fee_range_usd": "1,055 - 2,327",
+    "phone": "+251 11 669 7890",
+    "email": null,
+    "website": null,
+    "description": "Addis Light School illuminates futures in the growing eastern Bole corridor. Modern facilities, a strong arts program, and consistent academic results make it a top choice for local families.",
+    "established": 2017,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "bole",
+      "arts"
+    ]
+  },
+  {
+    "id": 101,
+    "name_en": "Focus Academy",
+    "name_am": "ፎከስ አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Kirkos",
+    "woreda": "12",
+    "latitude": 9.0267,
+    "longitude": 38.7812,
+    "fee_range_etb": "45,000 - 100,000",
+    "fee_range_usd": "818 - 1,818",
+    "phone": "+251 11 554 8901",
+    "email": null,
+    "website": null,
+    "description": "Focus Academy in Kirkos lives up to its name with a laser focus on academic achievement, university entrance preparation, and structured daily study programs for secondary students.",
+    "established": 2012,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "kirkos",
+      "university-prep"
+    ]
+  },
+  {
+    "id": 102,
+    "name_en": "Beulah School",
+    "name_am": "ቤኡላ ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Nifas Silk-Lafto",
+    "woreda": "11",
+    "latitude": 8.9623,
+    "longitude": 38.7189,
+    "fee_range_etb": "30,000 - 68,000",
+    "fee_range_usd": "545 - 1,236",
+    "phone": "+251 11 374 9012",
+    "email": null,
+    "website": null,
+    "description": "A Protestant church-affiliated school in the southern fringes of Nifas Silk-Lafto, known for its music program, choir, and wholesome character education.",
+    "established": 2001,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "nifas-silk",
+      "protestant",
+      "religious",
+      "music"
+    ]
+  },
+  {
+    "id": 103,
+    "name_en": "Emmanuel School",
+    "name_am": "ኢማኑኤል ትምህርት ቤት",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Bole",
+    "woreda": "15",
+    "latitude": 9.0301,
+    "longitude": 38.8167,
+    "fee_range_etb": "52,000 - 118,000",
+    "fee_range_usd": "945 - 2,145",
+    "phone": "+251 11 667 2345",
+    "email": null,
+    "website": null,
+    "description": "Emmanuel (God with us) School carries a mission-driven approach to education in the busy Bole area, balancing Christian values with high academic standards and strong parental involvement.",
+    "established": 2010,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "bole",
+      "christian",
+      "religious"
+    ]
+  },
+  {
+    "id": 104,
+    "name_en": "Eternity Academy",
+    "name_am": "ዘላለም አካዳሚ",
+    "school_type": "private",
+    "curriculum": "Ethiopian",
+    "grades": "KG - Grade 12",
+    "language": "Amharic & English",
+    "sub_city": "Yeka",
+    "woreda": "15",
+    "latitude": 9.0589,
+    "longitude": 38.8312,
+    "fee_range_etb": "42,000 - 95,000",
+    "fee_range_usd": "764 - 1,727",
+    "phone": "+251 11 649 5670",
+    "email": null,
+    "website": null,
+    "description": "Eternity Academy in outer Yeka serves one of Addis Ababa's newest residential expansions with quality private education and a commitment to long-term student success.",
+    "established": 2016,
+    "verified": false,
+    "coordinates_accuracy": "low",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "private",
+      "yeka"
+    ]
+  },
+  {
+    "id": 105,
+    "name_en": "Akaki Comprehensive Primary School",
+    "name_am": "አቃቂ አጠቃላይ አንደኛ ደረጃ ትምህርት ቤት",
+    "school_type": "public",
+    "curriculum": "Ethiopian (Government)",
+    "grades": "Grade 1 - Grade 8",
+    "language": "Amharic",
+    "sub_city": "Akaki Kaliti",
+    "woreda": "02",
+    "latitude": 8.9212,
+    "longitude": 38.7912,
+    "fee_range_etb": "Free",
+    "fee_range_usd": "Free",
+    "phone": "+251 11 441 9012",
+    "email": null,
+    "website": null,
+    "description": "A government primary school in the Akaki Kaliti industrial sub-city, serving the working-class families of this important economic zone at the southern gateway of Addis Ababa.",
+    "established": 1982,
+    "verified": false,
+    "coordinates_accuracy": "medium",
+    "source": "manual",
+    "image_url": null,
+    "images": [],
+    "tags": [
+      "public",
+      "government",
+      "primary",
+      "free",
+      "akaki-kaliti"
+    ]
   }
 ]

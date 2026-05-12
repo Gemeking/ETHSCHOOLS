@@ -24,7 +24,10 @@ function parseFeeMax(feeEtb) {
   return nums ? parseInt(nums[nums.length - 1]) : 0
 }
 
-const schools = raw.map((s) => ({
+// Only import the new batch (skip already-imported schools)
+const NEW_FROM_ID = 66
+
+const schools = raw.filter((s) => s.id >= NEW_FROM_ID).map((s) => ({
   name_en: s.name_en,
   name_am: s.name_am || null,
   school_type: s.school_type,
@@ -49,7 +52,7 @@ const schools = raw.map((s) => ({
   tags: Array.isArray(s.tags) ? s.tags : [],
 }))
 
-console.log(`\n📚 Importing ${schools.length} schools into Supabase...\n`)
+console.log(`\n📚 Importing ${schools.length} new schools (IDs ${NEW_FROM_ID}+) into Supabase...\n`)
 
 let success = 0
 let failed = 0
