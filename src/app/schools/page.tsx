@@ -3,7 +3,7 @@ import { useState, useMemo, useEffect, useRef } from 'react'
 import { useSearchParams } from 'next/navigation'
 import {
   Search, SlidersHorizontal, X, Map, Grid3X3,
-  ChevronDown, MapPin, ArrowRight,
+  ChevronDown, MapPin, ArrowRight, Check,
 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
@@ -101,7 +101,10 @@ export default function SchoolsPage() {
   const [filtersOpen, setFiltersOpen] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [activeIdx, setActiveIdx]   = useState(-1)
-  const searchRef = useRef<HTMLDivElement>(null)
+  const [locationOpen, setLocationOpen]   = useState(false)
+  const [locationQuery, setLocationQuery] = useState('')
+  const searchRef   = useRef<HTMLDivElement>(null)
+  const locationRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     fetchAllSchools().then(setAllSchools)
@@ -116,8 +119,10 @@ export default function SchoolsPage() {
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-        setShowSuggestions(false)
-        setActiveIdx(-1)
+        setShowSuggestions(false); setActiveIdx(-1)
+      }
+      if (locationRef.current && !locationRef.current.contains(e.target as Node)) {
+        setLocationOpen(false); setLocationQuery('')
       }
     }
     document.addEventListener('mousedown', onClickOutside)
@@ -234,67 +239,179 @@ export default function SchoolsPage() {
             </div>
           </div>
 
-          {/* Search with autocomplete */}
-          <div ref={searchRef} className="relative max-w-2xl mb-4">
-            <div className={`flex items-center gap-3 bg-white border rounded-2xl px-4 py-3 transition-all duration-200 shadow-sm ${
-              showSuggestions && suggestions.length > 0
-                ? 'border-indigo-400 ring-4 ring-indigo-50'
-                : 'border-slate-200 hover:border-indigo-300 focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-50'
-            }`}>
-              <Search size={17} className="text-slate-400 shrink-0" />
-              <input
-                type="text"
-                value={query}
-                onChange={e => { setQuery(e.target.value); setShowSuggestions(true); setActiveIdx(-1) }}
-                onFocus={() => query.length >= 2 && setShowSuggestions(true)}
-                onKeyDown={onSearchKeyDown}
-                placeholder="School name, area, or curriculum..."
-                className="flex-1 text-slate-800 placeholder-slate-400 outline-none text-sm bg-transparent"
-              />
-              {query && (
-                <button
-                  onClick={() => { setQuery(''); setShowSuggestions(false) }}
-                  className="text-slate-300 hover:text-slate-600 transition-colors"
-                >
-                  <X size={15} />
-                </button>
+          {/* ── Search + Location row ── */}
+          <div className="flex gap-3 mb-4 max-w-3xl">
+
+            {/* School search */}
+            <div ref={searchRef} className="relative flex-1 min-w-0">
+              <div className={`flex items-center gap-3 bg-white border rounded-2xl px-4 py-3 transition-all duration-200 shadow-sm ${
+                showSuggestions && suggestions.length > 0
+                  ? 'border-indigo-400 ring-4 ring-indigo-50'
+                  : 'border-slate-200 hover:border-indigo-300 focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-50'
+              }`}>
+                <Search size={17} className="text-slate-400 shrink-0" />
+                <input
+                  type="text"
+                  value={query}
+                  onChange={e => { setQuery(e.target.value); setShowSuggestions(true); setActiveIdx(-1) }}
+                  onFocus={() => query.length >= 2 && setShowSuggestions(true)}
+                  onKeyDown={onSearchKeyDown}
+                  placeholder="School name or curriculum..."
+                  className="flex-1 text-slate-800 placeholder-slate-400 outline-none text-sm bg-transparent min-w-0"
+                />
+                {query && (
+                  <button onClick={() => { setQuery(''); setShowSuggestions(false) }} className="text-slate-300 hover:text-slate-600 transition-colors shrink-0">
+                    <X size={15} />
+                  </button>
+                )}
+              </div>
+
+              {/* School autocomplete */}
+              {showSuggestions && suggestions.length > 0 && (
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
+                  <div className="px-3 py-2 border-b border-slate-50">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Suggestions</p>
+                  </div>
+                  {suggestions.map((s, i) => (
+                    <button
+                      key={s.id}
+                      onMouseDown={e => e.preventDefault()}
+                      onClick={() => pickSuggestion(s)}
+                      className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+                        i === activeIdx ? 'bg-indigo-50' : 'hover:bg-slate-50'
+                      } ${i < suggestions.length - 1 ? 'border-b border-slate-50' : ''}`}
+                    >
+                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-white text-sm font-black ${typeAccent[s.school_type]}`}>
+                        {s.name_en.charAt(0)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-sm font-semibold text-slate-800">
+                          <HighlightMatch text={s.name_en} query={query} />
+                        </div>
+                        <div className="flex items-center gap-1 text-xs text-slate-400 mt-0.5">
+                          <MapPin size={9} />
+                          <HighlightMatch text={s.sub_city || ''} query={query} />
+                          <span>·</span>
+                          <span>{typeLabel(s.school_type)}</span>
+                        </div>
+                      </div>
+                      <ArrowRight size={13} className="text-slate-300 shrink-0" />
+                    </button>
+                  ))}
+                </div>
               )}
             </div>
 
-            {/* Autocomplete dropdown */}
-            {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50 animate-fade-in">
-                <div className="px-3 py-2 border-b border-slate-50">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Suggestions</p>
+            {/* ── Location dropdown ── */}
+            <div ref={locationRef} className="relative shrink-0">
+              <button
+                type="button"
+                onClick={() => { setLocationOpen(v => !v); setLocationQuery('') }}
+                className={`flex items-center gap-2 px-4 py-3 rounded-2xl border text-sm font-semibold transition-all duration-200 shadow-sm whitespace-nowrap ${
+                  subCity !== 'All Sub-cities'
+                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-indigo-200'
+                    : locationOpen
+                      ? 'bg-white border-indigo-400 ring-4 ring-indigo-50 text-slate-800'
+                      : 'bg-white border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-slate-900'
+                }`}
+              >
+                <span className="text-base leading-none">
+                  {subCity !== 'All Sub-cities' ? (CITY_META[subCity]?.emoji ?? '📍') : '📍'}
+                </span>
+                <span className="max-w-[120px] truncate">
+                  {subCity !== 'All Sub-cities' ? subCity : 'All Areas'}
+                </span>
+                {subCity !== 'All Sub-cities' && (
+                  <span className="bg-white/20 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                    {cityCounts[subCity] ?? 0}
+                  </span>
+                )}
+                <ChevronDown size={14} className={`transition-transform duration-200 ${locationOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Location dropdown panel */}
+              {locationOpen && (
+                <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
+                  {/* Search input inside dropdown */}
+                  <div className="p-3 border-b border-slate-100">
+                    <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-50 transition-all">
+                      <Search size={13} className="text-slate-400 shrink-0" />
+                      <input
+                        type="text"
+                        autoFocus
+                        value={locationQuery}
+                        onChange={e => setLocationQuery(e.target.value)}
+                        placeholder="Search city or area..."
+                        className="flex-1 text-sm text-slate-700 bg-transparent outline-none placeholder-slate-400"
+                      />
+                      {locationQuery && (
+                        <button onClick={() => setLocationQuery('')} className="text-slate-300 hover:text-slate-600 transition-colors">
+                          <X size={12} />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Options list */}
+                  <div className="overflow-y-auto max-h-64 py-1">
+                    {/* All Areas option */}
+                    {(!locationQuery || 'all areas'.includes(locationQuery.toLowerCase())) && (
+                      <button
+                        type="button"
+                        onMouseDown={e => e.preventDefault()}
+                        onClick={() => { setSubCity('All Sub-cities'); setLocationOpen(false); setLocationQuery('') }}
+                        className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-slate-50 ${
+                          subCity === 'All Sub-cities' ? 'bg-indigo-50' : ''
+                        }`}
+                      >
+                        <span className="text-base w-6 text-center leading-none">📍</span>
+                        <span className="flex-1 text-sm font-semibold text-slate-700">All Areas</span>
+                        <span className="text-xs text-slate-400 font-medium">{allSchools.length}</span>
+                        {subCity === 'All Sub-cities' && <Check size={13} className="text-indigo-600 shrink-0" />}
+                      </button>
+                    )}
+
+                    {/* City options filtered by locationQuery */}
+                    {SUB_CITIES.slice(1)
+                      .filter(city => {
+                        const count = cityCounts[city] ?? 0
+                        if (!count) return false
+                        if (!locationQuery) return true
+                        return city.toLowerCase().includes(locationQuery.toLowerCase())
+                      })
+                      .map(city => {
+                        const meta = CITY_META[city] ?? { emoji: '📍' }
+                        const count = cityCounts[city] ?? 0
+                        const active = subCity === city
+                        return (
+                          <button
+                            key={city}
+                            type="button"
+                            onMouseDown={e => e.preventDefault()}
+                            onClick={() => { setSubCity(city); setLocationOpen(false); setLocationQuery('') }}
+                            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-slate-50 ${
+                              active ? 'bg-indigo-50' : ''
+                            }`}
+                          >
+                            <span className="text-base w-6 text-center leading-none">{meta.emoji}</span>
+                            <span className={`flex-1 text-sm font-semibold ${active ? 'text-indigo-700' : 'text-slate-700'}`}>{city}</span>
+                            <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${active ? 'bg-indigo-100 text-indigo-600' : 'text-slate-400'}`}>{count}</span>
+                            {active && <Check size={13} className="text-indigo-600 shrink-0" />}
+                          </button>
+                        )
+                      })
+                    }
+
+                    {/* Empty state */}
+                    {locationQuery && SUB_CITIES.slice(1).filter(city => (cityCounts[city] ?? 0) > 0 && city.toLowerCase().includes(locationQuery.toLowerCase())).length === 0 && (
+                      <div className="px-4 py-6 text-center text-sm text-slate-400">
+                        No area matches &quot;{locationQuery}&quot;
+                      </div>
+                    )}
+                  </div>
                 </div>
-                {suggestions.map((s, i) => (
-                  <button
-                    key={s.id}
-                    onMouseDown={e => e.preventDefault()}
-                    onClick={() => pickSuggestion(s)}
-                    className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
-                      i === activeIdx ? 'bg-indigo-50' : 'hover:bg-slate-50'
-                    } ${i < suggestions.length - 1 ? 'border-b border-slate-50' : ''}`}
-                  >
-                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-white text-sm font-black ${typeAccent[s.school_type]}`}>
-                      {s.name_en.charAt(0)}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-slate-800">
-                        <HighlightMatch text={s.name_en} query={query} />
-                      </div>
-                      <div className="flex items-center gap-1 text-xs text-slate-400 mt-0.5">
-                        <MapPin size={9} />
-                        <HighlightMatch text={s.sub_city || ''} query={query} />
-                        <span>·</span>
-                        <span>{typeLabel(s.school_type)}</span>
-                      </div>
-                    </div>
-                    <ArrowRight size={13} className="text-slate-300 shrink-0" />
-                  </button>
-                ))}
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           {/* School type tabs */}
@@ -312,57 +429,6 @@ export default function SchoolsPage() {
                 {typeLabel(t)}
               </button>
             ))}
-          </div>
-        </div>
-
-        {/* ── LOCATION PICKER (location-first) ── */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4">
-          <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">Browse by Area</p>
-          <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
-            {/* All areas chip */}
-            <button
-              onClick={() => setSubCity('All Sub-cities')}
-              className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border transition-all duration-200 ${
-                subCity === 'All Sub-cities'
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                  : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:bg-slate-50'
-              }`}
-            >
-              <MapPin size={13} />
-              All Areas
-              <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
-                subCity === 'All Sub-cities' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
-              }`}>
-                {allSchools.length}
-              </span>
-            </button>
-
-            {/* Per sub-city chips */}
-            {SUB_CITIES.slice(1).map(city => {
-              const count = cityCounts[city] || 0
-              if (!count) return null
-              const meta = CITY_META[city] || { emoji: '📍' }
-              const active = subCity === city
-              return (
-                <button
-                  key={city}
-                  onClick={() => setSubCity(city)}
-                  className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold border transition-all duration-200 ${
-                    active
-                      ? 'bg-slate-900 text-white border-slate-900 shadow-md'
-                      : 'bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:bg-slate-50'
-                  }`}
-                >
-                  <span className="text-base leading-none">{meta.emoji}</span>
-                  <span>{city}</span>
-                  <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
-                    active ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
-                  }`}>
-                    {count}
-                  </span>
-                </button>
-              )
-            })}
           </div>
         </div>
       </div>
