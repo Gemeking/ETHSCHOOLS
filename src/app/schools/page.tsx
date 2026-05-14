@@ -239,8 +239,8 @@ export default function SchoolsPage() {
             </div>
           </div>
 
-          {/* ── Search + Location row ── */}
-          <div className="flex gap-3 mb-4 max-w-3xl">
+          {/* ── Search bar ── */}
+          <div className="mb-3 max-w-3xl">
 
             {/* School search */}
             <div ref={searchRef} className="relative flex-1 min-w-0">
@@ -301,6 +301,10 @@ export default function SchoolsPage() {
                 </div>
               )}
             </div>
+          </div>
+
+          {/* ── Location + Telegram row ── */}
+          <div className="flex gap-3 mb-4 max-w-3xl">
 
             {/* ── Location dropdown ── */}
             <div ref={locationRef} className="relative shrink-0">
