@@ -64,7 +64,7 @@ export default function MapComponent({ schools, center = [9.02, 38.75], zoom = 1
                 <div className="text-xs text-slate-500 mb-2">{school.sub_city}</div>
                 <div className="flex gap-2 text-xs mb-3">
                   <span className="bg-slate-100 px-2 py-0.5 rounded-full">{typeLabel(school.school_type)}</span>
-                  <span className="bg-slate-100 px-2 py-0.5 rounded-full">{school.fee_range_etb.includes('Free') ? 'Free' : `${school.fee_range_etb} ETB`}</span>
+                  <span className="bg-slate-100 px-2 py-0.5 rounded-full">{school.fee_range_etb ? (school.fee_range_etb.includes('Free') ? 'Free' : `${school.fee_range_etb} ETB`) : 'Contact school'}</span>
                 </div>
                 <Link
                   href={`/schools/${school.id}`}

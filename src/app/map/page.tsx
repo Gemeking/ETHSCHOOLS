@@ -27,7 +27,7 @@ export default function MapPage() {
   const [type, setType] = useState<SchoolType>('all')
   const [subCity, setSubCity] = useState('All')
 
-  const subCities = ['All', ...Array.from(new Set(schools.map((s) => s.sub_city))).sort()]
+  const subCities = ['All', ...Array.from(new Set(schools.map((s) => s.sub_city).filter(Boolean))).sort()]
 
   const filtered = useMemo(() => {
     return schools.filter((s) => {

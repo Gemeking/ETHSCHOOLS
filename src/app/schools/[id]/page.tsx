@@ -190,7 +190,7 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
               <div className="mt-4 p-4 rounded-xl bg-primary-50 border border-primary-100">
                 <div className="text-xs font-semibold text-primary-600 uppercase tracking-wide mb-1">Annual Tuition</div>
                 <div className="text-xl font-extrabold text-primary-700">{formatFee(school.fee_range_etb)}</div>
-                {school.fee_range_usd !== 'Free' && (
+                {school.fee_range_usd && school.fee_range_usd !== 'Free' && (
                   <div className="text-xs text-primary-500 mt-0.5">≈ {school.fee_range_usd} USD/year</div>
                 )}
               </div>
