@@ -10,6 +10,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import UniversityCard from '@/components/UniversityCard'
 import QRCodeCard from '@/components/QRCodeCard'
+import PhotoGallery from '@/components/PhotoGallery'
 import { universities } from '@/lib/university-data'
 import { fetchUniversityById, fetchAllUniversities } from '@/lib/supabase-universities'
 
@@ -249,6 +250,16 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
               </div>
             )}
 
+            {/* Photo gallery */}
+            {university.images && university.images.length > 0 && (
+              <div className="bg-white rounded-2xl border border-slate-200 p-6">
+                <h2 className="font-bold text-slate-900 mb-4 text-lg flex items-center gap-2">
+                  🖼️ Photos
+                </h2>
+                <PhotoGallery images={university.images} name={university.name_en} />
+              </div>
+            )}
+
             {/* Map */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6">
               <h2 className="font-bold text-slate-900 mb-4 text-lg flex items-center gap-2">
@@ -329,16 +340,35 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
                     </div>
                   </a>
                 )}
-                {university.website && (
-                  <a href={`https://${university.website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all group">
-                    <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
-                      <Globe size={14} className="text-primary-600" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs text-slate-400">Website</div>
-                      <div className="text-sm font-semibold text-slate-800 truncate flex items-center gap-1">
-                        {university.website} <ExternalLink size={11} />
+                {university.website ? (
+                  <>
+                    <a href={`https://${university.website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all group">
+                      <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center shrink-0">
+                        <Globe size={14} className="text-primary-600" />
                       </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs text-slate-400">Website</div>
+                        <div className="text-sm font-semibold text-slate-800 truncate flex items-center gap-1">
+                          {university.website} <ExternalLink size={11} />
+                        </div>
+                      </div>
+                    </a>
+                    <a href="https://t.me/abrolabs" target="_blank" rel="noopener noreferrer"
+                      className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 hover:bg-indigo-100 transition-colors">
+                      <span className="text-base">💻</span>
+                      <div>
+                        <div className="text-xs font-bold text-indigo-700">Want a better website?</div>
+                        <div className="text-xs text-indigo-500">We build websites — contact @abrolabs</div>
+                      </div>
+                    </a>
+                  </>
+                ) : (
+                  <a href="https://t.me/abrolabs" target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 hover:border-indigo-400 transition-all">
+                    <div className="w-8 h-8 rounded-xl bg-indigo-100 flex items-center justify-center shrink-0 text-lg">🌐</div>
+                    <div>
+                      <div className="text-xs font-bold text-indigo-800">No website yet?</div>
+                      <div className="text-xs text-indigo-600 leading-relaxed">We can build one for this university. Contact <strong>@abrolabs</strong> on Telegram</div>
                     </div>
                   </a>
                 )}

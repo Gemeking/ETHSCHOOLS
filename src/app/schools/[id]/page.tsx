@@ -10,6 +10,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SchoolCard from '@/components/SchoolCard'
 import QRCodeCard from '@/components/QRCodeCard'
+import PhotoGallery from '@/components/PhotoGallery'
 import { schools } from '@/lib/data'
 import { fetchSchoolById, fetchAllSchools } from '@/lib/supabase-data'
 import { typeColor, typeGradient, typeLabel, formatFee } from '@/lib/utils'
@@ -175,6 +176,16 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
               </div>
             )}
 
+            {/* Photo gallery */}
+            {school.images && school.images.length > 0 && (
+              <div className="bg-white rounded-2xl border border-slate-200 p-6">
+                <h2 className="font-bold text-slate-900 mb-4 text-lg flex items-center gap-2">
+                  🖼️ Photos
+                </h2>
+                <PhotoGallery images={school.images} name={school.name_en} />
+              </div>
+            )}
+
             {/* Map */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6">
               <h2 className="font-bold text-slate-900 mb-4 text-lg flex items-center gap-2">
@@ -219,21 +230,40 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
                     </div>
                   </a>
                 )}
-                {school.website && (
-                  <a href={`https://${school.website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all group">
-                    <div className="w-9 h-9 rounded-xl bg-primary-50 group-hover:bg-primary-100 flex items-center justify-center shrink-0">
-                      <Globe size={16} className="text-primary-600" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs text-slate-400">Website</div>
-                      <div className="text-sm font-semibold text-slate-800 truncate flex items-center gap-1">
-                        {school.website} <ExternalLink size={11} />
+                {school.website ? (
+                  <>
+                    <a href={`https://${school.website}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:border-primary-300 hover:bg-primary-50 transition-all group">
+                      <div className="w-9 h-9 rounded-xl bg-primary-50 group-hover:bg-primary-100 flex items-center justify-center shrink-0">
+                        <Globe size={16} className="text-primary-600" />
                       </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xs text-slate-400">Website</div>
+                        <div className="text-sm font-semibold text-slate-800 truncate flex items-center gap-1">
+                          {school.website} <ExternalLink size={11} />
+                        </div>
+                      </div>
+                    </a>
+                    <a href="https://t.me/abrolabs" target="_blank" rel="noopener noreferrer"
+                      className="flex items-center gap-2 p-3 rounded-xl bg-indigo-50 border border-indigo-100 hover:bg-indigo-100 transition-colors">
+                      <span className="text-base">💻</span>
+                      <div>
+                        <div className="text-xs font-bold text-indigo-700">Want a better website?</div>
+                        <div className="text-xs text-indigo-500">We build websites — contact @abrolabs</div>
+                      </div>
+                    </a>
+                  </>
+                ) : (
+                  <a href="https://t.me/abrolabs" target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 hover:border-indigo-400 transition-all">
+                    <div className="w-9 h-9 rounded-xl bg-indigo-100 flex items-center justify-center shrink-0 text-lg">🌐</div>
+                    <div>
+                      <div className="text-xs font-bold text-indigo-800">No website yet?</div>
+                      <div className="text-xs text-indigo-600 leading-relaxed">We can build a professional website for this school. Reach us on Telegram <strong>@abrolabs</strong></div>
                     </div>
                   </a>
                 )}
                 {!school.phone && !school.email && !school.website && (
-                  <p className="text-sm text-slate-400 text-center py-3">No contact info available</p>
+                  <p className="text-sm text-slate-400 text-center py-1">No other contact info available</p>
                 )}
               </div>
 
