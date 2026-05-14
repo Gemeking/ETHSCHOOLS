@@ -1,10 +1,10 @@
 'use client'
 import { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
-import { Search, PlusCircle, Pencil, Trash2, ExternalLink, BookOpen } from 'lucide-react'
-import { fetchAllUniversities } from '@/lib/supabase-universities'
+import { Search, PlusCircle, Pencil, Trash2, ExternalLink, BookOpen, CheckCircle, XCircle } from 'lucide-react'
+import { fetchAllUniversities, deleteUniversity } from '@/lib/supabase-universities'
 import { universities as localUniversities } from '@/lib/university-data'
-import { deleteUniversity } from '@/lib/supabase-universities'
+import { supabase } from '@/lib/supabase'
 import type { University, UniversityType } from '@/lib/types'
 
 const TYPE_LABELS: Record<string, string> = {
@@ -18,6 +18,7 @@ export default function ManageUniversitiesPage() {
   const [query, setQuery] = useState('')
   const [type, setType] = useState<UniversityType | 'all'>('all')
   const [deleting, setDeleting] = useState<number | null>(null)
+  const [togglingVerified, setTogglingVerified] = useState<number | null>(null)
 
   useEffect(() => {
     fetchAllUniversities().then(setAllUniversities)
@@ -30,6 +31,25 @@ export default function ManageUniversitiesPage() {
       return true
     })
   }, [allUniversities, query, type])
+
+  async function handleToggleVerified(uni: University) {
+    const newValue = !uni.verified
+    setTogglingVerified(uni.id)
+    setAllUniversities((prev) =>
+      prev.map((u) => (u.id === uni.id ? { ...u, verified: newValue } : u))
+    )
+    const { error } = await supabase
+      .from('universities')
+      .update({ verified: newValue })
+      .eq('id', uni.id)
+    if (error) {
+      setAllUniversities((prev) =>
+        prev.map((u) => (u.id === uni.id ? { ...u, verified: uni.verified } : u))
+      )
+      alert('Failed to update verified status: ' + error.message)
+    }
+    setTogglingVerified(null)
+  }
 
   async function handleDelete(id: number, name: string) {
     if (!confirm(`Delete "${name}"? This cannot be undone.`)) return
@@ -93,6 +113,7 @@ export default function ManageUniversitiesPage() {
                 <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide">Type</th>
                 <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide hidden md:table-cell">Location</th>
                 <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide hidden lg:table-cell">Colleges</th>
+                <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide">Verified</th>
                 <th className="text-right px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide">Actions</th>
               </tr>
             </thead>
@@ -126,6 +147,23 @@ export default function ManageUniversitiesPage() {
                     <span className="flex items-center gap-1">
                       <BookOpen size={12} /> {uni.departments.length} colleges
                     </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    <button
+                      onClick={() => handleToggleVerified(uni)}
+                      disabled={togglingVerified === uni.id}
+                      title={uni.verified ? 'Click to unverify' : 'Click to verify'}
+                      className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold transition-all disabled:opacity-50 ${
+                        uni.verified
+                          ? 'bg-green-100 text-green-700 hover:bg-red-50 hover:text-red-600'
+                          : 'bg-slate-100 text-slate-500 hover:bg-green-50 hover:text-green-700'
+                      }`}
+                    >
+                      {uni.verified
+                        ? <><CheckCircle size={12} /> Verified</>
+                        : <><XCircle size={12} /> Unverified</>
+                      }
+                    </button>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center justify-end gap-2">
