@@ -51,6 +51,26 @@ const CITY_META: Record<string, { emoji: string }> = {
   'Debre Tabor':      { emoji: '🕌' },
   'Lalibela':         { emoji: '⛪' },
   'Finote Selam':     { emoji: '🌿' },
+  // Oromia Region
+  'Adama':            { emoji: '🏙️' },
+  'Bishoftu':         { emoji: '💧' },
+  'Jimma':            { emoji: '☕' },
+  'Nekemte':          { emoji: '🌻' },
+  'Ambo':             { emoji: '💦' },
+  'Woliso':           { emoji: '🌾' },
+  'Asella':           { emoji: '🏃' },
+  'Shashamane':       { emoji: '🛤️' },
+  'Hawassa':          { emoji: '🦩' },
+  'Dire Dawa':        { emoji: '🚂' },
+  'Harar':            { emoji: '🕌' },
+  'Ziway':            { emoji: '🐟' },
+  'Shambu':           { emoji: '🌳' },
+  'Metu':             { emoji: '🌲' },
+  'Moyale':           { emoji: '🛂' },
+  'Yabelo':           { emoji: '🦒' },
+  'Chiro':            { emoji: '🌵' },
+  'Dodola':           { emoji: '🏔️' },
+  'Tepi':             { emoji: '🍵' },
 }
 
 function HighlightMatch({ text, query }: { text: string; query: string }) {

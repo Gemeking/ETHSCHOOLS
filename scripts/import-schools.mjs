@@ -25,7 +25,7 @@ function parseFeeMax(feeEtb) {
 }
 
 // Only import the new batch (skip already-imported schools)
-const NEW_FROM_ID = 103
+const NEW_FROM_ID = 206
 
 const schools = raw.filter((s) => s.id >= NEW_FROM_ID).map((s) => ({
   name_en: s.name_en,

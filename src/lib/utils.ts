@@ -81,6 +81,26 @@ export const SUB_CITIES = [
   'Debre Tabor',
   'Lalibela',
   'Finote Selam',
+  // Oromia Region
+  'Adama',
+  'Bishoftu',
+  'Jimma',
+  'Nekemte',
+  'Ambo',
+  'Woliso',
+  'Asella',
+  'Shashamane',
+  'Hawassa',
+  'Dire Dawa',
+  'Harar',
+  'Ziway',
+  'Shambu',
+  'Metu',
+  'Moyale',
+  'Yabelo',
+  'Chiro',
+  'Dodola',
+  'Tepi',
 ]
 
 export const CURRICULA = [
