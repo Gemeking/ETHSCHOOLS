@@ -335,7 +335,7 @@ export default function SchoolsPage() {
 
               {/* Location dropdown panel */}
               {locationOpen && (
-                <div className="absolute top-full right-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
+                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
                   {/* Search input inside dropdown */}
                   <div className="p-3 border-b border-slate-100">
                     <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-50 transition-all">
