@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
 import { Search, PlusCircle, Pencil, ExternalLink, Globe, Lock, Building2, CheckCircle, XCircle } from 'lucide-react'
 import { schools as localSchools } from '@/lib/data'
@@ -14,6 +14,18 @@ export default function ManageSchoolsPage() {
   const [type, setType] = useState<SchoolType | 'all'>('all')
   const [schools, setSchools] = useState<School[]>(localSchools)
   const [toggling, setToggling] = useState<number | null>(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadFromSupabase() {
+      const { data, error } = await supabase.from('schools').select('*').order('id')
+      if (!error && data && data.length > 0) {
+        setSchools(data as School[])
+      }
+      setLoading(false)
+    }
+    loadFromSupabase()
+  }, [])
 
   const filtered = useMemo(() => {
     return schools.filter((s) => {
@@ -49,7 +61,9 @@ export default function ManageSchoolsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Manage Schools</h1>
-          <p className="text-slate-500 text-sm mt-1">{schools.length} schools in database</p>
+          <p className="text-slate-500 text-sm mt-1">
+            {loading ? 'Loading…' : `${schools.length} schools in database`}
+          </p>
         </div>
         <Link
           href="/admin/schools/new"
