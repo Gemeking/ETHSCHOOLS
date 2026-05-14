@@ -22,6 +22,16 @@ const MapComponent = dynamic(() => import('@/components/MapComponent'), {
 const TYPES: SchoolType[] = ['all', 'international', 'private', 'public']
 const MAX_FEE = 2_000_000
 
+const REGION_GROUPS: { region: string; emoji: string; cities: string[] }[] = [
+  { region: 'Addis Ababa', emoji: '🏙️', cities: ['Addis Ketema', 'Akaki Kaliti', 'Arada', 'Bole', 'Gulele', 'Kirkos', 'Kolfe Keranio', 'Lideta', 'Nifas Silk-Lafto', 'Yeka'] },
+  { region: 'Sheger City', emoji: '🌆', cities: ['Burayu', 'Sebeta', 'Sululta', 'Legetafo', 'Gelan'] },
+  { region: 'Amhara',      emoji: '🏔️', cities: ['Bahir Dar', 'Gondar', 'Dessie', 'Debre Markos', 'Debre Birhan', 'Kombolcha', 'Woldia', 'Debre Tabor', 'Lalibela', 'Finote Selam'] },
+  { region: 'Oromia',      emoji: '🌿', cities: ['Adama', 'Bishoftu', 'Jimma', 'Nekemte', 'Ambo', 'Woliso', 'Asella', 'Shashamane', 'Ziway', 'Shambu', 'Metu', 'Moyale', 'Yabelo', 'Chiro', 'Dodola', 'Tepi'] },
+  { region: 'Sidama',      emoji: '🦩', cities: ['Hawassa'] },
+  { region: 'Dire Dawa',   emoji: '🚂', cities: ['Dire Dawa'] },
+  { region: 'Harari',      emoji: '🕌', cities: ['Harar'] },
+]
+
 const CITY_META: Record<string, { emoji: string }> = {
   'Bole':             { emoji: '✈️' },
   'Yeka':             { emoji: '🏔️' },
@@ -375,43 +385,61 @@ export default function SchoolsPage() {
                       </button>
                     )}
 
-                    {/* City options filtered by locationQuery */}
-                    {SUB_CITIES.slice(1)
-                      .filter(city => {
-                        const count = cityCounts[city] ?? 0
-                        if (!count) return false
-                        if (!locationQuery) return true
-                        return city.toLowerCase().includes(locationQuery.toLowerCase())
-                      })
-                      .map(city => {
-                        const meta = CITY_META[city] ?? { emoji: '📍' }
-                        const count = cityCounts[city] ?? 0
-                        const active = subCity === city
+                    {/* Grouped by region */}
+                    {(() => {
+                      const q = locationQuery.toLowerCase()
+                      let anyShown = false
+                      const groups = REGION_GROUPS.map(({ region, emoji, cities }) => {
+                        const visible = cities.filter(city => {
+                          const count = cityCounts[city] ?? 0
+                          if (!count) return false
+                          if (!q) return true
+                          return city.toLowerCase().includes(q) || region.toLowerCase().includes(q)
+                        })
+                        return { region, emoji, visible }
+                      }).filter(g => g.visible.length > 0)
+
+                      if (groups.length === 0) {
                         return (
-                          <button
-                            key={city}
-                            type="button"
-                            onMouseDown={e => e.preventDefault()}
-                            onClick={() => { setSubCity(city); setLocationOpen(false); setLocationQuery('') }}
-                            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-slate-50 ${
-                              active ? 'bg-indigo-50' : ''
-                            }`}
-                          >
-                            <span className="text-base w-6 text-center leading-none">{meta.emoji}</span>
-                            <span className={`flex-1 text-sm font-semibold ${active ? 'text-indigo-700' : 'text-slate-700'}`}>{city}</span>
-                            <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${active ? 'bg-indigo-100 text-indigo-600' : 'text-slate-400'}`}>{count}</span>
-                            {active && <Check size={13} className="text-indigo-600 shrink-0" />}
-                          </button>
+                          <div className="px-4 py-6 text-center text-sm text-slate-400">
+                            No area matches &quot;{locationQuery}&quot;
+                          </div>
+                        )
+                      }
+
+                      return groups.map(({ region, emoji, visible }) => {
+                        anyShown = true
+                        return (
+                          <div key={region}>
+                            {/* Region header */}
+                            <div className="flex items-center gap-2 px-4 pt-3 pb-1">
+                              <span className="text-sm leading-none">{emoji}</span>
+                              <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest">{region}</span>
+                            </div>
+                            {/* Cities under this region */}
+                            {visible.map(city => {
+                              const meta = CITY_META[city] ?? { emoji: '📍' }
+                              const count = cityCounts[city] ?? 0
+                              const active = subCity === city
+                              return (
+                                <button
+                                  key={city}
+                                  type="button"
+                                  onMouseDown={e => e.preventDefault()}
+                                  onClick={() => { setSubCity(city); setLocationOpen(false); setLocationQuery('') }}
+                                  className={`w-full flex items-center gap-3 pl-8 pr-4 py-2 text-left transition-colors hover:bg-slate-50 ${active ? 'bg-indigo-50' : ''}`}
+                                >
+                                  <span className="text-sm w-5 text-center leading-none shrink-0">{meta.emoji}</span>
+                                  <span className={`flex-1 text-sm font-semibold ${active ? 'text-indigo-700' : 'text-slate-700'}`}>{city}</span>
+                                  <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${active ? 'bg-indigo-100 text-indigo-600' : 'text-slate-400'}`}>{count}</span>
+                                  {active && <Check size={13} className="text-indigo-600 shrink-0" />}
+                                </button>
+                              )
+                            })}
+                          </div>
                         )
                       })
-                    }
-
-                    {/* Empty state */}
-                    {locationQuery && SUB_CITIES.slice(1).filter(city => (cityCounts[city] ?? 0) > 0 && city.toLowerCase().includes(locationQuery.toLowerCase())).length === 0 && (
-                      <div className="px-4 py-6 text-center text-sm text-slate-400">
-                        No area matches &quot;{locationQuery}&quot;
-                      </div>
-                    )}
+                    })()}
                   </div>
                 </div>
               )}
