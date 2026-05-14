@@ -56,13 +56,7 @@ export default function Navbar() {
 
             <div className="w-px h-5 bg-slate-200 mx-2" />
 
-            <Link
-              href="/admin"
-              className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-slate-700 hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all duration-200"
-            >
-              <Shield size={13} />
-              Admin
-            </Link>
+            
           </div>
 
           {/* Mobile toggle */}
