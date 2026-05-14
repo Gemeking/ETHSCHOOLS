@@ -18,48 +18,123 @@
     "departments": [
       {
         "name": "Addis Ababa Institute of Technology (AAiT)",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Software Engineering", "Industrial Engineering", "Urban Design & Development", "Construction Technology & Management", "Computer Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Software Engineering",
+          "Industrial Engineering",
+          "Urban Design & Development",
+          "Construction Technology & Management",
+          "Computer Engineering"
+        ]
       },
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science", "Environmental Science", "Earth Sciences"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science",
+          "Environmental Science",
+          "Earth Sciences"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing Management", "Public Administration & Development Management", "Logistics & Supply Chain Management"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing Management",
+          "Public Administration & Development Management",
+          "Logistics & Supply Chain Management"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Medical Laboratory Sciences", "Public Health", "Dentistry", "Physiotherapy", "Anesthesia"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Medical Laboratory Sciences",
+          "Public Health",
+          "Dentistry",
+          "Physiotherapy",
+          "Anesthesia"
+        ]
       },
       {
         "name": "College of Social Sciences",
-        "programs": ["History & Heritage Management", "Geography & Environmental Studies", "Sociology", "Social Anthropology", "Psychology", "Political Science & International Relations"]
+        "programs": [
+          "History & Heritage Management",
+          "Geography & Environmental Studies",
+          "Sociology",
+          "Social Anthropology",
+          "Psychology",
+          "Political Science & International Relations"
+        ]
       },
       {
         "name": "College of Humanities, Language Studies, Journalism and Communication",
-        "programs": ["Ethiopian Languages & Literature", "English Language & Literature", "French", "Arabic", "Journalism & Communication", "Philosophy", "Foreign Languages"]
+        "programs": [
+          "Ethiopian Languages & Literature",
+          "English Language & Literature",
+          "French",
+          "Arabic",
+          "Journalism & Communication",
+          "Philosophy",
+          "Foreign Languages"
+        ]
       },
       {
         "name": "College of Law and Governance",
-        "programs": ["Law (LLB)", "Federalism and Governance Studies"]
+        "programs": [
+          "Law (LLB)",
+          "Federalism and Governance Studies"
+        ]
       },
       {
         "name": "College of Education and Behavioral Studies",
-        "programs": ["Curriculum Studies", "Educational Planning & Management", "Special Needs Education", "Adult Education & Community Development"]
+        "programs": [
+          "Curriculum Studies",
+          "Educational Planning & Management",
+          "Special Needs Education",
+          "Adult Education & Community Development"
+        ]
       },
       {
         "name": "Ethiopian Institute of Architecture, Building Construction and City Development (EiABC)",
-        "programs": ["Architecture", "Urban Planning & Development", "Construction Technology & Management"]
+        "programs": [
+          "Architecture",
+          "Urban Planning & Development",
+          "Construction Technology & Management"
+        ]
       },
       {
         "name": "College of Veterinary Medicine and Agriculture",
-        "programs": ["Veterinary Medicine", "Animal Science", "Agricultural Economics", "Horticulture", "Plant Science"]
+        "programs": [
+          "Veterinary Medicine",
+          "Animal Science",
+          "Agricultural Economics",
+          "Horticulture",
+          "Plant Science"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["research-university", "oldest", "engineering", "medicine", "law", "largest"],
+    "tags": [
+      "research-university",
+      "oldest",
+      "engineering",
+      "medicine",
+      "law",
+      "largest"
+    ],
     "verified": true
   },
   {
@@ -81,28 +156,58 @@
     "departments": [
       {
         "name": "School of Mechanical and Chemical Engineering",
-        "programs": ["Mechanical Engineering", "Chemical Engineering", "Automotive Engineering", "Industrial Engineering"]
+        "programs": [
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Automotive Engineering",
+          "Industrial Engineering"
+        ]
       },
       {
         "name": "School of Electrical and Computer Engineering",
-        "programs": ["Electrical Engineering", "Computer Engineering", "Electronics & Communication Engineering", "Biomedical Engineering"]
+        "programs": [
+          "Electrical Engineering",
+          "Computer Engineering",
+          "Electronics & Communication Engineering",
+          "Biomedical Engineering"
+        ]
       },
       {
         "name": "School of Civil and Environmental Engineering",
-        "programs": ["Civil Engineering", "Environmental Engineering", "Water Resources Engineering", "Geotechnical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Environmental Engineering",
+          "Water Resources Engineering",
+          "Geotechnical Engineering"
+        ]
       },
       {
         "name": "School of Applied Natural Sciences",
-        "programs": ["Applied Chemistry", "Applied Mathematics", "Applied Physics", "Biotechnology"]
+        "programs": [
+          "Applied Chemistry",
+          "Applied Mathematics",
+          "Applied Physics",
+          "Biotechnology"
+        ]
       },
       {
         "name": "School of Architecture and Urban Planning",
-        "programs": ["Architecture", "Urban and Regional Planning", "Interior Design"]
+        "programs": [
+          "Architecture",
+          "Urban and Regional Planning",
+          "Interior Design"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["stem", "technology", "engineering", "modern", "research"],
+    "tags": [
+      "stem",
+      "technology",
+      "engineering",
+      "modern",
+      "research"
+    ],
     "verified": true
   },
   {
@@ -124,32 +229,77 @@
     "departments": [
       {
         "name": "Institute of Health",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences", "Midwifery", "Health Informatics", "Physiotherapy"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery",
+          "Health Informatics",
+          "Physiotherapy"
+        ]
       },
       {
         "name": "College of Agriculture and Veterinary Medicine",
-        "programs": ["Agriculture", "Veterinary Medicine", "Agricultural Economics", "Animal Science", "Horticulture"]
+        "programs": [
+          "Agriculture",
+          "Veterinary Medicine",
+          "Agricultural Economics",
+          "Animal Science",
+          "Horticulture"
+        ]
       },
       {
         "name": "College of Natural Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Social Sciences and Law",
-        "programs": ["Law (LLB)", "Sociology", "History", "Political Science", "Psychology"]
+        "programs": [
+          "Law (LLB)",
+          "Sociology",
+          "History",
+          "Political Science",
+          "Psychology"
+        ]
       },
       {
         "name": "College of Engineering and Technology",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Computer Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Computer Engineering"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["medicine", "health-sciences", "agriculture", "oromia", "research"],
+    "tags": [
+      "medicine",
+      "health-sciences",
+      "agriculture",
+      "oromia",
+      "research"
+    ],
     "verified": true
   },
   {
@@ -171,32 +321,75 @@
     "departments": [
       {
         "name": "College of Agriculture",
-        "programs": ["Plant Science", "Animal Science", "Agricultural Economics", "Horticulture", "Food Science & Technology", "Agricultural Engineering", "Rural Development"]
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Agricultural Economics",
+          "Horticulture",
+          "Food Science & Technology",
+          "Agricultural Engineering",
+          "Rural Development"
+        ]
       },
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Public Health", "Medical Laboratory Sciences", "Pharmacy"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Pharmacy"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Chemical Engineering"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Business Administration"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Business Administration"
+        ]
       },
       {
         "name": "College of Social Sciences and Humanities",
-        "programs": ["Sociology", "History", "English Language", "Amharic Language & Literature", "Psychology"]
+        "programs": [
+          "Sociology",
+          "History",
+          "English Language",
+          "Amharic Language & Literature",
+          "Psychology"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["agriculture", "health-sciences", "lake-hawassa", "sidama", "natural-sciences"],
+    "tags": [
+      "agriculture",
+      "health-sciences",
+      "lake-hawassa",
+      "sidama",
+      "natural-sciences"
+    ],
     "verified": true
   },
   {
@@ -218,32 +411,75 @@
     "departments": [
       {
         "name": "Bahir Dar Institute of Technology (BiT)",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Software Engineering", "Textile Engineering", "Water Resources Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Software Engineering",
+          "Textile Engineering",
+          "Water Resources Engineering"
+        ]
       },
       {
         "name": "College of Science",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Geology"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Geology"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing Management", "Tourism Management"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing Management",
+          "Tourism Management"
+        ]
       },
       {
         "name": "College of Social Sciences",
-        "programs": ["History", "Geography", "Sociology", "Psychology", "Political Science"]
+        "programs": [
+          "History",
+          "Geography",
+          "Sociology",
+          "Psychology",
+          "Political Science"
+        ]
       },
       {
         "name": "College of Education",
-        "programs": ["Education Management", "Curriculum Studies", "TVET"]
+        "programs": [
+          "Education Management",
+          "Curriculum Studies",
+          "TVET"
+        ]
       },
       {
         "name": "College of Medicine and Health Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["engineering", "blue-nile", "lake-tana", "amhara", "technology"],
+    "tags": [
+      "engineering",
+      "blue-nile",
+      "lake-tana",
+      "amhara",
+      "technology"
+    ],
     "verified": true
   },
   {
@@ -265,32 +501,70 @@
     "departments": [
       {
         "name": "College of Dry Land Agriculture and Natural Resources",
-        "programs": ["Dryland Agriculture", "Animal Science", "Horticulture", "Natural Resource Management", "Agricultural Economics"]
+        "programs": [
+          "Dryland Agriculture",
+          "Animal Science",
+          "Horticulture",
+          "Natural Resource Management",
+          "Agricultural Economics"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Medicine (MD)", "Pharmacy", "Nursing", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+        "programs": [
+          "Medicine (MD)",
+          "Pharmacy",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Business Administration"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Business Administration"
+        ]
       },
       {
         "name": "School of Law",
-        "programs": ["Law (LLB)"]
+        "programs": [
+          "Law (LLB)"
+        ]
       },
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
       },
       {
         "name": "Ethiopian Institute of Technology — Mekelle (EiT-M)",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Chemical Engineering", "Mining Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Mining Engineering"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["dryland-agriculture", "health-sciences", "tigray", "engineering"],
+    "tags": [
+      "dryland-agriculture",
+      "health-sciences",
+      "tigray",
+      "engineering"
+    ],
     "verified": true
   },
   {
@@ -312,32 +586,71 @@
     "departments": [
       {
         "name": "College of Medicine and Health Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Medical Laboratory Sciences", "Environmental & Occupational Health", "Physiotherapy", "Optometry", "Mental Health"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Medical Laboratory Sciences",
+          "Environmental & Occupational Health",
+          "Physiotherapy",
+          "Optometry",
+          "Mental Health"
+        ]
       },
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "Statistics"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science",
+          "Statistics"
+        ]
       },
       {
         "name": "College of Social Sciences and Humanities",
-        "programs": ["History & Heritage Management", "Sociology", "Psychology", "Amharic Language", "English Language"]
+        "programs": [
+          "History & Heritage Management",
+          "Sociology",
+          "Psychology",
+          "Amharic Language",
+          "English Language"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Tourism & Hotel Management"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Tourism & Hotel Management"
+        ]
       },
       {
         "name": "School of Law",
-        "programs": ["Law (LLB)"]
+        "programs": [
+          "Law (LLB)"
+        ]
       },
       {
         "name": "School of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["medicine", "historic-city", "amhara", "health-sciences", "oldest"],
+    "tags": [
+      "medicine",
+      "historic-city",
+      "amhara",
+      "health-sciences",
+      "oldest"
+    ],
     "verified": true
   },
   {
@@ -359,32 +672,69 @@
     "departments": [
       {
         "name": "Faculty of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Hydraulic Engineering", "Computer Engineering", "Mechanical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Hydraulic Engineering",
+          "Computer Engineering",
+          "Mechanical Engineering"
+        ]
       },
       {
         "name": "Faculty of Water Technology",
-        "programs": ["Water Supply & Environmental Engineering", "Irrigation Engineering", "Hydropower Engineering"]
+        "programs": [
+          "Water Supply & Environmental Engineering",
+          "Irrigation Engineering",
+          "Hydropower Engineering"
+        ]
       },
       {
         "name": "Faculty of Natural Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics"
+        ]
       },
       {
         "name": "Faculty of Business & Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Tourism Management"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Tourism Management"
+        ]
       },
       {
         "name": "Faculty of Social Sciences",
-        "programs": ["Sociology", "History", "Geography", "Psychology"]
+        "programs": [
+          "Sociology",
+          "History",
+          "Geography",
+          "Psychology"
+        ]
       },
       {
         "name": "School of Medicine and Health Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Public Health"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["water-technology", "engineering", "snnpr", "lakes", "south-ethiopia"],
+    "tags": [
+      "water-technology",
+      "engineering",
+      "snnpr",
+      "lakes",
+      "south-ethiopia"
+    ],
     "verified": true
   },
   {
@@ -406,32 +756,70 @@
     "departments": [
       {
         "name": "College of Agriculture and Environmental Sciences",
-        "programs": ["Agronomy", "Horticulture", "Animal Production", "Soil & Water Management", "Agricultural Economics", "Agricultural Extension", "Plant Pathology"]
+        "programs": [
+          "Agronomy",
+          "Horticulture",
+          "Animal Production",
+          "Soil & Water Management",
+          "Agricultural Economics",
+          "Agricultural Extension",
+          "Plant Pathology"
+        ]
       },
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Chemistry", "Physics", "Biology", "Statistics", "Food Science & Nutrition", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Chemistry",
+          "Physics",
+          "Biology",
+          "Statistics",
+          "Food Science & Nutrition",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health and Medical Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Medical Laboratory Sciences", "Public Health"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Medical Laboratory Sciences",
+          "Public Health"
+        ]
       },
       {
         "name": "College of Law",
-        "programs": ["Law (LLB)"]
+        "programs": [
+          "Law (LLB)"
+        ]
       },
       {
         "name": "School of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Water Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Water Engineering"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["agriculture", "food-science", "oldest", "oromia", "east-ethiopia"],
+    "tags": [
+      "agriculture",
+      "food-science",
+      "oldest",
+      "oromia",
+      "east-ethiopia"
+    ],
     "verified": true
   },
   {
@@ -453,28 +841,59 @@
     "departments": [
       {
         "name": "School of Mechanical, Chemical and Materials Engineering",
-        "programs": ["Mechanical Engineering", "Chemical Engineering", "Materials Science & Engineering", "Industrial Engineering"]
+        "programs": [
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Materials Science & Engineering",
+          "Industrial Engineering"
+        ]
       },
       {
         "name": "School of Electrical Engineering and Computing",
-        "programs": ["Electrical Engineering", "Computer Science & Engineering", "Electronics & Communication Engineering", "Information Technology"]
+        "programs": [
+          "Electrical Engineering",
+          "Computer Science & Engineering",
+          "Electronics & Communication Engineering",
+          "Information Technology"
+        ]
       },
       {
         "name": "School of Civil Engineering and Architecture",
-        "programs": ["Civil Engineering", "Architecture", "Environmental Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Architecture",
+          "Environmental Engineering"
+        ]
       },
       {
         "name": "School of Applied Natural Sciences",
-        "programs": ["Applied Mathematics", "Applied Physics", "Applied Chemistry", "Biotechnology", "Geology"]
+        "programs": [
+          "Applied Mathematics",
+          "Applied Physics",
+          "Applied Chemistry",
+          "Biotechnology",
+          "Geology"
+        ]
       },
       {
         "name": "School of Business",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["stem", "technology", "engineering", "oromia", "adama"],
+    "tags": [
+      "stem",
+      "technology",
+      "engineering",
+      "oromia",
+      "adama"
+    ],
     "verified": true
   },
   {
@@ -496,24 +915,50 @@
     "departments": [
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Statistics", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Business and Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Logistics & Supply Chain"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Logistics & Supply Chain"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering"
+        ]
       },
       {
         "name": "College of Social Sciences",
-        "programs": ["Sociology", "History", "English Language", "Psychology"]
+        "programs": [
+          "Sociology",
+          "History",
+          "English Language",
+          "Psychology"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["eastern-ethiopia", "commerce", "logistics", "dire-dawa"],
+    "tags": [
+      "eastern-ethiopia",
+      "commerce",
+      "logistics",
+      "dire-dawa"
+    ],
     "verified": true
   },
   {
@@ -535,28 +980,57 @@
     "departments": [
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+        "programs": [
+          "Nursing",
+          "Pharmacy",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Chemical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Chemical Engineering"
+        ]
       },
       {
         "name": "College of Business & Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       },
       {
         "name": "College of Social Sciences & Humanities",
-        "programs": ["History", "Sociology", "Amharic Language", "English Language"]
+        "programs": [
+          "History",
+          "Sociology",
+          "Amharic Language",
+          "English Language"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["amhara", "dessie", "health-sciences"],
+    "tags": [
+      "amhara",
+      "dessie",
+      "health-sciences"
+    ],
     "verified": false
   },
   {
@@ -578,28 +1052,57 @@
     "departments": [
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science", "Statistics"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science",
+          "Statistics"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering"
+        ]
       },
       {
         "name": "College of Social Sciences",
-        "programs": ["History", "Sociology", "Geography", "English Language", "Psychology"]
+        "programs": [
+          "History",
+          "Sociology",
+          "Geography",
+          "English Language",
+          "Psychology"
+        ]
       },
       {
         "name": "College of Business",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       },
       {
         "name": "College of Agriculture",
-        "programs": ["Plant Science", "Animal Science", "Agricultural Economics"]
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Agricultural Economics"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["amhara", "north-shewa", "engineering"],
+    "tags": [
+      "amhara",
+      "north-shewa",
+      "engineering"
+    ],
     "verified": false
   },
   {
@@ -621,28 +1124,56 @@
     "departments": [
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences"]
+        "programs": [
+          "Nursing",
+          "Pharmacy",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering"
+        ]
       },
       {
         "name": "College of Business & Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       },
       {
         "name": "College of Social Sciences & Humanities",
-        "programs": ["History", "Sociology", "English Language", "Amharic"]
+        "programs": [
+          "History",
+          "Sociology",
+          "English Language",
+          "Amharic"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["amhara", "east-gojjam", "health-sciences"],
+    "tags": [
+      "amhara",
+      "east-gojjam",
+      "health-sciences"
+    ],
     "verified": false
   },
   {
@@ -664,28 +1195,58 @@
     "departments": [
       {
         "name": "College of Health Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
       },
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Chemistry", "Biology", "Physics", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Chemistry",
+          "Biology",
+          "Physics",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Agriculture",
-        "programs": ["Plant Science", "Animal Science", "Horticulture", "Agricultural Economics"]
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Horticulture",
+          "Agricultural Economics"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering"
+        ]
       },
       {
         "name": "College of Business",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["medicine", "health-sciences", "western-oromia", "agriculture"],
+    "tags": [
+      "medicine",
+      "health-sciences",
+      "western-oromia",
+      "agriculture"
+    ],
     "verified": false
   },
   {
@@ -707,28 +1268,58 @@
     "departments": [
       {
         "name": "College of Agriculture",
-        "programs": ["Plant Science", "Animal Science", "Agricultural Economics", "Horticulture", "Coffee Processing & Technology"]
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Agricultural Economics",
+          "Horticulture",
+          "Coffee Processing & Technology"
+        ]
       },
       {
         "name": "College of Natural Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Nursing", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
       },
       {
         "name": "College of Business & Economics",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       },
       {
         "name": "College of Education",
-        "programs": ["English Language Teaching", "Amharic", "History Education"]
+        "programs": [
+          "English Language Teaching",
+          "Amharic",
+          "History Education"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["agriculture", "coffee", "snnpr", "south-ethiopia"],
+    "tags": [
+      "agriculture",
+      "coffee",
+      "snnpr",
+      "south-ethiopia"
+    ],
     "verified": false
   },
   {
@@ -750,24 +1341,49 @@
     "departments": [
       {
         "name": "College of Urban Development and Engineering",
-        "programs": ["Urban Development & Management", "Construction Management", "Land Administration", "Environmental Science"]
+        "programs": [
+          "Urban Development & Management",
+          "Construction Management",
+          "Land Administration",
+          "Environmental Science"
+        ]
       },
       {
         "name": "College of Government and Development Studies",
-        "programs": ["Public Administration", "Development Management", "Democracy & Development", "Federal Studies"]
+        "programs": [
+          "Public Administration",
+          "Development Management",
+          "Democracy & Development",
+          "Federal Studies"
+        ]
       },
       {
         "name": "College of Finance & Economics",
-        "programs": ["Fiscal Policy & Development Finance", "Accounting & Finance", "Economics", "Revenue Administration"]
+        "programs": [
+          "Fiscal Policy & Development Finance",
+          "Accounting & Finance",
+          "Economics",
+          "Revenue Administration"
+        ]
       },
       {
         "name": "College of Law",
-        "programs": ["Administrative Law", "Constitutional Law", "Anti-Corruption Law"]
+        "programs": [
+          "Administrative Law",
+          "Constitutional Law",
+          "Anti-Corruption Law"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["public-administration", "governance", "civil-service", "policy", "addis-ababa"],
+    "tags": [
+      "public-administration",
+      "governance",
+      "civil-service",
+      "policy",
+      "addis-ababa"
+    ],
     "verified": true
   },
   {
@@ -789,24 +1405,50 @@
     "departments": [
       {
         "name": "College of Education",
-        "programs": ["Educational Planning & Management", "Curriculum Studies & Instruction", "Special Needs Education", "Early Childhood Care & Education", "TVET"]
+        "programs": [
+          "Educational Planning & Management",
+          "Curriculum Studies & Instruction",
+          "Special Needs Education",
+          "Early Childhood Care & Education",
+          "TVET"
+        ]
       },
       {
         "name": "College of Natural Sciences",
-        "programs": ["Mathematics Education", "Physics Education", "Chemistry Education", "Biology Education"]
+        "programs": [
+          "Mathematics Education",
+          "Physics Education",
+          "Chemistry Education",
+          "Biology Education"
+        ]
       },
       {
         "name": "College of Social Sciences",
-        "programs": ["History Education", "Geography Education", "Civics & Ethics Education", "Amharic Language Education"]
+        "programs": [
+          "History Education",
+          "Geography Education",
+          "Civics & Ethics Education",
+          "Amharic Language Education"
+        ]
       },
       {
         "name": "Institute of Sports Science",
-        "programs": ["Sports Science", "Physical Education", "Sports Management", "Recreation"]
+        "programs": [
+          "Sports Science",
+          "Physical Education",
+          "Sports Management",
+          "Recreation"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["teacher-training", "education", "sports-science", "addis-ababa"],
+    "tags": [
+      "teacher-training",
+      "education",
+      "sports-science",
+      "addis-ababa"
+    ],
     "verified": false
   },
   {
@@ -828,28 +1470,59 @@
     "departments": [
       {
         "name": "College of Business",
-        "programs": ["Accounting & Finance", "Management", "Economics", "Marketing", "Human Resource Management", "Banking & Finance", "Insurance"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing",
+          "Human Resource Management",
+          "Banking & Finance",
+          "Insurance"
+        ]
       },
       {
         "name": "College of Computing & Informatics",
-        "programs": ["Computer Science", "Information Technology", "Software Engineering", "Information Systems", "Computer Engineering"]
+        "programs": [
+          "Computer Science",
+          "Information Technology",
+          "Software Engineering",
+          "Information Systems",
+          "Computer Engineering"
+        ]
       },
       {
         "name": "College of Law",
-        "programs": ["Law (LLB)"]
+        "programs": [
+          "Law (LLB)"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Mechanical Engineering", "Architecture"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Architecture"
+        ]
       },
       {
         "name": "College of Social Sciences",
-        "programs": ["Journalism & Communication", "Psychology", "Sociology"]
+        "programs": [
+          "Journalism & Communication",
+          "Psychology",
+          "Sociology"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["private", "business", "law", "computing", "addis-ababa"],
+    "tags": [
+      "private",
+      "business",
+      "law",
+      "computing",
+      "addis-ababa"
+    ],
     "verified": true
   },
   {
@@ -871,28 +1544,56 @@
     "departments": [
       {
         "name": "College of Business & Management",
-        "programs": ["Accounting & Finance", "Business Management", "Economics", "Marketing Management", "Banking & Finance"]
+        "programs": [
+          "Accounting & Finance",
+          "Business Management",
+          "Economics",
+          "Marketing Management",
+          "Banking & Finance"
+        ]
       },
       {
         "name": "College of Computing & IT",
-        "programs": ["Computer Science", "Information Technology", "Software Engineering", "Networking"]
+        "programs": [
+          "Computer Science",
+          "Information Technology",
+          "Software Engineering",
+          "Networking"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Nursing", "Pharmacy", "Public Health", "Medical Laboratory Sciences"]
+        "programs": [
+          "Nursing",
+          "Pharmacy",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering", "Architecture"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Architecture"
+        ]
       },
       {
         "name": "College of Law",
-        "programs": ["Law (LLB)"]
+        "programs": [
+          "Law (LLB)"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["private", "business", "health-sciences", "multi-campus", "addis-ababa"],
+    "tags": [
+      "private",
+      "business",
+      "health-sciences",
+      "multi-campus",
+      "addis-ababa"
+    ],
     "verified": false
   },
   {
@@ -914,24 +1615,50 @@
     "departments": [
       {
         "name": "College of Natural and Computational Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Medicine (MD)", "Nursing", "Pharmacy", "Public Health"]
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Public Health"
+        ]
       },
       {
         "name": "College of Social Sciences & Humanities",
-        "programs": ["Archaeology & Heritage Management", "Tourism Management", "History", "English Language", "Tigrigna Literature"]
+        "programs": [
+          "Archaeology & Heritage Management",
+          "Tourism Management",
+          "History",
+          "English Language",
+          "Tigrigna Literature"
+        ]
       },
       {
         "name": "College of Engineering",
-        "programs": ["Civil Engineering", "Electrical Engineering"]
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["ancient-city", "archaeology", "tigray", "heritage", "tourism"],
+    "tags": [
+      "ancient-city",
+      "archaeology",
+      "tigray",
+      "heritage",
+      "tourism"
+    ],
     "verified": false
   },
   {
@@ -953,24 +1680,46 @@
     "departments": [
       {
         "name": "College of Natural Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Nursing", "Public Health", "Medical Laboratory Sciences", "Midwifery"]
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
       },
       {
         "name": "College of Business",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       },
       {
         "name": "College of Education",
-        "programs": ["Biology Education", "Chemistry Education", "English Language Education"]
+        "programs": [
+          "Biology Education",
+          "Chemistry Education",
+          "English Language Education"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["western-oromia", "health-sciences"],
+    "tags": [
+      "western-oromia",
+      "health-sciences"
+    ],
     "verified": false
   },
   {
@@ -992,24 +1741,49 @@
     "departments": [
       {
         "name": "College of Agriculture & Natural Resources",
-        "programs": ["Plant Science", "Animal Science", "Horticulture", "Forestry", "Coffee & Spice Technology"]
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Horticulture",
+          "Forestry",
+          "Coffee & Spice Technology"
+        ]
       },
       {
         "name": "College of Natural Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Nursing", "Public Health", "Midwifery", "Medical Laboratory Sciences"]
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Midwifery",
+          "Medical Laboratory Sciences"
+        ]
       },
       {
         "name": "College of Business",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["coffee", "southwest-ethiopia", "agriculture", "snnpr"],
+    "tags": [
+      "coffee",
+      "southwest-ethiopia",
+      "agriculture",
+      "snnpr"
+    ],
     "verified": false
   },
   {
@@ -1031,24 +1805,2355 @@
     "departments": [
       {
         "name": "College of Natural Sciences",
-        "programs": ["Mathematics", "Physics", "Chemistry", "Biology", "Computer Science"]
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
       },
       {
         "name": "College of Health Sciences",
-        "programs": ["Nursing", "Public Health", "Midwifery", "Medical Laboratory Sciences"]
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Midwifery",
+          "Medical Laboratory Sciences"
+        ]
       },
       {
         "name": "College of Agriculture",
-        "programs": ["Plant Science", "Animal Science", "Agricultural Economics"]
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Agricultural Economics"
+        ]
       },
       {
         "name": "College of Business",
-        "programs": ["Accounting & Finance", "Management", "Economics"]
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
       }
     ],
     "images": [],
     "image_url": null,
-    "tags": ["benishangul-gumuz", "western-ethiopia", "remote"],
+    "tags": [
+      "benishangul-gumuz",
+      "western-ethiopia",
+      "remote"
+    ],
     "verified": false
+  },
+  {
+    "id": 25,
+    "name_en": "Ambo University",
+    "name_am": "አምቦ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Ambo",
+    "region": "Oromia",
+    "latitude": 8.9876,
+    "longitude": 37.8584,
+    "established": 2011,
+    "website": "ambou.edu.et",
+    "phone": "+251 11 236 0038",
+    "email": "info@ambou.edu.et",
+    "description": "Ambo University is a public university in Ambo town, West Shewa Zone, Oromia. It offers programs in natural sciences, agriculture, social sciences, technology, and business.",
+    "student_count": "~18,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Agriculture and Natural Resources",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Horticulture",
+          "Agricultural Economics",
+          "Natural Resources Management",
+          "Rural Development"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Chemistry",
+          "Biology",
+          "Physics",
+          "Computer Science",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing Management"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English Language & Literature",
+          "History",
+          "Geography",
+          "Sociology"
+        ]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Water Resources Engineering"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Pharmacy"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "agriculture",
+      "oromia",
+      "stem",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 26,
+    "name_en": "Arsi University",
+    "name_am": "አርሲ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Asella",
+    "region": "Oromia",
+    "latitude": 7.9699,
+    "longitude": 39.1265,
+    "established": 2012,
+    "website": "arsiu.edu.et",
+    "phone": "+251 22 233 0040",
+    "email": "info@arsiu.edu.et",
+    "description": "Arsi University is a public university located in Asella, Arsi Zone, Oromia Region. It serves the surrounding community with programs in health, agriculture, natural sciences, and engineering.",
+    "student_count": "~14,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery",
+          "Pharmacy"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Agricultural Economics",
+          "Natural Resources & Environmental Sciences"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "English",
+          "History",
+          "Geography",
+          "Civics"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "oromia",
+      "health",
+      "agriculture",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 27,
+    "name_en": "Wolaita Sodo University",
+    "name_am": "ወላይታ ሶዶ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Wolaita Sodo",
+    "region": "Sidama",
+    "latitude": 6.8487,
+    "longitude": 37.7538,
+    "established": 2007,
+    "website": "wsu.edu.et",
+    "phone": "+251 46 551 0033",
+    "email": "info@wsu.edu.et",
+    "description": "Wolaita Sodo University is one of Ethiopia's leading second-generation universities, located in Wolaita Sodo town. It is known for its strong programs in health sciences, agriculture, and technology serving the southern regions.",
+    "student_count": "~25,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences and Medicine",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Medical Laboratory Sciences",
+          "Midwifery",
+          "Public Health",
+          "Anesthesia"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Agricultural Economics",
+          "Horticulture",
+          "Natural Resources Management"
+        ]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Information Technology"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing Management",
+          "Public Administration"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Geography",
+          "Sociology",
+          "Journalism & Communication"
+        ]
+      },
+      {
+        "name": "School of Law",
+        "programs": [
+          "Law (LLB)"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "health",
+      "agriculture",
+      "engineering",
+      "southern-ethiopia",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 28,
+    "name_en": "Wolkite University",
+    "name_am": "ወልቂጤ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Wolkite",
+    "region": "Central Ethiopia",
+    "latitude": 8.2898,
+    "longitude": 37.7852,
+    "established": 2013,
+    "website": "wku.edu.et",
+    "phone": "+251 11 467 0088",
+    "email": "info@wku.edu.et",
+    "description": "Wolkite University is a public university located in Wolkite, Gurage Zone. It offers undergraduate and postgraduate programs focused on science, technology, agriculture, and social sciences.",
+    "student_count": "~12,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Industrial Engineering"
+        ]
+      },
+      {
+        "name": "College of Agriculture and Natural Resources",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Agricultural Economics",
+          "Natural Resources Management"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Sociology"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "central-ethiopia",
+      "stem",
+      "agriculture",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 29,
+    "name_en": "Bule Hora University",
+    "name_am": "ቡሌ ሆራ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Bule Hora",
+    "region": "Oromia",
+    "latitude": 5.6257,
+    "longitude": 38.249,
+    "established": 2013,
+    "website": "bhu.edu.et",
+    "phone": "+251 46 443 0050",
+    "email": "info@bhu.edu.et",
+    "description": "Bule Hora University is a public university in Bule Hora, Borena Zone of Oromia Region. It serves communities in southern Oromia with programs in health, agriculture, natural sciences, and social sciences.",
+    "student_count": "~10,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "College of Agriculture and Environmental Sciences",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Natural Resources Management",
+          "Agricultural Economics"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Geography"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "oromia",
+      "borena",
+      "public",
+      "southern"
+    ],
+    "verified": true
+  },
+  {
+    "id": 30,
+    "name_en": "Gambella University",
+    "name_am": "ጋምቤላ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Gambella",
+    "region": "Gambella",
+    "latitude": 8.2494,
+    "longitude": 34.5872,
+    "established": 2012,
+    "website": "gu.edu.et",
+    "phone": "+251 47 551 0044",
+    "email": "info@gu.edu.et",
+    "description": "Gambella University is a public university serving the Gambella People's Region. It offers programs designed to address the unique social and developmental needs of Ethiopia's westernmost region.",
+    "student_count": "~5,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Agriculture and Natural Resources",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Natural Resources Management"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Sociology"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "gambella",
+      "western-ethiopia",
+      "public",
+      "remote"
+    ],
+    "verified": true
+  },
+  {
+    "id": 31,
+    "name_en": "Jijiga University",
+    "name_am": "ጂጂጋ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Jijiga",
+    "region": "Somali",
+    "latitude": 9.3506,
+    "longitude": 42.7926,
+    "established": 2011,
+    "website": "ju.edu.et",
+    "phone": "+251 25 775 5100",
+    "email": "info@ju.edu.et",
+    "description": "Jijiga University is the main public university in the Somali Regional State of Ethiopia. It plays a central role in providing higher education to the region and offers programs in health, business, natural sciences, and engineering.",
+    "student_count": "~12,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery",
+          "Pharmacy"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing Management"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Animal Production",
+          "Plant Science",
+          "Dry Land Agriculture"
+        ]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Water Resources Engineering"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "English",
+          "History",
+          "Somali Language & Literature",
+          "Geography"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "somali",
+      "eastern-ethiopia",
+      "health",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 32,
+    "name_en": "Samara University",
+    "name_am": "ሳምራ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Samara",
+    "region": "Afar",
+    "latitude": 11.7957,
+    "longitude": 40.9965,
+    "established": 2012,
+    "website": "samarau.edu.et",
+    "phone": "+251 33 665 0050",
+    "email": "info@samarau.edu.et",
+    "description": "Samara University is a public university in Samara, the capital of the Afar Regional State. It is the primary higher education institution for the Afar people, offering programs suited to the region's pastoral and semi-arid conditions.",
+    "student_count": "~8,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Agriculture and Range Sciences",
+        "programs": [
+          "Animal Science",
+          "Range & Pasture Management",
+          "Dry Land Farming",
+          "Agricultural Economics"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Afar Language Studies",
+          "Sociology"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Water Resources Engineering"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "afar",
+      "pastoral",
+      "northeast-ethiopia",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 33,
+    "name_en": "Wachemo University",
+    "name_am": "ዋቸሞ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Hosaena",
+    "region": "Central Ethiopia",
+    "latitude": 7.5542,
+    "longitude": 37.8561,
+    "established": 2011,
+    "website": "wachemo.edu.et",
+    "phone": "+251 46 550 0066",
+    "email": "info@wachemo.edu.et",
+    "description": "Wachemo University is a public university based in Hosaena, Hadiya Zone. It serves students from the Hadiya, Kembata and surrounding zones with strong programs in health, agriculture, engineering, and social sciences.",
+    "student_count": "~15,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery",
+          "Pharmacy"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Horticulture",
+          "Agricultural Economics",
+          "Natural Resources"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Water Technology"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Sociology",
+          "Geography"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "central-ethiopia",
+      "hadiya",
+      "health",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 34,
+    "name_en": "Injibara University",
+    "name_am": "ኢንጅባራ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Injibara",
+    "region": "Amhara",
+    "latitude": 10.8451,
+    "longitude": 36.9478,
+    "established": 2016,
+    "website": "iu.edu.et",
+    "phone": "+251 58 220 0033",
+    "email": "info@iu.edu.et",
+    "description": "Injibara University is a public university in Injibara, Awi Zone of Amhara Region. It is among Ethiopia's newer universities, providing higher education access to the northwestern Amhara communities.",
+    "student_count": "~8,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Natural Resources Management"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Geography"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "amhara",
+      "awi",
+      "public",
+      "new"
+    ],
+    "verified": true
+  },
+  {
+    "id": 35,
+    "name_en": "Selale University",
+    "name_am": "ሰላሌ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Fitche",
+    "region": "Oromia",
+    "latitude": 9.7999,
+    "longitude": 38.7223,
+    "established": 2016,
+    "website": "selale.edu.et",
+    "phone": "+251 11 160 0022",
+    "email": "info@selale.edu.et",
+    "description": "Selale University is a public university situated in Fitche, North Shewa Zone of Oromia. It provides higher education to communities in the North Shewa region with programs in agriculture, natural sciences, health, and engineering.",
+    "student_count": "~9,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Agriculture and Environmental Sciences",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Natural Resources Management",
+          "Environmental Science"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Biology",
+          "Chemistry",
+          "Physics",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "English",
+          "History",
+          "Sociology"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "oromia",
+      "north-shewa",
+      "agriculture",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 36,
+    "name_en": "Oda Bultum University",
+    "name_am": "ኦዳ ቡልቱም ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Chiro",
+    "region": "Oromia",
+    "latitude": 9.0716,
+    "longitude": 40.8654,
+    "established": 2016,
+    "website": "obу.edu.et",
+    "phone": "+251 25 661 0050",
+    "email": "info@obu.edu.et",
+    "description": "Oda Bultum University is a public university in Chiro, West Hararghe Zone of Oromia. It serves eastern Oromia communities offering programs in health sciences, agriculture, engineering, and natural sciences.",
+    "student_count": "~10,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Biology",
+          "Chemistry",
+          "Physics",
+          "Computer Science",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Plant Science",
+          "Animal Production",
+          "Agricultural Economics",
+          "Natural Resources"
+        ]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Oromo Language & Literature"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "oromia",
+      "hararghe",
+      "public",
+      "eastern"
+    ],
+    "verified": true
+  },
+  {
+    "id": 37,
+    "name_en": "Kebri Dehar University",
+    "name_am": "ቀብሪ ደሃር ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Kebri Dehar",
+    "region": "Somali",
+    "latitude": 6.739,
+    "longitude": 44.277,
+    "established": 2016,
+    "website": "kdu.edu.et",
+    "phone": "+251 25 782 0044",
+    "email": "info@kdu.edu.et",
+    "description": "Kebri Dehar University is a public university in Kebri Dehar, Korahe Zone of the Somali Region. It provides higher education access to communities in southern and eastern Somali Region.",
+    "student_count": "~6,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Biology",
+          "Chemistry",
+          "Physics",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Agriculture and Range Sciences",
+        "programs": [
+          "Animal Production",
+          "Dry Land Agriculture",
+          "Range Management"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "English",
+          "Somali Language",
+          "History"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "somali",
+      "remote",
+      "public",
+      "eastern-ethiopia"
+    ],
+    "verified": true
+  },
+  {
+    "id": 38,
+    "name_en": "Bonga University",
+    "name_am": "ቦንጋ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Bonga",
+    "region": "Southwest Ethiopia",
+    "latitude": 7.2672,
+    "longitude": 36.2394,
+    "established": 2016,
+    "website": "bongau.edu.et",
+    "phone": "+251 47 334 0055",
+    "email": "info@bongau.edu.et",
+    "description": "Bonga University is a public university in Bonga, Kaffa Zone of Southwest Ethiopia. It serves communities in the coffee-rich southwest with programs in agriculture, natural sciences, health, and engineering.",
+    "student_count": "~8,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Agriculture and Natural Resources",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Coffee & Tea Technology",
+          "Forestry",
+          "Natural Resources Management"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Biology",
+          "Chemistry",
+          "Physics",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Geography"
+        ]
+      },
+      {
+        "name": "School of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "southwest-ethiopia",
+      "kaffa",
+      "coffee",
+      "agriculture",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 39,
+    "name_en": "Debre Tabor University",
+    "name_am": "ደብረ ታቦር ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Debre Tabor",
+    "region": "Amhara",
+    "latitude": 11.8623,
+    "longitude": 38.0175,
+    "established": 2013,
+    "website": "dtu.edu.et",
+    "phone": "+251 58 226 0033",
+    "email": "info@dtu.edu.et",
+    "description": "Debre Tabor University is a public university in Debre Tabor, South Gondar Zone of Amhara Region. It offers programs in health sciences, natural sciences, engineering, social sciences, and agriculture.",
+    "student_count": "~12,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery",
+          "Pharmacy"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science",
+          "Statistics"
+        ]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Information Technology"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Natural Resources Management"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Geography",
+          "Sociology"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "amhara",
+      "south-gondar",
+      "health",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 40,
+    "name_en": "Madda Walabu University",
+    "name_am": "ማዳ ዋላቡ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Robe",
+    "region": "Oromia",
+    "latitude": 7.1204,
+    "longitude": 40.0055,
+    "established": 2012,
+    "website": "mwu.edu.et",
+    "phone": "+251 22 266 0044",
+    "email": "info@mwu.edu.et",
+    "description": "Madda Walabu University is a public university in Robe, Bale Zone of Oromia. It serves communities in southeastern Oromia and the Bale Mountains area, with programs in health, agriculture, natural sciences, and engineering.",
+    "student_count": "~14,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
+      },
+      {
+        "name": "College of Agriculture and Environmental Sciences",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Forestry",
+          "Natural Resources",
+          "Agricultural Economics"
+        ]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Water Resources Engineering"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "English",
+          "History",
+          "Oromo Language",
+          "Sociology"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "oromia",
+      "bale",
+      "health",
+      "agriculture",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 41,
+    "name_en": "Adigrat University",
+    "name_am": "አዲግራት ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Adigrat",
+    "region": "Tigray",
+    "latitude": 14.2784,
+    "longitude": 39.4612,
+    "established": 2012,
+    "website": "agu.edu.et",
+    "phone": "+251 34 444 0055",
+    "email": "info@agu.edu.et",
+    "description": "Adigrat University is a public university in Adigrat, Eastern Tigray. It is the second largest university in Tigray Region and is known for its programs in engineering, health, business, and natural sciences.",
+    "student_count": "~18,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Chemical Engineering",
+          "Mining Engineering",
+          "Industrial Engineering"
+        ]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Pharmacy",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Statistics",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing Management",
+          "Public Administration"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Geography",
+          "Tigrinya Language & Literature",
+          "Journalism"
+        ]
+      },
+      {
+        "name": "College of Agriculture",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Dry Land Agriculture",
+          "Natural Resources"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "tigray",
+      "engineering",
+      "health",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 42,
+    "name_en": "Woldia University",
+    "name_am": "ወልዲያ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Woldia",
+    "region": "Amhara",
+    "latitude": 11.8278,
+    "longitude": 39.5958,
+    "established": 2013,
+    "website": "woldiau.edu.et",
+    "phone": "+251 33 331 0055",
+    "email": "info@woldiau.edu.et",
+    "description": "Woldia University is a public university in Woldia, North Wollo Zone of Amhara Region. It serves North Wollo communities with programs in health, agriculture, engineering, natural sciences, and social sciences.",
+    "student_count": "~14,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Medicine (MD)",
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Midwifery",
+          "Pharmacy"
+        ]
+      },
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Water Resources Engineering"
+        ]
+      },
+      {
+        "name": "College of Natural and Computational Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Agriculture and Natural Resources",
+        "programs": [
+          "Plant Science",
+          "Animal Science",
+          "Natural Resources",
+          "Agricultural Economics"
+        ]
+      },
+      {
+        "name": "College of Business and Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences and Humanities",
+        "programs": [
+          "English",
+          "History",
+          "Sociology",
+          "Amharic Language"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "amhara",
+      "north-wollo",
+      "health",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 43,
+    "name_en": "Defense University",
+    "name_am": "ዲፌንስ ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Bishoftu",
+    "region": "Oromia",
+    "latitude": 8.7533,
+    "longitude": 38.9953,
+    "established": 2009,
+    "website": "du.edu.et",
+    "phone": "+251 11 437 0088",
+    "email": "info@du.edu.et",
+    "description": "Defense University (formerly Ethiopian National Defense University) is a specialized public university in Bishoftu (Debre Zeit) operated under the Ministry of National Defense. It trains military officers and defense personnel in academic and professional fields.",
+    "student_count": "~3,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "College of Engineering and Technology",
+        "programs": [
+          "Civil Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Computer Science"
+        ]
+      },
+      {
+        "name": "College of Business and Management",
+        "programs": [
+          "Management",
+          "Public Administration",
+          "Economics",
+          "Logistics"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "History",
+          "Political Science",
+          "International Relations",
+          "Leadership Studies"
+        ]
+      },
+      {
+        "name": "College of Natural Sciences",
+        "programs": [
+          "Mathematics",
+          "Physics",
+          "Chemistry"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "defense",
+      "military",
+      "bishoftu",
+      "specialized",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 44,
+    "name_en": "St. Mary's University",
+    "name_am": "ቅዱስ ማርያም ዩኒቨርሲቲ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.019,
+    "longitude": 38.7724,
+    "established": 1998,
+    "website": "stmarys.edu.et",
+    "phone": "+251 11 552 9010",
+    "email": "info@stmarys.edu.et",
+    "description": "St. Mary's University is one of Ethiopia's leading private universities, established in 1998. It is known for its strong business, law, and IT programs and has produced a large number of graduates who are active in Ethiopia's private sector.",
+    "student_count": "~18,000",
+    "fee_range_etb": "35,000–80,000 per year",
+    "departments": [
+      {
+        "name": "College of Business",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Marketing Management",
+          "Supply Chain Management",
+          "Banking & Insurance",
+          "Cooperatives Management"
+        ]
+      },
+      {
+        "name": "School of Law",
+        "programs": [
+          "Law (LLB)",
+          "Notary and Documentation"
+        ]
+      },
+      {
+        "name": "College of Informatics",
+        "programs": [
+          "Computer Science",
+          "Information Systems",
+          "Information Technology",
+          "Software Engineering"
+        ]
+      },
+      {
+        "name": "College of Education",
+        "programs": [
+          "Educational Leadership & Management",
+          "Curriculum & Instruction"
+        ]
+      },
+      {
+        "name": "School of Graduate Studies",
+        "programs": [
+          "MBA",
+          "Project Management (MSc)",
+          "Accounting & Finance (MA)"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "private",
+      "business",
+      "law",
+      "IT",
+      "addis-ababa",
+      "popular"
+    ],
+    "verified": true
+  },
+  {
+    "id": 45,
+    "name_en": "Admas University",
+    "name_am": "አድማስ ዩኒቨርሲቲ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0267,
+    "longitude": 38.7465,
+    "established": 2005,
+    "website": "admasuniversity.edu.et",
+    "phone": "+251 11 156 3999",
+    "email": "info@admasuniversity.edu.et",
+    "description": "Admas University is a prominent private university in Addis Ababa, offering a wide range of undergraduate and postgraduate programs. It has multiple campuses across Ethiopia and is known for business, health, and technology programs.",
+    "student_count": "~20,000",
+    "fee_range_etb": "30,000–75,000 per year",
+    "departments": [
+      {
+        "name": "College of Business & Economics",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Economics",
+          "Marketing",
+          "Tourism & Hotel Management",
+          "Banking & Finance"
+        ]
+      },
+      {
+        "name": "College of Computing & Informatics",
+        "programs": [
+          "Computer Science",
+          "Information Technology",
+          "Software Engineering",
+          "Information Systems"
+        ]
+      },
+      {
+        "name": "College of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health",
+          "Medical Laboratory Sciences",
+          "Pharmacy",
+          "Midwifery"
+        ]
+      },
+      {
+        "name": "College of Engineering",
+        "programs": [
+          "Civil Engineering",
+          "Architecture",
+          "Electrical Engineering"
+        ]
+      },
+      {
+        "name": "College of Law",
+        "programs": [
+          "Law (LLB)"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "Journalism & Communication",
+          "Public Administration",
+          "Sociology"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "private",
+      "multi-campus",
+      "business",
+      "health",
+      "technology",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 46,
+    "name_en": "Harmabe University",
+    "name_am": "ሃርምቤ ዩኒቨርሲቲ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0136,
+    "longitude": 38.7614,
+    "established": 2008,
+    "website": "harmabe.edu.et",
+    "phone": "+251 11 467 0044",
+    "email": "info@harmabe.edu.et",
+    "description": "Harmabe University is a private higher education institution in Addis Ababa offering programs in business, technology, and social sciences to thousands of students annually.",
+    "student_count": "~8,000",
+    "fee_range_etb": "28,000–65,000 per year",
+    "departments": [
+      {
+        "name": "College of Business and Management",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Marketing Management",
+          "Supply Chain Management"
+        ]
+      },
+      {
+        "name": "College of Informatics",
+        "programs": [
+          "Computer Science",
+          "Information Technology",
+          "Information Systems"
+        ]
+      },
+      {
+        "name": "College of Social Sciences",
+        "programs": [
+          "Journalism & Communication",
+          "Public Administration",
+          "Sociology"
+        ]
+      },
+      {
+        "name": "School of Law",
+        "programs": [
+          "Law (LLB)"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "private",
+      "business",
+      "technology",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 47,
+    "name_en": "Alpha University College",
+    "name_am": "አልፋ ዩኒቨርሲቲ ኮሌጅ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0088,
+    "longitude": 38.7793,
+    "established": 2007,
+    "website": "alphauniversity.edu.et",
+    "phone": "+251 11 416 0033",
+    "email": "info@alphauniversity.edu.et",
+    "description": "Alpha University College is a private higher education institution in Addis Ababa providing programs in business, computing, health, and social sciences at both diploma and degree levels.",
+    "student_count": "~5,000",
+    "fee_range_etb": "25,000–60,000 per year",
+    "departments": [
+      {
+        "name": "Department of Business",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Marketing Management"
+        ]
+      },
+      {
+        "name": "Department of Computing",
+        "programs": [
+          "Computer Science",
+          "Information Technology",
+          "Information Systems"
+        ]
+      },
+      {
+        "name": "Department of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Medical Laboratory Sciences",
+          "Pharmacy"
+        ]
+      },
+      {
+        "name": "Department of Social Sciences",
+        "programs": [
+          "Public Administration",
+          "Sociology"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "private",
+      "college",
+      "business",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 48,
+    "name_en": "International Leadership University",
+    "name_am": "ዓለም አቀፍ ሊደርሺፕ ዩኒቨርሲቲ",
+    "university_type": "faith_based",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0313,
+    "longitude": 38.7502,
+    "established": 2003,
+    "website": "ilu.edu.et",
+    "phone": "+251 11 371 9191",
+    "email": "info@ilu.edu.et",
+    "description": "International Leadership University (ILU) is a Christian faith-based university in Addis Ababa, focusing on leadership, business, and community development. It aims to produce leaders with integrity grounded in Christian values.",
+    "student_count": "~3,000",
+    "fee_range_etb": "40,000–90,000 per year",
+    "departments": [
+      {
+        "name": "College of Leadership and Development Studies",
+        "programs": [
+          "Organizational Leadership",
+          "Development Studies",
+          "Community Development"
+        ]
+      },
+      {
+        "name": "College of Business",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Marketing Management"
+        ]
+      },
+      {
+        "name": "College of Theology",
+        "programs": [
+          "Christian Ministries",
+          "Intercultural Studies",
+          "Christian Ethics"
+        ]
+      },
+      {
+        "name": "College of Education",
+        "programs": [
+          "Educational Leadership",
+          "Curriculum & Instruction"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "faith-based",
+      "christian",
+      "leadership",
+      "private",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 49,
+    "name_en": "Myungsung Medical College",
+    "name_am": "ምዩንግሱንግ ሕክምና ኮሌጅ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0455,
+    "longitude": 38.7661,
+    "established": 2011,
+    "website": "mmc.edu.et",
+    "phone": "+251 11 647 0033",
+    "email": "info@mmc.edu.et",
+    "description": "Myungsung Medical College is a private medical college in Addis Ababa, affiliated with Myungsung Christian Medical Center. It focuses exclusively on health sciences training including medicine, nursing, and allied health programs.",
+    "student_count": "~1,500",
+    "fee_range_etb": "60,000–120,000 per year",
+    "departments": [
+      {
+        "name": "School of Medicine",
+        "programs": [
+          "Medicine (MD)"
+        ]
+      },
+      {
+        "name": "School of Nursing",
+        "programs": [
+          "Nursing (BSc)",
+          "Midwifery"
+        ]
+      },
+      {
+        "name": "School of Allied Health Sciences",
+        "programs": [
+          "Medical Laboratory Sciences",
+          "Pharmacy",
+          "Public Health",
+          "Anesthesia"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "private",
+      "medical",
+      "health",
+      "addis-ababa",
+      "specialized"
+    ],
+    "verified": true
+  },
+  {
+    "id": 50,
+    "name_en": "Ethiopian Graduate School of Theology",
+    "name_am": "የኢትዮጵያ ቲዮሎጂ ምረቃ ትምህርት ቤት",
+    "university_type": "faith_based",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0277,
+    "longitude": 38.754,
+    "established": 1990,
+    "website": "egst.edu.et",
+    "phone": "+251 11 123 1041",
+    "email": "info@egst.edu.et",
+    "description": "The Ethiopian Graduate School of Theology (EGST) is an evangelical Christian graduate school in Addis Ababa offering advanced theological education. It is one of East Africa's leading institutions for theological studies and missions.",
+    "student_count": "~500",
+    "fee_range_etb": "25,000–55,000 per year",
+    "departments": [
+      {
+        "name": "School of Theology",
+        "programs": [
+          "Theology (MA)",
+          "Biblical Studies",
+          "Church History",
+          "Christian Ethics",
+          "Missiology"
+        ]
+      },
+      {
+        "name": "School of Leadership Studies",
+        "programs": [
+          "Leadership & Management (MA)",
+          "Transformational Development"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "faith-based",
+      "theology",
+      "graduate",
+      "evangelical",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 51,
+    "name_en": "Meserete Kristos College",
+    "name_am": "መሠረተ ክርስቶስ ኮሌጅ",
+    "university_type": "faith_based",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 8.9956,
+    "longitude": 38.7842,
+    "established": 2009,
+    "website": "mkc.edu.et",
+    "phone": "+251 11 434 0077",
+    "email": "info@mkc.edu.et",
+    "description": "Meserete Kristos College is affiliated with the Meserete Kristos Church (Ethiopian Mennonite), offering programs in business, health, theology, and development studies. It is known for its community development focus.",
+    "student_count": "~2,500",
+    "fee_range_etb": "30,000–65,000 per year",
+    "departments": [
+      {
+        "name": "Department of Theology & Ministry",
+        "programs": [
+          "Theology",
+          "Christian Ministries",
+          "Community Development"
+        ]
+      },
+      {
+        "name": "Department of Business",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Marketing Management"
+        ]
+      },
+      {
+        "name": "Department of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "faith-based",
+      "mennonite",
+      "community-development",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 52,
+    "name_en": "Mekane Yesus Seminary",
+    "name_am": "መካነ ኢየሱስ ሰሚናሪ",
+    "university_type": "faith_based",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0366,
+    "longitude": 38.741,
+    "established": 1962,
+    "website": "mekye.edu.et",
+    "phone": "+251 11 123 2244",
+    "email": "info@mekye.edu.et",
+    "description": "Mekane Yesus Seminary is the theological training institution of the Ethiopian Evangelical Church Mekane Yesus (EECMY), one of the largest Lutheran churches in the world. It trains pastors, evangelists, and church workers for the EECMY.",
+    "student_count": "~800",
+    "fee_range_etb": "20,000–50,000 per year",
+    "departments": [
+      {
+        "name": "Department of Theology",
+        "programs": [
+          "Bachelor of Divinity",
+          "Theology (MA)",
+          "Biblical Languages",
+          "Church Music",
+          "Missiology"
+        ]
+      },
+      {
+        "name": "Department of Development Studies",
+        "programs": [
+          "Development Studies",
+          "Community Development"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "faith-based",
+      "lutheran",
+      "theology",
+      "seminary",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 53,
+    "name_en": "Beza International College",
+    "name_am": "ቤዛ ዓለም አቀፍ ኮሌጅ",
+    "university_type": "faith_based",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0182,
+    "longitude": 38.7683,
+    "established": 2010,
+    "website": "beza.edu.et",
+    "phone": "+251 11 656 0055",
+    "email": "info@beza.edu.et",
+    "description": "Beza International College is an evangelical Christian higher education institution in Addis Ababa. It offers undergraduate programs in business, health, theology, and social sciences with a Christ-centered education philosophy.",
+    "student_count": "~2,000",
+    "fee_range_etb": "28,000–60,000 per year",
+    "departments": [
+      {
+        "name": "Department of Business",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Marketing Management"
+        ]
+      },
+      {
+        "name": "Department of Theology & Ministry",
+        "programs": [
+          "Theology",
+          "Christian Ministry",
+          "Intercultural Studies"
+        ]
+      },
+      {
+        "name": "Department of Health Sciences",
+        "programs": [
+          "Nursing",
+          "Public Health"
+        ]
+      },
+      {
+        "name": "Department of Social Sciences",
+        "programs": [
+          "Development Studies",
+          "Community Development"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "faith-based",
+      "evangelical",
+      "christian",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 54,
+    "name_en": "New Generation University College",
+    "name_am": "ኒው ጄኔሬሽን ዩኒቨርሲቲ ኮሌጅ",
+    "university_type": "private",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0211,
+    "longitude": 38.7557,
+    "established": 2010,
+    "website": "newgen.edu.et",
+    "phone": "+251 11 552 0070",
+    "email": "info@newgen.edu.et",
+    "description": "New Generation University College is a private higher education institution in Addis Ababa. It offers programs in business, technology, and social sciences, catering primarily to working professionals and recent secondary school graduates.",
+    "student_count": "~4,000",
+    "fee_range_etb": "25,000–58,000 per year",
+    "departments": [
+      {
+        "name": "Department of Business",
+        "programs": [
+          "Accounting & Finance",
+          "Management",
+          "Marketing Management",
+          "Banking & Insurance"
+        ]
+      },
+      {
+        "name": "Department of Computing",
+        "programs": [
+          "Computer Science",
+          "Information Technology"
+        ]
+      },
+      {
+        "name": "Department of Social Sciences",
+        "programs": [
+          "Public Administration",
+          "Journalism & Communication",
+          "Sociology"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "private",
+      "business",
+      "technology",
+      "addis-ababa"
+    ],
+    "verified": true
+  },
+  {
+    "id": 55,
+    "name_en": "Ethiopian Aviation University",
+    "name_am": "የኢትዮጵያ አቪዬሽን ዩኒቨርሲቲ",
+    "university_type": "public",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 8.9775,
+    "longitude": 38.7993,
+    "established": 2011,
+    "website": "eau.edu.et",
+    "phone": "+251 11 665 0880",
+    "email": "info@eau.edu.et",
+    "description": "Ethiopian Aviation University (EAU) is a specialized public university and the aviation training arm of Ethiopian Airlines Group. It offers world-class aviation, aeronautics, and hospitality management programs, training pilots, engineers, and aviation professionals.",
+    "student_count": "~5,000",
+    "fee_range_etb": "Varies by program (airline sponsored programs available)",
+    "departments": [
+      {
+        "name": "College of Aviation Technology",
+        "programs": [
+          "Avionics Technology",
+          "Aircraft Maintenance Engineering",
+          "Airframe & Powerplant",
+          "Avionics Engineering"
+        ]
+      },
+      {
+        "name": "College of Pilot Training",
+        "programs": [
+          "Commercial Pilot License (CPL)",
+          "Multi-Engine Rating",
+          "Instrument Rating",
+          "Flight Dispatch"
+        ]
+      },
+      {
+        "name": "College of Aviation Management",
+        "programs": [
+          "Airport Management",
+          "Aviation Safety Management",
+          "Air Traffic Management",
+          "Airline Operations"
+        ]
+      },
+      {
+        "name": "College of Hospitality and Tourism",
+        "programs": [
+          "Hotel Management",
+          "Tourism Management",
+          "Food & Beverage Management",
+          "Event Management"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "aviation",
+      "specialized",
+      "ethiopian-airlines",
+      "pilot",
+      "engineering",
+      "public"
+    ],
+    "verified": true
+  },
+  {
+    "id": 56,
+    "name_en": "St. Paul's Hospital Millennium Medical College",
+    "name_am": "ቅዱስ ጳውሎስ ሆስፒታል ሚሌኒዬም ሕክምና ኮሌጅ",
+    "university_type": "public",
+    "city": "Addis Ababa",
+    "region": "Addis Ababa",
+    "latitude": 9.0369,
+    "longitude": 38.7308,
+    "established": 2010,
+    "website": "sphmmc.edu.et",
+    "phone": "+251 11 275 2286",
+    "email": "info@sphmmc.edu.et",
+    "description": "St. Paul's Hospital Millennium Medical College (SPHMMC) is a specialized public medical college and teaching hospital in Addis Ababa, operated under the Federal Ministry of Health. It provides specialized medical education and tertiary healthcare to the nation.",
+    "student_count": "~3,000",
+    "fee_range_etb": "Free (government funded)",
+    "departments": [
+      {
+        "name": "School of Medicine",
+        "programs": [
+          "Medicine (MD)",
+          "Surgery (Residency)",
+          "Internal Medicine (Residency)",
+          "Pediatrics (Residency)",
+          "Obstetrics & Gynecology (Residency)",
+          "Orthopedics (Residency)"
+        ]
+      },
+      {
+        "name": "School of Nursing and Midwifery",
+        "programs": [
+          "Nursing (BSc)",
+          "Midwifery (BSc)",
+          "Emergency & Critical Care Nursing"
+        ]
+      },
+      {
+        "name": "School of Allied Health Sciences",
+        "programs": [
+          "Medical Laboratory Sciences",
+          "Pharmacy",
+          "Anesthesia",
+          "Physiotherapy",
+          "Radiology Technology",
+          "Biomedical Equipment Technology"
+        ]
+      },
+      {
+        "name": "School of Public Health",
+        "programs": [
+          "Public Health (MPH)",
+          "Epidemiology (MSc)",
+          "Health Service Management"
+        ]
+      }
+    ],
+    "images": [],
+    "image_url": null,
+    "tags": [
+      "medical",
+      "specialized",
+      "teaching-hospital",
+      "health",
+      "government",
+      "public"
+    ],
+    "verified": true
   }
 ]

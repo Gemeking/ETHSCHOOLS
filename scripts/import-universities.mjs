@@ -10,7 +10,10 @@ const SUPABASE_KEY = 'sb_publishable_XbyQBZ72ubqF2qIWVAbK4A_66vYTUKr'
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 
+const NEW_FROM_ID = 25
+
 const raw = JSON.parse(readFileSync(join(__dirname, '../data/universities_ethiopia.json'), 'utf-8'))
+  .filter((u) => u.id >= NEW_FROM_ID)
 
 const universities = raw.map((u) => ({
   name_en: u.name_en,

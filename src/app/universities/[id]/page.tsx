@@ -8,8 +8,11 @@ import {
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import UniversityCard from '@/components/UniversityCard'
+import QRCodeCard from '@/components/QRCodeCard'
 import { universities } from '@/lib/university-data'
 import { fetchUniversityById, fetchAllUniversities } from '@/lib/supabase-universities'
+
+const BASE_URL = 'https://ethschools.vercel.app'
 
 export const revalidate = 60
 
@@ -119,15 +122,18 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
 
             {/* Name + badges */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6">
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${badge}`}>
-                  {TYPE_LABEL[university.university_type]}
-                </span>
-                {university.verified && (
-                  <span className="flex items-center gap-1 text-xs font-semibold text-green-700 bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">
-                    <CheckCircle size={11} /> Verified
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${badge}`}>
+                    {TYPE_LABEL[university.university_type]}
                   </span>
-                )}
+                  {university.verified && (
+                    <span className="flex items-center gap-1 text-xs font-semibold text-green-700 bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">
+                      <CheckCircle size={11} /> Verified
+                    </span>
+                  )}
+                </div>
+                <QRCodeCard url={`${BASE_URL}/universities/${university.id}`} name={university.name_en} type="university" />
               </div>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">{university.name_en}</h1>
