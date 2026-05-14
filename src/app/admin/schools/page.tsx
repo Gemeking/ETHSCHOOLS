@@ -1,16 +1,19 @@
 'use client'
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
-import { Search, PlusCircle, Pencil, ExternalLink, Globe, Lock, Building2 } from 'lucide-react'
-import { schools } from '@/lib/data'
+import { Search, PlusCircle, Pencil, ExternalLink, Globe, Lock, Building2, CheckCircle, XCircle } from 'lucide-react'
+import { schools as localSchools } from '@/lib/data'
 import { typeLabel } from '@/lib/utils'
-import type { SchoolType } from '@/lib/types'
+import { supabase } from '@/lib/supabase'
+import type { SchoolType, School } from '@/lib/types'
 
 const TYPE_ICONS = { international: Globe, private: Lock, public: Building2 }
 
 export default function ManageSchoolsPage() {
   const [query, setQuery] = useState('')
   const [type, setType] = useState<SchoolType | 'all'>('all')
+  const [schools, setSchools] = useState<School[]>(localSchools)
+  const [toggling, setToggling] = useState<number | null>(null)
 
   const filtered = useMemo(() => {
     return schools.filter((s) => {
@@ -18,7 +21,28 @@ export default function ManageSchoolsPage() {
       if (type !== 'all' && s.school_type !== type) return false
       return true
     })
-  }, [query, type])
+  }, [query, type, schools])
+
+  async function toggleVerified(school: School) {
+    const newValue = !school.verified
+    setToggling(school.id)
+
+    // Optimistic update
+    setSchools(prev => prev.map(s => s.id === school.id ? { ...s, verified: newValue } : s))
+
+    const { error } = await supabase
+      .from('schools')
+      .update({ verified: newValue })
+      .eq('id', school.id)
+
+    if (error) {
+      // Revert on failure
+      setSchools(prev => prev.map(s => s.id === school.id ? { ...s, verified: school.verified } : s))
+      alert(`Failed to update: ${error.message}`)
+    }
+
+    setToggling(null)
+  }
 
   return (
     <div className="max-w-5xl mx-auto space-y-5">
@@ -73,12 +97,14 @@ export default function ManageSchoolsPage() {
                 <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide hidden md:table-cell">Sub-city</th>
                 <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide hidden lg:table-cell">Fees (ETB)</th>
                 <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide hidden lg:table-cell">Curriculum</th>
+                <th className="text-left px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide">Verified</th>
                 <th className="text-right px-4 py-3 font-semibold text-slate-500 text-xs uppercase tracking-wide">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {filtered.map((school) => {
                 const TypeIcon = TYPE_ICONS[school.school_type]
+                const isToggling = toggling === school.id
                 return (
                   <tr key={school.id} className="hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-3">
@@ -109,6 +135,24 @@ export default function ManageSchoolsPage() {
                     </td>
                     <td className="px-4 py-3 text-slate-500 text-xs hidden lg:table-cell max-w-36 truncate">
                       {school.curriculum}
+                    </td>
+                    <td className="px-4 py-3">
+                      <button
+                        onClick={() => toggleVerified(school)}
+                        disabled={isToggling}
+                        title={school.verified ? 'Click to unverify' : 'Click to verify'}
+                        className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full border transition-all ${
+                          isToggling ? 'opacity-50 cursor-not-allowed' :
+                          school.verified
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200'
+                            : 'bg-slate-50 text-slate-400 border-slate-200 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200'
+                        }`}
+                      >
+                        {school.verified
+                          ? <><CheckCircle size={11} /> Verified</>
+                          : <><XCircle size={11} /> Unverified</>
+                        }
+                      </button>
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-2">
