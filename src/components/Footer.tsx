@@ -14,7 +14,7 @@ export default function Footer() {
               Ethio<span className="text-primary-400">School</span>
             </Link>
             <p className="text-sm leading-relaxed">
-              The most comprehensive school directory in Addis Ababa, Ethiopia.
+              The most comprehensive school directory in Ethiopia.
               Helping parents find the perfect school for their children.
             </p>
           </div>
@@ -30,7 +30,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Contact</h4>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2"><MapPin size={14} /> Addis Ababa, Ethiopia</li>
+              <li className="flex items-center gap-2"><MapPin size={14} /> Ethiopia</li>
               <li className="flex items-center gap-2"><Mail size={14} /> info@ethioschool.et</li>
             </ul>
           </div>

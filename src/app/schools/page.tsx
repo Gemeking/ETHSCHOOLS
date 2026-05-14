@@ -177,7 +177,7 @@ export default function SchoolsPage() {
           <div className="flex items-start justify-between mb-5">
             <div>
               <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                Schools in Addis Ababa
+                Schools in Ethiopia
               </h1>
               <p className="text-sm text-slate-400 mt-0.5 font-medium">
                 {allSchools.length} schools across all sub-cities

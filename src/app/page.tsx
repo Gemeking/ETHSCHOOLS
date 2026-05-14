@@ -221,7 +221,7 @@ export default function HomePage() {
               <div className="flex items-center gap-2 text-primary-600 font-semibold text-sm mb-1">
                 <Star size={14} fill="currentColor" /> Featured Schools
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Top Schools in Addis Ababa</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Top Schools in Ethiopia</h2>
             </div>
             <Link
               href="/schools"
@@ -312,7 +312,7 @@ export default function HomePage() {
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold mb-3">Explore Schools on the Map</h2>
               <p className="text-slate-300 text-sm max-w-md">
-                See every school pinned on a live map of Addis Ababa.
+                See every school pinned on a live map of Ethiopia.
                 Find schools near your home, workplace, or preferred area.
               </p>
             </div>

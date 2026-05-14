@@ -130,7 +130,7 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
                 <MapPin size={18} className="text-primary-600" /> Location
               </h2>
               <p className="text-sm text-slate-500 mb-4">
-                {school.sub_city}{school.woreda ? `, Woreda ${school.woreda}` : ''}, Addis Ababa
+                {school.sub_city}{school.woreda ? `, Woreda ${school.woreda}` : ''}, Ethiopia
                 {school.coordinates_accuracy === 'low' && (
                   <span className="ml-2 text-amber-600 text-xs">(approximate location)</span>
                 )}

@@ -33,16 +33,16 @@ export function getSchools({
       const q = query.toLowerCase()
       if (
         !s.name_en.toLowerCase().includes(q) &&
-        !s.name_am.includes(q) &&
-        !s.description.toLowerCase().includes(q) &&
-        !s.sub_city.toLowerCase().includes(q)
+        !s.name_am?.includes(q) &&
+        !s.description?.toLowerCase().includes(q) &&
+        !s.sub_city?.toLowerCase().includes(q)
       ) return false
     }
     if (type && type !== 'all' && s.school_type !== type) return false
     if (sub_city && sub_city !== 'All Sub-cities' && s.sub_city !== sub_city) return false
     if (fee_max < 999999 && s.fee_min > fee_max) return false
-    if (curriculum && curriculum !== 'All Curricula' && !s.curriculum.includes(curriculum.split(' ')[0])) return false
-    if (language && !s.language.toLowerCase().includes(language.toLowerCase())) return false
+    if (curriculum && curriculum !== 'All Curricula' && !s.curriculum?.includes(curriculum.split(' ')[0])) return false
+    if (language && !s.language?.toLowerCase().includes(language.toLowerCase())) return false
     return true
   })
 }

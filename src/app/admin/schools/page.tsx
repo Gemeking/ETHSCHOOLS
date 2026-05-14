@@ -14,7 +14,7 @@ export default function ManageSchoolsPage() {
 
   const filtered = useMemo(() => {
     return schools.filter((s) => {
-      if (query && !s.name_en.toLowerCase().includes(query.toLowerCase()) && !s.sub_city.toLowerCase().includes(query.toLowerCase())) return false
+      if (query && !s.name_en.toLowerCase().includes(query.toLowerCase()) && !s.sub_city?.toLowerCase().includes(query.toLowerCase())) return false
       if (type !== 'all' && s.school_type !== type) return false
       return true
     })
@@ -105,7 +105,7 @@ export default function ManageSchoolsPage() {
                     </td>
                     <td className="px-4 py-3 text-slate-600 text-sm hidden md:table-cell">{school.sub_city}</td>
                     <td className="px-4 py-3 text-slate-600 text-xs hidden lg:table-cell">
-                      {school.fee_range_etb.includes('Free') ? 'Free' : school.fee_range_etb}
+                      {school.fee_range_etb?.includes('Free') ? 'Free' : (school.fee_range_etb || 'Contact school')}
                     </td>
                     <td className="px-4 py-3 text-slate-500 text-xs hidden lg:table-cell max-w-36 truncate">
                       {school.curriculum}
