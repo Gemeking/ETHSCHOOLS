@@ -15,7 +15,7 @@ import { typeColor, typeGradient, typeLabel, formatFee } from '@/lib/utils'
 
 const BASE_URL = 'https://ethschools.vercel.app'
 
-export const revalidate = 60
+export const revalidate = 0
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   ssr: false,
