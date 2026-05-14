@@ -40,6 +40,17 @@ const CITY_META: Record<string, { emoji: string }> = {
   'Sululta':          { emoji: '🌾' },
   'Legetafo':         { emoji: '🌲' },
   'Gelan':            { emoji: '🏘️' },
+  // Amhara Region
+  'Bahir Dar':        { emoji: '🌊' },
+  'Gondar':           { emoji: '🏰' },
+  'Dessie':           { emoji: '⛰️' },
+  'Debre Markos':     { emoji: '🌄' },
+  'Debre Birhan':     { emoji: '💡' },
+  'Kombolcha':        { emoji: '🏭' },
+  'Woldia':           { emoji: '🏞️' },
+  'Debre Tabor':      { emoji: '🕌' },
+  'Lalibela':         { emoji: '⛪' },
+  'Finote Selam':     { emoji: '🌿' },
 }
 
 function HighlightMatch({ text, query }: { text: string; query: string }) {

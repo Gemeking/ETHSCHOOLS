@@ -70,6 +70,17 @@ export const SUB_CITIES = [
   'Sululta',
   'Legetafo',
   'Gelan',
+  // Amhara Region
+  'Bahir Dar',
+  'Gondar',
+  'Dessie',
+  'Debre Markos',
+  'Debre Birhan',
+  'Kombolcha',
+  'Woldia',
+  'Debre Tabor',
+  'Lalibela',
+  'Finote Selam',
 ]
 
 export const CURRICULA = [
