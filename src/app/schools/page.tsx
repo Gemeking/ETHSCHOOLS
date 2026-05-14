@@ -34,6 +34,12 @@ const CITY_META: Record<string, { emoji: string }> = {
   'Lideta':           { emoji: '🎓' },
   'Gulele':           { emoji: '🌳' },
   'Akaki Kaliti':     { emoji: '🏭' },
+  // Sheger City
+  'Burayu':           { emoji: '🏡' },
+  'Sebeta':           { emoji: '🛣️' },
+  'Sululta':          { emoji: '🌾' },
+  'Legetafo':         { emoji: '🌲' },
+  'Gelan':            { emoji: '🏘️' },
 }
 
 function HighlightMatch({ text, query }: { text: string; query: string }) {

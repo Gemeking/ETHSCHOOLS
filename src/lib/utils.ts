@@ -53,6 +53,7 @@ export function formatFee(feeEtb: string | null | undefined): string {
 
 export const SUB_CITIES = [
   'All Sub-cities',
+  // Addis Ababa
   'Addis Ketema',
   'Akaki Kaliti',
   'Arada',
@@ -63,6 +64,12 @@ export const SUB_CITIES = [
   'Lideta',
   'Nifas Silk-Lafto',
   'Yeka',
+  // Sheger City
+  'Burayu',
+  'Sebeta',
+  'Sululta',
+  'Legetafo',
+  'Gelan',
 ]
 
 export const CURRICULA = [
