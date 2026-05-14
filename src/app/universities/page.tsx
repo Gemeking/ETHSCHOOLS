@@ -41,7 +41,7 @@ export default function UniversitiesPage() {
       if (type !== 'all' && u.university_type !== type) return false
       if (region !== 'All Regions' && u.region !== region) return false
       return true
-    })
+    }).sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
   }, [allUniversities, query, type, region])
 
   const hasFilters = query || type !== 'all' || region !== 'All Regions'

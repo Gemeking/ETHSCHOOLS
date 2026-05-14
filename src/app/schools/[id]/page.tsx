@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import type { Metadata } from 'next'
 import {
   MapPin, Phone, Mail, Globe, BookOpen, Users, Calendar,
   CheckCircle, ArrowLeft, ExternalLink, DollarSign, Languages
@@ -16,6 +17,22 @@ import { typeColor, typeGradient, typeLabel, formatFee } from '@/lib/utils'
 const BASE_URL = 'https://ethschools.vercel.app'
 
 export const revalidate = 0
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const school = await fetchSchoolById(Number(params.id))
+  if (!school) return { title: 'School Not Found' }
+  const url = `${BASE_URL}/schools/${school.id}`
+  const title = `${school.name_en} — ${school.sub_city}, Ethiopia`
+  const description = school.description
+    || `${school.name_en} is a ${typeLabel(school.school_type).toLowerCase()} in ${school.sub_city}, Ethiopia. Curriculum: ${school.curriculum}. Grades: ${school.grades}.`
+  return {
+    title,
+    description,
+    keywords: [school.name_en, school.sub_city || '', 'school Ethiopia', school.curriculum || '', school.school_type, 'Ethiopian school'],
+    openGraph: { title, description, url, type: 'website' },
+    alternates: { canonical: url },
+  }
+}
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   ssr: false,
@@ -44,8 +61,36 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
     { icon: DollarSign, label: 'Annual Fees', value: formatFee(school.fee_range_etb) },
   ]
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'School',
+    name: school.name_en,
+    alternateName: school.name_am,
+    description: school.description,
+    url: `${BASE_URL}/schools/${school.id}`,
+    telephone: school.phone,
+    email: school.email,
+    sameAs: school.website ? `https://${school.website}` : undefined,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: school.sub_city,
+      addressCountry: 'ET',
+      addressRegion: 'Addis Ababa',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: school.latitude,
+      longitude: school.longitude,
+    },
+    foundingDate: school.established,
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* Hero banner */}

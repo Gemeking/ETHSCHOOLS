@@ -163,7 +163,7 @@ export default function SchoolsPage() {
       if (s.fee_min > feeMax) return false
       if (curriculum !== 'All Curricula' && !s.curriculum?.toLowerCase().includes(curriculum.split(' ')[0].toLowerCase())) return false
       return true
-    })
+    }).sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
   }, [allSchools, query, type, subCity, feeMax, curriculum])
 
   const hasFilters = !!(query || type !== 'all' || subCity !== 'All Sub-cities' || feeMax < MAX_FEE || curriculum !== 'All Curricula')

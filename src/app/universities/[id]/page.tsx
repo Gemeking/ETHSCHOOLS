@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import type { Metadata } from 'next'
 import {
   MapPin, Phone, Mail, Globe, Users, Calendar,
   CheckCircle, ArrowLeft, ExternalLink, GraduationCap, BookOpen, ChevronDown
@@ -15,6 +16,23 @@ import { fetchUniversityById, fetchAllUniversities } from '@/lib/supabase-univer
 const BASE_URL = 'https://ethschools.vercel.app'
 
 export const revalidate = 0
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const uni = await fetchUniversityById(Number(params.id))
+  if (!uni) return { title: 'University Not Found' }
+  const url = `${BASE_URL}/universities/${uni.id}`
+  const totalPrograms = uni.departments.reduce((s, d) => s + d.programs.length, 0)
+  const title = `${uni.name_en} — ${uni.city}, Ethiopia`
+  const description = uni.description
+    || `${uni.name_en} is a ${uni.university_type} university in ${uni.city}, ${uni.region}, Ethiopia. Offering ${uni.departments.length} colleges and ${totalPrograms} programs.`
+  return {
+    title,
+    description,
+    keywords: [uni.name_en, uni.city, uni.region, 'university Ethiopia', 'Ethiopian university', uni.university_type],
+    openGraph: { title, description, url, type: 'website' },
+    alternates: { canonical: url },
+  }
+}
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   ssr: false,
@@ -87,8 +105,37 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
     description: university.description,
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollegeOrUniversity',
+    name: university.name_en,
+    alternateName: university.name_am,
+    description: university.description,
+    url: `${BASE_URL}/universities/${university.id}`,
+    telephone: university.phone,
+    email: university.email,
+    sameAs: university.website ? `https://${university.website}` : undefined,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: university.city,
+      addressRegion: university.region,
+      addressCountry: 'ET',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: university.latitude,
+      longitude: university.longitude,
+    },
+    foundingDate: university.established,
+    numberOfStudents: university.student_count,
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
 
       {/* Hero banner */}
