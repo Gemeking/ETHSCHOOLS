@@ -31,19 +31,22 @@ export function typeLabel(type: School['school_type'] | 'all') {
   }[type]
 }
 
-export function parseFeeMin(feeEtb: string): number {
+export function parseFeeMin(feeEtb: string | null | undefined): number {
+  if (!feeEtb) return 0
   if (feeEtb.toLowerCase().includes('free')) return 0
   const match = feeEtb.replace(/,/g, '').match(/\d+/)
   return match ? parseInt(match[0]) : 0
 }
 
-export function parseFeeMax(feeEtb: string): number {
+export function parseFeeMax(feeEtb: string | null | undefined): number {
+  if (!feeEtb) return 0
   if (feeEtb.toLowerCase().includes('free')) return 0
   const nums = feeEtb.replace(/,/g, '').match(/\d+/g)
   return nums ? parseInt(nums[nums.length - 1]) : 0
 }
 
-export function formatFee(feeEtb: string): string {
+export function formatFee(feeEtb: string | null | undefined): string {
+  if (!feeEtb) return 'Contact school'
   if (feeEtb.toLowerCase().includes('free')) return 'Free'
   return `${feeEtb} ETB/yr`
 }
