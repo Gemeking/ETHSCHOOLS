@@ -18,6 +18,7 @@ const markerColors: Record<School['school_type'], string> = {
   international: '#7c3aed',
   private: '#1d4ed8',
   public: '#15803d',
+  tvet: '#ea580c',
 }
 
 function makeIcon(type: School['school_type']) {
