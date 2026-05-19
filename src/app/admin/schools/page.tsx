@@ -1,13 +1,13 @@
 'use client'
-import { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
-import { Search, PlusCircle, Pencil, ExternalLink, Globe, Lock, Building2, CheckCircle, XCircle } from 'lucide-react'
+import { Search, PlusCircle, Pencil, ExternalLink, Globe, Lock, Building2, CheckCircle, XCircle, Wrench } from 'lucide-react'
 import { schools as localSchools } from '@/lib/data'
 import { typeLabel } from '@/lib/utils'
 import { supabase } from '@/lib/supabase'
 import type { SchoolType, School } from '@/lib/types'
 
-const TYPE_ICONS = { international: Globe, private: Lock, public: Building2 }
+const TYPE_ICONS: Record<string, React.ElementType> = { international: Globe, private: Lock, public: Building2, tvet: Wrench }
 
 export default function ManageSchoolsPage() {
   const [query, setQuery] = useState('')
