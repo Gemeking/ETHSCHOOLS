@@ -2,7 +2,7 @@ export interface School {
   id: number
   name_en: string
   name_am: string
-  school_type: 'international' | 'private' | 'public'
+  school_type: 'international' | 'private' | 'public' | 'tvet'
   curriculum: string
   grades: string
   language: string

@@ -7,28 +7,31 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function typeColor(type: School['school_type']) {
-  return {
+  return ({
     international: 'bg-violet-100 text-violet-700 border-violet-200',
     private: 'bg-blue-100 text-blue-700 border-blue-200',
     public: 'bg-green-100 text-green-700 border-green-200',
-  }[type]
+    tvet: 'bg-orange-100 text-orange-700 border-orange-200',
+  } as Record<string, string>)[type] ?? 'bg-slate-100 text-slate-700 border-slate-200'
 }
 
 export function typeGradient(type: School['school_type']) {
-  return {
+  return ({
     international: 'from-violet-600 to-indigo-700',
     private: 'from-blue-600 to-cyan-700',
     public: 'from-green-600 to-emerald-700',
-  }[type]
+    tvet: 'from-orange-600 to-amber-700',
+  } as Record<string, string>)[type] ?? 'from-slate-600 to-slate-800'
 }
 
 export function typeLabel(type: School['school_type'] | 'all') {
-  return {
-    all: 'All Schools',
+  return ({
+    all: 'All',
     international: 'International',
     private: 'Private',
     public: 'Public',
-  }[type]
+    tvet: 'TVET / Technical',
+  } as Record<string, string>)[type] ?? type
 }
 
 export function parseFeeMin(feeEtb: string | null | undefined): number {
@@ -84,6 +87,7 @@ export const SUB_CITIES = [
   // Oromia Region
   'Adama',
   'Bishoftu',
+  'Holeta',
   'Jimma',
   'Nekemte',
   'Ambo',
@@ -101,6 +105,10 @@ export const SUB_CITIES = [
   'Chiro',
   'Dodola',
   'Tepi',
+  // SNNPR
+  'Arba Minch',
+  // Tigray
+  'Mekelle',
 ]
 
 export const CURRICULA = [

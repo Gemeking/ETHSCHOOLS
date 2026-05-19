@@ -19,15 +19,17 @@ const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   loading: () => <div className="h-full bg-slate-200 animate-pulse rounded-2xl" />,
 })
 
-const TYPES: SchoolType[] = ['all', 'international', 'private', 'public']
+const TYPES: SchoolType[] = ['all', 'international', 'private', 'public', 'tvet']
 const MAX_FEE = 2_000_000
 
 const REGION_GROUPS: { region: string; emoji: string; cities: string[] }[] = [
   { region: 'Addis Ababa', emoji: '🏙️', cities: ['Addis Ketema', 'Akaki Kaliti', 'Arada', 'Bole', 'Gulele', 'Kirkos', 'Kolfe Keranio', 'Lideta', 'Nifas Silk-Lafto', 'Yeka'] },
   { region: 'Sheger City', emoji: '🌆', cities: ['Burayu', 'Sebeta', 'Sululta', 'Legetafo', 'Gelan'] },
   { region: 'Amhara',      emoji: '🏔️', cities: ['Bahir Dar', 'Gondar', 'Dessie', 'Debre Markos', 'Debre Birhan', 'Kombolcha', 'Woldia', 'Debre Tabor', 'Lalibela', 'Finote Selam'] },
-  { region: 'Oromia',      emoji: '🌿', cities: ['Adama', 'Bishoftu', 'Jimma', 'Nekemte', 'Ambo', 'Woliso', 'Asella', 'Shashamane', 'Ziway', 'Shambu', 'Metu', 'Moyale', 'Yabelo', 'Chiro', 'Dodola', 'Tepi'] },
+  { region: 'Oromia',      emoji: '🌿', cities: ['Adama', 'Bishoftu', 'Holeta', 'Jimma', 'Nekemte', 'Ambo', 'Woliso', 'Asella', 'Shashamane', 'Ziway', 'Shambu', 'Metu', 'Moyale', 'Yabelo', 'Chiro', 'Dodola', 'Tepi'] },
   { region: 'Sidama',      emoji: '🦩', cities: ['Hawassa'] },
+  { region: 'SNNPR',       emoji: '🌄', cities: ['Arba Minch'] },
+  { region: 'Tigray',      emoji: '🏛️', cities: ['Mekelle'] },
   { region: 'Dire Dawa',   emoji: '🚂', cities: ['Dire Dawa'] },
   { region: 'Harari',      emoji: '🕌', cities: ['Harar'] },
 ]
@@ -78,9 +80,14 @@ const CITY_META: Record<string, { emoji: string }> = {
   'Metu':             { emoji: '🌲' },
   'Moyale':           { emoji: '🛂' },
   'Yabelo':           { emoji: '🦒' },
+  'Holeta':           { emoji: '🏘️' },
   'Chiro':            { emoji: '🌵' },
   'Dodola':           { emoji: '🏔️' },
   'Tepi':             { emoji: '🍵' },
+  // SNNPR
+  'Arba Minch':       { emoji: '💧' },
+  // Tigray
+  'Mekelle':          { emoji: '🏛️' },
 }
 
 function HighlightMatch({ text, query }: { text: string; query: string }) {
@@ -205,10 +212,11 @@ export default function SchoolsPage() {
     }
   }
 
-  const typeAccent: Record<School['school_type'], string> = {
+  const typeAccent: Record<string, string> = {
     international: 'bg-violet-500',
     private:       'bg-cyan-500',
     public:        'bg-emerald-500',
+    tvet:          'bg-orange-500',
   }
 
   return (
