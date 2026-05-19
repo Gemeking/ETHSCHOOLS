@@ -1,7 +1,7 @@
 'use client'
 import { useState, useMemo } from 'react'
 import dynamic from 'next/dynamic'
-import { Globe, Lock, Building2, X } from 'lucide-react'
+import { Globe, Lock, Building2, X, Wrench } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import { schools } from '@/lib/data'
 import type { SchoolType } from '@/lib/types'
@@ -21,6 +21,7 @@ const TYPES: { value: SchoolType; icon: React.ElementType; color: string }[] = [
   { value: 'international', icon: Globe, color: 'bg-violet-600 text-white' },
   { value: 'private', icon: Lock, color: 'bg-blue-600 text-white' },
   { value: 'public', icon: Building2, color: 'bg-green-600 text-white' },
+  { value: 'tvet', icon: Wrench, color: 'bg-orange-600 text-white' },
 ]
 
 export default function MapPage() {

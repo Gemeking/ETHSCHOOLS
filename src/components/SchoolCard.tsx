@@ -16,6 +16,7 @@ export default function SchoolCard({ school, index = 0 }: Props) {
     international: 'bg-violet-500',
     private:       'bg-cyan-500',
     public:        'bg-emerald-500',
+    tvet:          'bg-orange-500',
   }
 
   return (
