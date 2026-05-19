@@ -27,7 +27,7 @@ export interface School {
   tags: string[]
 }
 
-export type SchoolType = 'all' | 'international' | 'private' | 'public'
+export type SchoolType = 'all' | 'international' | 'private' | 'public' | 'tvet'
 
 export interface FilterState {
   query: string
