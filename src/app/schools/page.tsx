@@ -175,7 +175,11 @@ export default function SchoolsPage() {
         const inCurriculum = s.curriculum?.toLowerCase().includes(q)
         if (!inName && !inCity && !inCurriculum) return false
       }
-      if (type !== 'all' && s.school_type !== type) return false
+      if (type === 'tvet') {
+        if (!s.tags?.includes('tvet')) return false
+      } else if (type !== 'all') {
+        if (s.school_type !== type || s.tags?.includes('tvet')) return false
+      }
       if (subCity !== 'All Sub-cities' && s.sub_city !== subCity) return false
       if (s.fee_min > feeMax) return false
       if (curriculum !== 'All Curricula' && !s.curriculum?.toLowerCase().includes(curriculum.split(' ')[0].toLowerCase())) return false

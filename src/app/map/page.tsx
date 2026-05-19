@@ -32,7 +32,11 @@ export default function MapPage() {
 
   const filtered = useMemo(() => {
     return schools.filter((s) => {
-      if (type !== 'all' && s.school_type !== type) return false
+      if (type === 'tvet') {
+        if (!s.tags?.includes('tvet')) return false
+      } else if (type !== 'all') {
+        if (s.school_type !== type || s.tags?.includes('tvet')) return false
+      }
       if (subCity !== 'All' && s.sub_city !== subCity) return false
       return true
     })
