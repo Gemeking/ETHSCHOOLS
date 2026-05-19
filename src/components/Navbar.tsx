@@ -1,19 +1,23 @@
 'use client'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { GraduationCap, Map, School, Shield, Menu, X, BookOpen } from 'lucide-react'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { GraduationCap, Map, School, Menu, X, BookOpen, Wrench } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
-const links = [
-  { href: '/schools',      label: 'Schools',      icon: School   },
-  { href: '/universities', label: 'Universities',  icon: BookOpen },
-  { href: '/map',          label: 'Map View',      icon: Map      },
-]
-
 export default function Navbar() {
   const pathname = usePathname()
+  const params = useSearchParams()
   const [open, setOpen] = useState(false)
+
+  const isTvet = pathname === '/schools' && params.get('type') === 'tvet'
+
+  const links = [
+    { href: '/schools',           label: 'Schools',     icon: School,   active: pathname.startsWith('/schools') && !isTvet },
+    { href: '/schools?type=tvet', label: 'TVET',        icon: Wrench,   active: isTvet,                                     orange: true },
+    { href: '/universities',      label: 'Universities', icon: BookOpen, active: pathname.startsWith('/universities') },
+    { href: '/map',               label: 'Map View',     icon: Map,      active: pathname.startsWith('/map') },
+  ]
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-[0_1px_12px_rgba(0,0,0,0.06)]">
@@ -32,31 +36,24 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-0.5">
-            {links.map(({ href, label, icon: Icon }) => {
-              const active = pathname.startsWith(href)
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className={cn(
-                    'relative flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200',
-                    active
-                      ? 'text-indigo-700 bg-indigo-50'
-                      : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
-                  )}
-                >
-                  <Icon size={15} />
-                  {label}
-                  {active && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-indigo-500 rounded-full" />
-                  )}
-                </Link>
-              )
-            })}
-
-            <div className="w-px h-5 bg-slate-200 mx-2" />
-
-            
+            {links.map(({ href, label, icon: Icon, active, orange }) => (
+              <Link
+                key={href}
+                href={href}
+                className={cn(
+                  'relative flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200',
+                  active && orange  ? 'text-orange-700 bg-orange-50' :
+                  active            ? 'text-indigo-700 bg-indigo-50' :
+                                      'text-slate-500 hover:text-slate-900 hover:bg-slate-50'
+                )}
+              >
+                <Icon size={15} />
+                {label}
+                {active && (
+                  <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full ${orange ? 'bg-orange-500' : 'bg-indigo-500'}`} />
+                )}
+              </Link>
+            ))}
           </div>
 
           {/* Mobile toggle */}
@@ -72,22 +69,21 @@ export default function Navbar() {
       {/* Mobile drawer */}
       {open && (
         <div className="md:hidden border-t border-slate-100 bg-white/98 backdrop-blur-md px-4 py-3 space-y-1">
-          {links.map(({ href, label, icon: Icon }) => (
+          {links.map(({ href, label, icon: Icon, active, orange }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setOpen(false)}
               className={cn(
                 'flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors',
-                pathname.startsWith(href)
-                  ? 'bg-indigo-50 text-indigo-700'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                active && orange  ? 'bg-orange-50 text-orange-700' :
+                active            ? 'bg-indigo-50 text-indigo-700' :
+                                    'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
               )}
             >
               <Icon size={17} /> {label}
             </Link>
           ))}
-          
         </div>
       )}
     </nav>
