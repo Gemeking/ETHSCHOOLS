@@ -1,36 +1,48 @@
 'use client'
 import React, { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
-import { Search, PlusCircle, Pencil, ExternalLink, Globe, Lock, Building2, CheckCircle, XCircle, Wrench } from 'lucide-react'
-import { schools as localSchools } from '@/lib/data'
+import { Search, PlusCircle, Pencil, Trash2, ExternalLink, Globe, Lock, Building2, CheckCircle, XCircle, Wrench } from 'lucide-react'
 import { typeLabel } from '@/lib/utils'
 import { supabase } from '@/lib/supabase'
+import { deleteSchool } from '@/lib/supabase-data'
 import type { SchoolType, School } from '@/lib/types'
 
 const TYPE_ICONS: Record<string, React.ElementType> = { international: Globe, private: Lock, public: Building2, tvet: Wrench }
 
+const TYPE_COLORS: Record<string, string> = {
+  international: 'bg-violet-600',
+  private:       'bg-blue-600',
+  public:        'bg-green-600',
+  tvet:          'bg-orange-500',
+}
+
+const BADGE_COLORS: Record<string, string> = {
+  international: 'bg-violet-100 text-violet-700',
+  private:       'bg-blue-100 text-blue-700',
+  public:        'bg-green-100 text-green-700',
+  tvet:          'bg-orange-100 text-orange-700',
+}
+
 export default function ManageSchoolsPage() {
-  const [query, setQuery] = useState('')
-  const [type, setType] = useState<SchoolType | 'all'>('all')
-  const [schools, setSchools] = useState<School[]>(localSchools)
-  const [toggling, setToggling] = useState<number | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [query, setQuery]     = useState('')
+  const [type, setType]       = useState<SchoolType | 'all'>('all')
+  const [schools, setSchools] = useState<School[]>([])
+  const [toggling, setToggling]   = useState<number | null>(null)
+  const [deleting, setDeleting]   = useState<number | null>(null)
+  const [loading, setLoading]     = useState(true)
 
   useEffect(() => {
-    async function loadFromSupabase() {
-      const { data, error } = await supabase.from('schools').select('*').order('id')
-      if (!error && data && data.length > 0) {
-        setSchools(data as School[])
-      }
+    supabase.from('schools').select('*').order('id').then(({ data, error }) => {
+      if (!error && data) setSchools(data as School[])
       setLoading(false)
-    }
-    loadFromSupabase()
+    })
   }, [])
 
   const filtered = useMemo(() => {
     return schools.filter((s) => {
       if (query && !s.name_en.toLowerCase().includes(query.toLowerCase()) && !s.sub_city?.toLowerCase().includes(query.toLowerCase())) return false
-      if (type !== 'all' && s.school_type !== type) return false
+      if (type === 'tvet') return s.tags?.includes('tvet')
+      if (type !== 'all') return s.school_type === type && !s.tags?.includes('tvet')
       return true
     })
   }, [query, type, schools])
@@ -38,22 +50,25 @@ export default function ManageSchoolsPage() {
   async function toggleVerified(school: School) {
     const newValue = !school.verified
     setToggling(school.id)
-
-    // Optimistic update
     setSchools(prev => prev.map(s => s.id === school.id ? { ...s, verified: newValue } : s))
-
-    const { error } = await supabase
-      .from('schools')
-      .update({ verified: newValue })
-      .eq('id', school.id)
-
+    const { error } = await supabase.from('schools').update({ verified: newValue }).eq('id', school.id)
     if (error) {
-      // Revert on failure
       setSchools(prev => prev.map(s => s.id === school.id ? { ...s, verified: school.verified } : s))
       alert(`Failed to update: ${error.message}`)
     }
-
     setToggling(null)
+  }
+
+  async function handleDelete(id: number, name: string) {
+    if (!confirm(`Delete "${name}"?\n\nThis cannot be undone.`)) return
+    setDeleting(id)
+    const err = await deleteSchool(id)
+    if (err) {
+      alert('Delete failed: ' + err)
+    } else {
+      setSchools(prev => prev.filter(s => s.id !== id))
+    }
+    setDeleting(null)
   }
 
   return (
@@ -85,8 +100,8 @@ export default function ManageSchoolsPage() {
             className="w-full pl-8 pr-4 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary-300"
           />
         </div>
-        <div className="flex gap-1.5">
-          {(['all', 'international', 'private', 'public'] as const).map((t) => (
+        <div className="flex flex-wrap gap-1.5">
+          {(['all', 'international', 'private', 'public', 'tvet'] as const).map((t) => (
             <button
               key={t}
               onClick={() => setType(t)}
@@ -117,16 +132,16 @@ export default function ManageSchoolsPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {filtered.map((school) => {
-                const TypeIcon = TYPE_ICONS[school.school_type]
+                const isTvet = school.tags?.includes('tvet')
+                const displayType = isTvet ? 'tvet' : school.school_type
+                const TypeIcon = TYPE_ICONS[displayType] ?? Building2
                 const isToggling = toggling === school.id
+                const isDeleting = deleting === school.id
                 return (
                   <tr key={school.id} className="hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-white shrink-0 ${
-                          school.school_type === 'international' ? 'bg-violet-600' :
-                          school.school_type === 'private' ? 'bg-blue-600' : 'bg-green-600'
-                        }`}>
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-white shrink-0 ${TYPE_COLORS[displayType] ?? 'bg-slate-500'}`}>
                           {school.name_en.charAt(0)}
                         </div>
                         <div>
@@ -136,11 +151,8 @@ export default function ManageSchoolsPage() {
                       </div>
                     </td>
                     <td className="px-4 py-3">
-                      <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full ${
-                        school.school_type === 'international' ? 'bg-violet-100 text-violet-700' :
-                        school.school_type === 'private' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'
-                      }`}>
-                        <TypeIcon size={10} /> {typeLabel(school.school_type)}
+                      <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full ${BADGE_COLORS[displayType] ?? 'bg-slate-100 text-slate-600'}`}>
+                        <TypeIcon size={10} /> {typeLabel(displayType)}
                       </span>
                     </td>
                     <td className="px-4 py-3 text-slate-600 text-sm hidden md:table-cell">{school.sub_city}</td>
@@ -184,6 +196,13 @@ export default function ManageSchoolsPage() {
                         >
                           <Pencil size={12} /> Edit
                         </Link>
+                        <button
+                          onClick={() => handleDelete(school.id, school.name_en)}
+                          disabled={isDeleting}
+                          className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-50 text-red-600 hover:bg-red-100 transition-colors disabled:opacity-50"
+                        >
+                          <Trash2 size={12} /> {isDeleting ? '…' : 'Delete'}
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -192,10 +211,15 @@ export default function ManageSchoolsPage() {
             </tbody>
           </table>
         </div>
-        {filtered.length === 0 && (
+        {filtered.length === 0 && !loading && (
           <div className="text-center py-12 text-slate-400">
             <Search size={28} className="mx-auto mb-2 opacity-40" />
             <p>No schools match your search</p>
+          </div>
+        )}
+        {loading && (
+          <div className="text-center py-12 text-slate-400">
+            <p className="animate-pulse">Loading schools…</p>
           </div>
         )}
       </div>
