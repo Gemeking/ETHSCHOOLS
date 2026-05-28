@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SchoolCard from '@/components/SchoolCard'
+import Pagination from '@/components/Pagination'
 import { schools as localSchools } from '@/lib/data'
 import { fetchAllSchools } from '@/lib/supabase-data'
 import { SUB_CITIES, CURRICULA, typeLabel } from '@/lib/utils'
@@ -21,6 +22,11 @@ const MapComponent = dynamic(() => import('@/components/MapComponent'), {
 
 const TYPES: SchoolType[] = ['all', 'international', 'private', 'public', 'tvet']
 const MAX_FEE = 2_000_000
+const PAGE_SIZE = 15
+
+function sanitize(val: string) {
+  return val.replace(/[<>"'`;]/g, '').slice(0, 100)
+}
 
 const REGION_GROUPS: { region: string; emoji: string; cities: string[] }[] = [
   { region: 'Addis Ababa', emoji: '🏙️', cities: ['Addis Ketema', 'Akaki Kaliti', 'Arada', 'Bole', 'Gulele', 'Kirkos', 'Kolfe Keranio', 'Lideta', 'Nifas Silk-Lafto', 'Yeka'] },
@@ -116,6 +122,7 @@ export default function SchoolsPage() {
   const [curriculum, setCurriculum] = useState('All Curricula')
   const [view, setView]             = useState<'grid' | 'map'>('grid')
   const [filtersOpen, setFiltersOpen] = useState(false)
+  const [page, setPage]             = useState(1)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [activeIdx, setActiveIdx]   = useState(-1)
   const [locationOpen, setLocationOpen]   = useState(false)
@@ -188,6 +195,12 @@ export default function SchoolsPage() {
   }, [allSchools, query, type, subCity, feeMax, curriculum])
 
   const hasFilters = !!(query || type !== 'all' || subCity !== 'All Sub-cities' || feeMax < MAX_FEE || curriculum !== 'All Curricula')
+
+  // Reset to page 1 whenever filters change
+  useEffect(() => { setPage(1) }, [query, type, subCity, feeMax, curriculum])
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
+  const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
   function clearFilters() {
     setQuery(''); setType('all'); setSubCity('All Sub-cities')
@@ -275,7 +288,7 @@ export default function SchoolsPage() {
                 <input
                   type="text"
                   value={query}
-                  onChange={e => { setQuery(e.target.value); setShowSuggestions(true); setActiveIdx(-1) }}
+                  onChange={e => { setQuery(sanitize(e.target.value)); setShowSuggestions(true); setActiveIdx(-1) }}
                   onFocus={() => query.length >= 2 && setShowSuggestions(true)}
                   onKeyDown={onSearchKeyDown}
                   placeholder="School name or curriculum..."
@@ -574,6 +587,9 @@ export default function SchoolsPage() {
               {subCity !== 'All Sub-cities' && (
                 <span className="ml-1 font-semibold text-indigo-600">in {subCity}</span>
               )}
+              {totalPages > 1 && (
+                <span className="ml-1 text-slate-400">· page {page} of {totalPages}</span>
+              )}
             </p>
             {hasFilters && (
               <button
@@ -601,11 +617,20 @@ export default function SchoolsPage() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {filtered.map((school, i) => (
-                  <SchoolCard key={school.id} school={school} index={i} />
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                  {paged.map((school, i) => (
+                    <SchoolCard key={school.id} school={school} index={i} />
+                  ))}
+                </div>
+                <Pagination
+                  page={page}
+                  totalPages={totalPages}
+                  total={filtered.length}
+                  pageSize={PAGE_SIZE}
+                  onPage={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+                />
+              </>
             )
           ) : (
             <div className="h-[calc(100vh-300px)] min-h-[500px] rounded-2xl overflow-hidden shadow-sm">

@@ -1,10 +1,11 @@
 'use client'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { Search, PlusCircle, Pencil, Trash2, ExternalLink, BookOpen, CheckCircle, XCircle } from 'lucide-react'
 import { fetchAllUniversities, deleteUniversity } from '@/lib/supabase-universities'
 import { universities as localUniversities } from '@/lib/university-data'
 import { supabase } from '@/lib/supabase'
+import Toast, { type ToastMsg } from '@/components/Toast'
 import type { University, UniversityType } from '@/lib/types'
 
 const TYPE_LABELS: Record<string, string> = {
@@ -19,6 +20,8 @@ export default function ManageUniversitiesPage() {
   const [type, setType] = useState<UniversityType | 'all'>('all')
   const [deleting, setDeleting] = useState<number | null>(null)
   const [togglingVerified, setTogglingVerified] = useState<number | null>(null)
+  const [toast, setToast] = useState<ToastMsg | null>(null)
+  const showToast = useCallback((t: ToastMsg) => setToast(t), [])
 
   useEffect(() => {
     fetchAllUniversities().then(setAllUniversities)
@@ -46,7 +49,9 @@ export default function ManageUniversitiesPage() {
       setAllUniversities((prev) =>
         prev.map((u) => (u.id === uni.id ? { ...u, verified: uni.verified } : u))
       )
-      alert('Failed to update verified status: ' + error.message)
+      showToast({ type: 'error', text: 'Could not update verified status. Please try again.' })
+    } else {
+      showToast({ type: 'success', text: `${uni.name_en} ${!uni.verified ? 'verified' : 'unverified'}` })
     }
     setTogglingVerified(null)
   }
@@ -56,15 +61,17 @@ export default function ManageUniversitiesPage() {
     setDeleting(id)
     const err = await deleteUniversity(id)
     if (err) {
-      alert('Delete failed: ' + err)
+      showToast({ type: 'error', text: 'Delete failed. Please try again.' })
     } else {
       setAllUniversities((prev) => prev.filter((u) => u.id !== id))
+      showToast({ type: 'success', text: `"${name}" deleted successfully.` })
     }
     setDeleting(null)
   }
 
   return (
     <div className="max-w-5xl mx-auto space-y-5">
+      <Toast toast={toast} onClose={() => setToast(null)} />
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Manage Universities</h1>

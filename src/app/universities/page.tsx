@@ -4,10 +4,17 @@ import { Search, SlidersHorizontal, X, GraduationCap, ChevronDown, BookOpen } fr
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import UniversityCard from '@/components/UniversityCard'
+import Pagination from '@/components/Pagination'
 import { universities as localUniversities } from '@/lib/university-data'
 import { fetchAllUniversities } from '@/lib/supabase-universities'
 import { ETHIOPIA_REGIONS } from '@/lib/types'
 import type { University, UniversityType } from '@/lib/types'
+
+const PAGE_SIZE = 15
+
+function sanitize(val: string) {
+  return val.replace(/[<>"'`;]/g, '').slice(0, 100)
+}
 
 const TYPES: { value: UniversityType; label: string }[] = [
   { value: 'all', label: 'All' },
@@ -22,6 +29,7 @@ export default function UniversitiesPage() {
   const [type, setType] = useState<UniversityType>('all')
   const [region, setRegion] = useState('All Regions')
   const [filtersOpen, setFiltersOpen] = useState(false)
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
     fetchAllUniversities().then(setAllUniversities)
@@ -45,6 +53,11 @@ export default function UniversitiesPage() {
   }, [allUniversities, query, type, region])
 
   const hasFilters = query || type !== 'all' || region !== 'All Regions'
+
+  useEffect(() => { setPage(1) }, [query, type, region])
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
+  const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
   function clearFilters() {
     setQuery(''); setType('all'); setRegion('All Regions')
@@ -78,7 +91,7 @@ export default function UniversitiesPage() {
               <input
                 type="text"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => setQuery(sanitize(e.target.value))}
                 placeholder="Search university, city, program..."
                 className="w-full pl-9 pr-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400 backdrop-blur"
               />
@@ -170,6 +183,9 @@ export default function UniversitiesPage() {
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm text-slate-500">
               <span className="font-semibold text-slate-800">{filtered.length}</span> {filtered.length !== 1 ? 'universities' : 'university'} found
+              {totalPages > 1 && (
+                <span className="ml-1 text-slate-400">· page {page} of {totalPages}</span>
+              )}
             </p>
             {hasFilters && (
               <button onClick={clearFilters} className="text-xs text-red-500 hover:text-red-600 flex items-center gap-1">
@@ -188,11 +204,20 @@ export default function UniversitiesPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-              {filtered.map((university) => (
-                <UniversityCard key={university.id} university={university} />
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {paged.map((university) => (
+                  <UniversityCard key={university.id} university={university} />
+                ))}
+              </div>
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                total={filtered.length}
+                pageSize={PAGE_SIZE}
+                onPage={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+              />
+            </>
           )}
         </main>
       </div>

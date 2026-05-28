@@ -1,10 +1,11 @@
 'use client'
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { Search, PlusCircle, Pencil, Trash2, ExternalLink, Globe, Lock, Building2, CheckCircle, XCircle, Wrench } from 'lucide-react'
 import { typeLabel } from '@/lib/utils'
 import { supabase } from '@/lib/supabase'
 import { deleteSchool } from '@/lib/supabase-data'
+import Toast, { type ToastMsg } from '@/components/Toast'
 import type { SchoolType, School } from '@/lib/types'
 
 const TYPE_ICONS: Record<string, React.ElementType> = { international: Globe, private: Lock, public: Building2, tvet: Wrench }
@@ -30,6 +31,8 @@ export default function ManageSchoolsPage() {
   const [toggling, setToggling]   = useState<number | null>(null)
   const [deleting, setDeleting]   = useState<number | null>(null)
   const [loading, setLoading]     = useState(true)
+  const [toast, setToast]         = useState<ToastMsg | null>(null)
+  const showToast = useCallback((t: ToastMsg) => setToast(t), [])
 
   useEffect(() => {
     supabase.from('schools').select('*').order('id').then(({ data, error }) => {
@@ -54,7 +57,9 @@ export default function ManageSchoolsPage() {
     const { error } = await supabase.from('schools').update({ verified: newValue }).eq('id', school.id)
     if (error) {
       setSchools(prev => prev.map(s => s.id === school.id ? { ...s, verified: school.verified } : s))
-      alert(`Failed to update: ${error.message}`)
+      showToast({ type: 'error', text: 'Could not update verified status. Please try again.' })
+    } else {
+      showToast({ type: 'success', text: `${school.name_en} ${newValue ? 'verified' : 'unverified'}` })
     }
     setToggling(null)
   }
@@ -64,15 +69,17 @@ export default function ManageSchoolsPage() {
     setDeleting(id)
     const err = await deleteSchool(id)
     if (err) {
-      alert('Delete failed: ' + err)
+      showToast({ type: 'error', text: 'Delete failed. Please try again.' })
     } else {
       setSchools(prev => prev.filter(s => s.id !== id))
+      showToast({ type: 'success', text: `"${name}" deleted successfully.` })
     }
     setDeleting(null)
   }
 
   return (
     <div className="max-w-5xl mx-auto space-y-5">
+      <Toast toast={toast} onClose={() => setToast(null)} />
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Manage Schools</h1>
