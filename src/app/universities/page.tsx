@@ -127,7 +127,7 @@ export default function UniversitiesPage() {
 
         {/* Sidebar */}
         <aside className={`${filtersOpen ? 'block' : 'hidden'} sm:block w-full sm:w-64 shrink-0`}>
-          <div className="bg-white rounded-2xl border border-slate-200 p-5 sticky top-20 space-y-5">
+          <div className="bg-white rounded-2xl border border-slate-200 p-5 sticky top-28 space-y-5">
             <div className="flex items-center justify-between">
               <h3 className="font-semibold text-slate-900 flex items-center gap-2">
                 <SlidersHorizontal size={15} /> Filters

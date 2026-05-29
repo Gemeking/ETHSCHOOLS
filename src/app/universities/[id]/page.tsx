@@ -276,7 +276,7 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
           <div className="space-y-5">
 
             {/* Info card */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-5 sticky top-20">
+            <div className="bg-white rounded-2xl border border-slate-200 p-5 sticky top-28">
               <h2 className="font-bold text-slate-900 mb-4 text-base">University Info</h2>
 
               <div className="space-y-3 mb-4">

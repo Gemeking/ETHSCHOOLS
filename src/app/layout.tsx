@@ -46,8 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <PageLoader />
-        {children}
         <DisclaimerBanner />
+        {children}
       </body>
     </html>
   )
