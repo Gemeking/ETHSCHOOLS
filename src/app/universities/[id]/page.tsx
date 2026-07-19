@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
@@ -13,24 +13,30 @@ import QRCodeCard from '@/components/QRCodeCard'
 import PhotoGallery from '@/components/PhotoGallery'
 import { universities } from '@/lib/university-data'
 import { fetchUniversityById, fetchAllUniversities } from '@/lib/supabase-universities'
+import { SITE_URL, universitySlug, universityPath, idFromSlug } from '@/lib/site'
 
-const BASE_URL = 'https://ethschools.vercel.app'
-
-export const revalidate = 0
+export const revalidate = 3600
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const uni = await fetchUniversityById(Number(params.id))
+  const uni = await fetchUniversityById(idFromSlug(params.id))
   if (!uni) return { title: 'University Not Found' }
-  const url = `${BASE_URL}/universities/${uni.id}`
+  const url = `${SITE_URL}${universityPath(uni)}`
   const totalPrograms = uni.departments.reduce((s, d) => s + d.programs.length, 0)
-  const title = `${uni.name_en} — ${uni.city}, Ethiopia`
-  const description = uni.description
-    || `${uni.name_en} is a ${uni.university_type} university in ${uni.city}, ${uni.region}, Ethiopia. Offering ${uni.departments.length} colleges and ${totalPrograms} programs.`
+  const title = `${uni.name_en} — ${uni.city}, Ethiopia | Programs & Contacts`
+  const description = (uni.description
+    || `${uni.name_en}${uni.name_am ? ` (${uni.name_am})` : ''} is a ${uni.university_type.replace('_', '-')} university in ${uni.city}, ${uni.region}, Ethiopia. Offering ${uni.departments.length} colleges and ${totalPrograms} programs.`).slice(0, 300)
   return {
     title,
     description,
-    keywords: [uni.name_en, uni.city, uni.region, 'university Ethiopia', 'Ethiopian university', uni.university_type],
-    openGraph: { title, description, url, type: 'website' },
+    keywords: [
+      uni.name_en, uni.name_am || '', uni.city, uni.region,
+      `${uni.name_en} programs`, `${uni.name_en} departments`, `universities in ${uni.city}`,
+      'university Ethiopia', 'Ethiopian university', uni.university_type,
+    ].filter(Boolean),
+    openGraph: {
+      title, description, url, type: 'website',
+      ...(uni.images?.[0] ? { images: [{ url: uni.images[0], alt: uni.name_en }] } : {}),
+    },
     alternates: { canonical: url },
   }
 }
@@ -58,13 +64,24 @@ const TYPE_LABEL: Record<string, string> = {
   faith_based: 'Faith-Based University',
 }
 
-export function generateStaticParams() {
-  return universities.map((u) => ({ id: String(u.id) }))
+export async function generateStaticParams() {
+  try {
+    const all = await fetchAllUniversities()
+    return all.map((u) => ({ id: universitySlug(u) }))
+  } catch {
+    return universities.map((u) => ({ id: universitySlug(u) }))
+  }
 }
 
 export default async function UniversityDetailPage({ params }: { params: { id: string } }) {
-  const university = await fetchUniversityById(Number(params.id))
+  const university = await fetchUniversityById(idFromSlug(params.id))
   if (!university) notFound()
+
+  // Enforce one canonical URL: /universities/name-city-id (old /universities/12 links 301 here)
+  const canonicalSlug = universitySlug(university)
+  if (decodeURIComponent(params.id) !== canonicalSlug) {
+    permanentRedirect(`/universities/${canonicalSlug}`)
+  }
 
   const gradient = TYPE_GRADIENT[university.university_type] ?? 'from-slate-600 to-slate-800'
   const badge = TYPE_BADGE[university.university_type] ?? 'bg-slate-100 text-slate-700 border-slate-200'
@@ -106,13 +123,16 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
     description: university.description,
   }
 
+  const pageUrl = `${SITE_URL}${universityPath(university)}`
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollegeOrUniversity',
     name: university.name_en,
     alternateName: university.name_am,
     description: university.description,
-    url: `${BASE_URL}/universities/${university.id}`,
+    url: pageUrl,
+    image: university.images?.[0] || undefined,
     telephone: university.phone,
     email: university.email,
     sameAs: university.website ? `https://${university.website}` : undefined,
@@ -131,11 +151,25 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
     numberOfStudents: university.student_count,
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Universities', item: `${SITE_URL}/universities` },
+      { '@type': 'ListItem', position: 3, name: university.name_en, item: pageUrl },
+    ],
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Navbar />
 
@@ -181,7 +215,7 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
                     </span>
                   )}
                 </div>
-                <QRCodeCard url={`${BASE_URL}/universities/${university.id}`} name={university.name_en} type="university" />
+                <QRCodeCard url={pageUrl} name={university.name_en} type="university" />
               </div>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">{university.name_en}</h1>

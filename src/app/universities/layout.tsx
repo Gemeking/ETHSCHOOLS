@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Ethiopian Universities & Colleges — All Higher Education in Ethiopia',
@@ -13,10 +14,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ethiopian Universities & Colleges Directory — EthioSchools',
     description: 'All 56 universities and colleges in Ethiopia in one place. Find programs, departments, contact details and more.',
-    url: 'https://ethschools.vercel.app/universities',
+    url: `${SITE_URL}/universities`,
     type: 'website',
   },
-  alternates: { canonical: 'https://ethschools.vercel.app/universities' },
+  alternates: { canonical: `${SITE_URL}/universities` },
 }
 
 export default function UniversitiesLayout({ children }: { children: React.ReactNode }) {

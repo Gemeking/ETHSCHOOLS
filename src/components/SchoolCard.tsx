@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { MapPin, BookOpen, ArrowRight, CheckCircle } from 'lucide-react'
 import type { School } from '@/lib/types'
 import { typeGradient, typeLabel, formatFee } from '@/lib/utils'
+import { schoolPath } from '@/lib/site'
 
 interface Props {
   school: School
@@ -21,7 +22,7 @@ export default function SchoolCard({ school, index = 0 }: Props) {
 
   return (
     <Link
-      href={`/schools/${school.id}`}
+      href={schoolPath(school)}
       className="group relative bg-white rounded-2xl overflow-hidden border border-white/80 hover:border-indigo-200 shadow-[0_2px_16px_rgba(79,70,229,0.06)] hover:shadow-[0_12px_40px_rgba(79,70,229,0.16)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col card-animate"
       style={{ '--delay': `${Math.min(index, 18) * 50}ms` } as React.CSSProperties}
     >

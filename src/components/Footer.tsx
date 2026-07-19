@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
           {/* Brand */}
           <div className="md:col-span-1">
@@ -24,12 +24,25 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Explore</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/schools?type=international" className="hover:text-white transition-colors">International Schools</Link></li>
-              <li><Link href="/schools?type=private"       className="hover:text-white transition-colors">Private Schools</Link></li>
-              <li><Link href="/schools?type=public"        className="hover:text-white transition-colors">Public Schools</Link></li>
-              <li><Link href="/schools?type=tvet"          className="hover:text-white transition-colors">TVET / Technical</Link></li>
+              <li><Link href="/schools/type/international" className="hover:text-white transition-colors">International Schools</Link></li>
+              <li><Link href="/schools/type/private"       className="hover:text-white transition-colors">Private Schools</Link></li>
+              <li><Link href="/schools/type/public"        className="hover:text-white transition-colors">Public Schools</Link></li>
+              <li><Link href="/schools/type/tvet"          className="hover:text-white transition-colors">TVET / Technical</Link></li>
               <li><Link href="/universities"               className="hover:text-white transition-colors">Universities</Link></li>
               <li><Link href="/map"                        className="hover:text-white transition-colors">Map View</Link></li>
+            </ul>
+          </div>
+
+          {/* Popular cities */}
+          <div>
+            <h4 className="text-white font-semibold mb-3">Schools by City</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/schools/in/bole"      className="hover:text-white transition-colors">Schools in Bole</Link></li>
+              <li><Link href="/schools/in/yeka"      className="hover:text-white transition-colors">Schools in Yeka</Link></li>
+              <li><Link href="/schools/in/kirkos"    className="hover:text-white transition-colors">Schools in Kirkos</Link></li>
+              <li><Link href="/schools/in/bahir-dar" className="hover:text-white transition-colors">Schools in Bahir Dar</Link></li>
+              <li><Link href="/schools/in/adama"     className="hover:text-white transition-colors">Schools in Adama</Link></li>
+              <li><Link href="/schools/in/hawassa"   className="hover:text-white transition-colors">Schools in Hawassa</Link></li>
             </ul>
           </div>
 

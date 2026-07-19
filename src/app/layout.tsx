@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import './globals.css'
 import PageLoader from '@/components/PageLoader'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
+import { SITE_URL, SITE_NAME } from '@/lib/site'
 
-const BASE = 'https://ethschools.vercel.app'
+const BASE = SITE_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
@@ -41,10 +42,40 @@ export const metadata: Metadata = {
   alternates: { canonical: BASE },
 }
 
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: 'The most complete directory of schools and universities in Ethiopia.',
+  inLanguage: ['en', 'am'],
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/schools?q={search_term_string}` },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_NAME,
+  url: SITE_URL,
+  areaServed: { '@type': 'Country', name: 'Ethiopia' },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+251937595664',
+    contactType: 'customer service',
+    availableLanguage: ['English', 'Amharic'],
+  },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
         <PageLoader />
         <DisclaimerBanner />
         {children}

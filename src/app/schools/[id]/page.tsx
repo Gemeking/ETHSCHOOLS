@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
@@ -14,23 +14,29 @@ import PhotoGallery from '@/components/PhotoGallery'
 import { schools } from '@/lib/data'
 import { fetchSchoolById, fetchAllSchools } from '@/lib/supabase-data'
 import { typeColor, typeGradient, typeLabel, formatFee } from '@/lib/utils'
+import { SITE_URL, schoolSlug, schoolPath, idFromSlug, citySlug } from '@/lib/site'
 
-const BASE_URL = 'https://ethschools.vercel.app'
-
-export const revalidate = 0
+export const revalidate = 3600
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const school = await fetchSchoolById(Number(params.id))
+  const school = await fetchSchoolById(idFromSlug(params.id))
   if (!school) return { title: 'School Not Found' }
-  const url = `${BASE_URL}/schools/${school.id}`
-  const title = `${school.name_en} — ${school.sub_city}, Ethiopia`
-  const description = school.description
-    || `${school.name_en} is a ${typeLabel(school.school_type).toLowerCase()} in ${school.sub_city}, Ethiopia. Curriculum: ${school.curriculum}. Grades: ${school.grades}.`
+  const url = `${SITE_URL}${schoolPath(school)}`
+  const title = `${school.name_en} — ${school.sub_city}, Ethiopia | Fees, Contacts & Location`
+  const description = (school.description
+    || `${school.name_en}${school.name_am ? ` (${school.name_am})` : ''} is a ${typeLabel(school.school_type).toLowerCase()} school in ${school.sub_city}, Ethiopia. Curriculum: ${school.curriculum}. Grades: ${school.grades}. Fees: ${formatFee(school.fee_range_etb)}.`).slice(0, 300)
   return {
     title,
     description,
-    keywords: [school.name_en, school.sub_city || '', 'school Ethiopia', school.curriculum || '', school.school_type, 'Ethiopian school'],
-    openGraph: { title, description, url, type: 'website' },
+    keywords: [
+      school.name_en, school.name_am || '', school.sub_city || '',
+      `schools in ${school.sub_city}`, `${school.name_en} fees`, `${school.name_en} contact`,
+      'school Ethiopia', school.curriculum || '', school.school_type, 'Ethiopian school',
+    ].filter(Boolean),
+    openGraph: {
+      title, description, url, type: 'website',
+      ...(school.images?.[0] ? { images: [{ url: school.images[0], alt: school.name_en }] } : {}),
+    },
     alternates: { canonical: url },
   }
 }
@@ -40,13 +46,24 @@ const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   loading: () => <div className="h-64 bg-slate-200 animate-pulse rounded-2xl" />,
 })
 
-export function generateStaticParams() {
-  return schools.map((s) => ({ id: String(s.id) }))
+export async function generateStaticParams() {
+  try {
+    const all = await fetchAllSchools()
+    return all.map((s) => ({ id: schoolSlug(s) }))
+  } catch {
+    return schools.map((s) => ({ id: schoolSlug(s) }))
+  }
 }
 
 export default async function SchoolDetailPage({ params }: { params: { id: string } }) {
-  const school = await fetchSchoolById(Number(params.id))
+  const school = await fetchSchoolById(idFromSlug(params.id))
   if (!school) notFound()
+
+  // Enforce one canonical URL: /schools/name-subcity-id (old /schools/123 links 301 here)
+  const canonicalSlug = schoolSlug(school)
+  if (decodeURIComponent(params.id) !== canonicalSlug) {
+    permanentRedirect(`/schools/${canonicalSlug}`)
+  }
 
   const gradient = typeGradient(school.school_type)
   const badge = typeColor(school.school_type)
@@ -62,13 +79,16 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
     { icon: DollarSign, label: 'Annual Fees', value: formatFee(school.fee_range_etb) },
   ]
 
+  const pageUrl = `${SITE_URL}${schoolPath(school)}`
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'School',
     name: school.name_en,
     alternateName: school.name_am,
     description: school.description,
-    url: `${BASE_URL}/schools/${school.id}`,
+    url: pageUrl,
+    image: school.images?.[0] || undefined,
     telephone: school.phone,
     email: school.email,
     sameAs: school.website ? `https://${school.website}` : undefined,
@@ -86,11 +106,28 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
     foundingDate: school.established,
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Schools', item: `${SITE_URL}/schools` },
+      ...(school.sub_city
+        ? [{ '@type': 'ListItem', position: 3, name: `Schools in ${school.sub_city}`, item: `${SITE_URL}/schools/in/${citySlug(school.sub_city)}` }]
+        : []),
+      { '@type': 'ListItem', position: school.sub_city ? 4 : 3, name: school.name_en, item: pageUrl },
+    ],
+  }
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Navbar />
 
@@ -136,7 +173,7 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
                     </span>
                   )}
                 </div>
-                <QRCodeCard url={`${BASE_URL}/schools/${school.id}`} name={school.name_en} type="school" />
+                <QRCodeCard url={pageUrl} name={school.name_en} type="school" />
               </div>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">{school.name_en}</h1>
@@ -288,7 +325,9 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
         {related.length > 0 && (
           <section className="mt-10">
             <h2 className="text-xl font-bold text-slate-900 mb-5">
-              Other Schools in {school.sub_city}
+              <Link href={`/schools/in/${citySlug(school.sub_city)}`} className="hover:text-primary-600 transition-colors">
+                Other Schools in {school.sub_city}
+              </Link>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map((s) => <SchoolCard key={s.id} school={s} />)}

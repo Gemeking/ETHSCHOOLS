@@ -1,0 +1,43 @@
+export const SITE_URL = 'https://ethioschool.et'
+export const SITE_NAME = 'EthioSchools'
+
+/** URL-safe slug from any text (Amharic/unicode chars are dropped). */
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80)
+}
+
+/** Canonical slug for a school: name + sub-city + id, e.g. "sandford-international-school-bole-247" */
+export function schoolSlug(s: { id: number; name_en: string; sub_city?: string | null }): string {
+  const base = slugify([s.name_en, s.sub_city].filter(Boolean).join(' '))
+  return base ? `${base}-${s.id}` : String(s.id)
+}
+
+export function schoolPath(s: { id: number; name_en: string; sub_city?: string | null }): string {
+  return `/schools/${schoolSlug(s)}`
+}
+
+/** Canonical slug for a university: name + city + id */
+export function universitySlug(u: { id: number; name_en: string; city?: string | null }): string {
+  const base = slugify([u.name_en, u.city].filter(Boolean).join(' '))
+  return base ? `${base}-${u.id}` : String(u.id)
+}
+
+export function universityPath(u: { id: number; name_en: string; city?: string | null }): string {
+  return `/universities/${universitySlug(u)}`
+}
+
+/** Extract the numeric id from a slug ("sandford-...-247" → 247, "247" → 247). */
+export function idFromSlug(slug: string): number {
+  const m = decodeURIComponent(slug).match(/(\d+)$/)
+  return m ? Number(m[1]) : NaN
+}
+
+export function citySlug(city: string): string {
+  return slugify(city)
+}

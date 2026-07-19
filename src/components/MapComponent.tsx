@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import Link from 'next/link'
 import type { School } from '@/lib/types'
 import { typeLabel } from '@/lib/utils'
+import { schoolPath } from '@/lib/site'
 
 // Fix default marker icons in Next.js
 delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)._getIconUrl
@@ -68,7 +69,7 @@ export default function MapComponent({ schools, center = [9.02, 38.75], zoom = 1
                   <span className="bg-slate-100 px-2 py-0.5 rounded-full">{school.fee_range_etb ? (school.fee_range_etb.includes('Free') ? 'Free' : `${school.fee_range_etb} ETB`) : 'Contact school'}</span>
                 </div>
                 <Link
-                  href={`/schools/${school.id}`}
+                  href={schoolPath(school)}
                   className="block text-center text-xs font-semibold bg-primary-600 text-white px-3 py-1.5 rounded-lg hover:bg-primary-700 transition-colors"
                 >
                   View Details →

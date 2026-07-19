@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { MapPin, BookOpen, Users, CheckCircle, GraduationCap } from 'lucide-react'
 import type { University } from '@/lib/types'
+import { universityPath } from '@/lib/site'
 
 interface Props {
   university: University
@@ -32,7 +33,7 @@ export default function UniversityCard({ university, featured = false }: Props) 
 
   return (
     <Link
-      href={`/universities/${university.id}`}
+      href={universityPath(university)}
       className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 hover:border-primary-200 transition-all duration-300 flex flex-col"
     >
       {/* Banner */}

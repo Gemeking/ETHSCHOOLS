@@ -1,20 +1,21 @@
 'use client'
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { GraduationCap, Map, School, Menu, X, BookOpen, Wrench } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 export default function Navbar() {
   const pathname = usePathname()
-  const params = useSearchParams()
   const [open, setOpen] = useState(false)
 
-  const isTvet = pathname === '/schools' && params.get('type') === 'tvet'
+  // useSearchParams is deliberately avoided here — it forces every page that
+  // renders the Navbar to bail out of static rendering (bad for SEO).
+  const isTvet = pathname.startsWith('/schools/type/tvet')
 
   const links = [
-    { href: '/schools',           label: 'Schools',     icon: School,   active: pathname.startsWith('/schools') && !isTvet },
-    { href: '/schools?type=tvet', label: 'TVET',        icon: Wrench,   active: isTvet,                                     orange: true },
+    { href: '/schools',            label: 'Schools',     icon: School,   active: pathname.startsWith('/schools') && !isTvet },
+    { href: '/schools/type/tvet',  label: 'TVET',        icon: Wrench,   active: isTvet,                                     orange: true },
     { href: '/universities',      label: 'Universities', icon: BookOpen, active: pathname.startsWith('/universities') },
     { href: '/map',               label: 'Map View',     icon: Map,      active: pathname.startsWith('/map') },
   ]
