@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { MapPin, ArrowLeft } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import SchoolCard from '@/components/SchoolCard'
+import PaginatedSchoolGrid from '@/components/PaginatedSchoolGrid'
 import { fetchAllSchools } from '@/lib/supabase-data'
 import { schools as localSchools } from '@/lib/data'
 import { typeLabel } from '@/lib/utils'
@@ -122,11 +122,7 @@ export default async function SchoolsInCityPage({ params }: { params: { city: st
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {schools.map((s, i) => (
-            <SchoolCard key={s.id} school={s} index={i} />
-          ))}
-        </div>
+        <PaginatedSchoolGrid schools={schools} />
 
         {otherCities.length > 0 && (
           <section className="mt-12">
