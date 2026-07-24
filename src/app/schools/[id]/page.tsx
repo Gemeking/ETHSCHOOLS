@@ -14,7 +14,7 @@ import PhotoGallery from '@/components/PhotoGallery'
 import { schools } from '@/lib/data'
 import { fetchSchoolById, fetchAllSchools } from '@/lib/supabase-data'
 import { typeColor, typeGradient, typeLabel, formatFee } from '@/lib/utils'
-import { SITE_URL, schoolSlug, schoolPath, idFromSlug, citySlug } from '@/lib/site'
+import { SITE_URL, schoolSlug, schoolPath, idFromSlug, citySlug, DEFAULT_SCHOOL_IMAGE } from '@/lib/site'
 
 export const revalidate = 3600
 
@@ -137,11 +137,9 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
           <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white/10" />
           <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-white/10" />
         </div>
-        {school.images?.[0] && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={school.images[0]} alt={school.name_en} className="absolute inset-0 w-full h-full object-cover" />
-        )}
-        <div className="absolute inset-0 bg-black/20" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={school.images?.[0] || DEFAULT_SCHOOL_IMAGE} alt={school.name_en} className="absolute inset-0 w-full h-full object-cover" />
+        <div className={`absolute inset-0 ${school.images?.[0] ? 'bg-black/20' : `bg-gradient-to-br ${gradient} opacity-70`}`} />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 h-full flex flex-col justify-between py-6">
           <Link href="/schools" className="flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors w-fit">
             <ArrowLeft size={16} /> Back to Schools

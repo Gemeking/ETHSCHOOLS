@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { MapPin, BookOpen, ArrowRight, CheckCircle } from 'lucide-react'
 import type { School } from '@/lib/types'
 import { typeGradient, typeLabel, formatFee } from '@/lib/utils'
-import { schoolPath } from '@/lib/site'
+import { schoolPath, DEFAULT_SCHOOL_IMAGE } from '@/lib/site'
 
 interface Props {
   school: School
@@ -33,14 +33,15 @@ export default function SchoolCard({ school, index = 0 }: Props) {
         <div className="absolute -bottom-10 -left-4 w-28 h-28 rounded-full bg-black/10" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-white/5" />
 
-        {/* Cover image */}
-        {school.images?.[0] && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={school.images[0]}
-            alt={school.name_en}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        {/* Cover image (falls back to a generic classroom photo) */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={school.images?.[0] || DEFAULT_SCHOOL_IMAGE}
+          alt={school.name_en}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {!school.images?.[0] && (
+          <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-70`} />
         )}
 
         {/* Top badges */}

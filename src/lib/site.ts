@@ -1,6 +1,12 @@
 export const SITE_URL = 'https://ethioschool.et'
 export const SITE_NAME = 'EthioSchools'
 
+// Generic classroom placeholder shown when a school has no uploaded photo yet.
+// Not stored in the database — purely a UI fallback, so it never gets
+// mistaken for a verified photo of a specific school.
+export const DEFAULT_SCHOOL_IMAGE =
+  'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80&auto=format&fit=crop'
+
 /** URL-safe slug from any text (Amharic/unicode chars are dropped). */
 export function slugify(text: string): string {
   return text

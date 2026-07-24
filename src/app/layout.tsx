@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import PageLoader from '@/components/PageLoader'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { SITE_URL, SITE_NAME } from '@/lib/site'
 
@@ -76,7 +75,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
-        <PageLoader />
         <DisclaimerBanner />
         {children}
       </body>
