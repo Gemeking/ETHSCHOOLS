@@ -16,6 +16,12 @@ const nextConfig = {
         destination: 'https://ethioschool.et/:path*',
         permanent: true,
       },
+      // Home page is just a landing redirect into the schools directory
+      {
+        source: '/',
+        destination: '/schools',
+        permanent: false,
+      },
     ]
   },
 }
