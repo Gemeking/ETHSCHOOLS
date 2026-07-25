@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { GraduationCap, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react'
+import { Lock, Eye, EyeOff, AlertCircle } from 'lucide-react'
 
 export default function AdminLoginPage() {
   const router = useRouter()
@@ -29,8 +29,9 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-950 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-600 rounded-2xl mb-4">
-            <GraduationCap size={32} className="text-white" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl mb-4 p-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/favicon.png" alt="EthioSchool" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
           <p className="text-slate-400 mt-1 text-sm">EthioSchool Finder Dashboard</p>

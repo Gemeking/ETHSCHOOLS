@@ -1,7 +1,15 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import DisclaimerBanner from '@/components/DisclaimerBanner'
 import { SITE_URL, SITE_NAME } from '@/lib/site'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 const BASE = SITE_URL
 
@@ -10,6 +18,11 @@ export const metadata: Metadata = {
   title: {
     default: 'EthioSchools — Find Schools & Universities in Ethiopia',
     template: '%s | EthioSchools',
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   description: 'The most complete directory of schools and universities in Ethiopia. Search 400+ schools and 56 universities by location, fees, curriculum, and programs. Free to use.',
   keywords: [
@@ -71,7 +84,7 @@ const organizationLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />

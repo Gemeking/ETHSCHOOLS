@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { GraduationCap, Phone, MapPin } from 'lucide-react'
+import { Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -10,9 +10,8 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 text-white font-bold text-lg mb-3">
-              <span className="flex items-center justify-center w-8 h-8 bg-primary-600 rounded-lg">
-                <GraduationCap size={18} />
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/favicon.png" alt="EthioSchool" className="w-8 h-8 object-contain shrink-0" />
               Ethio<span className="text-primary-400">School</span>
             </Link>
             <p className="text-sm leading-relaxed">

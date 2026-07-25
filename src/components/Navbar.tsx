@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GraduationCap, Map, School, Menu, X, BookOpen, Wrench } from 'lucide-react'
+import { Map, School, Menu, X, BookOpen, Wrench } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -27,9 +27,8 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-md shadow-emerald-200 group-hover:shadow-emerald-300 transition-all duration-200">
-              <GraduationCap size={19} className="text-white" />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/favicon.png" alt="EthioSchool" className="w-9 h-9 object-contain shrink-0" />
             <span className="font-extrabold text-[18px] tracking-tight text-slate-900">
               Ethio<span className="text-emerald-600">School</span>
             </span>

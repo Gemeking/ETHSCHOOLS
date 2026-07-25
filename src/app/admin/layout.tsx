@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { GraduationCap, LayoutDashboard, School, LogOut, PlusCircle, Map, Menu, X, BookOpen } from 'lucide-react'
+import { LayoutDashboard, School, LogOut, PlusCircle, Map, Menu, X, BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
@@ -47,9 +47,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       )}>
         {/* Logo */}
         <div className="flex items-center gap-3 px-5 h-16 border-b border-slate-800">
-          <div className="w-9 h-9 bg-primary-600 rounded-xl flex items-center justify-center shrink-0">
-            <GraduationCap size={20} className="text-white" />
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/favicon.png" alt="EthioSchool" className="w-9 h-9 object-contain shrink-0" />
           <div>
             <div className="text-white font-bold text-sm">EthioSchool</div>
             <div className="text-slate-400 text-xs">Admin Panel</div>

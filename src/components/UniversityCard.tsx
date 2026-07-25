@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { MapPin, BookOpen, Users, CheckCircle, GraduationCap } from 'lucide-react'
 import type { University } from '@/lib/types'
-import { universityPath } from '@/lib/site'
+import { universityPath, DEFAULT_UNIVERSITY_IMAGE } from '@/lib/site'
 
 interface Props {
   university: University
@@ -41,13 +41,14 @@ export default function UniversityCard({ university, featured = false }: Props) 
         <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/10 -translate-y-16 translate-x-16" />
         <div className="absolute bottom-0 left-0 w-20 h-20 rounded-full bg-white/10 translate-y-10 -translate-x-10" />
 
-        {university.images?.[0] && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={university.images[0]}
-            alt={university.name_en}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={university.images?.[0] || DEFAULT_UNIVERSITY_IMAGE}
+          alt={university.name_en}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {!university.images?.[0] && (
+          <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-70`} />
         )}
 
         <div className="relative z-10 flex items-center justify-between w-full">
