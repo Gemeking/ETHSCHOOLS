@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Map, School, Menu, X, BookOpen, Wrench } from 'lucide-react'
+import { Map, School, Menu, X, BookOpen, Wrench, Flag } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -54,15 +54,30 @@ export default function Navbar() {
                 )}
               </Link>
             ))}
+            <Link
+              href="/report"
+              className="flex items-center gap-1.5 ml-1.5 pl-3 pr-3.5 py-2 rounded-xl text-sm font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 transition-colors"
+            >
+              <Flag size={14} /> Report
+            </Link>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-colors"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Mobile: report button + menu toggle */}
+          <div className="flex md:hidden items-center gap-1.5">
+            <Link
+              href="/report"
+              className="flex items-center justify-center w-9 h-9 rounded-xl text-amber-700 bg-amber-50 border border-amber-200"
+              aria-label="Report an issue"
+            >
+              <Flag size={16} />
+            </Link>
+            <button
+              onClick={() => setOpen(!open)}
+              className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-colors"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </div>
 

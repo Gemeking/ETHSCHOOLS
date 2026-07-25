@@ -1,21 +1,24 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Globe, Lock, Building2, PlusCircle, School, ArrowRight, BookOpen, MapPin, CheckCircle } from 'lucide-react'
+import { Globe, Lock, Building2, PlusCircle, School, ArrowRight, BookOpen, MapPin, CheckCircle, Flag } from 'lucide-react'
 import { fetchAllSchools } from '@/lib/supabase-data'
 import { fetchAllUniversities } from '@/lib/supabase-universities'
+import { fetchAllFeedback } from '@/lib/supabase-feedback'
 import type { School as SchoolType } from '@/lib/types'
 import type { University } from '@/lib/types'
 
 export default function AdminDashboard() {
   const [schools, setSchools] = useState<SchoolType[]>([])
   const [universities, setUniversities] = useState<University[]>([])
+  const [pendingFeedback, setPendingFeedback] = useState(0)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    Promise.all([fetchAllSchools(), fetchAllUniversities()]).then(([s, u]) => {
+    Promise.all([fetchAllSchools(), fetchAllUniversities(), fetchAllFeedback()]).then(([s, u, f]) => {
       setSchools(s)
       setUniversities(u)
+      setPendingFeedback(f.filter((item) => item.status === 'pending').length)
       setLoading(false)
     })
   }, [])
@@ -113,6 +116,16 @@ export default function AdminDashboard() {
 
           {/* Quick actions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/admin/feedback" className="flex items-center gap-4 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl p-5 transition-colors group sm:col-span-2">
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"><Flag size={22} /></div>
+              <div>
+                <div className="font-bold text-lg">
+                  User Feedback {pendingFeedback > 0 && <span className="ml-1 text-sm font-semibold bg-white/25 px-2 py-0.5 rounded-full">{pendingFeedback} pending</span>}
+                </div>
+                <div className="text-amber-50 text-sm">Corrections and suggestions submitted by visitors</div>
+              </div>
+              <ArrowRight size={18} className="ml-auto group-hover:translate-x-1 transition-transform" />
+            </Link>
             <Link href="/admin/schools/new" className="flex items-center gap-4 bg-primary-600 hover:bg-primary-700 text-white rounded-2xl p-5 transition-colors group">
               <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center"><PlusCircle size={22} /></div>
               <div>

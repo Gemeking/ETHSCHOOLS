@@ -416,7 +416,10 @@ export default async function UniversityDetailPage({ params }: { params: { id: s
             </div>
 
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-700">
-              <strong>Note:</strong> Program lists and fee information may change. Always confirm with the university directly.
+              <strong>Note:</strong> Program lists and fee information may change. Always confirm with the university directly.{' '}
+              <Link href={`/report?school=${encodeURIComponent(university.name_en)}`} className="font-bold underline hover:text-amber-900">
+                See something wrong? Report it →
+              </Link>
             </div>
           </div>
         </div>

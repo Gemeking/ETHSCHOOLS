@@ -314,7 +314,10 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
 
             {/* Data quality notice */}
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-700">
-              <strong>Note:</strong> Data may not be fully up to date. Always confirm fees and details directly with the school.
+              <strong>Note:</strong> Data may not be fully up to date. Always confirm fees and details directly with the school.{' '}
+              <Link href={`/report?school=${encodeURIComponent(school.name_en)}`} className="font-bold underline hover:text-amber-900">
+                See something wrong? Report it →
+              </Link>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo, useEffect, useRef } from 'react'
+import { useState, useMemo, useEffect, useRef, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import {
   Search, SlidersHorizontal, X, Map, Grid3X3,
@@ -107,6 +107,31 @@ function HighlightMatch({ text, query }: { text: string; query: string }) {
 }
 
 export default function SchoolsPage() {
+  return (
+    <Suspense fallback={<SchoolsPageSkeleton />}>
+      <SchoolsPageContent />
+    </Suspense>
+  )
+}
+
+function SchoolsPageSkeleton() {
+  return (
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f2f5ff' }}>
+      <Navbar />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-1">
+        <div className="h-12 bg-white rounded-2xl border border-slate-100 mb-5 animate-pulse" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <div key={i} className="h-72 bg-white rounded-2xl border border-slate-100 animate-pulse" />
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </div>
+  )
+}
+
+function SchoolsPageContent() {
   const params = useSearchParams()
 
   const [allSchools, setAllSchools] = useState<School[]>(localSchools)
