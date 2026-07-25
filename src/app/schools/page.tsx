@@ -12,7 +12,7 @@ import SchoolCard from '@/components/SchoolCard'
 import Pagination from '@/components/Pagination'
 import { schools as localSchools } from '@/lib/data'
 import { fetchAllSchools } from '@/lib/supabase-data'
-import { SUB_CITIES, CURRICULA, typeLabel } from '@/lib/utils'
+import { CURRICULA, typeLabel } from '@/lib/utils'
 import type { SchoolType, School } from '@/lib/types'
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
@@ -52,13 +52,11 @@ const CITY_META: Record<string, { emoji: string }> = {
   'Lideta':           { emoji: '🎓' },
   'Gulele':           { emoji: '🌳' },
   'Akaki Kaliti':     { emoji: '🏭' },
-  // Sheger City
   'Burayu':           { emoji: '🏡' },
   'Sebeta':           { emoji: '🛣️' },
   'Sululta':          { emoji: '🌾' },
   'Legetafo':         { emoji: '🌲' },
   'Gelan':            { emoji: '🏘️' },
-  // Amhara Region
   'Bahir Dar':        { emoji: '🌊' },
   'Gondar':           { emoji: '🏰' },
   'Dessie':           { emoji: '⛰️' },
@@ -69,7 +67,6 @@ const CITY_META: Record<string, { emoji: string }> = {
   'Debre Tabor':      { emoji: '🕌' },
   'Lalibela':         { emoji: '⛪' },
   'Finote Selam':     { emoji: '🌿' },
-  // Oromia Region
   'Adama':            { emoji: '🏙️' },
   'Bishoftu':         { emoji: '💧' },
   'Jimma':            { emoji: '☕' },
@@ -90,9 +87,7 @@ const CITY_META: Record<string, { emoji: string }> = {
   'Chiro':            { emoji: '🌵' },
   'Dodola':           { emoji: '🏔️' },
   'Tepi':             { emoji: '🍵' },
-  // SNNPR
   'Arba Minch':       { emoji: '💧' },
-  // Tigray
   'Mekelle':          { emoji: '🏛️' },
 }
 
@@ -121,14 +116,13 @@ export default function SchoolsPage() {
   const [feeMax, setFeeMax]         = useState(MAX_FEE)
   const [curriculum, setCurriculum] = useState('All Curricula')
   const [view, setView]             = useState<'grid' | 'map'>('grid')
-  const [filtersOpen, setFiltersOpen] = useState(false)
   const [page, setPage]             = useState(1)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [activeIdx, setActiveIdx]   = useState(-1)
-  const [locationOpen, setLocationOpen]   = useState(false)
+  const [sheetOpen, setSheetOpen]         = useState(false)
+  const [sheetTab, setSheetTab]           = useState<'location' | 'more'>('location')
   const [locationQuery, setLocationQuery] = useState('')
-  const searchRef   = useRef<HTMLDivElement>(null)
-  const locationRef = useRef<HTMLDivElement>(null)
+  const searchRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     fetchAllSchools().then(setAllSchools)
@@ -145,13 +139,16 @@ export default function SchoolsPage() {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
         setShowSuggestions(false); setActiveIdx(-1)
       }
-      if (locationRef.current && !locationRef.current.contains(e.target as Node)) {
-        setLocationOpen(false); setLocationQuery('')
-      }
     }
     document.addEventListener('mousedown', onClickOutside)
     return () => document.removeEventListener('mousedown', onClickOutside)
   }, [])
+
+  // Lock background scroll while the filter sheet is open (mobile-friendly)
+  useEffect(() => {
+    document.body.style.overflow = sheetOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [sheetOpen])
 
   const suggestions = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -194,7 +191,8 @@ export default function SchoolsPage() {
     }).sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
   }, [allSchools, query, type, subCity, feeMax, curriculum])
 
-  const hasFilters = !!(query || type !== 'all' || subCity !== 'All Sub-cities' || feeMax < MAX_FEE || curriculum !== 'All Curricula')
+  const moreFiltersActive = subCity !== 'All Sub-cities' || feeMax < MAX_FEE || curriculum !== 'All Curricula'
+  const hasFilters = !!(query || type !== 'all' || moreFiltersActive)
 
   // Reset to page 1 whenever filters change
   useEffect(() => { setPage(1) }, [query, type, subCity, feeMax, curriculum])
@@ -236,53 +234,27 @@ export default function SchoolsPage() {
     tvet:          'bg-orange-500',
   }
 
+  function openSheet(tab: 'location' | 'more') {
+    setSheetTab(tab)
+    setLocationQuery('')
+    setSheetOpen(true)
+  }
+
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#f2f5ff' }}>
       <Navbar />
 
-      {/* ── PAGE HEADER ── */}
-      <div className="bg-white border-b border-slate-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-0">
+      {/* ── COMPACT STICKY CONTROLS ── */}
+      <div className="bg-white border-b border-slate-100 shadow-sm sticky top-[100px] z-30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
 
-          {/* Title row */}
-          <div className="flex items-start justify-between mb-5">
-            <div>
-              <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                Schools in Ethiopia
-              </h1>
-              <p className="text-sm text-slate-400 mt-0.5 font-medium">
-                {allSchools.length} schools across all sub-cities
-              </p>
-            </div>
-            <div className="flex items-center gap-1 bg-slate-100 rounded-xl p-1 shrink-0">
-              <button
-                onClick={() => setView('grid')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                  view === 'grid' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                <Grid3X3 size={14} /> Grid
-              </button>
-              <button
-                onClick={() => setView('map')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                  view === 'map' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-500 hover:text-slate-800'
-                }`}
-              >
-                <Map size={14} /> Map
-              </button>
-            </div>
-          </div>
-
-          {/* ── Search bar ── */}
-          <div className="mb-3 max-w-3xl">
-
-            {/* School search */}
+          {/* Search + view toggle */}
+          <div className="flex items-center gap-2">
             <div ref={searchRef} className="relative flex-1 min-w-0">
-              <div className={`flex items-center gap-3 bg-white border rounded-2xl px-4 py-3 transition-all duration-200 shadow-sm ${
+              <div className={`flex items-center gap-2.5 bg-white border rounded-2xl px-3.5 py-2.5 transition-all duration-200 ${
                 showSuggestions && suggestions.length > 0
                   ? 'border-indigo-400 ring-4 ring-indigo-50'
-                  : 'border-slate-200 hover:border-indigo-300 focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-50'
+                  : 'border-slate-200 focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-50'
               }`}>
                 <Search size={17} className="text-slate-400 shrink-0" />
                 <input
@@ -291,7 +263,7 @@ export default function SchoolsPage() {
                   onChange={e => { setQuery(sanitize(e.target.value)); setShowSuggestions(true); setActiveIdx(-1) }}
                   onFocus={() => query.length >= 2 && setShowSuggestions(true)}
                   onKeyDown={onSearchKeyDown}
-                  placeholder="School name or curriculum..."
+                  placeholder="Search schools..."
                   className="flex-1 text-slate-800 placeholder-slate-400 outline-none text-sm bg-transparent min-w-0"
                 />
                 {query && (
@@ -301,12 +273,9 @@ export default function SchoolsPage() {
                 )}
               </div>
 
-              {/* School autocomplete */}
+              {/* Live autocomplete */}
               {showSuggestions && suggestions.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
-                  <div className="px-3 py-2 border-b border-slate-50">
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Suggestions</p>
-                  </div>
+                <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50 max-h-[70vh] overflow-y-auto">
                   {suggestions.map((s, i) => (
                     <button
                       key={s.id}
@@ -320,14 +289,12 @@ export default function SchoolsPage() {
                         {s.name_en.charAt(0)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-sm font-semibold text-slate-800">
+                        <div className="text-sm font-semibold text-slate-800 truncate">
                           <HighlightMatch text={s.name_en} query={query} />
                         </div>
                         <div className="flex items-center gap-1 text-xs text-slate-400 mt-0.5">
                           <MapPin size={9} />
                           <HighlightMatch text={s.sub_city || ''} query={query} />
-                          <span>·</span>
-                          <span>{typeLabel(s.school_type)}</span>
                         </div>
                       </div>
                       <ArrowRight size={13} className="text-slate-300 shrink-0" />
@@ -336,45 +303,179 @@ export default function SchoolsPage() {
                 </div>
               )}
             </div>
-          </div>
 
-          {/* ── Location + Telegram row ── */}
-          <div className="flex gap-3 mb-4 max-w-3xl">
-
-            {/* ── Location dropdown ── */}
-            <div ref={locationRef} className="relative shrink-0">
+            {/* View toggle — icon-only, compact */}
+            <div className="flex items-center gap-0.5 bg-slate-100 rounded-xl p-1 shrink-0">
               <button
-                type="button"
-                onClick={() => { setLocationOpen(v => !v); setLocationQuery('') }}
-                className={`flex items-center gap-2 px-4 py-3 rounded-2xl border text-sm font-semibold transition-all duration-200 shadow-sm whitespace-nowrap ${
-                  subCity !== 'All Sub-cities'
-                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-indigo-200'
-                    : locationOpen
-                      ? 'bg-white border-indigo-400 ring-4 ring-indigo-50 text-slate-800'
-                      : 'bg-white border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-slate-900'
+                onClick={() => setView('grid')}
+                aria-label="Grid view"
+                className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all ${
+                  view === 'grid' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-400'
                 }`}
               >
-                <span className="text-base leading-none">
-                  {subCity !== 'All Sub-cities' ? (CITY_META[subCity]?.emoji ?? '📍') : '📍'}
-                </span>
-                <span className="max-w-[120px] truncate">
-                  {subCity !== 'All Sub-cities' ? subCity : 'All Areas'}
-                </span>
-                {subCity !== 'All Sub-cities' && (
-                  <span className="bg-white/20 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-                    {cityCounts[subCity] ?? 0}
-                  </span>
-                )}
-                <ChevronDown size={14} className={`transition-transform duration-200 ${locationOpen ? 'rotate-180' : ''}`} />
+                <Grid3X3 size={16} />
               </button>
+              <button
+                onClick={() => setView('map')}
+                aria-label="Map view"
+                className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all ${
+                  view === 'map' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-400'
+                }`}
+              >
+                <Map size={16} />
+              </button>
+            </div>
+          </div>
 
-              {/* Location dropdown panel */}
-              {locationOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50">
-                  {/* Search input inside dropdown */}
-                  <div className="p-3 border-b border-slate-100">
-                    <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus-within:border-indigo-400 focus-within:ring-2 focus-within:ring-indigo-50 transition-all">
-                      <Search size={13} className="text-slate-400 shrink-0" />
+          {/* One scrollable row: Location chip, More-filters chip, Type pills */}
+          <div className="flex items-center gap-2 mt-2.5 overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
+            <button
+              onClick={() => openSheet('location')}
+              className={`flex items-center gap-1.5 pl-2.5 pr-3 py-2 rounded-full text-sm font-semibold border shrink-0 transition-all ${
+                subCity !== 'All Sub-cities'
+                  ? 'bg-indigo-600 text-white border-indigo-600'
+                  : 'bg-white text-slate-600 border-slate-200'
+              }`}
+            >
+              <span className="text-base leading-none">
+                {subCity !== 'All Sub-cities' ? (CITY_META[subCity]?.emoji ?? '📍') : '📍'}
+              </span>
+              <span className="max-w-[100px] truncate">
+                {subCity !== 'All Sub-cities' ? subCity : 'Location'}
+              </span>
+            </button>
+
+            <button
+              onClick={() => openSheet('more')}
+              className={`flex items-center gap-1.5 pl-2.5 pr-3 py-2 rounded-full text-sm font-semibold border shrink-0 transition-all ${
+                moreFiltersActive
+                  ? 'bg-indigo-600 text-white border-indigo-600'
+                  : 'bg-white text-slate-600 border-slate-200'
+              }`}
+            >
+              <SlidersHorizontal size={13} />
+              Filters
+              {(feeMax < MAX_FEE ? 1 : 0) + (curriculum !== 'All Curricula' ? 1 : 0) > 0 && (
+                <span className={`w-4 h-4 flex items-center justify-center rounded-full text-[10px] font-bold ${moreFiltersActive ? 'bg-white/25' : 'bg-indigo-100 text-indigo-600'}`}>
+                  {(feeMax < MAX_FEE ? 1 : 0) + (curriculum !== 'All Curricula' ? 1 : 0)}
+                </span>
+              )}
+            </button>
+
+            <div className="w-px h-5 bg-slate-200 shrink-0" />
+
+            {TYPES.map(t => (
+              <button
+                key={t}
+                onClick={() => setType(t)}
+                className={`px-3.5 py-2 rounded-full text-sm font-semibold border shrink-0 transition-all ${
+                  type === t
+                    ? 'bg-slate-900 text-white border-slate-900'
+                    : 'bg-white text-slate-600 border-slate-200'
+                }`}
+              >
+                {typeLabel(t)}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── RESULTS ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 w-full flex-1">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-sm text-slate-500">
+            <span className="font-bold text-slate-800">{filtered.length}</span> found
+            {subCity !== 'All Sub-cities' && <span className="ml-1 font-semibold text-indigo-600">in {subCity}</span>}
+          </p>
+          {hasFilters && (
+            <button onClick={clearFilters} className="text-xs text-slate-400 hover:text-red-500 flex items-center gap-1 transition-colors">
+              <X size={11} /> Clear
+            </button>
+          )}
+        </div>
+
+        {view === 'grid' ? (
+          filtered.length === 0 ? (
+            <div className="text-center py-20">
+              <div className="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
+                <Search size={24} className="text-slate-300" />
+              </div>
+              <p className="font-semibold text-slate-600 text-lg">No schools found</p>
+              <button
+                onClick={clearFilters}
+                className="mt-4 inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
+              >
+                Clear all filters
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                {paged.map((school, i) => (
+                  <SchoolCard key={school.id} school={school} index={i} />
+                ))}
+              </div>
+              <Pagination
+                page={page}
+                totalPages={totalPages}
+                total={filtered.length}
+                pageSize={PAGE_SIZE}
+                onPage={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+              />
+            </>
+          )
+        ) : (
+          <div className="h-[calc(100vh-260px)] min-h-[500px] rounded-2xl overflow-hidden shadow-sm">
+            <MapComponent schools={filtered} height="100%" />
+          </div>
+        )}
+      </div>
+
+      <Footer />
+
+      {/* ── FILTER SHEET (mobile bottom sheet / desktop modal) ── */}
+      {sheetOpen && (
+        <div className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center">
+          <div
+            className="absolute inset-0 bg-slate-900/40 animate-fade-in"
+            onClick={() => setSheetOpen(false)}
+          />
+          <div className="relative w-full sm:max-w-md bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[85vh] flex flex-col animate-fade-slide-up">
+
+            {/* Drag handle (mobile) */}
+            <div className="sm:hidden flex justify-center pt-2.5 pb-1 shrink-0">
+              <div className="w-10 h-1 rounded-full bg-slate-200" />
+            </div>
+
+            {/* Tab switcher */}
+            <div className="flex items-center justify-between px-5 pt-3 pb-2 shrink-0">
+              <div className="flex gap-1 bg-slate-100 rounded-xl p-1">
+                <button
+                  onClick={() => setSheetTab('location')}
+                  className={`px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all ${sheetTab === 'location' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-500'}`}
+                >
+                  Location
+                </button>
+                <button
+                  onClick={() => setSheetTab('more')}
+                  className={`px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all ${sheetTab === 'more' ? 'bg-white shadow-sm text-slate-900' : 'text-slate-500'}`}
+                >
+                  Fee &amp; Curriculum
+                </button>
+              </div>
+              <button onClick={() => setSheetOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:bg-slate-100 transition-colors">
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto">
+              {sheetTab === 'location' ? (
+                <div>
+                  {/* Search inside sheet */}
+                  <div className="px-5 pb-2">
+                    <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-3">
+                      <Search size={15} className="text-slate-400 shrink-0" />
                       <input
                         type="text"
                         autoFocus
@@ -384,36 +485,29 @@ export default function SchoolsPage() {
                         className="flex-1 text-sm text-slate-700 bg-transparent outline-none placeholder-slate-400"
                       />
                       {locationQuery && (
-                        <button onClick={() => setLocationQuery('')} className="text-slate-300 hover:text-slate-600 transition-colors">
-                          <X size={12} />
+                        <button onClick={() => setLocationQuery('')} className="text-slate-300 hover:text-slate-600">
+                          <X size={13} />
                         </button>
                       )}
                     </div>
                   </div>
 
-                  {/* Options list */}
-                  <div className="overflow-y-auto max-h-64 py-1">
-                    {/* All Areas option */}
+                  <div className="pb-4">
                     {(!locationQuery || 'all areas'.includes(locationQuery.toLowerCase())) && (
                       <button
                         type="button"
-                        onMouseDown={e => e.preventDefault()}
-                        onClick={() => { setSubCity('All Sub-cities'); setLocationOpen(false); setLocationQuery('') }}
-                        className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-slate-50 ${
-                          subCity === 'All Sub-cities' ? 'bg-indigo-50' : ''
-                        }`}
+                        onClick={() => { setSubCity('All Sub-cities'); setSheetOpen(false) }}
+                        className={`w-full flex items-center gap-3 px-5 py-3 text-left transition-colors active:bg-slate-100 ${subCity === 'All Sub-cities' ? 'bg-indigo-50' : ''}`}
                       >
-                        <span className="text-base w-6 text-center leading-none">📍</span>
+                        <span className="text-lg w-6 text-center leading-none">📍</span>
                         <span className="flex-1 text-sm font-semibold text-slate-700">All Areas</span>
                         <span className="text-xs text-slate-400 font-medium">{allSchools.length}</span>
-                        {subCity === 'All Sub-cities' && <Check size={13} className="text-indigo-600 shrink-0" />}
+                        {subCity === 'All Sub-cities' && <Check size={14} className="text-indigo-600 shrink-0" />}
                       </button>
                     )}
 
-                    {/* Grouped by region */}
                     {(() => {
                       const q = locationQuery.toLowerCase()
-                      let anyShown = false
                       const groups = REGION_GROUPS.map(({ region, emoji, cities }) => {
                         const visible = cities.filter(city => {
                           const count = cityCounts[city] ?? 0
@@ -425,222 +519,95 @@ export default function SchoolsPage() {
                       }).filter(g => g.visible.length > 0)
 
                       if (groups.length === 0) {
-                        return (
-                          <div className="px-4 py-6 text-center text-sm text-slate-400">
-                            No area matches &quot;{locationQuery}&quot;
-                          </div>
-                        )
+                        return <div className="px-5 py-8 text-center text-sm text-slate-400">No area matches &quot;{locationQuery}&quot;</div>
                       }
 
-                      return groups.map(({ region, emoji, visible }) => {
-                        anyShown = true
-                        return (
-                          <div key={region}>
-                            {/* Region header */}
-                            <div className="flex items-center gap-2 px-4 pt-3 pb-1">
-                              <span className="text-sm leading-none">{emoji}</span>
-                              <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest">{region}</span>
-                            </div>
-                            {/* Cities under this region */}
-                            {visible.map(city => {
-                              const meta = CITY_META[city] ?? { emoji: '📍' }
-                              const count = cityCounts[city] ?? 0
-                              const active = subCity === city
-                              return (
-                                <button
-                                  key={city}
-                                  type="button"
-                                  onMouseDown={e => e.preventDefault()}
-                                  onClick={() => { setSubCity(city); setLocationOpen(false); setLocationQuery('') }}
-                                  className={`w-full flex items-center gap-3 pl-8 pr-4 py-2 text-left transition-colors hover:bg-slate-50 ${active ? 'bg-indigo-50' : ''}`}
-                                >
-                                  <span className="text-sm w-5 text-center leading-none shrink-0">{meta.emoji}</span>
-                                  <span className={`flex-1 text-sm font-semibold ${active ? 'text-indigo-700' : 'text-slate-700'}`}>{city}</span>
-                                  <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${active ? 'bg-indigo-100 text-indigo-600' : 'text-slate-400'}`}>{count}</span>
-                                  {active && <Check size={13} className="text-indigo-600 shrink-0" />}
-                                </button>
-                              )
-                            })}
+                      return groups.map(({ region, emoji, visible }) => (
+                        <div key={region}>
+                          <div className="flex items-center gap-2 px-5 pt-3 pb-1">
+                            <span className="text-sm leading-none">{emoji}</span>
+                            <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest">{region}</span>
                           </div>
-                        )
-                      })
+                          {visible.map(city => {
+                            const meta = CITY_META[city] ?? { emoji: '📍' }
+                            const count = cityCounts[city] ?? 0
+                            const active = subCity === city
+                            return (
+                              <button
+                                key={city}
+                                type="button"
+                                onClick={() => { setSubCity(city); setSheetOpen(false) }}
+                                className={`w-full flex items-center gap-3 pl-9 pr-5 py-3 text-left transition-colors active:bg-slate-100 ${active ? 'bg-indigo-50' : ''}`}
+                              >
+                                <span className="text-base w-5 text-center leading-none shrink-0">{meta.emoji}</span>
+                                <span className={`flex-1 text-sm font-semibold ${active ? 'text-indigo-700' : 'text-slate-700'}`}>{city}</span>
+                                <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${active ? 'bg-indigo-100 text-indigo-600' : 'text-slate-400'}`}>{count}</span>
+                                {active && <Check size={14} className="text-indigo-600 shrink-0" />}
+                              </button>
+                            )
+                          })}
+                        </div>
+                      ))
                     })()}
+                  </div>
+                </div>
+              ) : (
+                <div className="px-5 py-4 space-y-6">
+                  {/* Curriculum */}
+                  <div>
+                    <label className="text-xs font-bold text-slate-500 block mb-2">Curriculum</label>
+                    <div className="relative">
+                      <select
+                        value={curriculum}
+                        onChange={e => setCurriculum(e.target.value)}
+                        className="w-full appearance-none border border-slate-200 rounded-xl px-3.5 py-3 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-200 bg-white"
+                      >
+                        {CURRICULA.map(c => <option key={c}>{c}</option>)}
+                      </select>
+                      <ChevronDown size={14} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                    </div>
+                  </div>
+
+                  {/* Fee */}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <label className="text-xs font-bold text-slate-500">Max Annual Fee</label>
+                      <span className="text-sm font-bold text-indigo-600">
+                        {feeMax >= MAX_FEE ? 'Any price' : `${(feeMax / 1000).toFixed(0)}K ETB`}
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min={0}
+                      max={MAX_FEE}
+                      step={20000}
+                      value={feeMax}
+                      onChange={e => setFeeMax(Number(e.target.value))}
+                      className="w-full accent-indigo-600"
+                    />
+                    <div className="flex justify-between text-[11px] text-slate-400 mt-1.5">
+                      <span>Free</span><span>2M ETB</span>
+                    </div>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Telegram button */}
-            <a
-              href="https://t.me/abrolabs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 rounded-2xl border border-[#229ED9] bg-[#229ED9] text-white text-sm font-semibold shadow-sm hover:bg-[#1a8bc4] hover:border-[#1a8bc4] transition-all duration-200 shrink-0 whitespace-nowrap"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0">
-                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-              </svg>
-              Telegram
-            </a>
-          </div>
-
-          {/* School type tabs */}
-          <div className="flex gap-2 flex-wrap mb-5">
-            {TYPES.map(t => (
-              <button
-                key={t}
-                onClick={() => setType(t)}
-                className={`px-4 py-1.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
-                  type === t
-                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-md shadow-indigo-200'
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-indigo-300 hover:text-indigo-600'
-                }`}
-              >
-                {typeLabel(t)}
+            {/* Sticky footer */}
+            <div className="flex items-center gap-3 px-5 py-4 border-t border-slate-100 shrink-0" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}>
+              <button onClick={clearFilters} className="text-sm font-semibold text-slate-500 px-2">
+                Clear all
               </button>
-            ))}
+              <button
+                onClick={() => setSheetOpen(false)}
+                className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold py-3 rounded-xl transition-colors"
+              >
+                Show {filtered.length} school{filtered.length !== 1 ? 's' : ''}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* ── BODY: SIDEBAR + GRID ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 flex gap-7 w-full flex-1">
-
-        {/* Sidebar */}
-        <aside className={`${filtersOpen ? 'block' : 'hidden'} sm:block w-full sm:w-56 shrink-0`}>
-          <div className="bg-white rounded-2xl border border-slate-100 p-5 sticky top-28 space-y-5 shadow-sm">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <SlidersHorizontal size={14} /> Filters
-              </h3>
-              {hasFilters && (
-                <button onClick={clearFilters} className="text-xs text-red-400 hover:text-red-600 flex items-center gap-1 transition-colors">
-                  <X size={11} /> Clear
-                </button>
-              )}
-            </div>
-
-            {/* Curriculum */}
-            <div>
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">
-                Curriculum
-              </label>
-              <div className="relative">
-                <select
-                  value={curriculum}
-                  onChange={e => setCurriculum(e.target.value)}
-                  className="w-full appearance-none border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-200 bg-white cursor-pointer"
-                >
-                  {CURRICULA.map(c => <option key={c}>{c}</option>)}
-                </select>
-                <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
-              </div>
-            </div>
-
-            {/* Max fee slider */}
-            <div>
-              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">
-                Max Annual Fee
-              </label>
-              <div className="text-sm font-bold text-indigo-600 mb-2.5">
-                {feeMax >= MAX_FEE ? 'Any price' : `${(feeMax / 1000).toFixed(0)}K ETB`}
-              </div>
-              <input
-                type="range"
-                min={0}
-                max={MAX_FEE}
-                step={20000}
-                value={feeMax}
-                onChange={e => setFeeMax(Number(e.target.value))}
-                className="w-full accent-indigo-600 cursor-pointer"
-              />
-              <div className="flex justify-between text-[10px] text-slate-400 mt-1.5">
-                <span>Free</span><span>2M ETB</span>
-              </div>
-            </div>
-
-            {hasFilters && (
-              <div className="pt-3 border-t border-slate-50 text-xs text-slate-500">
-                <span className="font-bold text-slate-800">{filtered.length}</span> of {allSchools.length} schools
-              </div>
-            )}
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setFiltersOpen(!filtersOpen)}
-            className="sm:hidden w-full mt-3 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-600 bg-white shadow-sm"
-          >
-            <SlidersHorizontal size={14} />
-            {filtersOpen ? 'Hide Filters' : 'Show Filters'}
-            {hasFilters && <span className="w-2 h-2 rounded-full bg-indigo-500" />}
-          </button>
-        </aside>
-
-        {/* Main content */}
-        <main className="flex-1 min-w-0">
-          {/* Results bar */}
-          <div className="flex items-center justify-between mb-5">
-            <p className="text-sm text-slate-500">
-              <span className="font-bold text-slate-800">{filtered.length}</span>
-              {' '}school{filtered.length !== 1 ? 's' : ''} found
-              {subCity !== 'All Sub-cities' && (
-                <span className="ml-1 font-semibold text-indigo-600">in {subCity}</span>
-              )}
-              {totalPages > 1 && (
-                <span className="ml-1 text-slate-400">· page {page} of {totalPages}</span>
-              )}
-            </p>
-            {hasFilters && (
-              <button
-                onClick={clearFilters}
-                className="text-xs text-slate-400 hover:text-red-500 flex items-center gap-1 transition-colors"
-              >
-                <X size={11} /> Clear filters
-              </button>
-            )}
-          </div>
-
-          {view === 'grid' ? (
-            filtered.length === 0 ? (
-              <div className="text-center py-24">
-                <div className="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
-                  <Search size={24} className="text-slate-300" />
-                </div>
-                <p className="font-semibold text-slate-600 text-lg">No schools found</p>
-                <p className="text-sm text-slate-400 mt-1.5 mb-5">Try adjusting your search or filters</p>
-                <button
-                  onClick={clearFilters}
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors"
-                >
-                  Clear all filters
-                </button>
-              </div>
-            ) : (
-              <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                  {paged.map((school, i) => (
-                    <SchoolCard key={school.id} school={school} index={i} />
-                  ))}
-                </div>
-                <Pagination
-                  page={page}
-                  totalPages={totalPages}
-                  total={filtered.length}
-                  pageSize={PAGE_SIZE}
-                  onPage={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-                />
-              </>
-            )
-          ) : (
-            <div className="h-[calc(100vh-300px)] min-h-[500px] rounded-2xl overflow-hidden shadow-sm">
-              <MapComponent schools={filtered} height="100%" />
-            </div>
-          )}
-        </main>
-      </div>
-
-      <Footer />
+      )}
     </div>
   )
 }
