@@ -16,7 +16,18 @@ function mapRow(s: any): School {
   }
 }
 
+// In-memory cache so hundreds of static school pages built in the same
+// process (e.g. a Vercel build worker) share one Supabase round-trip instead
+// of each page re-fetching the whole table — this is what was blowing past
+// Vercel's 60s-per-page static generation timeout once the catalog passed ~700 schools.
+let cachedSchools: School[] | null = null
+let cachedAt = 0
+const CACHE_TTL_MS = 60_000
+
 export async function fetchAllSchools(): Promise<School[]> {
+  const now = Date.now()
+  if (cachedSchools && now - cachedAt < CACHE_TTL_MS) return cachedSchools
+
   const { data, error } = await supabase
     .from('schools')
     .select('*')
@@ -24,13 +35,20 @@ export async function fetchAllSchools(): Promise<School[]> {
 
   if (error || !data || data.length === 0) {
     console.log('Supabase fetch failed, using local data:', error?.message)
-    return localSchools
+    return cachedSchools ?? localSchools
   }
 
-  return data.map(mapRow)
+  cachedSchools = data.map(mapRow)
+  cachedAt = now
+  return cachedSchools
 }
 
 export async function fetchSchoolById(id: number): Promise<School | null> {
+  const all = await fetchAllSchools()
+  const found = all.find((s) => s.id === id)
+  if (found) return found
+
+  // Not in the cached batch (e.g. added after the cache was populated) — fetch directly.
   const { data, error } = await supabase
     .from('schools')
     .select('*')

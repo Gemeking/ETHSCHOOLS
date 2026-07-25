@@ -14,7 +14,16 @@ function mapRow(u: any): University {
   }
 }
 
+// Same in-memory batch cache as supabase-data.ts — avoids one Supabase
+// round-trip per static university page during a single build.
+let cachedUniversities: University[] | null = null
+let cachedAt = 0
+const CACHE_TTL_MS = 60_000
+
 export async function fetchAllUniversities(): Promise<University[]> {
+  const now = Date.now()
+  if (cachedUniversities && now - cachedAt < CACHE_TTL_MS) return cachedUniversities
+
   const { data, error } = await supabase
     .from('universities')
     .select('*')
@@ -22,13 +31,19 @@ export async function fetchAllUniversities(): Promise<University[]> {
 
   if (error || !data || data.length === 0) {
     console.log('Supabase universities fetch failed, using local data:', error?.message)
-    return localUniversities
+    return cachedUniversities ?? localUniversities
   }
 
-  return data.map(mapRow)
+  cachedUniversities = data.map(mapRow)
+  cachedAt = now
+  return cachedUniversities
 }
 
 export async function fetchUniversityById(id: number): Promise<University | null> {
+  const all = await fetchAllUniversities()
+  const found = all.find((u) => u.id === id)
+  if (found) return found
+
   const { data, error } = await supabase
     .from('universities')
     .select('*')
