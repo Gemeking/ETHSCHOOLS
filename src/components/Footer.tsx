@@ -103,7 +103,7 @@ export default function Footer() {
                     <Phone size={15} className="text-emerald-400" />
                   </span>
                   <div>
-                    <span className="block text-white font-semibold group-hover:text-emerald-400 transition-colors">0937 595 664</span>
+                    <span className="block text-white font-semibold group-hover:text-emerald-400 transition-colors">+251937595664</span>
                     <span className="text-xs text-slate-500">Call / WhatsApp</span>
                   </div>
                 </a>
