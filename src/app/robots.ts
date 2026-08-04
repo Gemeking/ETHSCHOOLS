@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { fetchAllSchools } from '@/lib/supabase-data'
+import { fetchSchoolCount } from '@/lib/supabase-data'
 import { SITE_URL } from '@/lib/site'
 
 // Next.js's generateSitemaps() (used in sitemap.ts to split the sitemap into
@@ -10,12 +10,7 @@ import { SITE_URL } from '@/lib/site'
 const CHUNK_SIZE = 40_000
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
-  let schoolCount = 0
-  try {
-    schoolCount = (await fetchAllSchools()).length
-  } catch {
-    // fall back to a single chunk reference if Supabase is unreachable at build time
-  }
+  const schoolCount = await fetchSchoolCount()
   const chunkCount = Math.max(1, Math.ceil(schoolCount / CHUNK_SIZE))
   const sitemaps = Array.from({ length: chunkCount }, (_, i) => `${SITE_URL}/sitemap/${i}.xml`)
 

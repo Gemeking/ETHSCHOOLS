@@ -149,6 +149,62 @@ export async function fetchCityCounts(): Promise<Record<string, number>> {
   return map
 }
 
+// --- Minimal slug data, for the sitemap only ---------------------------
+// The sitemap needs just id/name_en/sub_city to build a URL — fetching full
+// rows (images, description, tags, etc.) for all 67,000+ schools on every
+// request made the sitemap take 22+ seconds, slow enough that Google's
+// crawler was timing out ("Couldn't fetch"). This is a much lighter query,
+// with its own separate cache since it's shaped differently from School.
+
+export interface SchoolSlugInfo {
+  id: number
+  name_en: string
+  sub_city: string | null
+}
+
+let cachedSlugs: SchoolSlugInfo[] | null = null
+let cachedSlugsAt = 0
+
+// Just the row count — no data transfer at all. Used where only the total
+// matters (e.g. robots.ts deciding how many sitemap chunks to list).
+export async function fetchSchoolCount(): Promise<number> {
+  const { count, error } = await supabase.from('schools').select('id', { count: 'exact', head: true })
+  if (error || count === null) return 0
+  return count
+}
+
+export async function fetchAllSchoolSlugs(): Promise<SchoolSlugInfo[]> {
+  const now = Date.now()
+  if (cachedSlugs && now - cachedSlugsAt < CACHE_TTL_MS) return cachedSlugs
+
+  const { count, error: countError } = await supabase
+    .from('schools')
+    .select('id', { count: 'exact', head: true })
+
+  if (countError || count === null) {
+    console.log('fetchAllSchoolSlugs count failed:', countError?.message)
+    return cachedSlugs ?? []
+  }
+
+  const pageCount = Math.max(1, Math.ceil(count / FETCH_PAGE_SIZE))
+  const pages = await Promise.all(
+    Array.from({ length: pageCount }, (_, i) => {
+      const from = i * FETCH_PAGE_SIZE
+      const to = from + FETCH_PAGE_SIZE - 1
+      return supabase.from('schools').select('id, name_en, sub_city').order('id').range(from, to)
+    })
+  )
+
+  if (pages.some((p) => p.error || !p.data)) {
+    console.log('fetchAllSchoolSlugs fetch failed:', pages.find((p) => p.error)?.error?.message)
+    return cachedSlugs ?? []
+  }
+
+  cachedSlugs = pages.flatMap((p) => p.data as SchoolSlugInfo[])
+  cachedSlugsAt = now
+  return cachedSlugs
+}
+
 export async function fetchSchoolById(id: number): Promise<School | null> {
   const all = await fetchAllSchools()
   const found = all.find((s) => s.id === id)

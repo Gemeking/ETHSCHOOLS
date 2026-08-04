@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { fetchAllSchools } from '@/lib/supabase-data'
+import { fetchAllSchoolSlugs, type SchoolSlugInfo } from '@/lib/supabase-data'
 import { fetchAllUniversities } from '@/lib/supabase-universities'
 import { schools as localSchools } from '@/lib/data'
 import { universities as localUniversities } from '@/lib/university-data'
@@ -12,10 +12,11 @@ export const revalidate = 3600
 const CHUNK_SIZE = 40_000
 
 async function loadData() {
-  let schools = localSchools
+  let schools: SchoolSlugInfo[] = localSchools
   let universities = localUniversities
   try {
-    schools = await fetchAllSchools()
+    const fetched = await fetchAllSchoolSlugs()
+    if (fetched.length > 0) schools = fetched
     universities = await fetchAllUniversities()
   } catch {
     // fall back to bundled data if Supabase is unreachable at build time
