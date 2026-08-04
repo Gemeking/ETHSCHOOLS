@@ -1,0 +1,1280 @@
+[
+ {
+  "key": "Afar||Awsi /Zone 1||Asayita town",
+  "region": "Afar",
+  "zone": "Awsi /Zone 1",
+  "woreda": "Asayita town",
+  "count": 19,
+  "lat": 11.5653325,
+  "lon": 41.4385892
+ },
+ {
+  "key": "Afar||Awsi /Zone 1||Dubti town",
+  "region": "Afar",
+  "zone": "Awsi /Zone 1",
+  "woreda": "Dubti town",
+  "count": 15,
+  "lat": 11.7368315,
+  "lon": 41.0840355
+ },
+ {
+  "key": "Afar||Gabi /Zone 3||Amibara",
+  "region": "Afar",
+  "zone": "Gabi /Zone 3",
+  "woreda": "Amibara",
+  "count": 45,
+  "lat": 9.3325652,
+  "lon": 40.1820611
+ },
+ {
+  "key": "Afar||Gabi /Zone 3||Dulecha",
+  "region": "Afar",
+  "zone": "Gabi /Zone 3",
+  "woreda": "Dulecha",
+  "count": 53,
+  "lat": 9.5458896,
+  "lon": 39.9561643
+ },
+ {
+  "key": "Oromia||East Shewa||Fentale",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Fentale",
+  "count": 114,
+  "lat": 8.9875653,
+  "lon": 39.9019248
+ },
+ {
+  "key": "Afar||Gabi /Zone 3||Gewane",
+  "region": "Afar",
+  "zone": "Gabi /Zone 3",
+  "woreda": "Gewane",
+  "count": 31,
+  "lat": 10.159228,
+  "lon": 40.661596
+ },
+ {
+  "key": "Amhara||East Gojam||Aneded",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Aneded",
+  "count": 71,
+  "lat": 10.1678946,
+  "lon": 37.8615566
+ },
+ {
+  "key": "Amhara||East Gojam||Awabel",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Awabel",
+  "count": 92,
+  "lat": 10.2614009,
+  "lon": 37.9907084
+ },
+ {
+  "key": "Amhara||East Gojam||Dejen",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Dejen",
+  "count": 56,
+  "lat": 10.1827327,
+  "lon": 38.1915817
+ },
+ {
+  "key": "Amhara||East Gojam||Enemay",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Enemay",
+  "count": 118,
+  "lat": 10.4478331,
+  "lon": 38.2018502
+ },
+ {
+  "key": "Amhara||East Gojam||Michakel",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Michakel",
+  "count": 96,
+  "lat": 10.5033907,
+  "lon": 37.573019
+ },
+ {
+  "key": "Amhara||East Gojam||Mota Town",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Mota Town",
+  "count": 21,
+  "lat": 11.081414,
+  "lon": 37.880986
+ },
+ {
+  "key": "Amhara||Awi||Ankasha",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Ankasha",
+  "count": 88,
+  "lat": 11.2519242,
+  "lon": 36.7044862
+ },
+ {
+  "key": "Amhara||Awi||Ayehu Guwagusa",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Ayehu Guwagusa",
+  "count": 142,
+  "lat": 11.2519242,
+  "lon": 36.7044862
+ },
+ {
+  "key": "Amhara||Awi||Chagni town",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Chagni town",
+  "count": 17,
+  "lat": 10.9582874,
+  "lon": 36.4989547
+ },
+ {
+  "key": "Amhara||Awi||Dangila town",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Dangila town",
+  "count": 37,
+  "lat": 11.2519242,
+  "lon": 36.7044862
+ },
+ {
+  "key": "Amhara||Awi||Injibara town",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Injibara town",
+  "count": 28,
+  "lat": 10.9592268,
+  "lon": 36.9340697
+ },
+ {
+  "key": "Amhara||Awi||Fagta Lakoma",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Fagta Lakoma",
+  "count": 142,
+  "lat": 11.2519242,
+  "lon": 36.7044862
+ },
+ {
+  "key": "Amhara||Awi||Guagusa Shikudad",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Guagusa Shikudad",
+  "count": 47,
+  "lat": 11.2519242,
+  "lon": 36.7044862
+ },
+ {
+  "key": "Amhara||Awi||Guangua",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Guangua",
+  "count": 105,
+  "lat": 11.2519242,
+  "lon": 36.7044862
+ },
+ {
+  "key": "Amhara||Awi||Jawi",
+  "region": "Amhara",
+  "zone": "Awi",
+  "woreda": "Jawi",
+  "count": 123,
+  "lat": 11.5649859,
+  "lon": 36.4881908
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Debre Berhan town",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Debre Berhan town",
+  "count": 98,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||South Gondar||Debre Tabor town",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Debre Tabor town",
+  "count": 30,
+  "lat": 11.856591,
+  "lon": 38.008309
+ },
+ {
+  "key": "Amhara||South Gondar||Dera (AM)",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Dera (AM)",
+  "count": 116,
+  "lat": 8.6779377,
+  "lon": 39.5332698
+ },
+ {
+  "key": "Amhara||South Gondar||Semada",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Semada",
+  "count": 108,
+  "lat": 11.25,
+  "lon": 38.25
+ },
+ {
+  "key": "Amhara||South Wello||Ambasel",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Ambasel",
+  "count": 61,
+  "lat": 11.46667,
+  "lon": 39.53333
+ },
+ {
+  "key": "Amhara||South Wello||Jama",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Jama",
+  "count": 69,
+  "lat": 10.41667,
+  "lon": 39.36667
+ },
+ {
+  "key": "Amhara||South Wello||Kalu",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Kalu",
+  "count": 86,
+  "lat": 11.0864851,
+  "lon": 39.7358657
+ },
+ {
+  "key": "Amhara||South Wello||Kelela",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Kelela",
+  "count": 65,
+  "lat": 10.58333,
+  "lon": 39
+ },
+ {
+  "key": "Amhara||South Wello||Legambo",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Legambo",
+  "count": 90,
+  "lat": 11,
+  "lon": 39.16667
+ },
+ {
+  "key": "Amhara||South Wello||Mekdela",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Mekdela",
+  "count": 102,
+  "lat": 11.43333,
+  "lon": 39.28333
+ },
+ {
+  "key": "Amhara||Central Gondar||Alefa",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "Alefa",
+  "count": 109,
+  "lat": 11.9340663,
+  "lon": 36.8725266
+ },
+ {
+  "key": "Amhara||Central Gondar||West Belesa",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "West Belesa",
+  "count": 65,
+  "lat": 12.4762157,
+  "lon": 37.8275454
+ },
+ {
+  "key": "Amhara||West Gojam||Bure town",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Bure town",
+  "count": 35,
+  "lat": 10.7129931,
+  "lon": 37.0668819
+ },
+ {
+  "key": "Amhara||West Gojam||Dega Damot",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Dega Damot",
+  "count": 113,
+  "lat": 10.75,
+  "lon": 37.16667
+ },
+ {
+  "key": "Amhara||West Gojam||Dembecha",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Dembecha",
+  "count": 87,
+  "lat": 10.579628,
+  "lon": 37.4855127
+ },
+ {
+  "key": "Amhara||West Gojam||Finote Selam town",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Finote Selam town",
+  "count": 37,
+  "lat": 10.6800221,
+  "lon": 37.2601268
+ },
+ {
+  "key": "Amhara||West Gojam||Quarit",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Quarit",
+  "count": 133,
+  "lat": 11.0031768,
+  "lon": 37.426011
+ },
+ {
+  "key": "Amhara||West Gojam||Sekela",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Sekela",
+  "count": 125,
+  "lat": 11.5758493,
+  "lon": 39.6455792
+ },
+ {
+  "key": "Amhara||West Gojam||Yilmana Densa",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Yilmana Densa",
+  "count": 150,
+  "lat": 11.2753965,
+  "lon": 37.4905799
+ },
+ {
+  "key": "Amhara||West Gondar||Gendawuha town",
+  "region": "Amhara",
+  "zone": "West Gondar",
+  "woreda": "Gendawuha town",
+  "count": 9,
+  "lat": 12.4762157,
+  "lon": 37.8275454
+ },
+ {
+  "key": "Amhara||West Gondar||Metema",
+  "region": "Amhara",
+  "zone": "West Gondar",
+  "woreda": "Metema",
+  "count": 139,
+  "lat": 12.5297325,
+  "lon": 37.3436702
+ },
+ {
+  "key": "Amhara||Oromia||Bati Town",
+  "region": "Amhara",
+  "zone": "Oromia",
+  "woreda": "Bati Town",
+  "count": 19,
+  "lat": 10.7490905,
+  "lon": 39.9046985
+ },
+ {
+  "key": "Amhara||Oromia||Jilye Tumuga",
+  "region": "Amhara",
+  "zone": "Oromia",
+  "woreda": "Jilye Tumuga",
+  "count": 57,
+  "lat": 10.7490905,
+  "lon": 39.9046985
+ },
+ {
+  "key": "Amhara||Oromia||Kemisie town",
+  "region": "Amhara",
+  "zone": "Oromia",
+  "woreda": "Kemisie town",
+  "count": 18,
+  "lat": 10.7490905,
+  "lon": 39.9046985
+ },
+ {
+  "key": "Amhara||North Gondar||Addi Arekay",
+  "region": "Amhara",
+  "zone": "North Gondar",
+  "woreda": "Addi Arekay",
+  "count": 72,
+  "lat": 12.7119412,
+  "lon": 37.3001961
+ },
+ {
+  "key": "Amhara||North Gondar||Dabat",
+  "region": "Amhara",
+  "zone": "North Gondar",
+  "woreda": "Dabat",
+  "count": 92,
+  "lat": 12.984055,
+  "lon": 37.7651417
+ },
+ {
+  "key": "Amhara||North Gondar||Debark town",
+  "region": "Amhara",
+  "zone": "North Gondar",
+  "woreda": "Debark town",
+  "count": 17,
+  "lat": 13.1585017,
+  "lon": 37.8990358
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Antsokiya",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Antsokiya",
+  "count": 60,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Eferatana Gidem",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Eferatana Gidem",
+  "count": 126,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Hagere Mariam",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Hagere Mariam",
+  "count": 76,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Ensaro",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Ensaro",
+  "count": 59,
+  "lat": 9.8258131,
+  "lon": 38.8881093
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Menze Gera Midir",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Menze Gera Midir",
+  "count": 139,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Menze Mama Midir",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Menze Mama Midir",
+  "count": 97,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Minjar Shenkora",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Minjar Shenkora",
+  "count": 124,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Mojan Wedera",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Mojan Wedera",
+  "count": 72,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Moretna Jiru",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Moretna Jiru",
+  "count": 87,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Shoa Robit",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Shoa Robit",
+  "count": 44,
+  "lat": 9.9937611,
+  "lon": 39.900869
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Siya Debirna Wayu",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Siya Debirna Wayu",
+  "count": 77,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Amhara||North Shewa (AM)||Tarema Ber",
+  "region": "Amhara",
+  "zone": "North Shewa (AM)",
+  "woreda": "Tarema Ber",
+  "count": 90,
+  "lat": 9.6802038,
+  "lon": 39.5377038
+ },
+ {
+  "key": "Oromia||West Hararge||Habro",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Habro",
+  "count": 196,
+  "lat": 8.86667,
+  "lon": 40.51667
+ },
+ {
+  "key": "Amhara||North Wello||Kobo town",
+  "region": "Amhara",
+  "zone": "North Wello",
+  "woreda": "Kobo town",
+  "count": 15,
+  "lat": 12.15063,
+  "lon": 39.628837
+ },
+ {
+  "key": "Amhara||North Wello||Lalibela town",
+  "region": "Amhara",
+  "zone": "North Wello",
+  "woreda": "Lalibela town",
+  "count": 24,
+  "lat": 12.0360639,
+  "lon": 39.0456845
+ },
+ {
+  "key": "Amhara||Wag Hamra||Sekota town",
+  "region": "Amhara",
+  "zone": "Wag Hamra",
+  "woreda": "Sekota town",
+  "count": 21,
+  "lat": 12.625697,
+  "lon": 39.035441
+ },
+ {
+  "key": "Benishangul Gumz||Assosa||Assosa town Administration",
+  "region": "Benishangul Gumz",
+  "zone": "Assosa",
+  "woreda": "Assosa town Administration",
+  "count": 20,
+  "lat": 10.0646352,
+  "lon": 34.5437024
+ },
+ {
+  "key": "Benishangul Gumz||Metekel||Dangur",
+  "region": "Benishangul Gumz",
+  "zone": "Metekel",
+  "woreda": "Dangur",
+  "count": 53,
+  "lat": 10.9630277,
+  "lon": 35.7838685
+ },
+ {
+  "key": "Benishangul Gumz||Kamashi||Dembe",
+  "region": "Benishangul Gumz",
+  "zone": "Kamashi",
+  "woreda": "Dembe",
+  "count": 19,
+  "lat": 9.5044505,
+  "lon": 35.8627625
+ },
+ {
+  "key": "Benishangul Gumz||Metekel||Gilgel Beles town",
+  "region": "Benishangul Gumz",
+  "zone": "Metekel",
+  "woreda": "Gilgel Beles town",
+  "count": 8,
+  "lat": 11.1592216,
+  "lon": 36.3439851
+ },
+ {
+  "key": "Benishangul Gumz||Metekel||Mandura",
+  "region": "Benishangul Gumz",
+  "zone": "Metekel",
+  "woreda": "Mandura",
+  "count": 32,
+  "lat": 11.0977098,
+  "lon": 36.4213791
+ },
+ {
+  "key": "Benishangul Gumz||Metekel||Pawe",
+  "region": "Benishangul Gumz",
+  "zone": "Metekel",
+  "woreda": "Pawe",
+  "count": 70,
+  "lat": 11.2596588,
+  "lon": 36.3872604
+ },
+ {
+  "key": "Benishangul Gumz||Kamashi||Sedal",
+  "region": "Benishangul Gumz",
+  "zone": "Kamashi",
+  "woreda": "Sedal",
+  "count": 12,
+  "lat": 9.5044505,
+  "lon": 35.8627625
+ },
+ {
+  "key": "Benishangul Gumz||Metekel||Wembera",
+  "region": "Benishangul Gumz",
+  "zone": "Metekel",
+  "woreda": "Wembera",
+  "count": 65,
+  "lat": 10.58333,
+  "lon": 35.8
+ },
+ {
+  "key": "Dire Dawa||Dire Dawa urban||Sabian",
+  "region": "Dire Dawa",
+  "zone": "Dire Dawa urban",
+  "woreda": "Sabian",
+  "count": 4,
+  "lat": 9.6032343,
+  "lon": 41.8378319
+ },
+ {
+  "key": "Gambela||Agnewak||Abobo",
+  "region": "Gambela",
+  "zone": "Agnewak",
+  "woreda": "Abobo",
+  "count": 37,
+  "lat": 7.8979397,
+  "lon": 34.5408139
+ },
+ {
+  "key": "Gambela||Agnewak||Gog",
+  "region": "Gambela",
+  "zone": "Agnewak",
+  "woreda": "Gog",
+  "count": 34,
+  "lat": 7.5775408,
+  "lon": 34.5025628
+ },
+ {
+  "key": "Gambela||Agnewak||Gambela town",
+  "region": "Gambela",
+  "zone": "Agnewak",
+  "woreda": "Gambela town",
+  "count": 47,
+  "lat": 8.4595028,
+  "lon": 34.0054735
+ },
+ {
+  "key": "Gambela||Itang Special woreda||Itang",
+  "region": "Gambela",
+  "zone": "Itang Special woreda",
+  "woreda": "Itang",
+  "count": 44,
+  "lat": 8.196875,
+  "lon": 34.267753
+ },
+ {
+  "key": "Gambela||Majang||Godere",
+  "region": "Gambela",
+  "zone": "Majang",
+  "woreda": "Godere",
+  "count": 36,
+  "lat": 7.4233939,
+  "lon": 35.14809
+ },
+ {
+  "key": "Harari||Harari||Abadir",
+  "region": "Harari",
+  "zone": "Harari",
+  "woreda": "Abadir",
+  "count": 9,
+  "lat": 9.3093497,
+  "lon": 42.1322207
+ },
+ {
+  "key": "Harari||Harari||Aboker",
+  "region": "Harari",
+  "zone": "Harari",
+  "woreda": "Aboker",
+  "count": 14,
+  "lat": 9.3240651,
+  "lon": 42.113186
+ },
+ {
+  "key": "Harari||Harari||Amir Nur",
+  "region": "Harari",
+  "zone": "Harari",
+  "woreda": "Amir Nur",
+  "count": 10,
+  "lat": 9.3101228,
+  "lon": 42.1336463
+ },
+ {
+  "key": "Harari||Harari||Hakim",
+  "region": "Harari",
+  "zone": "Harari",
+  "woreda": "Hakim",
+  "count": 40,
+  "lat": 9.27806,
+  "lon": 42.14583
+ },
+ {
+  "key": "Harari||Harari||Jinela",
+  "region": "Harari",
+  "zone": "Harari",
+  "woreda": "Jinela",
+  "count": 12,
+  "lat": 9.3101228,
+  "lon": 42.1336463
+ },
+ {
+  "key": "Harari||Harari||Shenkor",
+  "region": "Harari",
+  "zone": "Harari",
+  "woreda": "Shenkor",
+  "count": 23,
+  "lat": 9.315043,
+  "lon": 42.1204121
+ },
+ {
+  "key": "Harari||Harari||Sofi",
+  "region": "Harari",
+  "zone": "Harari",
+  "woreda": "Sofi",
+  "count": 42,
+  "lat": 9.3101228,
+  "lon": 42.1336463
+ },
+ {
+  "key": "Oromia||Arsi||Aseko",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Aseko",
+  "count": 52,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Bekoji town",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Bekoji town",
+  "count": 19,
+  "lat": 7.53333,
+  "lon": 39.25
+ },
+ {
+  "key": "Oromia||Arsi||Chole",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Chole",
+  "count": 96,
+  "lat": 8.2490388,
+  "lon": 39.8921496
+ },
+ {
+  "key": "Oromia||Arsi||Degeluna Tijo",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Degeluna Tijo",
+  "count": 111,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Diksis",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Diksis",
+  "count": 62,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Dodota",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Dodota",
+  "count": 57,
+  "lat": 10.7,
+  "lon": 40
+ },
+ {
+  "key": "Oromia||Arsi||Golocha",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Golocha",
+  "count": 133,
+  "lat": 9.61583,
+  "lon": 42.60861
+ },
+ {
+  "key": "Oromia||Arsi||Hitosa",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Hitosa",
+  "count": 67,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Inkolo Wabe",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Inkolo Wabe",
+  "count": 45,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Jeju",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Jeju",
+  "count": 138,
+  "lat": 8.41667,
+  "lon": 39.63333
+ },
+ {
+  "key": "Oromia||Arsi||Lude Hitosa",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Lude Hitosa",
+  "count": 76,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Merti",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Merti",
+  "count": 49,
+  "lat": 8.8187312,
+  "lon": 39.9475289
+ },
+ {
+  "key": "Oromia||Arsi||Munessa",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Munessa",
+  "count": 81,
+  "lat": 7.4100498,
+  "lon": 38.8855846
+ },
+ {
+  "key": "Oromia||Arsi||Robe",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Robe",
+  "count": 87,
+  "lat": 7.8655785,
+  "lon": 39.6298828
+ },
+ {
+  "key": "Oromia||Arsi||Seru",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Seru",
+  "count": 75,
+  "lat": 7.675615,
+  "lon": 40.201359
+ },
+ {
+  "key": "Oromia||Arsi||Shanan Kolu",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Shanan Kolu",
+  "count": 52,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Sire",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Sire",
+  "count": 55,
+  "lat": 8.27641,
+  "lon": 39.4927371
+ },
+ {
+  "key": "Oromia||Arsi||Shirka",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Shirka",
+  "count": 122,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||Arsi||Sude",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Sude",
+  "count": 103,
+  "lat": 7.9,
+  "lon": 39.73333
+ },
+ {
+  "key": "Oromia||Arsi||Tiyo",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Tiyo",
+  "count": 135,
+  "lat": 7.6906214,
+  "lon": 39.247839
+ },
+ {
+  "key": "Oromia||Arsi||Ziway Dugda",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Ziway Dugda",
+  "count": 122,
+  "lat": 8.0101011,
+  "lon": 39.6716774
+ },
+ {
+  "key": "Oromia||West Arsi||Adaba",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Adaba",
+  "count": 104,
+  "lat": 7.0072505,
+  "lon": 39.3917175
+ },
+ {
+  "key": "Oromia||West Arsi||Dodola town",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Dodola town",
+  "count": 20,
+  "lat": 6.9789417,
+  "lon": 39.18333
+ },
+ {
+  "key": "Oromia||West Arsi||Arsi Negele",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Arsi Negele",
+  "count": 134,
+  "lat": 7.3935766,
+  "lon": 38.7004121
+ },
+ {
+  "key": "Oromia||West Arsi||Dodola",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Dodola",
+  "count": 118,
+  "lat": 6.9751165,
+  "lon": 39.1812984
+ },
+ {
+  "key": "Oromia||West Arsi||Gedeb Asasa",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Gedeb Asasa",
+  "count": 90,
+  "lat": 7.13333,
+  "lon": 39.21667
+ },
+ {
+  "key": "Oromia||West Arsi||Heban Arsi",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Heban Arsi",
+  "count": 50,
+  "lat": 7.0002243,
+  "lon": 39.2048411
+ },
+ {
+  "key": "Oromia||West Arsi||Kofele",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Kofele",
+  "count": 86,
+  "lat": 9.75,
+  "lon": 36.38333
+ },
+ {
+  "key": "Oromia||West Arsi||Kokosa",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Kokosa",
+  "count": 100,
+  "lat": 6.739353,
+  "lon": 38.791187
+ },
+ {
+  "key": "Oromia||West Arsi||Nenesebo",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Nenesebo",
+  "count": 96,
+  "lat": 7.0002243,
+  "lon": 39.2048411
+ },
+ {
+  "key": "Oromia||West Arsi||Shala",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Shala",
+  "count": 89,
+  "lat": 7.1194118,
+  "lon": 38.4684331
+ },
+ {
+  "key": "Oromia||West Arsi||Shashemene Zuria",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Shashemene Zuria",
+  "count": 102,
+  "lat": 7.0002243,
+  "lon": 39.2048411
+ },
+ {
+  "key": "Oromia||West Arsi||Wondo",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Wondo",
+  "count": 44,
+  "lat": 7.1306319,
+  "lon": 38.5898628
+ },
+ {
+  "key": "Oromia||East Shewa||Adama town",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Adama town",
+  "count": 125,
+  "lat": 8.5461971,
+  "lon": 39.2730978
+ },
+ {
+  "key": "Oromia||West Shewa||Ambo town",
+  "region": "Oromia",
+  "zone": "West Shewa",
+  "woreda": "Ambo town",
+  "count": 20,
+  "lat": 9.1270693,
+  "lon": 37.855563
+ },
+ {
+  "key": "Oromia||Arsi||Asela town",
+  "region": "Oromia",
+  "zone": "Arsi",
+  "woreda": "Asela town",
+  "count": 71,
+  "lat": 7.95,
+  "lon": 39.13333
+ },
+ {
+  "key": "Oromia||West Arsi||Bishan Guracha",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Bishan Guracha",
+  "count": 12,
+  "lat": 7.0002243,
+  "lon": 39.2048411
+ },
+ {
+  "key": "Oromia||East Shewa||Bishoftu town",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Bishoftu town",
+  "count": 173,
+  "lat": 8.750004,
+  "lon": 38.981734
+ },
+ {
+  "key": "Oromia||Finfine Special||Burayu",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Burayu",
+  "count": 277,
+  "lat": 9.0359732,
+  "lon": 38.6607628
+ },
+ {
+  "key": "Oromia||Finfine Special||Dukem",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Dukem",
+  "count": 38,
+  "lat": 8.5974904,
+  "lon": 38.7859348
+ },
+ {
+  "key": "Oromia||Finfine Special||Holeta town",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Holeta town",
+  "count": 57,
+  "lat": 9.0652471,
+  "lon": 38.4936764
+ },
+ {
+  "key": "Oromia||Jimma||Jimma town",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Jimma town",
+  "count": 144,
+  "lat": 8.3742184,
+  "lon": 39.9062039
+ },
+ {
+  "key": "Oromia||East Shewa||Mojo Town",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Mojo Town",
+  "count": 39,
+  "lat": 8.5869874,
+  "lon": 39.125
+ },
+ {
+  "key": "Oromia||East Wellega||Nekemte town",
+  "region": "Oromia",
+  "zone": "East Wellega",
+  "woreda": "Nekemte town",
+  "count": 87,
+  "lat": 9.3023824,
+  "lon": 36.2796924
+ },
+ {
+  "key": "Oromia||Bale||Robe Town",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Robe Town",
+  "count": 56,
+  "lat": 7.8655785,
+  "lon": 39.6298828
+ },
+ {
+  "key": "Oromia||Finfine Special||Sebeta town",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Sebeta town",
+  "count": 216,
+  "lat": 8.912246,
+  "lon": 38.624019
+ },
+ {
+  "key": "Oromia||West Arsi||Shashemene town",
+  "region": "Oromia",
+  "zone": "West Arsi",
+  "woreda": "Shashemene town",
+  "count": 156,
+  "lat": 7.0002243,
+  "lon": 39.2048411
+ },
+ {
+  "key": "Oromia||Finfine Special||Sululta town",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Sululta town",
+  "count": 61,
+  "lat": 9.1812561,
+  "lon": 38.7593782
+ },
+ {
+  "key": "Oromia||South West Shewa||Waliso",
+  "region": "Oromia",
+  "zone": "South West Shewa",
+  "woreda": "Waliso",
+  "count": 35,
+  "lat": 8.5388595,
+  "lon": 37.9761854
+ },
+ {
+  "key": "Oromia||Bale||Agarfa",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Agarfa",
+  "count": 87,
+  "lat": 7.268909,
+  "lon": 39.8227789
+ },
+ {
+  "key": "Oromia||Bale||Goba (OR)",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Goba (OR)",
+  "count": 79,
+  "lat": 7.0073251,
+  "lon": 39.9694204
+ },
+ {
+  "key": "Oromia||Bale||Berbere",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Berbere",
+  "count": 94,
+  "lat": 6.7778046,
+  "lon": 39.9888964
+ },
+ {
+  "key": "Oromia||Bale||Mena (Bale)",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Mena (Bale)",
+  "count": 75,
+  "lat": 6.3425166,
+  "lon": 40.3150721
+ },
+ {
+  "key": "Oromia||Bale||Dinsho",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Dinsho",
+  "count": 49,
+  "lat": 7.108213,
+  "lon": 39.780153
+ },
+ {
+  "key": "Oromia||Bale||Gasera",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Gasera",
+  "count": 73,
+  "lat": 7.3711688,
+  "lon": 40.1909828
+ },
+ {
+  "key": "Oromia||Bale||Goro (Bale)",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Goro (Bale)",
+  "count": 61,
+  "lat": 6.991394,
+  "lon": 40.479935
+ },
+ {
+  "key": "Oromia||Bale||Harena Buluk",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Harena Buluk",
+  "count": 89,
+  "lat": 6.7516328,
+  "lon": 40.8458829
+ }
+]

@@ -1,0 +1,338 @@
+[
+ {
+  "key": "Afar||Awsi /Zone 1||Elidar",
+  "region": "Afar",
+  "zone": "Awsi /Zone 1",
+  "woreda": "Elidar",
+  "count": 55
+ },
+ {
+  "key": "Afar||Awsi /Zone 1||Samera Logiya town",
+  "region": "Afar",
+  "zone": "Awsi /Zone 1",
+  "woreda": "Samera Logiya town",
+  "count": 45
+ },
+ {
+  "key": "Afar||Kilbati /Zone2||Abaala town",
+  "region": "Afar",
+  "zone": "Kilbati /Zone2",
+  "woreda": "Abaala town",
+  "count": 28
+ },
+ {
+  "key": "Afar||Kilbati /Zone2||Berahile",
+  "region": "Afar",
+  "zone": "Kilbati /Zone2",
+  "woreda": "Berahile",
+  "count": 60
+ },
+ {
+  "key": "Amhara||East Gojam||Enebse Sarmder",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Enebse Sarmder",
+  "count": 144
+ },
+ {
+  "key": "Amhara||East Gojam||Goncha Siso Enebse",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Goncha Siso Enebse",
+  "count": 148
+ },
+ {
+  "key": "Amhara||East Gojam||Enarj Enawga",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Enarj Enawga",
+  "count": 90
+ },
+ {
+  "key": "Amhara||East Gojam||Shebel Bernta",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Shebel Bernta",
+  "count": 100
+ },
+ {
+  "key": "Amhara||West Gojam||Bahir Dar town",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Bahir Dar town",
+  "count": 161
+ },
+ {
+  "key": "Amhara||East Gojam||Debre Markos town",
+  "region": "Amhara",
+  "zone": "East Gojam",
+  "woreda": "Debre Markos town",
+  "count": 73
+ },
+ {
+  "key": "Amhara||South Gondar||Andabet/ West Esite",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Andabet/ West Esite",
+  "count": 88
+ },
+ {
+  "key": "Amhara||South Gondar||East Esite",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "East Esite",
+  "count": 175
+ },
+ {
+  "key": "Amhara||South Gondar||Lay Gayint",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Lay Gayint",
+  "count": 169
+ },
+ {
+  "key": "Amhara||South Gondar||Libokemekem",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Libokemekem",
+  "count": 196
+ },
+ {
+  "key": "Amhara||South Gondar||Sede Muja",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Sede Muja",
+  "count": 71
+ },
+ {
+  "key": "Amhara||South Gondar||Woreta town",
+  "region": "Amhara",
+  "zone": "South Gondar",
+  "woreda": "Woreta town",
+  "count": 22
+ },
+ {
+  "key": "Amhara||South Wello||Albuko",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Albuko",
+  "count": 61
+ },
+ {
+  "key": "Amhara||South Wello||Mehal Sayint",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Mehal Sayint",
+  "count": 60
+ },
+ {
+  "key": "Amhara||South Wello||Borena /Debresina",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Borena /Debresina",
+  "count": 88
+ },
+ {
+  "key": "Amhara||South Wello||Delanta",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Delanta",
+  "count": 75
+ },
+ {
+  "key": "Amhara||South Wello||Kutaber",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Kutaber",
+  "count": 79
+ },
+ {
+  "key": "Amhara||South Wello||Legehida",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Legehida",
+  "count": 2
+ },
+ {
+  "key": "Amhara||South Wello||Thehulederie",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Thehulederie",
+  "count": 50
+ },
+ {
+  "key": "Amhara||South Wello||Worebabu",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Worebabu",
+  "count": 64
+ },
+ {
+  "key": "Amhara||South Wello||Wereilu town",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Wereilu town",
+  "count": 6
+ },
+ {
+  "key": "Amhara||South Wello||Dessie town",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Dessie town",
+  "count": 90
+ },
+ {
+  "key": "Amhara||Central Gondar||Gondar town",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "Gondar town",
+  "count": 140
+ },
+ {
+  "key": "Amhara||South Wello||Kombolcha town",
+  "region": "Amhara",
+  "zone": "South Wello",
+  "woreda": "Kombolcha town",
+  "count": 69
+ },
+ {
+  "key": "Amhara||Central Gondar||Chilga 1",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "Chilga 1",
+  "count": 80
+ },
+ {
+  "key": "Amhara||Central Gondar||Lay Armacho",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "Lay Armacho",
+  "count": 63
+ },
+ {
+  "key": "Amhara||Central Gondar||West Dembiya",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "West Dembiya",
+  "count": 188
+ },
+ {
+  "key": "Amhara||Central Gondar||East Dembia",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "East Dembia",
+  "count": 187
+ },
+ {
+  "key": "Amhara||Central Gondar||Takusa",
+  "region": "Amhara",
+  "zone": "Central Gondar",
+  "woreda": "Takusa",
+  "count": 111
+ },
+ {
+  "key": "Amhara||West Gojam||Semen Achefer",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Semen Achefer",
+  "count": 80
+ },
+ {
+  "key": "Amhara||West Gojam||Debub Achefer",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Debub Achefer",
+  "count": 128
+ },
+ {
+  "key": "Amhara||West Gojam||Jabi Tehnan",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Jabi Tehnan",
+  "count": 113
+ },
+ {
+  "key": "Amhara||West Gojam||Wemberma",
+  "region": "Amhara",
+  "zone": "West Gojam",
+  "woreda": "Wemberma",
+  "count": 95
+ },
+ {
+  "key": "Amhara||North Wello||Wadla",
+  "region": "Amhara",
+  "zone": "North Wello",
+  "woreda": "Wadla",
+  "count": 67
+ },
+ {
+  "key": "Amhara||North Wello||Gidan",
+  "region": "Amhara",
+  "zone": "North Wello",
+  "woreda": "Gidan",
+  "count": 69
+ },
+ {
+  "key": "Amhara||North Wello||Guba Lafto",
+  "region": "Amhara",
+  "zone": "North Wello",
+  "woreda": "Guba Lafto",
+  "count": 106
+ },
+ {
+  "key": "Amhara||North Wello||Raya Kobo",
+  "region": "Amhara",
+  "zone": "North Wello",
+  "woreda": "Raya Kobo",
+  "count": 135
+ },
+ {
+  "key": "Amhara||North Wello||Woldiya town",
+  "region": "Amhara",
+  "zone": "North Wello",
+  "woreda": "Woldiya town",
+  "count": 28
+ },
+ {
+  "key": "Benishangul Gumz||Mao Komo Special||Maokomo Special",
+  "region": "Benishangul Gumz",
+  "zone": "Mao Komo Special",
+  "woreda": "Maokomo Special",
+  "count": 60
+ },
+ {
+  "key": "Gambela||Agnewak||Dima (GM)",
+  "region": "Gambela",
+  "zone": "Agnewak",
+  "woreda": "Dima (GM)",
+  "count": 30
+ },
+ {
+  "key": "Gambela||Nuwer||Lare",
+  "region": "Gambela",
+  "zone": "Nuwer",
+  "woreda": "Lare",
+  "count": 27
+ },
+ {
+  "key": "Gambela||Nuwer||Wantawo",
+  "region": "Gambela",
+  "zone": "Nuwer",
+  "woreda": "Wantawo",
+  "count": 23
+ },
+ {
+  "key": "Oromia||Finfine Special||Gelana (Finfine)",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Gelana (Finfine)",
+  "count": 22
+ },
+ {
+  "key": "Oromia||Finfine Special||Lege Tafo-Lege Dadi town",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Lege Tafo-Lege Dadi town",
+  "count": 50
+ }
+]
