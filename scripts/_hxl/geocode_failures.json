@@ -334,5 +334,180 @@
   "zone": "Finfine Special",
   "woreda": "Lege Tafo-Lege Dadi town",
   "count": 50
+ },
+ {
+  "key": "Oromia||Finfine Special||Bereh",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Bereh",
+  "count": 117
+ },
+ {
+  "key": "Oromia||Finfine Special||Sebeta Hawas",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Sebeta Hawas",
+  "count": 84
+ },
+ {
+  "key": "Oromia||West Guji||Birbirsa Kojowa",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Birbirsa Kojowa",
+  "count": 34
+ },
+ {
+  "key": "Oromia||West Guji||Dugda Dawa",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Dugda Dawa",
+  "count": 141
+ },
+ {
+  "key": "Oromia||West Guji||Gelana (West Guji)",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Gelana (West Guji)",
+  "count": 97
+ },
+ {
+  "key": "Oromia||West Guji||Hambela Wamena",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Hambela Wamena",
+  "count": 124
+ },
+ {
+  "key": "Oromia||East Hararge||Aweday town",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Aweday town",
+  "count": 18
+ },
+ {
+  "key": "Oromia||East Hararge||Goro Gutu",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Goro Gutu",
+  "count": 99
+ },
+ {
+  "key": "Oromia||East Hararge||Jarso (East Hararghe)",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Jarso (East Hararghe)",
+  "count": 199
+ },
+ {
+  "key": "Oromia||East Hararge||Melka Balo",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Melka Balo",
+  "count": 125
+ },
+ {
+  "key": "Oromia||East Hararge||Meyu Muleke",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Meyu Muleke",
+  "count": 42
+ },
+ {
+  "key": "Oromia||East Hararge||Kersa (East Hararge)",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Kersa (East Hararge)",
+  "count": 2
+ },
+ {
+  "key": "Oromia||West Hararge||Gumbi Bordede",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Gumbi Bordede",
+  "count": 77
+ },
+ {
+  "key": "Oromia||West Hararge||Tulo (OR)",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Tulo (OR)",
+  "count": 108
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Abay Chomen",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Abay Chomen",
+  "count": 43
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Choman Guduru",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Choman Guduru",
+  "count": 48
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Ababo",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Ababo",
+  "count": 43
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Horo Buluk",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Horo Buluk",
+  "count": 37
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Jarte Jardega",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Jarte Jardega",
+  "count": 62
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Jimma Genete",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Jimma Genete",
+  "count": 63
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Alge Sachi",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Alge Sachi",
+  "count": 77
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Becho (Ilu Aba Bora)",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Becho (Ilu Aba Bora)",
+  "count": 74
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Dorani",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Dorani",
+  "count": 69
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Halu /Huka",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Halu /Huka",
+  "count": 48
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Hurumu",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Hurumu",
+  "count": 43
  }
 ]

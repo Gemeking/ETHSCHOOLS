@@ -1276,5 +1276,1130 @@
   "count": 89,
   "lat": 6.7516328,
   "lon": 40.8458829
+ },
+ {
+  "key": "Oromia||Bale||Meda Welabu",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Meda Welabu",
+  "count": 120,
+  "lat": 5.78333,
+  "lon": 39.68333
+ },
+ {
+  "key": "Oromia||Bale||Sinana",
+  "region": "Oromia",
+  "zone": "Bale",
+  "woreda": "Sinana",
+  "count": 71,
+  "lat": 7.08333,
+  "lon": 40.2
+ },
+ {
+  "key": "Oromia||East Bale||Ginir town",
+  "region": "Oromia",
+  "zone": "East Bale",
+  "woreda": "Ginir town",
+  "count": 16,
+  "lat": 7.1384162,
+  "lon": 40.7117482
+ },
+ {
+  "key": "Oromia||East Bale||Ginir",
+  "region": "Oromia",
+  "zone": "East Bale",
+  "woreda": "Ginir",
+  "count": 105,
+  "lat": 7.1384162,
+  "lon": 40.7117482
+ },
+ {
+  "key": "Oromia||Borena||Arero",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Arero",
+  "count": 88,
+  "lat": 5,
+  "lon": 38.16667
+ },
+ {
+  "key": "Oromia||Borena||Yabelo",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Yabelo",
+  "count": 106,
+  "lat": 4.892569,
+  "lon": 38.094989
+ },
+ {
+  "key": "Oromia||Borena||Dilo",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Dilo",
+  "count": 73,
+  "lat": 4.266832,
+  "lon": 37.7036479
+ },
+ {
+  "key": "Oromia||Borena||Dire",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Dire",
+  "count": 56,
+  "lat": 4.98333,
+  "lon": 37.1
+ },
+ {
+  "key": "Oromia||Borena||Dubluk",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Dubluk",
+  "count": 79,
+  "lat": 5.0505913,
+  "lon": 37.9743045
+ },
+ {
+  "key": "Oromia||Borena||Elwaya",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Elwaya",
+  "count": 83,
+  "lat": 5.0505913,
+  "lon": 37.9743045
+ },
+ {
+  "key": "Oromia||Borena||Gomole",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Gomole",
+  "count": 59,
+  "lat": 5.23333,
+  "lon": 38.5
+ },
+ {
+  "key": "Oromia||Borena||Guchi",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Guchi",
+  "count": 33,
+  "lat": 5.0505913,
+  "lon": 37.9743045
+ },
+ {
+  "key": "Oromia||Borena||Miyo",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Miyo",
+  "count": 128,
+  "lat": 3.7781442,
+  "lon": 38.6279296
+ },
+ {
+  "key": "Oromia||Borena||Moyale (OR)",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Moyale (OR)",
+  "count": 55,
+  "lat": 3.5452174,
+  "lon": 39.0487812
+ },
+ {
+  "key": "Oromia||Borena||Teltale",
+  "region": "Oromia",
+  "zone": "Borena",
+  "woreda": "Teltale",
+  "count": 151,
+  "lat": 5.0505913,
+  "lon": 37.9743045
+ },
+ {
+  "key": "Oromia||Buno Bedele||Bedele town",
+  "region": "Oromia",
+  "zone": "Buno Bedele",
+  "woreda": "Bedele town",
+  "count": 49,
+  "lat": 8.455645,
+  "lon": 36.352545
+ },
+ {
+  "key": "Oromia||Buno Bedele||Borecha",
+  "region": "Oromia",
+  "zone": "Buno Bedele",
+  "woreda": "Borecha",
+  "count": 74,
+  "lat": 8.16667,
+  "lon": 36.33333
+ },
+ {
+  "key": "Oromia||Buno Bedele||Chwaka",
+  "region": "Oromia",
+  "zone": "Buno Bedele",
+  "woreda": "Chwaka",
+  "count": 83,
+  "lat": 8.16667,
+  "lon": 36.33333
+ },
+ {
+  "key": "Oromia||Buno Bedele||Chora (Buno Bedele)",
+  "region": "Oromia",
+  "zone": "Buno Bedele",
+  "woreda": "Chora (Buno Bedele)",
+  "count": 71,
+  "lat": 8.16667,
+  "lon": 36.33333
+ },
+ {
+  "key": "Oromia||Buno Bedele||Dabo Hana",
+  "region": "Oromia",
+  "zone": "Buno Bedele",
+  "woreda": "Dabo Hana",
+  "count": 72,
+  "lat": 8.16667,
+  "lon": 36.33333
+ },
+ {
+  "key": "Oromia||Buno Bedele||Dedesa",
+  "region": "Oromia",
+  "zone": "Buno Bedele",
+  "woreda": "Dedesa",
+  "count": 74,
+  "lat": 9.0246602,
+  "lon": 36.1613257
+ },
+ {
+  "key": "Oromia||Buno Bedele||Gechi",
+  "region": "Oromia",
+  "zone": "Buno Bedele",
+  "woreda": "Gechi",
+  "count": 100,
+  "lat": 8.3329655,
+  "lon": 36.418743
+ },
+ {
+  "key": "Oromia||Finfine Special||Akaki",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Akaki",
+  "count": 64,
+  "lat": 9.0309611,
+  "lon": 38.9052389
+ },
+ {
+  "key": "Oromia||Finfine Special||Sendafa town",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Sendafa town",
+  "count": 81,
+  "lat": 9.155868,
+  "lon": 39.023811
+ },
+ {
+  "key": "Oromia||Finfine Special||Mulo",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Mulo",
+  "count": 43,
+  "lat": 9.3210399,
+  "lon": 38.6282239
+ },
+ {
+  "key": "Oromia||Finfine Special||Sululta",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Sululta",
+  "count": 88,
+  "lat": 9.2893858,
+  "lon": 38.8135595
+ },
+ {
+  "key": "Oromia||Finfine Special||Welmera",
+  "region": "Oromia",
+  "zone": "Finfine Special",
+  "woreda": "Welmera",
+  "count": 74,
+  "lat": 9.08333,
+  "lon": 38.51667
+ },
+ {
+  "key": "Oromia||Guji||Aga Wayu",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Aga Wayu",
+  "count": 55,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Adola",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Adola",
+  "count": 110,
+  "lat": 5.8733621,
+  "lon": 38.9953839
+ },
+ {
+  "key": "Oromia||Guji||Ana Sora",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Ana Sora",
+  "count": 114,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Arda Jila",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Arda Jila",
+  "count": 51,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Adola town",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Adola town",
+  "count": 32,
+  "lat": 5.8733621,
+  "lon": 38.9953839
+ },
+ {
+  "key": "Oromia||Guji||Negele town",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Negele town",
+  "count": 25,
+  "lat": 5.3328174,
+  "lon": 39.5806628
+ },
+ {
+  "key": "Oromia||Guji||Shakiso town",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Shakiso town",
+  "count": 32,
+  "lat": 5.7746802,
+  "lon": 38.9028468
+ },
+ {
+  "key": "Oromia||Guji||Bore",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Bore",
+  "count": 123,
+  "lat": 6.3595899,
+  "lon": 38.6221632
+ },
+ {
+  "key": "Oromia||Guji||Girja /Harenfema",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Girja /Harenfema",
+  "count": 100,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Gora Dola",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Gora Dola",
+  "count": 112,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Haro Walabu",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Haro Walabu",
+  "count": 77,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Odo Shakiso",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Odo Shakiso",
+  "count": 110,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Saba Boru",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Saba Boru",
+  "count": 86,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Uraga",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Uraga",
+  "count": 149,
+  "lat": 5.5501401,
+  "lon": 39.2030529
+ },
+ {
+  "key": "Oromia||Guji||Wadera",
+  "region": "Oromia",
+  "zone": "Guji",
+  "woreda": "Wadera",
+  "count": 79,
+  "lat": 5.7773139,
+  "lon": 39.3105652
+ },
+ {
+  "key": "Oromia||West Guji||Abaya",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Abaya",
+  "count": 122,
+  "lat": 6.2938591,
+  "lon": 37.8599019
+ },
+ {
+  "key": "Oromia||West Guji||Bule Hora",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Bule Hora",
+  "count": 186,
+  "lat": 5.6399545,
+  "lon": 38.2393711
+ },
+ {
+  "key": "Oromia||West Guji||Melka Soda",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Melka Soda",
+  "count": 79,
+  "lat": 5.4894624,
+  "lon": 38.6127762
+ },
+ {
+  "key": "Oromia||West Guji||Kercha",
+  "region": "Oromia",
+  "zone": "West Guji",
+  "woreda": "Kercha",
+  "count": 95,
+  "lat": 5.7804712,
+  "lon": 38.4052891
+ },
+ {
+  "key": "Oromia||East Hararge||Babile (OR)",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Babile (OR)",
+  "count": 118,
+  "lat": 9.0245175,
+  "lon": 42.4010171
+ },
+ {
+  "key": "Oromia||East Hararge||Deder town",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Deder town",
+  "count": 16,
+  "lat": 9.312287,
+  "lon": 41.442772
+ },
+ {
+  "key": "Oromia||East Hararge||Haro Maya",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Haro Maya",
+  "count": 163,
+  "lat": 8.8014422,
+  "lon": 39.1053986
+ },
+ {
+  "key": "Oromia||East Hararge||Bedeno",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Bedeno",
+  "count": 161,
+  "lat": 9.113093,
+  "lon": 41.6342783
+ },
+ {
+  "key": "Oromia||East Hararge||Chinaksen",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Chinaksen",
+  "count": 65,
+  "lat": 9.5060137,
+  "lon": 42.6088587
+ },
+ {
+  "key": "Oromia||East Hararge||Deder",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Deder",
+  "count": 147,
+  "lat": 9.312287,
+  "lon": 41.442772
+ },
+ {
+  "key": "Oromia||East Hararge||Fedis",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Fedis",
+  "count": 113,
+  "lat": 9.13944,
+  "lon": 42.04806
+ },
+ {
+  "key": "Oromia||East Hararge||Girawa",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Girawa",
+  "count": 125,
+  "lat": 9.1379442,
+  "lon": 41.83568
+ },
+ {
+  "key": "Oromia||East Hararge||Gursum (OR)",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Gursum (OR)",
+  "count": 129,
+  "lat": 9.3529905,
+  "lon": 42.4008339
+ },
+ {
+  "key": "Oromia||East Hararge||Kombolcha",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Kombolcha",
+  "count": 96,
+  "lat": 8.8305486,
+  "lon": 38.8523187
+ },
+ {
+  "key": "Oromia||East Hararge||Kurfa Chele",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Kurfa Chele",
+  "count": 69,
+  "lat": 9.2376494,
+  "lon": 41.8247376
+ },
+ {
+  "key": "Oromia||East Hararge||Meta",
+  "region": "Oromia",
+  "zone": "East Hararge",
+  "woreda": "Meta",
+  "count": 107,
+  "lat": 9.2925,
+  "lon": 42.02611
+ },
+ {
+  "key": "Oromia||West Hararge||Bedesa",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Bedesa",
+  "count": 16,
+  "lat": 8.9032186,
+  "lon": 40.7764864
+ },
+ {
+  "key": "Oromia||West Hararge||Chiro town",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Chiro town",
+  "count": 30,
+  "lat": 9.087481,
+  "lon": 40.8663309
+ },
+ {
+  "key": "Oromia||West Hararge||Boke",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Boke",
+  "count": 92,
+  "lat": 8.7265876,
+  "lon": 40.6434699
+ },
+ {
+  "key": "Oromia||West Hararge||Daro Lebu",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Daro Lebu",
+  "count": 100,
+  "lat": 8.16667,
+  "lon": 40.78333
+ },
+ {
+  "key": "Oromia||West Hararge||Mieso",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Mieso",
+  "count": 116,
+  "lat": 9.233068,
+  "lon": 40.75485
+ },
+ {
+  "key": "Oromia||West Hararge||Mesela",
+  "region": "Oromia",
+  "zone": "West Hararge",
+  "woreda": "Mesela",
+  "count": 126,
+  "lat": 9.0799769,
+  "lon": 41.1738637
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Amuru",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Amuru",
+  "count": 45,
+  "lat": 9.98333,
+  "lon": 36.96667
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Shambu town",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Shambu town",
+  "count": 29,
+  "lat": 9.566686,
+  "lon": 37.1006968
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Guduru",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Guduru",
+  "count": 67,
+  "lat": 9.7521599,
+  "lon": 37.2377528
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Jimma Rare",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Jimma Rare",
+  "count": 47,
+  "lat": 9.2445021,
+  "lon": 37.3310854
+ },
+ {
+  "key": "Oromia||Horo Gudru Wellega||Horo",
+  "region": "Oromia",
+  "zone": "Horo Gudru Wellega",
+  "woreda": "Horo",
+  "count": 55,
+  "lat": 9.8446132,
+  "lon": 36.3130139
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Ale",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Ale",
+  "count": 109,
+  "lat": 9.52528,
+  "lon": 42.31889
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Metu town",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Metu town",
+  "count": 33,
+  "lat": 8.2956473,
+  "lon": 35.5834319
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Bure (OR)",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Bure (OR)",
+  "count": 81,
+  "lat": 8.286291,
+  "lon": 35.0992021
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Darimu",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Darimu",
+  "count": 145,
+  "lat": 9.48333,
+  "lon": 38.98333
+ },
+ {
+  "key": "Oromia||Ilu Aba Bora||Yayu",
+  "region": "Oromia",
+  "zone": "Ilu Aba Bora",
+  "woreda": "Yayu",
+  "count": 53,
+  "lat": 8.341488,
+  "lon": 35.8122397
+ },
+ {
+  "key": "Oromia||Jimma||Agaro town",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Agaro town",
+  "count": 34,
+  "lat": 7.856633,
+  "lon": 36.589582
+ },
+ {
+  "key": "Oromia||Jimma||Botor Tolay",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Botor Tolay",
+  "count": 76,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Chora (Jimma)",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Chora (Jimma)",
+  "count": 105,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Dedo",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Dedo",
+  "count": 141,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Gera",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Gera",
+  "count": 78,
+  "lat": 7.7791122,
+  "lon": 36.3386502
+ },
+ {
+  "key": "Oromia||Jimma||Goma",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Goma",
+  "count": 132,
+  "lat": 7.85,
+  "lon": 36.43333
+ },
+ {
+  "key": "Oromia||Jimma||Gumay",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Gumay",
+  "count": 78,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Limu Kosa",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Limu Kosa",
+  "count": 121,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Limu Seka",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Limu Seka",
+  "count": 124,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Mena (Jimma)",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Mena (Jimma)",
+  "count": 83,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Tiro Afeta",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Tiro Afeta",
+  "count": 72,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Nono Benja",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Nono Benja",
+  "count": 86,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Kersa (Jimma)",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Kersa (Jimma)",
+  "count": 267,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Seka Chekorsa",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Seka Chekorsa",
+  "count": 187,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Setema",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Setema",
+  "count": 76,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Shebe Sambo",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Shebe Sambo",
+  "count": 98,
+  "lat": 7.6756152,
+  "lon": 36.8478779
+ },
+ {
+  "key": "Oromia||Jimma||Sigmo",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Sigmo",
+  "count": 69,
+  "lat": 7.9105488,
+  "lon": 36.0974972
+ },
+ {
+  "key": "Oromia||Jimma||Sekoru",
+  "region": "Oromia",
+  "zone": "Jimma",
+  "woreda": "Sekoru",
+  "count": 157,
+  "lat": 7.9256841,
+  "lon": 37.4179084
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Anfilo",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Anfilo",
+  "count": 71,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Denbi Dollo town",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Denbi Dollo town",
+  "count": 43,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Dale Sadi",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Dale Sadi",
+  "count": 139,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Dale Wabera",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Dale Wabera",
+  "count": 118,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Gawo Kebe",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Gawo Kebe",
+  "count": 113,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Gidami",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Gidami",
+  "count": 52,
+  "lat": 8.9860555,
+  "lon": 34.6115684
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Hawa Galan",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Hawa Galan",
+  "count": 74,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Jimma Horo",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Jimma Horo",
+  "count": 52,
+  "lat": 9.2445021,
+  "lon": 37.3310854
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Lalo Kile",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Lalo Kile",
+  "count": 63,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Sedi Chenka",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Sedi Chenka",
+  "count": 57,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Sayo",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Sayo",
+  "count": 113,
+  "lat": 9.0929913,
+  "lon": 36.5356575
+ },
+ {
+  "key": "Oromia||Kelem Wellega||Yama Logi Welel",
+  "region": "Oromia",
+  "zone": "Kelem Wellega",
+  "woreda": "Yama Logi Welel",
+  "count": 64,
+  "lat": 8.8075907,
+  "lon": 34.7901768
+ },
+ {
+  "key": "Oromia||East Shewa||Ada'a",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Ada'a",
+  "count": 92,
+  "lat": 8.8,
+  "lon": 38.96667
+ },
+ {
+  "key": "Oromia||East Shewa||Adama",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Adama",
+  "count": 116,
+  "lat": 8.5340412,
+  "lon": 39.2461787
+ },
+ {
+  "key": "Oromia||East Shewa||Adama Tulu Jido Kombolcha",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Adama Tulu Jido Kombolcha",
+  "count": 122,
+  "lat": 8.3607724,
+  "lon": 39.0074478
+ },
+ {
+  "key": "Oromia||East Shewa||Metehara town",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Metehara town",
+  "count": 29,
+  "lat": 8.9025093,
+  "lon": 39.9181396
+ },
+ {
+  "key": "Oromia||East Shewa||Bora (OR)",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Bora (OR)",
+  "count": 64,
+  "lat": 8.4,
+  "lon": 39.13333
+ },
+ {
+  "key": "Oromia||East Shewa||Boset",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Boset",
+  "count": 118,
+  "lat": 8.5747595,
+  "lon": 39.4553614
+ },
+ {
+  "key": "Oromia||East Shewa||Dugda",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Dugda",
+  "count": 135,
+  "lat": 8.78333,
+  "lon": 38.3
+ },
+ {
+  "key": "Oromia||East Shewa||Gimbichu",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Gimbichu",
+  "count": 134,
+  "lat": 8.3607724,
+  "lon": 39.0074478
+ },
+ {
+  "key": "Oromia||East Shewa||Liben Chukala",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Liben Chukala",
+  "count": 80,
+  "lat": 8.3607724,
+  "lon": 39.0074478
+ },
+ {
+  "key": "Oromia||East Shewa||Lome (OR)",
+  "region": "Oromia",
+  "zone": "East Shewa",
+  "woreda": "Lome (OR)",
+  "count": 101,
+  "lat": 6.13333,
+  "lon": 39.36667
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Abichugna Gne'a",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Abichugna Gne'a",
+  "count": 96,
+  "lat": 10.0079616,
+  "lon": 38.2460148
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Aleltu",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Aleltu",
+  "count": 82,
+  "lat": 9.1975556,
+  "lon": 39.1522681
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Fiche town",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Fiche town",
+  "count": 27,
+  "lat": 9.2395802,
+  "lon": 39.1936483
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Debre Libanos",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Debre Libanos",
+  "count": 48,
+  "lat": 9.7295697,
+  "lon": 38.8167682
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Degem",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Degem",
+  "count": 93,
+  "lat": 9.8135619,
+  "lon": 38.6328601
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Dera (OR)",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Dera (OR)",
+  "count": 89,
+  "lat": 9.51667,
+  "lon": 39.2
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Hidabu Abote",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Hidabu Abote",
+  "count": 56,
+  "lat": 10.0079616,
+  "lon": 38.2460148
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Jida",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Jida",
+  "count": 69,
+  "lat": 9.3550246,
+  "lon": 38.9989442
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Kuyu",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Kuyu",
+  "count": 61,
+  "lat": 9.86667,
+  "lon": 38.35
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Kimbibit",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Kimbibit",
+  "count": 87,
+  "lat": 10.0079616,
+  "lon": 38.2460148
+ },
+ {
+  "key": "Oromia||North Shewa (OR)||Wuchale",
+  "region": "Oromia",
+  "zone": "North Shewa (OR)",
+  "woreda": "Wuchale",
+  "count": 79,
+  "lat": 10.0079616,
+  "lon": 38.2460148
  }
 ]
