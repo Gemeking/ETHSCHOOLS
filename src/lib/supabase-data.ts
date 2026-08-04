@@ -1,3 +1,4 @@
+import { unstable_cache } from 'next/cache'
 import { supabase } from './supabase'
 import { schools as localSchools } from './data'
 import type { School } from './types'
@@ -16,49 +17,71 @@ function mapRow(s: any): School {
   }
 }
 
-// In-memory cache so hundreds of static school pages built in the same
-// process (e.g. a Vercel build worker) share one Supabase round-trip instead
-// of each page re-fetching the whole table — this is what was blowing past
-// Vercel's 60s-per-page static generation timeout once the catalog passed ~700 schools.
-let cachedSchools: School[] | null = null
-let cachedAt = 0
-const CACHE_TTL_MS = 60_000
-
 // PostgREST caps any single request at 1,000 rows regardless of table size —
 // silently, with no error — so a plain .select('*') on a 67,000+ row table
 // only ever returns the first 1,000. Page through in batches to get
-// everything, running batches in parallel once the total count is known.
+// everything.
 const FETCH_PAGE_SIZE = 1000
+
+// Firing all ~68 range requests in one Promise.all() at once turned out to
+// be too much simultaneous load on Supabase during a build (many pages
+// calling this concurrently compounds it further) — caused intermittent
+// "fetch failed" errors and 60s worker timeouts. Batching a limited number
+// of requests at a time is gentler and still fast.
+const FETCH_CONCURRENCY = 10
+
+async function fetchAllRowsPaged<T>(table: string, columns: string): Promise<T[] | null> {
+  const { count, error: countError } = await supabase.from(table).select('id', { count: 'exact', head: true })
+  if (countError || count === null) {
+    console.log(`${table} count failed:`, countError?.message)
+    return null
+  }
+
+  const pageCount = Math.max(1, Math.ceil(count / FETCH_PAGE_SIZE))
+  const results: T[][] = []
+  for (let batchStart = 0; batchStart < pageCount; batchStart += FETCH_CONCURRENCY) {
+    const batchIndexes = Array.from(
+      { length: Math.min(FETCH_CONCURRENCY, pageCount - batchStart) },
+      (_, j) => batchStart + j
+    )
+    const batch = await Promise.all(
+      batchIndexes.map((i) => {
+        const from = i * FETCH_PAGE_SIZE
+        const to = from + FETCH_PAGE_SIZE - 1
+        return supabase.from(table).select(columns).order('id').range(from, to)
+      })
+    )
+    const failed = batch.find((p) => p.error)
+    if (failed?.error || batch.some((p) => !p.data)) {
+      console.log(`${table} fetch failed:`, failed?.error?.message)
+      return null
+    }
+    results.push(...batch.map((p) => p.data as T[]))
+  }
+  return results.flat()
+}
+
+// Plain module-level cache — correct and sufficient here, because every
+// caller of fetchAllSchools() (generateStaticParams, generateMetadata, etc.)
+// runs during `next build`, a single process, so this is genuinely shared.
+// (unstable_cache was tried here too, but its file-backed cache caused lock
+// contention between Next's parallel build workers and broke the build
+// outright — worse than the problem it was meant to solve. It's used below,
+// scoped only to the sitemap/robots functions that actually run per-request
+// in the deployed serverless runtime, which is the case that needed it.)
+let cachedSchools: School[] | null = null
+let cachedAt = 0
+const CACHE_TTL_MS = 60_000
 
 export async function fetchAllSchools(): Promise<School[]> {
   const now = Date.now()
   if (cachedSchools && now - cachedAt < CACHE_TTL_MS) return cachedSchools
 
-  const { count, error: countError } = await supabase
-    .from('schools')
-    .select('id', { count: 'exact', head: true })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const rows = await fetchAllRowsPaged<any>('schools', '*')
+  if (!rows) return cachedSchools ?? localSchools
 
-  if (countError || count === null) {
-    console.log('Supabase count failed, using local data:', countError?.message)
-    return cachedSchools ?? localSchools
-  }
-
-  const pageCount = Math.max(1, Math.ceil(count / FETCH_PAGE_SIZE))
-  const pages = await Promise.all(
-    Array.from({ length: pageCount }, (_, i) => {
-      const from = i * FETCH_PAGE_SIZE
-      const to = from + FETCH_PAGE_SIZE - 1
-      return supabase.from('schools').select('*').order('id').range(from, to)
-    })
-  )
-
-  const failed = pages.find((p) => p.error)
-  if (failed?.error || pages.some((p) => !p.data)) {
-    console.log('Supabase fetch failed, using local data:', failed?.error?.message)
-    return cachedSchools ?? localSchools
-  }
-
-  cachedSchools = pages.flatMap((p) => p.data!.map(mapRow))
+  cachedSchools = rows.map(mapRow)
   cachedAt = now
   return cachedSchools
 }
@@ -162,48 +185,44 @@ export interface SchoolSlugInfo {
   sub_city: string | null
 }
 
-let cachedSlugs: SchoolSlugInfo[] | null = null
-let cachedSlugsAt = 0
-
 // Just the row count — no data transfer at all. Used where only the total
 // matters (e.g. robots.ts deciding how many sitemap chunks to list).
-export async function fetchSchoolCount(): Promise<number> {
-  const { count, error } = await supabase.from('schools').select('id', { count: 'exact', head: true })
-  if (error || count === null) return 0
-  return count
-}
+//
+// Wrapped in unstable_cache rather than a plain module-level variable: on
+// Vercel, each serverless invocation can land on a totally different,
+// memory-isolated instance, so a `let cached = ...` variable provides no
+// real caching in production at all (it only ever "worked" locally, where
+// one long-running process served every test request). unstable_cache uses
+// Next's actual persistent data cache, which Vercel backs with real
+// infrastructure that survives across invocations — this is what made the
+// sitemap/robots.txt take 22-28s on *every single request* in production,
+// timing out Google's crawler, even after the payload-size fix.
+export const fetchSchoolCount = unstable_cache(
+  async (): Promise<number> => {
+    const { count, error } = await supabase.from('schools').select('id', { count: 'exact', head: true })
+    if (error || count === null) return 0
+    return count
+  },
+  ['school-count'],
+  { revalidate: 3600 }
+)
 
-export async function fetchAllSchoolSlugs(): Promise<SchoolSlugInfo[]> {
-  const now = Date.now()
-  if (cachedSlugs && now - cachedSlugsAt < CACHE_TTL_MS) return cachedSlugs
-
-  const { count, error: countError } = await supabase
-    .from('schools')
-    .select('id', { count: 'exact', head: true })
-
-  if (countError || count === null) {
-    console.log('fetchAllSchoolSlugs count failed:', countError?.message)
-    return cachedSlugs ?? []
-  }
-
-  const pageCount = Math.max(1, Math.ceil(count / FETCH_PAGE_SIZE))
-  const pages = await Promise.all(
-    Array.from({ length: pageCount }, (_, i) => {
-      const from = i * FETCH_PAGE_SIZE
-      const to = from + FETCH_PAGE_SIZE - 1
-      return supabase.from('schools').select('id, name_en, sub_city').order('id').range(from, to)
-    })
-  )
-
-  if (pages.some((p) => p.error || !p.data)) {
-    console.log('fetchAllSchoolSlugs fetch failed:', pages.find((p) => p.error)?.error?.message)
-    return cachedSlugs ?? []
-  }
-
-  cachedSlugs = pages.flatMap((p) => p.data as SchoolSlugInfo[])
-  cachedSlugsAt = now
-  return cachedSlugs
-}
+// Its own unstable_cache (not derived from fetchAllSchools(), which uses a
+// plain module-variable cache that only helps within a single build process
+// — sitemap.ts runs per-request in the deployed serverless runtime, so it
+// needs the persistent cache instead). Only sitemap.ts calls this — a
+// handful of invocations per build/hour, not hundreds like the per-school
+// pages, so it doesn't hit the worker contention that ruled out unstable_cache
+// for fetchAllSchools() above.
+export const fetchAllSchoolSlugs = unstable_cache(
+  async (): Promise<SchoolSlugInfo[]> => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const rows = await fetchAllRowsPaged<any>('schools', 'id, name_en, sub_city')
+    return rows ?? []
+  },
+  ['school-slugs'],
+  { revalidate: 3600 }
+)
 
 export async function fetchSchoolById(id: number): Promise<School | null> {
   const all = await fetchAllSchools()

@@ -14,16 +14,17 @@ function mapRow(u: any): University {
   }
 }
 
-// Same in-memory batch cache as supabase-data.ts — avoids one Supabase
-// round-trip per static university page during a single build.
-let cachedUniversities: University[] | null = null
-let cachedAt = 0
-const CACHE_TTL_MS = 60_000
-
 // PostgREST caps any single request at 1,000 rows regardless of table size —
 // silently, no error. Paginated the same way as fetchAllSchools() so this
 // keeps working correctly if this table ever grows past that.
 const FETCH_PAGE_SIZE = 1000
+
+// Plain module-level cache — correct here because every caller runs during
+// `next build`, a single process (see the matching comment in
+// supabase-data.ts for why unstable_cache was tried and reverted).
+let cachedUniversities: University[] | null = null
+let cachedAt = 0
+const CACHE_TTL_MS = 60_000
 
 export async function fetchAllUniversities(): Promise<University[]> {
   const now = Date.now()
@@ -34,7 +35,7 @@ export async function fetchAllUniversities(): Promise<University[]> {
     .select('id', { count: 'exact', head: true })
 
   if (countError || count === null) {
-    console.log('Supabase universities count failed, using local data:', countError?.message)
+    console.log('Supabase universities count failed:', countError?.message)
     return cachedUniversities ?? localUniversities
   }
 
@@ -49,7 +50,7 @@ export async function fetchAllUniversities(): Promise<University[]> {
 
   const failed = pages.find((p) => p.error)
   if (failed?.error || pages.some((p) => !p.data)) {
-    console.log('Supabase universities fetch failed, using local data:', failed?.error?.message)
+    console.log('Supabase universities fetch failed:', failed?.error?.message)
     return cachedUniversities ?? localUniversities
   }
 
