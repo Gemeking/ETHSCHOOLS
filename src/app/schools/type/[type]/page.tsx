@@ -59,6 +59,14 @@ export async function generateMetadata({ params }: { params: { type: string } })
   }
 }
 
+// Hard cap on how many schools this landing page ever embeds — passing an
+// unbounded list into the client-side grid serializes every one of those
+// records into the page's HTML for hydration. At nationwide scale ("public"
+// alone is 50,000+ schools) that blew a single page past 54MB and made every
+// Vercel deployment fail outright (19MB hard limit). Anyone wanting more than
+// this sample is sent to the full interactive search instead.
+const MAX_SAMPLE = 60
+
 export default async function SchoolsByTypePage({ params }: { params: { type: string } }) {
   const meta = TYPE_META[params.type]
   if (!meta) notFound()
@@ -66,6 +74,7 @@ export default async function SchoolsByTypePage({ params }: { params: { type: st
   const all = await fetchAllSchools()
   const list = all.filter((s) => s.school_type === params.type)
   if (list.length === 0) notFound()
+  const sample = list.slice(0, MAX_SAMPLE)
 
   const cities = Array.from(
     new Map(list.filter((s) => s.sub_city).map((s) => [citySlug(s.sub_city), s.sub_city])).entries()
@@ -77,8 +86,8 @@ export default async function SchoolsByTypePage({ params }: { params: { type: st
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `${meta.plural} in Ethiopia`,
-    numberOfItems: list.length,
-    itemListElement: list.map((s, i) => ({
+    numberOfItems: sample.length,
+    itemListElement: sample.map((s, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: s.name_en,
@@ -114,11 +123,22 @@ export default async function SchoolsByTypePage({ params }: { params: { type: st
             {SITE_NAME} lists <strong>{list.length} {meta.plural.toLowerCase()}</strong> across Ethiopia — {meta.blurb}.
             Open any school profile for tuition fees, curriculum, photos, exact map location and contact details.
           </p>
+          <Link
+            href={`/schools?type=${params.type}`}
+            className="inline-flex items-center gap-2 mt-5 bg-white text-primary-700 font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors"
+          >
+            Search &amp; filter all {list.length} {meta.plural.toLowerCase()} →
+          </Link>
         </div>
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
-        <PaginatedSchoolGrid schools={list} />
+        {list.length > MAX_SAMPLE && (
+          <p className="text-sm text-slate-500 mb-5">
+            Showing {MAX_SAMPLE} of {list.length}. <Link href={`/schools?type=${params.type}`} className="text-primary-600 font-semibold hover:underline">Use the full search →</Link>
+          </p>
+        )}
+        <PaginatedSchoolGrid schools={sample} />
 
         {cities.length > 0 && (
           <section className="mt-12">

@@ -66,9 +66,16 @@ export async function generateMetadata({ params }: { params: { city: string } })
   }
 }
 
+// Same reasoning as schools/type/[type] — an unbounded list embedded in the
+// client grid serializes every record into the page for hydration, which is
+// what pushed pages past Vercel's 19MB static-page limit and broke every
+// deploy after the nationwide import.
+const MAX_SAMPLE = 60
+
 export default async function SchoolsInCityPage({ params }: { params: { city: string } }) {
   const { name, schools } = await getCitySchools(params.city)
   if (!name || schools.length === 0) notFound()
+  const sample = schools.slice(0, MAX_SAMPLE)
 
   const all = await fetchAllSchools()
   const otherCities = Array.from(
@@ -93,8 +100,8 @@ export default async function SchoolsInCityPage({ params }: { params: { city: st
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: `Schools in ${name}, Ethiopia`,
-    numberOfItems: schools.length,
-    itemListElement: schools.map((s, i) => ({
+    numberOfItems: sample.length,
+    itemListElement: sample.map((s, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: s.name_en,
@@ -131,11 +138,22 @@ export default async function SchoolsInCityPage({ params }: { params: { city: st
             in {name} on {SITE_NAME}: {typeSummary}. Compare tuition fees, curriculum, grade levels and contact
             details below, or open any school profile for photos, an exact map location and phone numbers.
           </p>
+          <Link
+            href={`/schools?city=${encodeURIComponent(name)}`}
+            className="inline-flex items-center gap-2 mt-5 bg-white text-primary-700 font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors"
+          >
+            Search &amp; filter all {schools.length} schools in {name} →
+          </Link>
         </div>
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
-        <PaginatedSchoolGrid schools={schools} />
+        {schools.length > MAX_SAMPLE && (
+          <p className="text-sm text-slate-500 mb-5">
+            Showing {MAX_SAMPLE} of {schools.length}. <Link href={`/schools?city=${encodeURIComponent(name)}`} className="text-primary-600 font-semibold hover:underline">Use the full search →</Link>
+          </p>
+        )}
+        <PaginatedSchoolGrid schools={sample} />
 
         {otherCities.length > 0 && (
           <section className="mt-12">
