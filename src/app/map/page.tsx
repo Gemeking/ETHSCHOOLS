@@ -1,10 +1,11 @@
 'use client'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import { Globe, Lock, Building2, X, Wrench } from 'lucide-react'
+import { Globe, Lock, Building2, X, Wrench, ChevronDown } from 'lucide-react'
 import Navbar from '@/components/Navbar'
-import { schools } from '@/lib/data'
-import type { SchoolType } from '@/lib/types'
+import { schools as localSchools } from '@/lib/data'
+import { fetchAllSchools } from '@/lib/supabase-data'
+import type { School, SchoolType } from '@/lib/types'
 import { typeLabel } from '@/lib/utils'
 
 const MapComponent = dynamic(() => import('@/components/MapComponent'), {
@@ -25,10 +26,24 @@ const TYPES: { value: SchoolType; icon: React.ElementType; color: string }[] = [
 ]
 
 export default function MapPage() {
+  // Start empty (not the bundled fallback file) so stale data never flashes
+  // before the live fetch resolves.
+  const [schools, setSchools] = useState<School[]>([])
+  const [loading, setLoading] = useState(true)
   const [type, setType] = useState<SchoolType>('all')
   const [subCity, setSubCity] = useState('All')
 
-  const subCities = ['All', ...Array.from(new Set(schools.map((s) => s.sub_city).filter(Boolean))).sort()]
+  useEffect(() => {
+    fetchAllSchools()
+      .then(setSchools)
+      .catch(() => setSchools(localSchools))
+      .finally(() => setLoading(false))
+  }, [])
+
+  const subCities = useMemo(
+    () => ['All', ...Array.from(new Set(schools.map((s) => s.sub_city).filter(Boolean))).sort()],
+    [schools]
+  )
 
   const filtered = useMemo(() => {
     return schools.filter((s) => {
@@ -40,7 +55,7 @@ export default function MapPage() {
       if (subCity !== 'All' && s.sub_city !== subCity) return false
       return true
     })
-  }, [type, subCity])
+  }, [schools, type, subCity])
 
   return (
     <div className="h-screen flex flex-col">
@@ -68,25 +83,20 @@ export default function MapPage() {
 
           <div className="w-px h-4 bg-slate-200" />
 
-          {/* Sub-city filter */}
-          <div className="flex gap-1.5 flex-wrap">
-            {subCities.map((c) => (
-              <button
-                key={c}
-                onClick={() => setSubCity(c)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
-                  subCity === c
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                }`}
-              >
-                {c}
-              </button>
-            ))}
+          {/* Sub-city filter — dropdown (list can span 70+ cities nationwide) */}
+          <div className="relative">
+            <select
+              value={subCity}
+              onChange={(e) => setSubCity(e.target.value)}
+              className="appearance-none pl-3 pr-8 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all outline-none cursor-pointer"
+            >
+              {subCities.map((c) => <option key={c} value={c}>{c === 'All' ? 'All Locations' : c}</option>)}
+            </select>
+            <ChevronDown size={12} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
           </div>
 
           <div className="ml-auto text-xs text-slate-500 font-medium">
-            {filtered.length} school{filtered.length !== 1 ? 's' : ''} shown
+            {loading ? 'Loading...' : `${filtered.length} school${filtered.length !== 1 ? 's' : ''} shown`}
           </div>
 
           {(type !== 'all' || subCity !== 'All') && (

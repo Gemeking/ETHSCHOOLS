@@ -10,8 +10,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SchoolCard from '@/components/SchoolCard'
 import Pagination from '@/components/Pagination'
-import { schools as localSchools } from '@/lib/data'
-import { fetchAllSchools } from '@/lib/supabase-data'
+import { searchSchools, searchSchoolSuggestions, fetchCityCounts } from '@/lib/supabase-data'
 import { CURRICULA, typeLabel } from '@/lib/utils'
 import type { SchoolType, School } from '@/lib/types'
 
@@ -31,13 +30,16 @@ function sanitize(val: string) {
 const REGION_GROUPS: { region: string; emoji: string; cities: string[] }[] = [
   { region: 'Addis Ababa', emoji: '🏙️', cities: ['Addis Ketema', 'Akaki Kaliti', 'Arada', 'Bole', 'Gulele', 'Kirkos', 'Kolfe Keranio', 'Lideta', 'Nifas Silk-Lafto', 'Yeka'] },
   { region: 'Sheger City', emoji: '🌆', cities: ['Burayu', 'Sebeta', 'Sululta', 'Legetafo', 'Gelan'] },
-  { region: 'Amhara',      emoji: '🏔️', cities: ['Bahir Dar', 'Gondar', 'Dessie', 'Debre Markos', 'Debre Birhan', 'Kombolcha', 'Woldia', 'Debre Tabor', 'Lalibela', 'Finote Selam'] },
-  { region: 'Oromia',      emoji: '🌿', cities: ['Adama', 'Bishoftu', 'Holeta', 'Jimma', 'Nekemte', 'Ambo', 'Woliso', 'Asella', 'Shashamane', 'Ziway', 'Shambu', 'Metu', 'Moyale', 'Yabelo', 'Chiro', 'Dodola', 'Tepi'] },
+  { region: 'Amhara',      emoji: '🏔️', cities: ['Bahir Dar', 'Gondar', 'Dessie', 'Debre Markos', 'Debre Birhan', 'Kombolcha', 'Woldia', 'Debre Tabor', 'Lalibela', 'Finote Selam', 'Injibara', 'Sekota'] },
+  { region: 'Oromia',      emoji: '🌿', cities: ['Adama', 'Bishoftu', 'Holeta', 'Jimma', 'Nekemte', 'Ambo', 'Woliso', 'Asella', 'Shashamane', 'Ziway', 'Shambu', 'Metu', 'Moyale', 'Yabelo', 'Chiro', 'Dodola', 'Tepi', 'Fitche'] },
   { region: 'Sidama',      emoji: '🦩', cities: ['Hawassa'] },
-  { region: 'SNNPR',       emoji: '🌄', cities: ['Arba Minch'] },
-  { region: 'Tigray',      emoji: '🏛️', cities: ['Mekelle'] },
+  { region: 'SNNPR',       emoji: '🌄', cities: ['Arba Minch', 'Wolkite', 'Hosaena', 'Wolaita Sodo', 'Bonga', 'Jinka'] },
+  { region: 'Tigray',      emoji: '🏛️', cities: ['Mekelle', 'Adigrat', 'Axum', 'Shire', 'Abiy Adi'] },
   { region: 'Dire Dawa',   emoji: '🚂', cities: ['Dire Dawa'] },
   { region: 'Harari',      emoji: '🕌', cities: ['Harar'] },
+  { region: 'Somali',      emoji: '🐪', cities: ['Jijiga', 'Gode'] },
+  { region: 'Afar',        emoji: '🏜️', cities: ['Asaita'] },
+  { region: 'Benishangul-Gumuz', emoji: '🌳', cities: ['Assosa'] },
 ]
 
 const CITY_META: Record<string, { emoji: string }> = {
@@ -134,8 +136,8 @@ function SchoolsPageSkeleton() {
 function SchoolsPageContent() {
   const params = useSearchParams()
 
-  const [allSchools, setAllSchools] = useState<School[]>(localSchools)
   const [query, setQuery]           = useState(params.get('q') || '')
+  const [debouncedQuery, setDebouncedQuery] = useState(query)
   const [type, setType]             = useState<SchoolType>((params.get('type') as SchoolType) || 'all')
   const [subCity, setSubCity]       = useState(params.get('city') || 'All Sub-cities')
   const [feeMax, setFeeMax]         = useState(MAX_FEE)
@@ -149,9 +151,18 @@ function SchoolsPageContent() {
   const [locationQuery, setLocationQuery] = useState('')
   const searchRef = useRef<HTMLDivElement>(null)
 
+  const [results, setResults] = useState<School[]>([])
+  const [total, setTotal]     = useState(0)
+  const [loading, setLoading] = useState(true)
+  const [mapSchools, setMapSchools] = useState<School[]>([])
+  const [suggestions, setSuggestions] = useState<School[]>([])
+  const [cityCounts, setCityCounts] = useState<Record<string, number>>({})
+
+  // Debounce the search box so typing doesn't fire a query every keystroke.
   useEffect(() => {
-    fetchAllSchools().then(setAllSchools)
-  }, [])
+    const t = setTimeout(() => setDebouncedQuery(query), 250)
+    return () => clearTimeout(t)
+  }, [query])
 
   useEffect(() => {
     if (params.get('q'))    setQuery(params.get('q')!)
@@ -175,55 +186,51 @@ function SchoolsPageContent() {
     return () => { document.body.style.overflow = '' }
   }, [sheetOpen])
 
-  const suggestions = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    if (!q || q.length < 2) return []
-    return allSchools
-      .filter(s =>
-        s.name_en.toLowerCase().includes(q) ||
-        s.sub_city?.toLowerCase().includes(q) ||
-        s.curriculum?.toLowerCase().includes(q)
-      )
-      .slice(0, 7)
-  }, [query, allSchools])
+  // City counts for the location sheet — fetched once, not per keystroke.
+  useEffect(() => { fetchCityCounts().then(setCityCounts) }, [])
 
-  const cityCounts = useMemo(() => {
-    const map: Record<string, number> = {}
-    allSchools.forEach(s => {
-      if (s.sub_city) map[s.sub_city] = (map[s.sub_city] || 0) + 1
-    })
-    return map
-  }, [allSchools])
-
-  const filtered = useMemo(() => {
-    return allSchools.filter(s => {
-      if (query) {
-        const q = query.toLowerCase()
-        const inName       = s.name_en.toLowerCase().includes(q)
-        const inCity       = s.sub_city?.toLowerCase().includes(q)
-        const inCurriculum = s.curriculum?.toLowerCase().includes(q)
-        if (!inName && !inCity && !inCurriculum) return false
-      }
-      if (type === 'tvet') {
-        if (!s.tags?.includes('tvet')) return false
-      } else if (type !== 'all') {
-        if (s.school_type !== type || s.tags?.includes('tvet')) return false
-      }
-      if (subCity !== 'All Sub-cities' && s.sub_city !== subCity) return false
-      if (s.fee_min > feeMax) return false
-      if (curriculum !== 'All Curricula' && !s.curriculum?.toLowerCase().includes(curriculum.split(' ')[0].toLowerCase())) return false
-      return true
-    }).sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
-  }, [allSchools, query, type, subCity, feeMax, curriculum])
+  // Live autocomplete — small, separate, debounced query.
+  useEffect(() => {
+    const q = query.trim()
+    if (q.length < 2) { setSuggestions([]); return }
+    let cancelled = false
+    const t = setTimeout(() => {
+      searchSchoolSuggestions(q).then((s) => { if (!cancelled) setSuggestions(s) })
+    }, 200)
+    return () => { cancelled = true; clearTimeout(t) }
+  }, [query])
 
   const moreFiltersActive = subCity !== 'All Sub-cities' || feeMax < MAX_FEE || curriculum !== 'All Curricula'
-  const hasFilters = !!(query || type !== 'all' || moreFiltersActive)
+  const hasFilters = !!(debouncedQuery || type !== 'all' || moreFiltersActive)
 
-  // Reset to page 1 whenever filters change
-  useEffect(() => { setPage(1) }, [query, type, subCity, feeMax, curriculum])
+  // Reset to page 1 whenever a filter changes (not on page changes themselves).
+  useEffect(() => { setPage(1) }, [debouncedQuery, type, subCity, feeMax, curriculum])
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
-  const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+  // Main results — server-side filtered + paginated.
+  useEffect(() => {
+    let cancelled = false
+    setLoading(true)
+    searchSchools({ query: debouncedQuery, type, subCity, feeMax, curriculum, page, pageSize: PAGE_SIZE })
+      .then(({ schools, total }) => {
+        if (cancelled) return
+        setResults(schools)
+        setTotal(total)
+      })
+      .finally(() => { if (!cancelled) setLoading(false) })
+    return () => { cancelled = true }
+  }, [debouncedQuery, type, subCity, feeMax, curriculum, page])
+
+  // Map view needs many markers at once, not just one page — fetched
+  // separately (and capped) only when that view is actually open.
+  useEffect(() => {
+    if (view !== 'map') return
+    let cancelled = false
+    searchSchools({ query: debouncedQuery, type, subCity, feeMax, curriculum, page: 1, pageSize: 2000 })
+      .then(({ schools }) => { if (!cancelled) setMapSchools(schools) })
+    return () => { cancelled = true }
+  }, [view, debouncedQuery, type, subCity, feeMax, curriculum])
+
+  const totalPages = Math.ceil(total / PAGE_SIZE)
 
   function clearFilters() {
     setQuery(''); setType('all'); setSubCity('All Sub-cities')
@@ -410,8 +417,12 @@ function SchoolsPageContent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 w-full flex-1">
         <div className="flex items-center justify-between mb-4">
           <p className="text-sm text-slate-500">
-            <span className="font-bold text-slate-800">{filtered.length}</span> found
-            {subCity !== 'All Sub-cities' && <span className="ml-1 font-semibold text-indigo-600">in {subCity}</span>}
+            {loading ? 'Loading...' : (
+              <>
+                <span className="font-bold text-slate-800">{total}</span> found
+                {subCity !== 'All Sub-cities' && <span className="ml-1 font-semibold text-indigo-600">in {subCity}</span>}
+              </>
+            )}
           </p>
           {hasFilters && (
             <button onClick={clearFilters} className="text-xs text-slate-400 hover:text-red-500 flex items-center gap-1 transition-colors">
@@ -420,8 +431,14 @@ function SchoolsPageContent() {
           )}
         </div>
 
-        {view === 'grid' ? (
-          filtered.length === 0 ? (
+        {loading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            {Array.from({ length: 9 }).map((_, i) => (
+              <div key={i} className="h-72 bg-white rounded-2xl border border-slate-100 animate-pulse" />
+            ))}
+          </div>
+        ) : view === 'grid' ? (
+          results.length === 0 ? (
             <div className="text-center py-20">
               <div className="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
                 <Search size={24} className="text-slate-300" />
@@ -437,14 +454,14 @@ function SchoolsPageContent() {
           ) : (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                {paged.map((school, i) => (
+                {results.map((school, i) => (
                   <SchoolCard key={school.id} school={school} index={i} />
                 ))}
               </div>
               <Pagination
                 page={page}
                 totalPages={totalPages}
-                total={filtered.length}
+                total={total}
                 pageSize={PAGE_SIZE}
                 onPage={(p) => { setPage(p); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
               />
@@ -452,7 +469,7 @@ function SchoolsPageContent() {
           )
         ) : (
           <div className="h-[calc(100vh-260px)] min-h-[500px] rounded-2xl overflow-hidden shadow-sm">
-            <MapComponent schools={filtered} height="100%" />
+            <MapComponent schools={mapSchools} height="100%" />
           </div>
         )}
       </div>
@@ -526,14 +543,22 @@ function SchoolsPageContent() {
                       >
                         <span className="text-lg w-6 text-center leading-none">📍</span>
                         <span className="flex-1 text-sm font-semibold text-slate-700">All Areas</span>
-                        <span className="text-xs text-slate-400 font-medium">{allSchools.length}</span>
+                        <span className="text-xs text-slate-400 font-medium">{Object.values(cityCounts).reduce((a, b) => a + b, 0)}</span>
                         {subCity === 'All Sub-cities' && <Check size={14} className="text-indigo-600 shrink-0" />}
                       </button>
                     )}
 
                     {(() => {
                       const q = locationQuery.toLowerCase()
-                      const groups = REGION_GROUPS.map(({ region, emoji, cities }) => {
+                      const knownCities = new Set(REGION_GROUPS.flatMap(g => g.cities))
+                      // Any city with schools that isn't in a curated region group yet
+                      // still needs to be reachable — catches new cities automatically.
+                      const otherCities = Object.keys(cityCounts).filter(c => !knownCities.has(c)).sort()
+                      const allGroups = [
+                        ...REGION_GROUPS,
+                        ...(otherCities.length > 0 ? [{ region: 'Other Areas', emoji: '📍', cities: otherCities }] : []),
+                      ]
+                      const groups = allGroups.map(({ region, emoji, cities }) => {
                         const visible = cities.filter(city => {
                           const count = cityCounts[city] ?? 0
                           if (!count) return false
@@ -627,7 +652,7 @@ function SchoolsPageContent() {
                 onClick={() => setSheetOpen(false)}
                 className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold py-3 rounded-xl transition-colors"
               >
-                Show {filtered.length} school{filtered.length !== 1 ? 's' : ''}
+                Show {total} school{total !== 1 ? 's' : ''}
               </button>
             </div>
           </div>

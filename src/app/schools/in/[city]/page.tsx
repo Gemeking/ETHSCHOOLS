@@ -19,6 +19,13 @@ async function getCitySchools(city: string): Promise<{ name: string; schools: Sc
   return { name: matches[0]?.sub_city ?? '', schools: matches }
 }
 
+// Pre-build only the busiest cities (most schools = most likely to be
+// visited) up to a bounded cap; the rest still render correctly on first
+// visit via ISR — same reasoning as schools/[id]. Prevents this list from
+// growing past what a single build can handle once every district has its
+// own page (potentially 900+ after a nationwide import).
+const MAX_STATIC_CITY_PAGES = 300
+
 export async function generateStaticParams() {
   let all: School[]
   try {
@@ -26,11 +33,17 @@ export async function generateStaticParams() {
   } catch {
     all = localSchools
   }
-  const slugs = new Set<string>()
+  const counts = new Map<string, number>()
   for (const s of all) {
-    if (s.sub_city) slugs.add(citySlug(s.sub_city))
+    if (s.sub_city) {
+      const slug = citySlug(s.sub_city)
+      if (slug) counts.set(slug, (counts.get(slug) ?? 0) + 1)
+    }
   }
-  return Array.from(slugs).filter(Boolean).map((city) => ({ city }))
+  return Array.from(counts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, MAX_STATIC_CITY_PAGES)
+    .map(([city]) => ({ city }))
 }
 
 export async function generateMetadata({ params }: { params: { city: string } }): Promise<Metadata> {

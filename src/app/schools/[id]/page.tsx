@@ -46,10 +46,21 @@ const MapComponent = dynamic(() => import('@/components/MapComponent'), {
   loading: () => <div className="h-64 bg-slate-200 animate-pulse rounded-2xl" />,
 })
 
+// Pre-build a bounded, priority-ordered slice at deploy time (verified schools
+// first) instead of the whole catalog — with 69,000+ schools, mapping every
+// row here would blow Vercel's per-page static generation timeout on every
+// future deploy, not just once. Everything outside this cap still renders
+// correctly (full server-rendered HTML, same metadata/JSON-LD) on first
+// visit via ISR (revalidate above) and is still fully crawlable — it's just
+// built on-demand instead of ahead of time. dynamicParams defaults to true,
+// so unlisted ids are not 404s.
+const MAX_STATIC_SCHOOL_PAGES = 1000
+
 export async function generateStaticParams() {
   try {
     const all = await fetchAllSchools()
-    return all.map((s) => ({ id: schoolSlug(s) }))
+    const prioritized = [...all].sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
+    return prioritized.slice(0, MAX_STATIC_SCHOOL_PAGES).map((s) => ({ id: schoolSlug(s) }))
   } catch {
     return schools.map((s) => ({ id: schoolSlug(s) }))
   }

@@ -64,10 +64,14 @@ const TYPE_LABEL: Record<string, string> = {
   faith_based: 'Faith-Based University',
 }
 
+// Same bounded/prioritized approach as schools/[id] — see the comment there.
+const MAX_STATIC_UNIVERSITY_PAGES = 500
+
 export async function generateStaticParams() {
   try {
     const all = await fetchAllUniversities()
-    return all.map((u) => ({ id: universitySlug(u) }))
+    const prioritized = [...all].sort((a, b) => (b.verified ? 1 : 0) - (a.verified ? 1 : 0))
+    return prioritized.slice(0, MAX_STATIC_UNIVERSITY_PAGES).map((u) => ({ id: universitySlug(u) }))
   } catch {
     return universities.map((u) => ({ id: universitySlug(u) }))
   }

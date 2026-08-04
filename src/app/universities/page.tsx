@@ -24,7 +24,10 @@ const TYPES: { value: UniversityType; label: string }[] = [
 ]
 
 export default function UniversitiesPage() {
-  const [allUniversities, setAllUniversities] = useState<University[]>(localUniversities)
+  // Start empty (not the bundled fallback file) so stale data never flashes
+  // before the live fetch resolves.
+  const [allUniversities, setAllUniversities] = useState<University[]>([])
+  const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState('')
   const [type, setType] = useState<UniversityType>('all')
   const [region, setRegion] = useState('All Regions')
@@ -32,7 +35,10 @@ export default function UniversitiesPage() {
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    fetchAllUniversities().then(setAllUniversities)
+    fetchAllUniversities()
+      .then(setAllUniversities)
+      .catch(() => setAllUniversities(localUniversities))
+      .finally(() => setLoading(false))
   }, [])
 
   const filtered = useMemo(() => {
@@ -194,7 +200,13 @@ export default function UniversitiesPage() {
             )}
           </div>
 
-          {filtered.length === 0 ? (
+          {loading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+              {Array.from({ length: 9 }).map((_, i) => (
+                <div key={i} className="h-64 bg-white rounded-2xl border border-slate-100 animate-pulse" />
+              ))}
+            </div>
+          ) : filtered.length === 0 ? (
             <div className="text-center py-20 text-slate-400">
               <BookOpen size={40} className="mx-auto mb-3 opacity-30" />
               <p className="font-medium">No universities found</p>

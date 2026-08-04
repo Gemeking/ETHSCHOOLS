@@ -7,9 +7,11 @@ import { SITE_URL, schoolPath, universityPath, citySlug } from '@/lib/site'
 
 export const revalidate = 3600
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date()
+// Google caps a single sitemap file at 50,000 URLs. Well under that per
+// chunk gives headroom as the catalog keeps growing.
+const CHUNK_SIZE = 40_000
 
+async function loadData() {
   let schools = localSchools
   let universities = localUniversities
   try {
@@ -18,6 +20,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   } catch {
     // fall back to bundled data if Supabase is unreachable at build time
   }
+  return { schools, universities }
+}
+
+// Everything that isn't a per-school route — small and stable regardless of
+// catalog size, so it always lives in chunk 0.
+async function fixedRoutes(now: Date): Promise<MetadataRoute.Sitemap> {
+  const { schools, universities } = await loadData()
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: SITE_URL,                   lastModified: now, changeFrequency: 'weekly',  priority: 1.0 },
@@ -44,13 +53,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }))
 
-  const schoolRoutes: MetadataRoute.Sitemap = schools.map((s) => ({
-    url: `${SITE_URL}${schoolPath(s)}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.8,
-  }))
-
   const universityRoutes: MetadataRoute.Sitemap = universities.map((u) => ({
     url: `${SITE_URL}${universityPath(u)}`,
     lastModified: now,
@@ -58,5 +60,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...typeRoutes, ...cityRoutes, ...schoolRoutes, ...universityRoutes]
+  return [...staticRoutes, ...typeRoutes, ...cityRoutes, ...universityRoutes]
+}
+
+export async function generateSitemaps() {
+  const { schools } = await loadData()
+  const fixedCount = 1 // fixedRoutes bundle counts as one "slot" worth, folded into chunk 0
+  const schoolChunks = Math.max(1, Math.ceil(schools.length / CHUNK_SIZE))
+  return Array.from({ length: schoolChunks }, (_, i) => ({ id: i }))
+}
+
+export default async function sitemap({ id }: { id: number }): Promise<MetadataRoute.Sitemap> {
+  const now = new Date()
+  const { schools } = await loadData()
+
+  const start = id * CHUNK_SIZE
+  const end = start + CHUNK_SIZE
+  const schoolRoutes: MetadataRoute.Sitemap = schools.slice(start, end).map((s) => ({
+    url: `${SITE_URL}${schoolPath(s)}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }))
+
+  // Fixed (non-school) routes ride along in the first chunk only.
+  if (id === 0) {
+    return [...(await fixedRoutes(now)), ...schoolRoutes]
+  }
+  return schoolRoutes
 }

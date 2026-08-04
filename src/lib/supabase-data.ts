@@ -43,6 +43,92 @@ export async function fetchAllSchools(): Promise<School[]> {
   return cachedSchools
 }
 
+// --- Server-side search/pagination -----------------------------------
+// Used by the /schools page instead of fetchAllSchools() + client-side
+// filtering — at 70,000+ rows, shipping the whole table to a mobile browser
+// on every visit is not viable. Relies on the pg_trgm + B-tree indexes from
+// scripts/add-search-indexes.sql for speed; still correct without them,
+// just a full scan instead of an index scan.
+
+export interface SchoolSearchParams {
+  query?: string
+  type?: string // 'all' | school_type
+  subCity?: string // 'All Sub-cities' | sub_city
+  feeMax?: number
+  curriculum?: string // 'All Curricula' | curriculum substring
+  page?: number
+  pageSize?: number
+}
+
+function escapeIlike(s: string): string {
+  return s.replace(/[%_,]/g, (c) => '\\' + c)
+}
+
+export async function searchSchools(params: SchoolSearchParams): Promise<{ schools: School[]; total: number }> {
+  const { query, type, subCity, feeMax, curriculum, page = 1, pageSize = 15 } = params
+
+  let q = supabase.from('schools').select('*', { count: 'exact' })
+
+  if (query && query.trim()) {
+    const esc = escapeIlike(query.trim())
+    q = q.or(`name_en.ilike.%${esc}%,sub_city.ilike.%${esc}%,curriculum.ilike.%${esc}%`)
+  }
+  if (type && type !== 'all') {
+    q = q.eq('school_type', type)
+  }
+  if (subCity && subCity !== 'All Sub-cities') {
+    q = q.eq('sub_city', subCity)
+  }
+  if (typeof feeMax === 'number') {
+    q = q.lte('fee_min', feeMax)
+  }
+  if (curriculum && curriculum !== 'All Curricula') {
+    q = q.ilike('curriculum', `%${escapeIlike(curriculum.split(' ')[0])}%`)
+  }
+
+  q = q.order('verified', { ascending: false }).order('id', { ascending: true })
+
+  const from = (page - 1) * pageSize
+  const to = from + pageSize - 1
+  q = q.range(from, to)
+
+  const { data, error, count } = await q
+  if (error || !data) {
+    console.log('searchSchools failed:', error?.message)
+    return { schools: [], total: 0 }
+  }
+  return { schools: data.map(mapRow), total: count ?? data.length }
+}
+
+// Lightweight query for the autocomplete dropdown — name matches only, no count needed.
+export async function searchSchoolSuggestions(query: string, limit = 7): Promise<School[]> {
+  const q = query.trim()
+  if (q.length < 2) return []
+  const { data, error } = await supabase
+    .from('schools')
+    .select('*')
+    .ilike('name_en', `%${escapeIlike(q)}%`)
+    .limit(limit)
+  if (error || !data) return []
+  return data.map(mapRow)
+}
+
+// Per-city counts for the location-filter sheet, via the school_city_counts
+// view (see scripts/add-search-indexes.sql) — one small query instead of
+// fetching every row to count them client-side.
+export async function fetchCityCounts(): Promise<Record<string, number>> {
+  const { data, error } = await supabase.from('school_city_counts').select('sub_city, count')
+  if (error || !data) {
+    console.log('fetchCityCounts failed (has add-search-indexes.sql been run?):', error?.message)
+    return {}
+  }
+  const map: Record<string, number> = {}
+  for (const row of data as { sub_city: string; count: number }[]) {
+    map[row.sub_city] = row.count
+  }
+  return map
+}
+
 export async function fetchSchoolById(id: number): Promise<School | null> {
   const all = await fetchAllSchools()
   const found = all.find((s) => s.id === id)
