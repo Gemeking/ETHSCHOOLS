@@ -20,21 +20,40 @@ let cachedUniversities: University[] | null = null
 let cachedAt = 0
 const CACHE_TTL_MS = 60_000
 
+// PostgREST caps any single request at 1,000 rows regardless of table size —
+// silently, no error. Paginated the same way as fetchAllSchools() so this
+// keeps working correctly if this table ever grows past that.
+const FETCH_PAGE_SIZE = 1000
+
 export async function fetchAllUniversities(): Promise<University[]> {
   const now = Date.now()
   if (cachedUniversities && now - cachedAt < CACHE_TTL_MS) return cachedUniversities
 
-  const { data, error } = await supabase
+  const { count, error: countError } = await supabase
     .from('universities')
-    .select('*')
-    .order('id')
+    .select('id', { count: 'exact', head: true })
 
-  if (error || !data || data.length === 0) {
-    console.log('Supabase universities fetch failed, using local data:', error?.message)
+  if (countError || count === null) {
+    console.log('Supabase universities count failed, using local data:', countError?.message)
     return cachedUniversities ?? localUniversities
   }
 
-  cachedUniversities = data.map(mapRow)
+  const pageCount = Math.max(1, Math.ceil(count / FETCH_PAGE_SIZE))
+  const pages = await Promise.all(
+    Array.from({ length: pageCount }, (_, i) => {
+      const from = i * FETCH_PAGE_SIZE
+      const to = from + FETCH_PAGE_SIZE - 1
+      return supabase.from('universities').select('*').order('id').range(from, to)
+    })
+  )
+
+  const failed = pages.find((p) => p.error)
+  if (failed?.error || pages.some((p) => !p.data)) {
+    console.log('Supabase universities fetch failed, using local data:', failed?.error?.message)
+    return cachedUniversities ?? localUniversities
+  }
+
+  cachedUniversities = pages.flatMap((p) => p.data!.map(mapRow))
   cachedAt = now
   return cachedUniversities
 }

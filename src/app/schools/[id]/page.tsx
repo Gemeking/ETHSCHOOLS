@@ -208,12 +208,13 @@ export default async function SchoolDetailPage({ params }: { params: { id: strin
               </div>
             </div>
 
-            {/* Tags */}
-            {school.tags?.length > 0 && (
+            {/* Tags — internal data-source markers (hxl-import, osm-import) are
+                filtered out here; they're for our own tracking, not visitors. */}
+            {school.tags?.filter((t) => !t.endsWith('-import')).length > 0 && (
               <div className="bg-white rounded-2xl border border-slate-200 p-6">
                 <h2 className="font-bold text-slate-900 mb-3 text-lg">Tags</h2>
                 <div className="flex flex-wrap gap-2">
-                  {school.tags.map((tag) => (
+                  {school.tags.filter((t) => !t.endsWith('-import')).map((tag) => (
                     <span key={tag} className="px-3 py-1 rounded-full text-sm bg-slate-100 text-slate-600 capitalize">
                       {tag.replace(/-/g, ' ')}
                     </span>
