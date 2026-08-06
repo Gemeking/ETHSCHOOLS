@@ -71,7 +71,7 @@ for (const inst of institutes) {
   }
 }
 
-console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
+console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
 console.log(`✅ Success: ${success} institutes`)
 if (constraintFailed > 0) console.log(`⚠️  Fell back to 'public' type: ${constraintFailed} (DB has no 'tvet' enum value yet)`)
 if (failed > 0) console.log(`❌ Failed:  ${failed} institutes`)
