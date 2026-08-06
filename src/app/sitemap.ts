@@ -6,6 +6,13 @@ import { universities as localUniversities } from '@/lib/university-data'
 import { SITE_URL, schoolPath, universityPath, citySlug } from '@/lib/site'
 
 export const revalidate = 3600
+// Hard cap on this route's execution time. Vercel bills Fluid Compute for
+// however long a function actually runs, including time spent waiting on a
+// slow/unhealthy database — an unbounded hang here is what burned through
+// the account's compute quota and got the whole account paused. Combined
+// with the query-level timeout in lib/supabase.ts, this is a second,
+// independent backstop.
+export const maxDuration = 15
 
 // Google caps a single sitemap file at 50,000 URLs. Well under that per
 // chunk gives headroom as the catalog keeps growing.

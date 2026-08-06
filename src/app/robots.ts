@@ -9,8 +9,18 @@ import { SITE_URL } from '@/lib/site'
 // without a formal index file.
 const CHUNK_SIZE = 40_000
 
+// Same reasoning as sitemap.ts — bounds worst-case compute time for this
+// route regardless of database health.
+export const maxDuration = 10
+
 export default async function robots(): Promise<MetadataRoute.Robots> {
-  const schoolCount = await fetchSchoolCount()
+  let schoolCount = 0
+  try {
+    schoolCount = await fetchSchoolCount()
+  } catch {
+    // Query-level timeout in lib/supabase.ts already caps this at ~8s; if it
+    // still fails, fall back to a single chunk rather than erroring the route.
+  }
   const chunkCount = Math.max(1, Math.ceil(schoolCount / CHUNK_SIZE))
   const sitemaps = Array.from({ length: chunkCount }, (_, i) => `${SITE_URL}/sitemap/${i}.xml`)
 

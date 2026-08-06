@@ -30,15 +30,22 @@ const FETCH_PAGE_SIZE = 1000
 // of requests at a time is gentler and still fast.
 const FETCH_CONCURRENCY = 10
 
-async function fetchAllRowsPaged<T>(table: string, columns: string): Promise<T[] | null> {
+// Returns whatever rows it managed to fetch, plus whether every page
+// succeeded. A database that's slow-but-working (as opposed to fully down)
+// will often time out on some pages and not others — keeping the successful
+// ones is strictly better than discarding a mostly-good result over one bad
+// batch, especially for the sitemap: a sitemap missing a few thousand URLs
+// is far preferable to one that silently collapses to a single chunk.
+async function fetchAllRowsPaged<T>(table: string, columns: string): Promise<{ rows: T[]; complete: boolean }> {
   const { count, error: countError } = await supabase.from(table).select('id', { count: 'exact', head: true })
   if (countError || count === null) {
     console.log(`${table} count failed:`, countError?.message)
-    return null
+    return { rows: [], complete: false }
   }
 
   const pageCount = Math.max(1, Math.ceil(count / FETCH_PAGE_SIZE))
   const results: T[][] = []
+  let complete = true
   for (let batchStart = 0; batchStart < pageCount; batchStart += FETCH_CONCURRENCY) {
     const batchIndexes = Array.from(
       { length: Math.min(FETCH_CONCURRENCY, pageCount - batchStart) },
@@ -51,14 +58,16 @@ async function fetchAllRowsPaged<T>(table: string, columns: string): Promise<T[]
         return supabase.from(table).select(columns).order('id').range(from, to)
       })
     )
-    const failed = batch.find((p) => p.error)
-    if (failed?.error || batch.some((p) => !p.data)) {
-      console.log(`${table} fetch failed:`, failed?.error?.message)
-      return null
+    for (const p of batch) {
+      if (p.error || !p.data) {
+        console.log(`${table} batch fetch failed (keeping partial results):`, p.error?.message)
+        complete = false
+      } else {
+        results.push(p.data as T[])
+      }
     }
-    results.push(...batch.map((p) => p.data as T[]))
   }
-  return results.flat()
+  return { rows: results.flat(), complete }
 }
 
 // Plain module-level cache — correct and sufficient here, because every
@@ -78,8 +87,8 @@ export async function fetchAllSchools(): Promise<School[]> {
   if (cachedSchools && now - cachedAt < CACHE_TTL_MS) return cachedSchools
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const rows = await fetchAllRowsPaged<any>('schools', '*')
-  if (!rows) return cachedSchools ?? localSchools
+  const { rows } = await fetchAllRowsPaged<any>('schools', '*')
+  if (rows.length === 0) return cachedSchools ?? localSchools
 
   cachedSchools = rows.map(mapRow)
   cachedAt = now
@@ -217,8 +226,8 @@ export const fetchSchoolCount = unstable_cache(
 export const fetchAllSchoolSlugs = unstable_cache(
   async (): Promise<SchoolSlugInfo[]> => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const rows = await fetchAllRowsPaged<any>('schools', 'id, name_en, sub_city')
-    return rows ?? []
+    const { rows } = await fetchAllRowsPaged<any>('schools', 'id, name_en, sub_city')
+    return rows
   },
   ['school-slugs'],
   { revalidate: 3600 }
