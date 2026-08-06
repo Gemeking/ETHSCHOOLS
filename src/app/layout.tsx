@@ -74,12 +74,6 @@ const organizationLd = {
   name: SITE_NAME,
   url: SITE_URL,
   areaServed: { '@type': 'Country', name: 'Ethiopia' },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+251937595664',
-    contactType: 'customer service',
-    availableLanguage: ['English', 'Amharic'],
-  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

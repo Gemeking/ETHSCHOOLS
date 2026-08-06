@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Phone, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -94,20 +94,6 @@ export default function Footer() {
                   </div>
                 </a>
               </li>
-              <li>
-                <a
-                  href="tel:+251937595664"
-                  className="flex items-center gap-2.5 group"
-                >
-                  <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-emerald-500/20 group-hover:bg-emerald-500/40 transition-colors shrink-0">
-                    <Phone size={15} className="text-emerald-400" />
-                  </span>
-                  <div>
-                    <span className="block text-white font-semibold group-hover:text-emerald-400 transition-colors">+251937595664</span>
-                    <span className="text-xs text-slate-500">Call / WhatsApp</span>
-                  </div>
-                </a>
-              </li>
               <li className="flex items-center gap-2.5">
                 <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-slate-700 shrink-0">
                   <MapPin size={15} className="text-slate-400" />
@@ -132,8 +118,6 @@ export default function Footer() {
               </svg>
               @abrolabs
             </a>
-            <span className="text-slate-700">·</span>
-            <a href="tel:+251937595664" className="hover:text-white transition-colors">0937 595 664</a>
           </div>
         </div>
       </div>
